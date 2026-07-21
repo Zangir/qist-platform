@@ -11,6 +11,12 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <style>
   .marker-cluster-custom { background: none; border: none; }
+  .map-name-label {
+    background: none; border: none; box-shadow: none;
+    font: 600 12px "Inter", sans-serif; color: #16263d;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff, 0 0 4px #fff;
+  }
+  .map-name-label::before { display: none; }
 </style>
 </head>
 <body>
@@ -101,6 +107,7 @@
       const jitter = () => (Math.random() - 0.5) * 0.015; // separate same-city pins slightly
       const m = L.marker([p.lat + jitter(), p.lng + jitter()], { icon: pin });
       m.bindPopup(popupHtml(p), { maxWidth: 320 });
+      m.bindTooltip(p.name, { permanent: true, direction: 'right', offset: [9, 0], className: 'map-name-label' });
       cluster.addLayer(m);
     });
 
