@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Researcher Map — QIST</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2316263d' stroke='%23b58a2e' stroke-width='6'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='%23f4e9d2' font-family='Georgia'>Q</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .marker-cluster-custom { background: none; border: none; }
+</style>
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+
+<div class="map-page">
+  <div class="map-panel">
+    <h2>Researchers worldwide</h2>
+    <p class="small muted" id="map-count" style="margin-bottom:12px">Loading…</p>
+    <div class="form-row">
+      <input type="text" id="map-search" class="search-input" style="width:100%" placeholder="Search name, topic, institution…">
+    </div>
+    <div class="form-row">
+      <select id="map-country" style="width:100%"><option value="">All countries</option></select>
+    </div>
+    <div class="form-row">
+      <select id="map-topic" style="width:100%"><option value="">All research fields</option></select>
+    </div>
+    <div id="map-list" class="small"></div>
+  </div>
+  <div id="map"></div>
+</div>
+
+<script src="assets/js/app.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script>
+(async () => {
+  await QIST.boot('map.html');
+  const people = await QIST.getPeople();
+
+  const map = L.map('map', { worldCopyJump: true, zoomControl: false }).setView([38, 40], 3);
+  L.control.zoom({ position: 'topright' }).addTo(map);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · © <a href="https://carto.com/attributions">CARTO</a>',
+    maxZoom: 18
+  }).addTo(map);
+
+  const cluster = L.markerClusterGroup({
+    maxClusterRadius: 42,
+    iconCreateFunction: c => L.divIcon({
+      html: `<div class="city-count-badge">${c.getChildCount()}</div>`,
+      className: 'marker-cluster-custom', iconSize: [34, 34]
+    })
+  });
+  map.addLayer(cluster);
+
+  const pin = L.divIcon({
+    html: `<div style="width:16px;height:16px;border-radius:50%;background:#b58a2e;border:2.5px solid #16263d;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>`,
+    className: '', iconSize: [16, 16], iconAnchor: [8, 8]
+  });
+
+  const countrySel = document.getElementById('map-country');
+  const topicSel = document.getElementById('map-topic');
+  [...new Set(people.map(p => p.country))].sort().forEach(c =>
+    countrySel.insertAdjacentHTML('beforeend', `<option>${QIST.esc(c)}</option>`));
+  [...new Set(people.flatMap(p => p.topics || []))].sort().forEach(t =>
+    topicSel.insertAdjacentHTML('beforeend', `<option>${QIST.esc(t)}</option>`));
+
+  function popupHtml(p) {
+    return `<div class="map-pop">
+      <div class="avatar" style="background:${QIST.avatarColor(p.name)}">${QIST.initials(p.name)}</div>
+      <div>
+        <b>${QIST.esc(p.name)}</b>
+        <div class="small">${QIST.esc(p.title || '')}<br>${QIST.esc(p.institution || '')}<br>
+        📍 ${QIST.esc(p.city)}, ${QIST.esc(p.country)}<br>
+        <span class="muted">${(p.topics || []).slice(0, 3).map(QIST.esc).join(' · ')}</span><br>
+        <a href="directory.html?person=${QIST.esc(p.id)}">View profile →</a></div>
+      </div>
+    </div>`;
+  }
+
+  function apply() {
+    const q = document.getElementById('map-search').value.trim().toLowerCase();
+    const co = countrySel.value, to = topicSel.value;
+    const shown = people.filter(p => {
+      if (co && p.country !== co) return false;
+      if (to && !(p.topics || []).includes(to)) return false;
+      if (q) {
+        const hay = `${p.name} ${p.title} ${p.institution} ${p.city} ${p.country} ${(p.topics || []).join(' ')}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return !!(p.lat && p.lng);
+    });
+
+    cluster.clearLayers();
+    shown.forEach(p => {
+      const jitter = () => (Math.random() - 0.5) * 0.015; // separate same-city pins slightly
+      const m = L.marker([p.lat + jitter(), p.lng + jitter()], { icon: pin });
+      m.bindPopup(popupHtml(p), { maxWidth: 320 });
+      cluster.addLayer(m);
+    });
+
+    document.getElementById('map-count').textContent =
+      `${shown.length} of ${people.length} researchers · ${new Set(shown.map(p => p.country)).size} countries`;
+    document.getElementById('map-list').innerHTML = shown.slice(0, 30).map(p =>
+      `<div style="padding:7px 0;border-bottom:1px solid var(--paper-2);cursor:pointer" data-lat="${p.lat}" data-lng="${p.lng}">
+        <b style="color:var(--navy)">${QIST.esc(p.name)}</b><br>
+        <span class="muted">${QIST.esc(p.institution || '')} · ${QIST.esc(p.city)}</span>
+      </div>`).join('') + (shown.length > 30 ? `<p class="muted" style="padding-top:8px">…and ${shown.length - 30} more (zoom the map)</p>` : '');
+    document.querySelectorAll('#map-list [data-lat]').forEach(el =>
+      el.addEventListener('click', () => map.flyTo([+el.dataset.lat, +el.dataset.lng], 10)));
+  }
+
+  ['map-search', 'map-country', 'map-topic'].forEach(id =>
+    document.getElementById(id).addEventListener('input', apply));
+  apply();
+})();
+</script>
+</body>
+</html>

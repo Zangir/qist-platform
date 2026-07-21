@@ -1,0 +1,77 @@
+[
+  {
+    "number": 3,
+    "date": "2026-07-15",
+    "title": "Summer opportunities, new members and a growing map",
+    "sections": [
+      {
+        "heading": "Community news",
+        "items": [
+          "The QIST platform is live: researcher map, searchable directory, channels and academic matching.",
+          "New members joined from the US, UK, UAE, Japan and South Korea — welcome! Add yourself via registration.",
+          "The autumn QIST online seminar series is now accepting speakers — see the Conferences channel."
+        ]
+      },
+      {
+        "heading": "Opportunities picked for you",
+        "items": [
+          "Bolashak 2026 call for PhD and research internships is open (deadline 1 October).",
+          "MSCA Postdoctoral Fellowships close 10 September — EU host labs, all disciplines.",
+          "Faculty openings in CS at Nazarbayev University; postdoc positions at MBZUAI."
+        ]
+      },
+      {
+        "heading": "From the channels",
+        "items": [
+          "Collaboration: survey on Kazakh & Turkic low-resource NLP is looking for co-authors.",
+          "Collaboration: deep-learning radiology group is seeking a clinical partner in Kazakhstan.",
+          "General: community thread on postdoc application advice keeps growing."
+        ]
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "date": "2026-06-30",
+    "title": "Grants season and how to find your co-author",
+    "sections": [
+      {
+        "heading": "Community news",
+        "items": [
+          "Academic matching launched in beta: describe your interests and get ranked collaborator suggestions.",
+          "The researcher map now clusters members by city — see where Kazakhstani science lives worldwide."
+        ]
+      },
+      {
+        "heading": "Opportunities",
+        "items": [
+          "MSHE RK Zhas Galym grants for scientists under 40 — watch the NCSTE portal for call dates.",
+          "NeurIPS travel funding round-up posted in the Conferences channel."
+        ]
+      }
+    ]
+  },
+  {
+    "number": 1,
+    "date": "2026-06-15",
+    "title": "Hello, world — QIST goes online",
+    "sections": [
+      {
+        "heading": "Why QIST",
+        "items": [
+          "Thousands of researchers from Kazakhstan work across the globe, often without knowing about each other.",
+          "QIST connects them: a directory, a map, shared opportunities and a route to collaborations.",
+          "This platform is community-built and open source — contributions welcome on GitHub."
+        ]
+      },
+      {
+        "heading": "Get started",
+        "items": [
+          "Create an account to appear in the directory.",
+          "Post jobs, grants and conference calls to the channels.",
+          "Subscribe to this digest to get the best of it by email."
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,132 @@
+[
+  {
+    "id": "p1",
+    "channel": "jobs",
+    "title": "Assistant/Associate Professor positions in CS — Nazarbayev University",
+    "body": "The School of Engineering and Digital Sciences at Nazarbayev University (Astana) invites applications for faculty positions in Computer Science: AI/ML, data science, cybersecurity and robotics.\nInternationally competitive tax-free salary, relocation support, research start-up funding. Teaching in English.",
+    "link": "https://nu.edu.kz/careers",
+    "deadline": "2026-09-30",
+    "author": "QIST",
+    "date": "2026-07-14"
+  },
+  {
+    "id": "p2",
+    "channel": "jobs",
+    "title": "Postdoctoral researcher in Machine Learning — MBZUAI, Abu Dhabi",
+    "body": "MBZUAI is hiring postdocs across ML, NLP, CV and robotics departments. Strong publication record expected (NeurIPS/ICML/ACL-level). Tax-free salary, housing allowance, relocation. Several Kazakhstani researchers already on campus — reach out via the QIST directory for referrals.",
+    "link": "https://mbzuai.ac.ae/careers/",
+    "deadline": "",
+    "author": "QIST",
+    "date": "2026-07-10"
+  },
+  {
+    "id": "p3",
+    "channel": "jobs",
+    "title": "ML Engineer (Kazakh NLP) — Institute of Smart Systems and AI (ISSAI)",
+    "body": "ISSAI at Nazarbayev University is looking for ML engineers to work on Kazakh speech recognition and large language models (KazLLM ecosystem). Experience with PyTorch and multilingual NLP required. On-site in Astana.",
+    "link": "https://issai.nu.edu.kz",
+    "deadline": "2026-08-15",
+    "author": "QIST",
+    "date": "2026-07-05"
+  },
+  {
+    "id": "p4",
+    "channel": "grants",
+    "title": "Bolashak International Scholarship — 2026 call for PhD and research internships",
+    "body": "The Bolashak programme funds Kazakhstani citizens for PhD studies and research internships at top world universities. Covers tuition, living costs and travel. Categories for scientists include 12-month research internships.\nRequired: admission letter, language certificate, work commitment in Kazakhstan after return.",
+    "link": "https://bolashak.gov.kz",
+    "deadline": "2026-10-01",
+    "author": "QIST",
+    "date": "2026-07-12"
+  },
+  {
+    "id": "p5",
+    "channel": "grants",
+    "title": "MSHE RK grant funding for young scientists (Zhas Galym) — annual call",
+    "body": "The Ministry of Science and Higher Education of Kazakhstan runs the Zhas Galym project grants for researchers under 40: up to 3-year projects across all fields of science, hosted at Kazakhstani universities and research institutes. Watch the NCSTE portal for the exact call dates.",
+    "link": "https://www.ncste.kz",
+    "deadline": "",
+    "author": "QIST",
+    "date": "2026-07-08"
+  },
+  {
+    "id": "p6",
+    "channel": "grants",
+    "title": "Horizon Europe — MSCA Postdoctoral Fellowships 2026 (open to KZ researchers moving to EU)",
+    "body": "Marie Skłodowska-Curie Postdoctoral Fellowships fund 1–2 year projects at European host institutions, all disciplines. Researchers of any nationality with a PhD and ≤8 years research experience are eligible. Great route for Kazakhstani postdocs targeting EU labs.",
+    "link": "https://marie-sklodowska-curie-actions.ec.europa.eu",
+    "deadline": "2026-09-10",
+    "author": "QIST",
+    "date": "2026-06-30"
+  },
+  {
+    "id": "p7",
+    "channel": "conferences",
+    "title": "Call for Papers: Central Asian Conference on AI & Data Science (Almaty)",
+    "body": "Annual regional venue for AI/ML, data science and applications in Central Asia. Full papers and posters welcome; student track available. A good venue to present work relevant to the region and meet the local research community.",
+    "link": "",
+    "deadline": "2026-09-05",
+    "author": "QIST",
+    "date": "2026-07-02"
+  },
+  {
+    "id": "p8",
+    "channel": "conferences",
+    "title": "NeurIPS 2026 — travel grant round-up for students from Central Asia",
+    "body": "Collecting all known funding routes for attending NeurIPS this year: conference financial assistance, volunteer programme, and university travel funds. If your lab funds conference travel for Kazakhstani students, post it in this thread.",
+    "link": "https://neurips.cc",
+    "deadline": "",
+    "author": "QIST",
+    "date": "2026-06-25"
+  },
+  {
+    "id": "p9",
+    "channel": "conferences",
+    "title": "QIST online seminar series — call for speakers (autumn season)",
+    "body": "We are scheduling the autumn season of QIST research seminars (online, 1 hour, in English/Kazakh/Russian). PhD students and postdocs especially welcome — practice your job talk in front of a friendly audience. Reply or reach out via the matching page.",
+    "link": "",
+    "deadline": "",
+    "author": "QIST",
+    "date": "2026-07-16"
+  },
+  {
+    "id": "p10",
+    "channel": "collab",
+    "title": "Looking for co-authors: survey on NLP for Kazakh and low-resource Turkic languages",
+    "body": "Planning a comprehensive survey of datasets, models and benchmarks for Kazakh NLP and other Turkic low-resource languages. Looking for 2–3 co-authors with experience in machine translation, speech, or corpus construction.",
+    "link": "",
+    "deadline": "",
+    "author": "QIST",
+    "date": "2026-07-11"
+  },
+  {
+    "id": "p11",
+    "channel": "collab",
+    "title": "Seeking clinical partner in Kazakhstan for medical imaging study",
+    "body": "Our group works on deep learning for radiology (CT/MRI). We are looking for a hospital or medical university partner in Kazakhstan interested in a joint retrospective study and co-supervised student projects. Ethics and data agreements to be handled jointly.",
+    "link": "",
+    "deadline": "",
+    "author": "QIST",
+    "date": "2026-07-06"
+  },
+  {
+    "id": "p12",
+    "channel": "general",
+    "title": "Welcome to the QIST platform — introduce yourself!",
+    "body": "This is the community hub for Kazakhstani researchers worldwide. Tell us who you are, where you work and what you are working on. Add yourself to the directory via registration, explore the map, and subscribe to the newsletter.",
+    "link": "",
+    "deadline": "",
+    "author": "QIST",
+    "date": "2026-07-01"
+  },
+  {
+    "id": "p13",
+    "channel": "general",
+    "title": "Thread: advice on postdoc applications from those who made it",
+    "body": "Share your experience of applying for postdocs abroad — timelines, reference letters, interview formats, negotiating start dates, visa specifics for KZ citizens. Let's build a community knowledge base.",
+    "link": "",
+    "deadline": "",
+    "author": "QIST",
+    "date": "2026-06-28"
+  }
+]

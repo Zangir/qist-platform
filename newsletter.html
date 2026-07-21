@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter — QIST</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2316263d' stroke='%23b58a2e' stroke-width='6'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='%23f4e9d2' font-family='Georgia'>Q</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+
+<section class="section">
+  <div class="container" style="max-width:840px">
+    <div class="section-head"><h2 class="rule">The QIST Digest</h2></div>
+    <p class="muted" style="margin-bottom:30px">Community news, member achievements and hand-picked opportunities
+    for Kazakhstani researchers — in your inbox, every two weeks.</p>
+
+    <div class="newsletter-cta" style="margin-bottom:44px">
+      <div>
+        <h3>Subscribe to the digest</h3>
+        <p class="small" id="sub-count"></p>
+      </div>
+      <form id="subscribe-form" style="display:flex;gap:10px;flex-wrap:wrap">
+        <input type="email" required placeholder="your@email.edu" id="sub-email" style="min-width:240px">
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <div id="issues"></div>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="assets/js/app.js"></script>
+<script>
+(async () => {
+  await QIST.boot('newsletter.html');
+  const issues = await QIST.getNewsletter();
+
+  const subs = QIST.overlay('subscribers').length;
+  document.getElementById('sub-count').textContent =
+    'Free · No spam · Unsubscribe anytime' + (subs ? ` · ${subs} new subscriber${subs > 1 ? 's' : ''} from this device` : '');
+
+  document.getElementById('issues').innerHTML = issues.map(i => `
+    <article class="issue">
+      <div class="date">Issue #${i.number} · ${QIST.esc(i.date)}</div>
+      <h3 style="font-size:1.35rem;margin:6px 0 10px">${QIST.esc(i.title)}</h3>
+      ${i.sections.map(s => `
+        <h4 style="font-family:var(--serif);color:var(--navy-2);margin:14px 0 4px">${QIST.esc(s.heading)}</h4>
+        <ul style="padding-left:20px;color:var(--ink-soft);font-size:.93rem">
+          ${s.items.map(it => `<li style="margin-bottom:4px">${QIST.esc(it)}</li>`).join('')}
+        </ul>`).join('')}
+    </article>`).join('');
+
+  document.getElementById('subscribe-form').addEventListener('submit', e => {
+    e.preventDefault();
+    QIST.pushOverlay('subscribers', { email: document.getElementById('sub-email').value });
+    document.getElementById('sub-email').value = '';
+    QIST.toast('Subscribed! See you in the next issue.');
+  });
+})();
+</script>
+</body>
+</html>

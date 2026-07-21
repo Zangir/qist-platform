@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Matching — QIST</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2316263d' stroke='%23b58a2e' stroke-width='6'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='%23f4e9d2' font-family='Georgia'>Q</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+
+<section class="section">
+  <div class="container" style="max-width:900px">
+    <div class="section-head"><h2 class="rule">Academic matching</h2></div>
+    <p class="muted" style="margin-bottom:24px">Describe what you work on and what you are looking for —
+    we rank community members by topical overlap and fit, so you can find co-authors, mentors and project partners.</p>
+
+    <div class="card" style="margin-bottom:30px">
+      <form id="match-form">
+        <div class="form-row">
+          <label>Your research interests (comma-separated)</label>
+          <input type="text" id="m-topics" style="width:100%" required
+                 placeholder="e.g. machine learning, optimization, NLP">
+          <div class="tags" id="topic-suggestions" style="margin-top:8px"></div>
+        </div>
+        <div class="form-grid">
+          <div class="form-row">
+            <label>I am looking for</label>
+            <select id="m-goal" style="width:100%">
+              <option value="coauthor">A co-author / research collaborator</option>
+              <option value="mentor">A mentor (senior researcher)</option>
+              <option value="mentee">A mentee / junior collaborator</option>
+              <option value="any">Anyone in my field</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label>Preferred country (optional)</label>
+            <select id="m-country" style="width:100%"><option value="">Anywhere</option></select>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit">🤝 Find my matches</button>
+      </form>
+    </div>
+
+    <div id="match-results"></div>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="assets/js/app.js"></script>
+<script>
+(async () => {
+  await QIST.boot('matching.html');
+  const $ = id => document.getElementById(id);
+  const people = await QIST.getPeople();
+
+  const allTopics = [...new Set(people.flatMap(p => p.topics || []))].sort();
+  [...new Set(people.map(p => p.country))].sort().forEach(c =>
+    $('m-country').insertAdjacentHTML('beforeend', `<option>${QIST.esc(c)}</option>`));
+  $('topic-suggestions').innerHTML = allTopics.slice(0, 18).map(t =>
+    `<span class="tag" data-t="${QIST.esc(t)}">${QIST.esc(t)}</span>`).join('');
+  document.querySelectorAll('#topic-suggestions .tag').forEach(el =>
+    el.addEventListener('click', () => {
+      const cur = $('m-topics').value.split(',').map(s => s.trim()).filter(Boolean);
+      if (!cur.includes(el.dataset.t)) cur.push(el.dataset.t);
+      $('m-topics').value = cur.join(', ');
+    }));
+
+  function seniority(p) {
+    const t = (p.title || '').toLowerCase();
+    if (t.includes('professor') || t.includes('dean') || t.includes('rector') || t.includes('director')) return 3;
+    if (t.includes('postdoc') || t.includes('scientist') || t.includes('lead')) return 2;
+    return 1; // PhD student / junior
+  }
+
+  function scoreAgainst(myTopics, goal, country, p) {
+    const pt = (p.topics || []).map(t => t.toLowerCase());
+    let overlap = 0;
+    const shared = [];
+    for (const mt of myTopics) {
+      const hit = pt.find(t => t.includes(mt) || mt.includes(t));
+      if (hit) { overlap++; shared.push(hit); }
+    }
+    if (!overlap) return null;
+    let score = (overlap / Math.max(myTopics.length, 1)) * 70;
+    const s = seniority(p);
+    if (goal === 'mentor' && s === 3) score += 20;
+    if (goal === 'mentor' && s === 2) score += 8;
+    if (goal === 'mentee' && s === 1) score += 20;
+    if (goal === 'coauthor' && s === 2) score += 10;
+    if (goal === 'coauthor' && s === 3) score += 6;
+    if (country && p.country === country) score += 10;
+    return { score: Math.min(99, Math.round(score)), shared };
+  }
+
+  function run() {
+    const myTopics = $('m-topics').value.split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
+    if (!myTopics.length) return;
+    const goal = $('m-goal').value, country = $('m-country').value;
+    const me = QIST.currentUser();
+
+    const ranked = people
+      .map(p => ({ p, r: scoreAgainst(myTopics, goal, country, p) }))
+      .filter(x => x.r)
+      .sort((a, b) => b.r.score - a.r.score)
+      .slice(0, 10);
+
+    $('match-results').innerHTML = ranked.length ? `
+      <div class="section-head"><h2 style="font-size:1.3rem">Top matches</h2>
+      <span class="muted small">${ranked.length} suggested collaborator${ranked.length === 1 ? '' : 's'}</span></div>
+      ${ranked.map(({ p, r }) => `
+        <div class="card" style="margin-bottom:14px">
+          <div class="match-row">
+            <div class="match-score">${r.score}<div class="small muted" style="font-size:.65rem;font-weight:400">match</div></div>
+            <div style="flex:1">
+              <h3 style="margin:0">${QIST.esc(p.name)}</h3>
+              <div class="small" style="color:var(--ink-soft)">${QIST.esc(p.title || '')} · ${QIST.esc(p.institution || '')} · ${QIST.esc(p.country)}</div>
+              <div class="progress"><i style="width:${r.score}%"></i></div>
+              <div class="small muted" style="margin-top:6px">Shared interests: ${r.shared.map(QIST.esc).join(', ')}</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <a class="btn btn-outline btn-sm" href="directory.html?person=${QIST.esc(p.id)}">Profile</a>
+              <button class="btn btn-primary btn-sm" data-name="${QIST.esc(p.name)}" data-id="${QIST.esc(p.id)}">Reach out</button>
+            </div>
+          </div>
+        </div>`).join('')}`
+      : `<div class="alert alert-info">No overlapping researchers found for these topics — try broader keywords
+         (e.g. "machine learning" instead of a niche subfield).</div>`;
+
+    document.querySelectorAll('#match-results button[data-id]').forEach(btn =>
+      btn.addEventListener('click', () => {
+        if (!me) {
+          QIST.toast('Sign in to send collaboration requests.');
+          setTimeout(() => location.href = 'login.html?next=matching.html', 900);
+          return;
+        }
+        QIST.pushOverlay('collab_requests', {
+          from: me.email, to: btn.dataset.id, toName: btn.dataset.name,
+          topics: $('m-topics').value, goal, date: new Date().toISOString().slice(0, 10)
+        });
+        QIST.toast(`Collaboration request to ${btn.dataset.name} recorded — they will be notified.`);
+        btn.textContent = '✓ Requested';
+        btn.disabled = true;
+      }));
+  }
+
+  $('match-form').addEventListener('submit', e => { e.preventDefault(); run(); });
+
+  const withId = new URLSearchParams(location.search).get('with');
+  if (withId) {
+    const p = people.find(x => String(x.id) === withId);
+    if (p) { $('m-topics').value = (p.topics || []).join(', '); run(); }
+  }
+})();
+</script>
+</body>
+</html>

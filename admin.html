@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — QIST</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2316263d' stroke='%23b58a2e' stroke-width='6'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='%23f4e9d2' font-family='Georgia'>Q</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="rule">Admin panel</h2>
+      <button class="btn btn-primary" id="btn-add-person">＋ Add researcher</button>
+    </div>
+
+    <div class="tab-row" style="margin-bottom:24px">
+      <button class="active" data-tab="people">Researchers</button>
+      <button data-tab="posts">Posts</button>
+      <button data-tab="accounts">Accounts</button>
+      <button data-tab="subs">Subscribers</button>
+      <button data-tab="requests">Collab requests</button>
+    </div>
+
+    <div id="tab-people" class="table-wrap"></div>
+    <div id="tab-posts" class="table-wrap" style="display:none"></div>
+    <div id="tab-accounts" class="table-wrap" style="display:none"></div>
+    <div id="tab-subs" class="table-wrap" style="display:none"></div>
+    <div id="tab-requests" class="table-wrap" style="display:none"></div>
+  </div>
+</section>
+
+<div class="modal-overlay" id="person-modal">
+  <div class="modal">
+    <button class="close" onclick="document.getElementById('person-modal').classList.remove('open')">✕</button>
+    <h2 id="pm-title" style="margin-bottom:16px">Add researcher</h2>
+    <form id="person-form">
+      <input type="hidden" id="pf-id">
+      <div class="form-grid">
+        <div class="form-row"><label>Full name</label><input type="text" id="pf-name" required style="width:100%"></div>
+        <div class="form-row"><label>Title</label><input type="text" id="pf-title" style="width:100%" placeholder="Assistant Professor"></div>
+        <div class="form-row"><label>Institution</label><input type="text" id="pf-inst" style="width:100%"></div>
+        <div class="form-row"><label>Experience (years)</label><input type="number" id="pf-exp" min="0" max="60" style="width:100%"></div>
+        <div class="form-row"><label>City</label><input type="text" id="pf-city" style="width:100%"></div>
+        <div class="form-row"><label>Country</label><input type="text" id="pf-country" style="width:100%"></div>
+        <div class="form-row"><label>Latitude</label><input type="number" step="any" id="pf-lat" style="width:100%"></div>
+        <div class="form-row"><label>Longitude</label><input type="number" step="any" id="pf-lng" style="width:100%"></div>
+      </div>
+      <div class="form-row"><label>Research topics (comma-separated)</label><input type="text" id="pf-topics" style="width:100%"></div>
+      <div class="form-row"><label>Public link</label><input type="url" id="pf-link" style="width:100%" placeholder="https://scholar.google.com/…"></div>
+      <div class="form-row"><label>Short bio</label><textarea id="pf-bio" rows="3"></textarea></div>
+      <button class="btn btn-primary" type="submit">Save</button>
+    </form>
+  </div>
+</div>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="assets/js/app.js"></script>
+<script>
+(async () => {
+  await QIST.boot('admin.html');
+  const u = QIST.requireRole('admin');
+  if (!u) return;
+  const $ = id => document.getElementById(id);
+
+  document.querySelectorAll('.tab-row button').forEach(b =>
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.tab-row button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      ['people', 'posts', 'accounts', 'subs', 'requests'].forEach(t =>
+        $('tab-' + t).style.display = t === b.dataset.tab ? '' : 'none');
+    }));
+
+  /* ---------- people ---------- */
+  async function renderPeople() {
+    const people = await QIST.getPeople();
+    $('tab-people').innerHTML = `<table class="data">
+      <tr><th>Name</th><th>Title / Institution</th><th>Location</th><th>Topics</th><th></th></tr>
+      ${people.map(p => `<tr>
+        <td><b>${QIST.esc(p.name)}</b></td>
+        <td>${QIST.esc(p.title || '')}<br><span class="muted">${QIST.esc(p.institution || '')}</span></td>
+        <td>${QIST.esc(p.city || '')}, ${QIST.esc(p.country || '')}</td>
+        <td class="small">${(p.topics || []).map(QIST.esc).join(', ')}</td>
+        <td style="white-space:nowrap">
+          <button class="btn btn-outline btn-sm" data-edit="${QIST.esc(p.id)}">Edit</button>
+          <button class="btn btn-danger btn-sm" data-del="${QIST.esc(p.id)}">Remove</button>
+        </td>
+      </tr>`).join('')}
+    </table>`;
+
+    $('tab-people').querySelectorAll('[data-edit]').forEach(b =>
+      b.addEventListener('click', async () => {
+        const p = (await QIST.getPeople()).find(x => String(x.id) === b.dataset.edit);
+        $('pm-title').textContent = 'Edit researcher';
+        $('pf-id').value = p.id;
+        $('pf-name').value = p.name; $('pf-title').value = p.title || '';
+        $('pf-inst').value = p.institution || ''; $('pf-exp').value = p.experience ?? '';
+        $('pf-city').value = p.city || ''; $('pf-country').value = p.country || '';
+        $('pf-lat').value = p.lat ?? ''; $('pf-lng').value = p.lng ?? '';
+        $('pf-topics').value = (p.topics || []).join(', ');
+        $('pf-link').value = p.link || ''; $('pf-bio').value = p.bio || '';
+        $('person-modal').classList.add('open');
+      }));
+
+    $('tab-people').querySelectorAll('[data-del]').forEach(b =>
+      b.addEventListener('click', () => {
+        if (!confirm('Remove this researcher from the directory?')) return;
+        const id = b.dataset.del;
+        if (String(id).startsWith('loc_')) {
+          QIST.saveOverlay('people', QIST.overlay('people').filter(p => String(p.id) !== id));
+        } else {
+          const removed = QIST.overlay('removed_people');
+          removed.push(id);
+          QIST.saveOverlay('removed_people', removed);
+        }
+        QIST.toast('Researcher removed.');
+        renderPeople();
+      }));
+  }
+
+  $('btn-add-person').addEventListener('click', () => {
+    $('pm-title').textContent = 'Add researcher';
+    $('person-form').reset(); $('pf-id').value = '';
+    $('person-modal').classList.add('open');
+  });
+
+  $('person-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const rec = {
+      name: $('pf-name').value.trim(), title: $('pf-title').value.trim(),
+      institution: $('pf-inst').value.trim(),
+      experience: $('pf-exp').value ? +$('pf-exp').value : null,
+      city: $('pf-city').value.trim(), country: $('pf-country').value.trim(),
+      lat: $('pf-lat').value ? +$('pf-lat').value : null,
+      lng: $('pf-lng').value ? +$('pf-lng').value : null,
+      topics: $('pf-topics').value.split(',').map(s => s.trim()).filter(Boolean),
+      link: $('pf-link').value.trim(), bio: $('pf-bio').value.trim()
+    };
+    const id = $('pf-id').value;
+    if (!id) {
+      QIST.pushOverlay('people', rec);
+    } else if (String(id).startsWith('loc_')) {
+      QIST.saveOverlay('people', QIST.overlay('people').map(p => String(p.id) === id ? { ...p, ...rec } : p));
+    } else {
+      rec.id = id;
+      const edits = QIST.overlay('edited_people').filter(p => String(p.id) !== id);
+      edits.push(rec);
+      QIST.saveOverlay('edited_people', edits);
+    }
+    $('person-modal').classList.remove('open');
+    QIST.toast('Saved.');
+    renderPeople();
+  });
+
+  /* ---------- posts ---------- */
+  async function renderPosts() {
+    const posts = await QIST.getPosts();
+    $('tab-posts').innerHTML = `<table class="data">
+      <tr><th>Date</th><th>Channel</th><th>Title</th><th>Author</th><th></th></tr>
+      ${posts.map(p => `<tr>
+        <td>${QIST.esc(p.date || '')}</td><td>#${QIST.esc(p.channel)}</td>
+        <td><b>${QIST.esc(p.title)}</b></td><td>${QIST.esc(p.author || '')}</td>
+        <td><button class="btn btn-danger btn-sm" data-delpost="${QIST.esc(p.id)}">Remove</button></td>
+      </tr>`).join('')}
+    </table>`;
+    $('tab-posts').querySelectorAll('[data-delpost]').forEach(b =>
+      b.addEventListener('click', () => {
+        const id = b.dataset.delpost;
+        if (String(id).startsWith('loc_')) {
+          QIST.saveOverlay('posts', QIST.overlay('posts').filter(p => String(p.id) !== id));
+        } else {
+          const removed = QIST.overlay('removed_posts');
+          removed.push(id);
+          QIST.saveOverlay('removed_posts', removed);
+        }
+        QIST.toast('Post removed.');
+        renderPosts();
+      }));
+  }
+
+  /* ---------- accounts / subscribers / requests ---------- */
+  function renderRest() {
+    const accounts = [...QIST.seededAccounts().map(a => ({ ...a, seeded: true })), ...QIST.overlay('accounts')];
+    $('tab-accounts').innerHTML = `<table class="data">
+      <tr><th>Name</th><th>Email</th><th>Role</th><th>Source</th></tr>
+      ${accounts.map(a => `<tr><td><b>${QIST.esc(a.name)}</b></td><td>${QIST.esc(a.email)}</td>
+        <td>${QIST.esc(a.role || 'member')}</td><td>${a.seeded ? 'seeded demo' : 'self-registered'}</td></tr>`).join('')}
+    </table>`;
+
+    const subs = QIST.overlay('subscribers');
+    $('tab-subs').innerHTML = subs.length
+      ? `<table class="data"><tr><th>Email</th></tr>${subs.map(s => `<tr><td>${QIST.esc(s.email)}</td></tr>`).join('')}</table>`
+      : '<p class="muted">No newsletter subscribers recorded on this device yet.</p>';
+
+    const reqs = QIST.overlay('collab_requests');
+    $('tab-requests').innerHTML = reqs.length
+      ? `<table class="data"><tr><th>Date</th><th>From</th><th>To</th><th>Topics</th><th>Goal</th></tr>
+        ${reqs.map(r => `<tr><td>${QIST.esc(r.date)}</td><td>${QIST.esc(r.from)}</td>
+        <td>${QIST.esc(r.toName)}</td><td>${QIST.esc(r.topics)}</td><td>${QIST.esc(r.goal)}</td></tr>`).join('')}</table>`
+      : '<p class="muted">No collaboration requests recorded on this device yet.</p>';
+  }
+
+  await renderPeople();
+  await renderPosts();
+  renderRest();
+})();
+</script>
+</body>
+</html>

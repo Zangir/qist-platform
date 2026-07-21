@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile — QIST</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2316263d' stroke='%23b58a2e' stroke-width='6'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='%23f4e9d2' font-family='Georgia'>Q</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+
+<section class="section">
+  <div class="container" style="max-width:840px">
+    <div class="section-head"><h2 class="rule">My profile</h2></div>
+    <div class="card" style="margin-bottom:24px" id="me-card"></div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>🤝 My collaboration requests</h3>
+        <div id="my-requests" class="small" style="margin-top:10px"></div>
+      </div>
+      <div class="card">
+        <h3>📝 My posts</h3>
+        <div id="my-posts" class="small" style="margin-top:10px"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="assets/js/app.js"></script>
+<script>
+(async () => {
+  await QIST.boot('profile.html');
+  const u = QIST.requireRole('member');
+  if (!u) return;
+
+  document.getElementById('me-card').innerHTML = `
+    <div style="display:flex;gap:16px;align-items:center">
+      <div class="avatar" style="width:64px;height:64px;flex:0 0 64px;font-size:1.3rem;background:${QIST.avatarColor(u.name)}">${QIST.initials(u.name)}</div>
+      <div>
+        <h3 style="margin:0">${QIST.esc(u.name)}</h3>
+        <div class="small muted">${QIST.esc(u.email)} · role: <b>${QIST.esc(u.role)}</b></div>
+      </div>
+    </div>
+    <p class="small muted" style="margin-top:14px">Your account is active${u.role === 'admin' ? ' with administrator privileges — open the <a href="admin.html">admin panel</a> to manage the platform' : ''}.
+    To appear on the <a href="map.html">researcher map</a> with precise coordinates, ask an admin to set your city.</p>`;
+
+  const reqs = QIST.overlay('collab_requests').filter(r => r.from === u.email);
+  document.getElementById('my-requests').innerHTML = reqs.length
+    ? reqs.map(r => `<div style="padding:8px 0;border-bottom:1px solid var(--paper-2)">
+        → <b>${QIST.esc(r.toName)}</b> <span class="muted">(${QIST.esc(r.date)})</span><br>
+        <span class="muted">topics: ${QIST.esc(r.topics)}</span></div>`).join('')
+    : '<p class="muted">No requests yet — try <a href="matching.html">academic matching</a>.</p>';
+
+  const posts = (await QIST.getPosts()).filter(p => p.author === u.name);
+  document.getElementById('my-posts').innerHTML = posts.length
+    ? posts.map(p => `<div style="padding:8px 0;border-bottom:1px solid var(--paper-2)">
+        <b>${QIST.esc(p.title)}</b> <span class="muted">in #${QIST.esc(p.channel)} (${QIST.esc(p.date)})</span></div>`).join('')
+    : '<p class="muted">No posts yet — share something on the <a href="channels.html">channels</a>.</p>';
+})();
+</script>
+</body>
+</html>

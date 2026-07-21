@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Channels — QIST</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2316263d' stroke='%23b58a2e' stroke-width='6'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='%23f4e9d2' font-family='Georgia'>Q</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+
+<section class="section">
+  <div class="container">
+    <div class="channel-layout">
+      <aside>
+        <nav class="channel-list" id="channel-list"></nav>
+      </aside>
+      <main>
+        <div class="section-head" style="margin-bottom:14px">
+          <div>
+            <h2 id="ch-title" style="font-size:1.5rem"></h2>
+            <p class="muted small" id="ch-desc"></p>
+          </div>
+          <button class="btn btn-primary" id="btn-new-post">＋ New post</button>
+        </div>
+        <div class="filters" style="margin-bottom:18px">
+          <input type="text" id="post-q" class="search-input" placeholder="Search posts…">
+        </div>
+        <div id="posts"></div>
+        <p id="posts-empty" class="muted" style="display:none;text-align:center;padding:40px 0">No posts here yet — be the first to share something.</p>
+      </main>
+    </div>
+  </div>
+</section>
+
+<div class="modal-overlay" id="post-modal">
+  <div class="modal">
+    <button class="close" onclick="document.getElementById('post-modal').classList.remove('open')">✕</button>
+    <h2 style="margin-bottom:16px">New post</h2>
+    <div id="post-alert"></div>
+    <form id="post-form">
+      <div class="form-row">
+        <label>Channel</label>
+        <select id="p-channel" style="width:100%"></select>
+      </div>
+      <div class="form-row">
+        <label>Title</label>
+        <input type="text" id="p-title" required style="width:100%" placeholder="e.g. Postdoc in ML at Nazarbayev University">
+      </div>
+      <div class="form-row">
+        <label>Details</label>
+        <textarea id="p-body" rows="5" required placeholder="Description, requirements, how to apply…"></textarea>
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label>Link (optional)</label>
+          <input type="url" id="p-link" style="width:100%" placeholder="https://…">
+        </div>
+        <div class="form-row">
+          <label>Deadline (optional)</label>
+          <input type="text" id="p-deadline" style="width:100%" placeholder="YYYY-MM-DD">
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Publish</button>
+    </form>
+  </div>
+</div>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="assets/js/app.js"></script>
+<script>
+(async () => {
+  await QIST.boot('channels.html');
+  const $ = id => document.getElementById(id);
+  const channels = QIST.channels();
+  let current = new URLSearchParams(location.search).get('c') || 'jobs';
+  if (!channels.some(c => c.id === current)) current = 'jobs';
+
+  async function renderSidebar() {
+    const all = await QIST.getPosts();
+    $('channel-list').innerHTML = channels.map(c => `
+      <a href="?c=${c.id}" data-c="${c.id}" class="${c.id === current ? 'active' : ''}">
+        <span class="em">${c.em}</span> ${c.name}
+        <span class="count">${all.filter(p => p.channel === c.id).length}</span>
+      </a>`).join('');
+    document.querySelectorAll('#channel-list a').forEach(a =>
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        current = a.dataset.c;
+        history.replaceState(null, '', '?c=' + current);
+        renderSidebar(); renderPosts();
+      }));
+  }
+
+  function badgeFor(c) {
+    return { jobs: '', grants: 'teal', conferences: 'navy', collab: '', general: 'navy' }[c] || '';
+  }
+
+  async function renderPosts() {
+    const ch = channels.find(c => c.id === current);
+    $('ch-title').textContent = ch.em + ' ' + ch.name;
+    $('ch-desc').textContent = ch.desc;
+    const q = $('post-q').value.trim().toLowerCase();
+    let posts = await QIST.getPosts(current);
+    if (q) posts = posts.filter(p => (p.title + ' ' + p.body).toLowerCase().includes(q));
+    $('posts-empty').style.display = posts.length ? 'none' : 'block';
+    $('posts').innerHTML = posts.map(p => `
+      <div class="post">
+        <div class="meta">
+          <span class="badge ${badgeFor(p.channel)}">${channels.find(c => c.id === p.channel)?.name || p.channel}</span>
+          <span>📅 ${QIST.esc(p.date || '')}</span>
+          <span>✍️ ${QIST.esc(p.author || 'QIST')}</span>
+          ${p.deadline ? `<span class="deadline">⏳ Deadline: ${QIST.esc(p.deadline)}</span>` : ''}
+        </div>
+        <h3>${QIST.esc(p.title)}</h3>
+        <div class="body">${QIST.esc(p.body || '')}</div>
+        ${p.link ? `<p style="margin-top:10px"><a class="btn btn-outline btn-sm" href="${QIST.esc(p.link)}" target="_blank" rel="noopener">Open link ↗</a></p>` : ''}
+      </div>`).join('');
+  }
+
+  $('p-channel').innerHTML = channels.map(c => `<option value="${c.id}">${c.em} ${c.name}</option>`).join('');
+
+  $('btn-new-post').addEventListener('click', () => {
+    if (!QIST.currentUser()) {
+      QIST.toast('Please sign in to post.');
+      setTimeout(() => location.href = 'login.html?next=channels.html', 900);
+      return;
+    }
+    $('p-channel').value = current;
+    $('post-modal').classList.add('open');
+  });
+
+  $('post-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const postedChannel = $('p-channel').value;
+    await QIST.addPost({
+      channel: postedChannel,
+      title: $('p-title').value.trim(),
+      body: $('p-body').value.trim(),
+      link: $('p-link').value.trim(),
+      deadline: $('p-deadline').value.trim()
+    });
+    $('post-modal').classList.remove('open');
+    $('post-form').reset();
+    QIST.toast('Post published.');
+    current = postedChannel || current;
+    history.replaceState(null, '', '?c=' + current);
+    renderSidebar(); renderPosts();
+  });
+
+  $('post-q').addEventListener('input', renderPosts);
+  await renderSidebar();
+  await renderPosts();
+})();
+</script>
+</body>
+</html>

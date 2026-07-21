@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in — QIST</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2316263d' stroke='%23b58a2e' stroke-width='6'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='%23f4e9d2' font-family='Georgia'>Q</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+
+<div class="auth-wrap">
+  <div class="card auth-card">
+    <div class="tab-row">
+      <button id="tab-login" class="active">Sign in</button>
+      <button id="tab-register">Create account</button>
+    </div>
+    <div id="auth-alert"></div>
+
+    <form id="login-form">
+      <div class="form-row">
+        <label>Email</label>
+        <input type="email" id="l-email" required style="width:100%" placeholder="you@university.edu">
+      </div>
+      <div class="form-row">
+        <label>Password</label>
+        <input type="password" id="l-password" required style="width:100%">
+      </div>
+      <button class="btn btn-primary" type="submit" style="width:100%">Sign in</button>
+      <p class="small muted" style="margin-top:14px">
+        Demo accounts — admin: <code>admin@qist.kz</code> / <code>qist-admin-2026</code>,
+        member: <code>member@qist.kz</code> / <code>qist-member-2026</code>
+      </p>
+    </form>
+
+    <form id="register-form" style="display:none">
+      <div class="form-row">
+        <label>Full name</label>
+        <input type="text" id="r-name" required style="width:100%" placeholder="Aigerim Bekova">
+      </div>
+      <div class="form-row">
+        <label>Email</label>
+        <input type="email" id="r-email" required style="width:100%" placeholder="you@university.edu">
+      </div>
+      <div class="form-row">
+        <label>Password</label>
+        <input type="password" id="r-password" required minlength="8" style="width:100%" placeholder="At least 8 characters">
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label>Position / title</label>
+          <input type="text" id="r-title" style="width:100%" placeholder="PhD Student">
+        </div>
+        <div class="form-row">
+          <label>Institution</label>
+          <input type="text" id="r-inst" style="width:100%" placeholder="Nazarbayev University">
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Research topics (comma-separated)</label>
+        <input type="text" id="r-topics" style="width:100%" placeholder="machine learning, optimization">
+      </div>
+      <button class="btn btn-primary" type="submit" style="width:100%">Create account</button>
+      <p class="small muted" style="margin-top:12px">By joining you agree to be listed in the QIST member directory.</p>
+    </form>
+  </div>
+</div>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="assets/js/app.js"></script>
+<script>
+(async () => {
+  await QIST.boot('login.html');
+  const $ = id => document.getElementById(id);
+  const next = new URLSearchParams(location.search).get('next') || 'index.html';
+
+  function show(which) {
+    $('login-form').style.display = which === 'login' ? '' : 'none';
+    $('register-form').style.display = which === 'register' ? '' : 'none';
+    $('tab-login').classList.toggle('active', which === 'login');
+    $('tab-register').classList.toggle('active', which === 'register');
+    $('auth-alert').innerHTML = '';
+  }
+  $('tab-login').addEventListener('click', () => show('login'));
+  $('tab-register').addEventListener('click', () => show('register'));
+  if (location.hash === '#register') show('register');
+
+  function err(msg) { $('auth-alert').innerHTML = `<div class="alert alert-error">${QIST.esc(msg)}</div>`; }
+
+  $('login-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    try {
+      await QIST.login($('l-email').value.trim(), $('l-password').value);
+      location.href = next;
+    } catch (ex) { err(ex.message); }
+  });
+
+  $('register-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    try {
+      const topics = $('r-topics').value.split(',').map(s => s.trim()).filter(Boolean);
+      await QIST.register({
+        name: $('r-name').value.trim(),
+        email: $('r-email').value.trim(),
+        password: $('r-password').value,
+        title: $('r-title').value.trim(),
+        institution: $('r-inst').value.trim(),
+        topics
+      });
+      // also add the new member to the local people overlay so they appear in the directory
+      QIST.pushOverlay('people', {
+        name: $('r-name').value.trim(),
+        title: $('r-title').value.trim() || 'Researcher',
+        institution: $('r-inst').value.trim(),
+        city: '', country: 'Kazakhstan', topics,
+        bio: 'New QIST member.', experience: null
+      });
+      location.href = next;
+    } catch (ex) { err(ex.message); }
+  });
+})();
+</script>
+</body>
+</html>

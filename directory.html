@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>People Directory — QIST</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2316263d' stroke='%23b58a2e' stroke-width='6'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='%23f4e9d2' font-family='Georgia'>Q</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="rule">People directory</h2>
+      <span class="muted small" id="dir-count"></span>
+    </div>
+
+    <div class="filters">
+      <input type="text" id="f-q" class="search-input" placeholder="Search by name, topic, institution…">
+      <select id="f-topic"><option value="">Research field</option></select>
+      <select id="f-country"><option value="">Country of work</option></select>
+      <select id="f-role"><option value="">Career stage</option>
+        <option>Professor</option><option>Associate Professor</option><option>Assistant Professor</option>
+        <option>Postdoc</option><option>PhD Student</option><option>Researcher</option><option>Industry</option>
+      </select>
+      <select id="f-exp"><option value="">Experience</option>
+        <option value="0-5">0–5 years</option>
+        <option value="5-10">5–10 years</option>
+        <option value="10-99">10+ years</option>
+      </select>
+      <button class="btn btn-outline btn-sm" id="f-clear">Clear</button>
+    </div>
+
+    <div id="dir-grid" class="grid grid-3"></div>
+    <p id="dir-empty" class="muted" style="display:none;text-align:center;padding:40px 0">
+      No researchers match these filters. Try broadening your search.
+    </p>
+  </div>
+</section>
+
+<div class="modal-overlay" id="person-modal">
+  <div class="modal">
+    <button class="close" onclick="document.getElementById('person-modal').classList.remove('open')">✕</button>
+    <div id="person-detail"></div>
+  </div>
+</div>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="assets/js/app.js"></script>
+<script>
+(async () => {
+  await QIST.boot('directory.html');
+  const people = await QIST.getPeople();
+  const $ = id => document.getElementById(id);
+
+  [...new Set(people.flatMap(p => p.topics || []))].sort().forEach(t =>
+    $('f-topic').insertAdjacentHTML('beforeend', `<option>${QIST.esc(t)}</option>`));
+  [...new Set(people.map(p => p.country))].sort().forEach(c =>
+    $('f-country').insertAdjacentHTML('beforeend', `<option>${QIST.esc(c)}</option>`));
+
+  function stage(p) {
+    const t = (p.title || '').toLowerCase();
+    if (t.includes('assistant professor')) return 'Assistant Professor';
+    if (t.includes('associate professor')) return 'Associate Professor';
+    if (t.includes('professor') || t.includes('dean') || t.includes('rector')) return 'Professor';
+    if (t.includes('postdoc')) return 'Postdoc';
+    if (t.includes('phd')) return 'PhD Student';
+    if (t.includes('scientist') || t.includes('engineer') || t.includes('lead') || t.includes('founder')) return 'Industry';
+    return 'Researcher';
+  }
+
+  function openPerson(p) {
+    $('person-detail').innerHTML = `
+      <div class="top" style="display:flex;gap:16px;align-items:center;margin-bottom:16px">
+        <div class="avatar" style="width:72px;height:72px;flex:0 0 72px;font-size:1.4rem;background:${QIST.avatarColor(p.name)}">${QIST.initials(p.name)}</div>
+        <div>
+          <h2 style="font-size:1.5rem">${QIST.esc(p.name)}</h2>
+          <div class="role">${QIST.esc(p.title || '')}</div>
+          <div class="loc muted small">📍 ${QIST.esc(p.city)}, ${QIST.esc(p.country)}</div>
+        </div>
+      </div>
+      <p><b>Institution:</b> ${QIST.esc(p.institution || '—')}</p>
+      <p><b>Career stage:</b> ${stage(p)}${p.experience ? ` · <b>Experience:</b> ~${p.experience} years` : ''}</p>
+      <p style="margin:10px 0"><b>Research topics:</b></p>
+      <div class="tags" style="margin-bottom:14px">${(p.topics || []).map(t => `<span class="tag gold">${QIST.esc(t)}</span>`).join('')}</div>
+      ${p.bio ? `<p class="small" style="color:var(--ink-soft);margin-bottom:14px">${QIST.esc(p.bio)}</p>` : ''}
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        ${p.link ? `<a class="btn btn-navy btn-sm" href="${QIST.esc(p.link)}" target="_blank" rel="noopener">🔗 Public profile</a>` : ''}
+        <a class="btn btn-outline btn-sm" href="map.html">🗺️ See on map</a>
+        <a class="btn btn-primary btn-sm" href="matching.html?with=${QIST.esc(p.id)}">🤝 Propose collaboration</a>
+      </div>`;
+    $('person-modal').classList.add('open');
+  }
+
+  function apply() {
+    const q = $('f-q').value.trim().toLowerCase();
+    const to = $('f-topic').value, co = $('f-country').value, ro = $('f-role').value, ex = $('f-exp').value;
+    const shown = people.filter(p => {
+      if (to && !(p.topics || []).includes(to)) return false;
+      if (co && p.country !== co) return false;
+      if (ro && stage(p) !== ro) return false;
+      if (ex) {
+        const [lo, hi] = ex.split('-').map(Number);
+        const e = p.experience ?? -1;
+        if (e < lo || e >= hi) return false;
+      }
+      if (q) {
+        const hay = `${p.name} ${p.title} ${p.institution} ${p.city} ${p.country} ${(p.topics || []).join(' ')} ${p.bio || ''}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+
+    $('dir-count').textContent = `${shown.length} researcher${shown.length === 1 ? '' : 's'}`;
+    $('dir-empty').style.display = shown.length ? 'none' : 'block';
+    $('dir-grid').innerHTML = shown.map(p => QIST.personCard(p, {
+      footer: `<div class="small muted">${stage(p)}${p.experience ? ` · ~${p.experience} yrs experience` : ''}</div>`
+    })).join('');
+
+    document.querySelectorAll('#dir-grid .person-card').forEach(el => {
+      el.style.cursor = 'pointer';
+      el.addEventListener('click', ev => {
+        if (ev.target.classList.contains('tag')) {
+          $('f-topic').value = ev.target.dataset.topic;
+          apply();
+          ev.stopPropagation();
+          return;
+        }
+        openPerson(people.find(p => String(p.id) === el.dataset.id));
+      });
+    });
+  }
+
+  ['f-q', 'f-topic', 'f-country', 'f-role', 'f-exp'].forEach(id => $(id).addEventListener('input', apply));
+  $('f-clear').addEventListener('click', () => {
+    ['f-q', 'f-topic', 'f-country', 'f-role', 'f-exp'].forEach(id => $(id).value = '');
+    apply();
+  });
+  apply();
+
+  const want = new URLSearchParams(location.search).get('person');
+  if (want) {
+    const p = people.find(x => String(x.id) === want);
+    if (p) openPerson(p);
+  }
+})();
+</script>
+</body>
+</html>

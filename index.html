@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QIST — Qazaqstan Researchers Network</title>
+<meta name="description" content="QIST connects researchers, PhD students, postdocs and professors from Kazakhstan around the world: researcher map, directory, jobs, grants, conferences and academic matching.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2316263d' stroke='%23b58a2e' stroke-width='6'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='%23f4e9d2' font-family='Georgia'>Q</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+
+<section class="hero">
+  <div class="container">
+    <span class="kicker">Qazaq International Science &amp; Technology Association</span>
+    <h1>The global network of <em>Kazakhstani researchers</em></h1>
+    <p class="lead">QIST unites PhD students, postdocs, professors and industry scientists from Kazakhstan
+    working in 30+ countries — to share opportunities, find collaborators, mentor the next
+    generation and strengthen Qazaq science.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="map.html">🗺️ Explore the researcher map</a>
+      <a class="btn btn-ghost" href="login.html#register">Join the community</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats-band">
+  <div class="container" id="stats">
+    <div class="stat"><b id="st-people">—</b><span>Researchers</span></div>
+    <div class="stat"><b id="st-countries">—</b><span>Countries</span></div>
+    <div class="stat"><b id="st-topics">—</b><span>Research fields</span></div>
+    <div class="stat"><b id="st-posts">—</b><span>Opportunities posted</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><h2 class="rule">What you can do here</h2></div>
+    <div class="grid grid-3">
+      <div class="card feature-card">
+        <div class="icon">🗺️</div>
+        <h3>Researcher map</h3>
+        <p class="small muted">See where Kazakhstani scholars work — from Astana to Boston to Tokyo — and discover who is near you.</p>
+        <p style="margin-top:10px"><a href="map.html">Open the map →</a></p>
+      </div>
+      <div class="card feature-card">
+        <div class="icon">🔎</div>
+        <h3>Find people</h3>
+        <p class="small muted">Search the directory by research topic, institution, country of work or years of experience.</p>
+        <p style="margin-top:10px"><a href="directory.html">Search the directory →</a></p>
+      </div>
+      <div class="card feature-card">
+        <div class="icon">🤝</div>
+        <h3>Academic matching</h3>
+        <p class="small muted">Describe your research interests and get matched with potential collaborators, mentors and co-authors.</p>
+        <p style="margin-top:10px"><a href="matching.html">Get matched →</a></p>
+      </div>
+      <div class="card feature-card">
+        <div class="icon">💼</div>
+        <h3>Jobs &amp; vacancies</h3>
+        <p class="small muted">Faculty openings, postdoc positions, PhD studentships and industry roles curated for our community.</p>
+        <p style="margin-top:10px"><a href="channels.html?c=jobs">Browse jobs →</a></p>
+      </div>
+      <div class="card feature-card">
+        <div class="icon">🏛️</div>
+        <h3>Grants &amp; funding</h3>
+        <p class="small muted">National and international funding calls, fellowships and travel grants — with deadlines at a glance.</p>
+        <p style="margin-top:10px"><a href="channels.html?c=grants">See open calls →</a></p>
+      </div>
+      <div class="card feature-card">
+        <div class="icon">📮</div>
+        <h3>QIST newsletter</h3>
+        <p class="small muted">A digest of community news, member achievements and the best opportunities, delivered regularly.</p>
+        <p style="margin-top:10px"><a href="newsletter.html">Read &amp; subscribe →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="rule">Recently on the channels</h2>
+      <a href="channels.html">All channels →</a>
+    </div>
+    <div id="recent-posts" class="grid grid-3"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="rule">Featured researchers</h2>
+      <a href="directory.html">Full directory →</a>
+    </div>
+    <div id="featured-people" class="grid grid-3"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="newsletter-cta">
+      <div>
+        <h3>Stay in the loop</h3>
+        <p class="small">Get the QIST digest: jobs, grants, conferences and community news.</p>
+      </div>
+      <form id="cta-subscribe" style="display:flex;gap:10px;flex-wrap:wrap">
+        <input type="email" required placeholder="your@email.edu" id="cta-email" style="min-width:240px">
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="assets/js/app.js"></script>
+<script>
+(async () => {
+  await QIST.boot('index.html');
+
+  const [people, posts] = await Promise.all([QIST.getPeople(), QIST.getPosts()]);
+
+  document.getElementById('st-people').textContent = people.length;
+  document.getElementById('st-countries').textContent = new Set(people.map(p => p.country)).size;
+  document.getElementById('st-topics').textContent = new Set(people.flatMap(p => p.topics || [])).size;
+  document.getElementById('st-posts').textContent = posts.length;
+
+  const chan = Object.fromEntries(QIST.channels().map(c => [c.id, c]));
+  document.getElementById('recent-posts').innerHTML = posts.slice(0, 3).map(p => `
+    <div class="card">
+      <div class="post" style="border:0;box-shadow:none;padding:0;margin:0">
+        <div class="meta"><span class="badge">${chan[p.channel] ? chan[p.channel].em + ' ' + chan[p.channel].name : p.channel}</span><span>${QIST.esc(p.date || '')}</span></div>
+        <h3><a href="channels.html?c=${QIST.esc(p.channel)}">${QIST.esc(p.title)}</a></h3>
+        <p class="small muted">${QIST.esc((p.body || '').slice(0, 130))}…</p>
+      </div>
+    </div>`).join('');
+
+  const featured = [...people].sort((a, b) => (b.featured || 0) - (a.featured || 0)).slice(0, 6);
+  document.getElementById('featured-people').innerHTML =
+    featured.map(p => QIST.personCard(p)).join('');
+  document.querySelectorAll('#featured-people .person-card').forEach(el =>
+    el.addEventListener('click', () => location.href = 'directory.html?person=' + el.dataset.id));
+
+  document.getElementById('cta-subscribe').addEventListener('submit', e => {
+    e.preventDefault();
+    QIST.pushOverlay('subscribers', { email: document.getElementById('cta-email').value });
+    document.getElementById('cta-email').value = '';
+    QIST.toast('Subscribed! You will receive the next QIST digest.');
+  });
+})();
+</script>
+</body>
+</html>
