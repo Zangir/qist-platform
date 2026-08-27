@@ -127,7 +127,10 @@
       el.style.cursor = 'pointer';
       el.addEventListener('click', ev => {
         if (ev.target.classList.contains('tag')) {
-          $('f-topic').value = ev.target.dataset.topic;
+          const sel = $('f-topic'), t = ev.target.dataset.topic;
+          if (![...sel.options].some(o => o.value === t))
+            sel.insertAdjacentHTML('beforeend', `<option>${QIST.esc(t)}</option>`);
+          sel.value = t;
           apply();
           ev.stopPropagation();
           return;
