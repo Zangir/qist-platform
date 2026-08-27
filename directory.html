@@ -57,9 +57,11 @@
   const people = await QIST.getPeople();
   const $ = id => document.getElementById(id);
 
-  [...new Set(people.flatMap(p => p.topics || []))].sort().forEach(t =>
+  const topicCounts = {};
+  people.flatMap(p => p.topics || []).forEach(t => topicCounts[t] = (topicCounts[t] || 0) + 1);
+  Object.keys(topicCounts).filter(t => topicCounts[t] >= 3).sort().forEach(t =>
     $('f-topic').insertAdjacentHTML('beforeend', `<option>${QIST.esc(t)}</option>`));
-  [...new Set(people.map(p => p.country))].sort().forEach(c =>
+  [...new Set(people.map(p => p.country))].filter(Boolean).sort().forEach(c =>
     $('f-country').insertAdjacentHTML('beforeend', `<option>${QIST.esc(c)}</option>`));
 
   function stage(p) {
@@ -80,7 +82,7 @@
         <div>
           <h2 style="font-size:1.5rem">${QIST.esc(p.name)}</h2>
           <div class="role">${QIST.esc(p.title || '')}</div>
-          <div class="loc muted small">📍 ${QIST.esc(p.city)}, ${QIST.esc(p.country)}</div>
+          ${(p.city || p.country) ? `<div class="loc muted small">📍 ${QIST.esc([p.city, p.country].filter(Boolean).join(', '))}</div>` : ''}
         </div>
       </div>
       <p><b>Institution:</b> ${QIST.esc(p.institution || '—')}</p>

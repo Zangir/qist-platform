@@ -57,8 +57,10 @@
   const $ = id => document.getElementById(id);
   const people = await QIST.getPeople();
 
-  const allTopics = [...new Set(people.flatMap(p => p.topics || []))].sort();
-  [...new Set(people.map(p => p.country))].sort().forEach(c =>
+  const topicCounts = {};
+  people.flatMap(p => p.topics || []).forEach(t => topicCounts[t] = (topicCounts[t] || 0) + 1);
+  const allTopics = Object.keys(topicCounts).sort((a, b) => topicCounts[b] - topicCounts[a]);
+  [...new Set(people.map(p => p.country))].filter(Boolean).sort().forEach(c =>
     $('m-country').insertAdjacentHTML('beforeend', `<option>${QIST.esc(c)}</option>`));
   $('topic-suggestions').innerHTML = allTopics.slice(0, 18).map(t =>
     `<span class="tag" data-t="${QIST.esc(t)}">${QIST.esc(t)}</span>`).join('');

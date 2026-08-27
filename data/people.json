@@ -6,8 +6,13 @@
     "institution": "Ritsumeikan Asia Pacific University",
     "city": "Beppu",
     "country": "Japan",
-    "lat": 33.2846, "lng": 131.4914,
-    "topics": ["public health", "epidemiology", "oncology"],
+    "lat": 33.2846,
+    "lng": 131.4914,
+    "topics": [
+      "public health",
+      "epidemiology",
+      "oncology"
+    ],
     "link": "https://researcher.apu.ac.jp/apuhp/KgApp?resId=S001494&Language=2",
     "bio": "President of QIST. MD (1997), PhD (2004); leads academic affairs at Ritsumeikan APU and champions the global Qazaq scientific community.",
     "experience": 25,
@@ -20,8 +25,12 @@
     "institution": "Nazarbayev University School of Medicine",
     "city": "Astana",
     "country": "Kazakhstan",
-    "lat": 51.1694, "lng": 71.4491,
-    "topics": ["public health", "health policy"],
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "topics": [
+      "public health",
+      "health policy"
+    ],
     "link": "https://kz.linkedin.com/in/kuanysh-yergaliyev",
     "bio": "QIST board member working on public health and health policy in Kazakhstan.",
     "experience": 12,
@@ -34,8 +43,13 @@
     "institution": "Oregon Health & Science University",
     "city": "Portland",
     "country": "USA",
-    "lat": 45.5152, "lng": -122.6784,
-    "topics": ["stem cells", "gene therapy", "reproductive biology"],
+    "lat": 45.5152,
+    "lng": -122.6784,
+    "topics": [
+      "stem cells",
+      "gene therapy",
+      "reproductive biology"
+    ],
     "link": "https://www.ohsu.edu/people/shoukhrat-mitalipov-phd",
     "bio": "Almaty-born pioneer of mitochondrial replacement therapy and embryonic stem cell research.",
     "experience": 30,
@@ -48,8 +62,13 @@
     "institution": "Institute of Science and Technology Austria (ISTA)",
     "city": "Klosterneuburg",
     "country": "Austria",
-    "lat": 48.3053, "lng": 16.3255,
-    "topics": ["quantum materials", "topological insulators", "ultrafast optics"],
+    "lat": 48.3053,
+    "lng": 16.3255,
+    "topics": [
+      "quantum materials",
+      "topological insulators",
+      "ultrafast optics"
+    ],
     "link": "https://alpichshev.ista.ac.at",
     "bio": "PhD Stanford, postdoc MIT; leads a condensed-matter physics group at ISTA.",
     "experience": 15,
@@ -62,8 +81,13 @@
     "institution": "King's College London",
     "city": "London",
     "country": "UK",
-    "lat": 51.5072, "lng": -0.1276,
-    "topics": ["human capital analytics", "HRM", "knowledge transfer"],
+    "lat": 51.5072,
+    "lng": -0.1276,
+    "topics": [
+      "human capital analytics",
+      "HRM",
+      "knowledge transfer"
+    ],
     "link": "https://www.kcl.ac.uk/people/dana-minbaeva",
     "bio": "Professor at KCL (previously Copenhagen Business School); one of the most cited Kazakhstani scholars in management.",
     "experience": 25,
@@ -76,8 +100,13 @@
     "institution": "Yale University",
     "city": "New Haven",
     "country": "USA",
-    "lat": 41.3083, "lng": -72.9279,
-    "topics": ["Central Asian history", "urban history", "Soviet history"],
+    "lat": 41.3083,
+    "lng": -72.9279,
+    "topics": [
+      "Central Asian history",
+      "urban history",
+      "Soviet history"
+    ],
     "link": "https://slavic.yale.edu/people/nari-shelekpayev",
     "bio": "Historian of Central Asia and capital cities, teaching at Yale.",
     "experience": 10
@@ -89,8 +118,13 @@
     "institution": "Khalifa University",
     "city": "Abu Dhabi",
     "country": "UAE",
-    "lat": 24.4539, "lng": 54.3773,
-    "topics": ["mathematical finance", "optimal stopping", "option pricing"],
+    "lat": 24.4539,
+    "lng": 54.3773,
+    "topics": [
+      "mathematical finance",
+      "optimal stopping",
+      "option pricing"
+    ],
     "link": "https://www.ku.ac.ae/college-people/yerkin-kitapbayev",
     "bio": "Previously at MIT Sloan and NC State; works on optimal stopping problems and financial mathematics.",
     "experience": 12
@@ -102,8 +136,13 @@
     "institution": "Indiana University, Kelley School of Business",
     "city": "Bloomington",
     "country": "USA",
-    "lat": 39.1653, "lng": -86.5264,
-    "topics": ["branding", "consumer behavior", "AI in marketing"],
+    "lat": 39.1653,
+    "lng": -86.5264,
+    "topics": [
+      "branding",
+      "consumer behavior",
+      "AI in marketing"
+    ],
     "link": "https://kelley.iu.edu/faculty-research/faculty-directory/profile.html?id=mkhamito",
     "bio": "Marketing scholar at Kelley School of Business researching brands and consumer-AI interaction.",
     "experience": 10
@@ -115,8 +154,13 @@
     "institution": "ESCP Business School",
     "city": "Paris",
     "country": "France",
-    "lat": 48.8566, "lng": 2.3522,
-    "topics": ["cross-cultural management", "HRM", "informal networks"],
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "topics": [
+      "cross-cultural management",
+      "HRM",
+      "informal networks"
+    ],
     "link": "https://escp.eu/muratbekova-touron-maral",
     "bio": "Professor at ESCP Paris and EiC of the European Management Journal.",
     "experience": 22
@@ -128,8 +172,13 @@
     "institution": "University of Naples Parthenope",
     "city": "Naples",
     "country": "Italy",
-    "lat": 40.8518, "lng": 14.2681,
-    "topics": ["people analytics", "AI in HR", "digital ethics"],
+    "lat": 40.8518,
+    "lng": 14.2681,
+    "topics": [
+      "people analytics",
+      "AI in HR",
+      "digital ethics"
+    ],
     "link": "https://disae.uniparthenope.it/disae/organigramma/53562",
     "bio": "Researches people analytics and the ethics of AI in the workplace; industry experience at HSBC and KPMG.",
     "experience": 15
@@ -141,8 +190,13 @@
     "institution": "INFN Laboratori Nazionali del Sud / Nazarbayev University",
     "city": "Catania",
     "country": "Italy",
-    "lat": 37.5079, "lng": 15.083,
-    "topics": ["nuclear astrophysics", "alpha-cluster states", "accelerator physics"],
+    "lat": 37.5079,
+    "lng": 15.083,
+    "topics": [
+      "nuclear astrophysics",
+      "alpha-cluster states",
+      "accelerator physics"
+    ],
     "link": "https://weproject.media/articles/detail/aliya-nurmukhanbetova-o-tom-kak-zanimaetsya-yadernoy-fizikoy-i-astrofizikoy-v-kazakhstane-i-italii/",
     "bio": "Nuclear astrophysicist splitting time between INFN in Catania and her group at Nazarbayev University.",
     "experience": 20
@@ -154,8 +208,13 @@
     "institution": "UCLA",
     "city": "Los Angeles",
     "country": "USA",
-    "lat": 34.0522, "lng": -118.2437,
-    "topics": ["biochemistry", "protein engineering", "biofuels"],
+    "lat": 34.0522,
+    "lng": -118.2437,
+    "topics": [
+      "biochemistry",
+      "protein engineering",
+      "biofuels"
+    ],
     "link": "https://www.linkedin.com/in/saken-sherkhanov-398a65264",
     "bio": "Caltech BSc, UCLA PhD; IBO gold medalist (1996). Works on protein engineering and biofuels.",
     "experience": 18
@@ -167,8 +226,13 @@
     "institution": "University of Sydney",
     "city": "Sydney",
     "country": "Australia",
-    "lat": -33.8688, "lng": 151.2093,
-    "topics": ["public administration", "behavioral insights", "civil service"],
+    "lat": -33.8688,
+    "lng": 151.2093,
+    "topics": [
+      "public administration",
+      "behavioral insights",
+      "civil service"
+    ],
     "link": "https://www.sydney.edu.au/arts/about/our-people/academic-staff/assel-mussagulova.html",
     "bio": "Public policy scholar with prior experience in the Kazakhstani civil service.",
     "experience": 15
@@ -180,8 +244,13 @@
     "institution": "University of Calgary",
     "city": "Calgary",
     "country": "Canada",
-    "lat": 51.0447, "lng": -114.0719,
-    "topics": ["higher education", "internationalization", "education policy"],
+    "lat": 51.0447,
+    "lng": -114.0719,
+    "topics": [
+      "higher education",
+      "internationalization",
+      "education policy"
+    ],
     "link": "https://profiles.ucalgary.ca/aliya-kuzhabekova",
     "bio": "Studies higher-education reform and researcher mobility in post-Soviet countries; formerly professor at Nazarbayev University.",
     "experience": 18
@@ -193,8 +262,13 @@
     "institution": "University of Minnesota Duluth",
     "city": "Duluth",
     "country": "USA",
-    "lat": 46.7867, "lng": -92.1005,
-    "topics": ["consumer behavior", "AI in marketing", "market dynamics"],
+    "lat": 46.7867,
+    "lng": -92.1005,
+    "topics": [
+      "consumer behavior",
+      "AI in marketing",
+      "market dynamics"
+    ],
     "link": "https://lsbe.d.umn.edu/faculty-staff/marat-bakpayev-phd",
     "bio": "Marketing researcher focusing on consumer behavior and AI-driven markets.",
     "experience": 20
@@ -206,8 +280,13 @@
     "institution": "University of South Florida",
     "city": "Tampa",
     "country": "USA",
-    "lat": 27.9506, "lng": -82.4572,
-    "topics": ["econometrics", "Bayesian methods", "health economics"],
+    "lat": 27.9506,
+    "lng": -82.4572,
+    "topics": [
+      "econometrics",
+      "Bayesian methods",
+      "health economics"
+    ],
     "link": "https://muratmunkin.github.io",
     "bio": "Econometrician (PhD 2001) working on Bayesian methods and health economics.",
     "experience": 25
@@ -219,8 +298,13 @@
     "institution": "University of Missouri",
     "city": "Columbia",
     "country": "USA",
-    "lat": 38.9517, "lng": -92.3341,
-    "topics": ["autism research", "special education", "social communication"],
+    "lat": 38.9517,
+    "lng": -92.3341,
+    "topics": [
+      "autism research",
+      "special education",
+      "social communication"
+    ],
     "link": "https://cehd.missouri.edu/person/nargiza-buranova/",
     "bio": "Early-career researcher on autism and social-communication interventions.",
     "experience": 5
@@ -232,8 +316,13 @@
     "institution": "KBTU / SDU University",
     "city": "Almaty",
     "country": "Kazakhstan",
-    "lat": 43.2389, "lng": 76.8897,
-    "topics": ["algebra", "Lie algebras", "differential equations"],
+    "lat": 43.2389,
+    "lng": 76.8897,
+    "topics": [
+      "algebra",
+      "Lie algebras",
+      "differential equations"
+    ],
     "link": "https://en.wikipedia.org/wiki/Askar_Dzhumadildayev",
     "bio": "One of Kazakhstan's most celebrated mathematicians; academician of the National Academy of Sciences.",
     "experience": 45,
@@ -246,8 +335,13 @@
     "institution": "L.N. Gumilyov Eurasian National University",
     "city": "Astana",
     "country": "Kazakhstan",
-    "lat": 51.1605, "lng": 71.4704,
-    "topics": ["functional analysis", "PDEs", "Navier-Stokes equations"],
+    "lat": 51.1605,
+    "lng": 71.4704,
+    "topics": [
+      "functional analysis",
+      "PDEs",
+      "Navier-Stokes equations"
+    ],
     "link": "https://en.tengrinews.kz/science/kazakhstan-mathematician-claims-solution-of-clay-navier-25550/",
     "bio": "Renowned analyst known for work on spectral theory and the Navier–Stokes problem.",
     "experience": 50,
@@ -260,8 +354,13 @@
     "institution": "Eurasian National University",
     "city": "Astana",
     "country": "Kazakhstan",
-    "lat": 51.1801, "lng": 71.446,
-    "topics": ["gravitation", "cosmology", "integrable systems"],
+    "lat": 51.1801,
+    "lng": 71.446,
+    "topics": [
+      "gravitation",
+      "cosmology",
+      "integrable systems"
+    ],
     "link": "https://astanatimes.com/2023/12/kazakh-professor-included-in-worlds-top-2-scientists-ranking-twice/",
     "bio": "Repeatedly listed among the world's top-2% most cited scientists; works on modified gravity and cosmology.",
     "experience": 35
@@ -273,8 +372,13 @@
     "institution": "Nazarbayev University",
     "city": "Astana",
     "country": "Kazakhstan",
-    "lat": 51.09, "lng": 71.398,
-    "topics": ["laser spectroscopy", "thermal transport", "materials science"],
+    "lat": 51.09,
+    "lng": 71.398,
+    "topics": [
+      "laser spectroscopy",
+      "thermal transport",
+      "materials science"
+    ],
     "link": "https://sst.nu.edu.kz/en/zhandos-utegulov/",
     "bio": "PhD Oklahoma State; formerly at NIST and Idaho National Laboratory. Leads laser spectroscopy research at NU.",
     "experience": 22
@@ -286,8 +390,13 @@
     "institution": "Nazarbayev University",
     "city": "Astana",
     "country": "Kazakhstan",
-    "lat": 51.091, "lng": 71.4,
-    "topics": ["robotics", "robot manipulators", "intelligent control"],
+    "lat": 51.091,
+    "lng": 71.4,
+    "topics": [
+      "robotics",
+      "robot manipulators",
+      "intelligent control"
+    ],
     "link": "https://scholar.google.com/citations?hl=en&user=D7WWMgEAAAAJ",
     "bio": "Founded the ALARIS robotics laboratory at Nazarbayev University.",
     "experience": 18
@@ -299,8 +408,13 @@
     "institution": "Purdue University Fort Wayne",
     "city": "Fort Wayne",
     "country": "USA",
-    "lat": 41.0793, "lng": -85.1394,
-    "topics": ["NLP", "machine learning theory", "word embeddings"],
+    "lat": 41.0793,
+    "lng": -85.1394,
+    "topics": [
+      "NLP",
+      "machine learning theory",
+      "word embeddings"
+    ],
     "link": "https://scholar.google.com/citations?hl=en&user=MmrygZEAAAAJ",
     "bio": "Formerly at Nazarbayev University; works on the theory of NLP models and embeddings.",
     "experience": 14
@@ -312,8 +426,13 @@
     "institution": "KBTU / University of Cambridge",
     "city": "Almaty",
     "country": "Kazakhstan",
-    "lat": 43.2567, "lng": 76.9286,
-    "topics": ["science policy", "development studies", "industrial modernisation"],
+    "lat": 43.2567,
+    "lng": 76.9286,
+    "topics": [
+      "science policy",
+      "development studies",
+      "industrial modernisation"
+    ],
     "link": "https://www.devstudies.cam.ac.uk/ourpeople/chokan-laumulin",
     "bio": "PhD Cambridge (2019); researches the role of science in development, affiliated with Jesus College, Cambridge.",
     "experience": 30
@@ -325,8 +444,13 @@
     "institution": "KIMEP University",
     "city": "Almaty",
     "country": "Kazakhstan",
-    "lat": 43.235, "lng": 76.909,
-    "topics": ["corporate governance", "sustainability", "CSR reporting"],
+    "lat": 43.235,
+    "lng": 76.909,
+    "topics": [
+      "corporate governance",
+      "sustainability",
+      "CSR reporting"
+    ],
     "link": "https://astanatimes.com/2023/01/kazakh-bolashak-scholarship-graduates-enter-worlds-top-two-percent-of-premier-scientists/",
     "bio": "Bolashak alumnus listed in the world's top-2% most cited scientists.",
     "experience": 18
@@ -338,8 +462,12 @@
     "institution": "West Kazakhstan university (per Astana Times)",
     "city": "Uralsk",
     "country": "Kazakhstan",
-    "lat": 51.2333, "lng": 51.3667,
-    "topics": ["building materials", "materials technology"],
+    "lat": 51.2333,
+    "lng": 51.3667,
+    "topics": [
+      "building materials",
+      "materials technology"
+    ],
     "link": "https://astanatimes.com/2023/01/kazakh-bolashak-scholarship-graduates-enter-worlds-top-two-percent-of-premier-scientists/",
     "bio": "Top-2% cited researcher in building materials technology.",
     "experience": 30
@@ -351,8 +479,13 @@
     "institution": "MBZUAI",
     "city": "Abu Dhabi",
     "country": "UAE",
-    "lat": 24.4359, "lng": 54.615,
-    "topics": ["NLP", "Kazakh language models", "LLM evaluation"],
+    "lat": 24.4359,
+    "lng": 54.615,
+    "topics": [
+      "NLP",
+      "Kazakh language models",
+      "LLM evaluation"
+    ],
     "link": "https://mukhituly.github.io/about/",
     "bio": "Co-author of the Sherkala-8B Kazakh LLM and KazMMLU benchmark; advised by Kentaro Inui and Preslav Nakov.",
     "experience": 3
@@ -364,8 +497,12 @@
     "institution": "MBZUAI",
     "city": "Abu Dhabi",
     "country": "UAE",
-    "lat": 24.437, "lng": 54.613,
-    "topics": ["machine learning", "signal processing"],
+    "lat": 24.437,
+    "lng": 54.613,
+    "topics": [
+      "machine learning",
+      "signal processing"
+    ],
     "link": "https://www.researchgate.net/profile/Ayana-Mussabayeva",
     "bio": "Machine learning researcher at MBZUAI.",
     "experience": 4
@@ -377,10 +514,7914 @@
     "institution": "MBZUAI",
     "city": "Abu Dhabi",
     "country": "UAE",
-    "lat": 24.434, "lng": 54.617,
-    "topics": ["machine learning"],
+    "lat": 24.434,
+    "lng": 54.617,
+    "topics": [
+      "machine learning"
+    ],
     "link": "https://www.linkedin.com/in/aidar-alimbayev/",
     "bio": "Machine learning PhD student at MBZUAI.",
     "experience": 3
+  },
+  {
+    "id": "abay-buranov",
+    "name": "Abay Buranov",
+    "title": "Master",
+    "institution": "University of Warwick",
+    "country": "UK",
+    "city": "Coventry",
+    "topics": [
+      "energy"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "abduzhappar-gaipov",
+    "name": "Abduzhappar Gaipov",
+    "title": "Professor",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "nephrology",
+      "dialysis",
+      "kidney transplantation",
+      "acute kidney injury",
+      "intensive care nephrology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://kz.linkedin.com/in/abduzhappar-gaipov-4a23a738"
+  },
+  {
+    "id": "abulhair-saparov",
+    "name": "Abulhair Saparov",
+    "title": "Assistant Professor",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "machine learning",
+      "nlp",
+      "llms",
+      "reasoning",
+      "semantic parsing"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://asaparov.org"
+  },
+  {
+    "id": "abylaikhan-khangeldiyev",
+    "name": "Abylaikhan Khangeldiyev",
+    "title": "PhD Candidate",
+    "institution": "L.N. Gumilyov Eurasian National University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "public policy",
+      "political science"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "adel-abenova",
+    "name": "Adel Abenova",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "adel-baigarayeva",
+    "name": "Adel Baigarayeva",
+    "title": "Master",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "education"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "adlet-sagintayev",
+    "name": "Adlet Sagintayev",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Austria",
+    "city": "",
+    "topics": [
+      "biology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 47.5162,
+    "lng": 14.5501
+  },
+  {
+    "id": "aibek-musaev",
+    "name": "Aibek Musaev",
+    "title": "Professor",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "machine learning",
+      "generative ai",
+      "big data",
+      "social media analytics",
+      "adaptive systems"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "aida-amantayeva",
+    "name": "Aida Amantayeva",
+    "title": "Industry professional",
+    "institution": "FBGS Technologies GmbH",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "materials science",
+      "physics",
+      "production engineer",
+      "electrical engineering",
+      "fiber optic sensing",
+      "endomicrocopic imaging"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "aida-kabibulatova",
+    "name": "Aida Kabibulatova",
+    "title": "",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "cardiology",
+      "enetics",
+      "epidemiology",
+      "cardiovascular",
+      "diabetes"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "aida-kumarbayeva",
+    "name": "Aida Kumarbayeva",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "sustainable development solutions"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/aida-kumarbayeva-7392781aa"
+  },
+  {
+    "id": "aidana",
+    "name": "Aidana",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "aidana-baltabekova",
+    "name": "Aidana Baltabekova",
+    "title": "",
+    "institution": "",
+    "country": "France",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.6034,
+    "lng": 1.8883
+  },
+  {
+    "id": "aidana-bauyrzhan",
+    "name": "Aidana Bauyrzhan",
+    "title": "PhD Candidate",
+    "institution": "Texas A&M University",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "materials science",
+      "nuclear engineering -specializing in radiation detection",
+      "gamma-ray spectroscopy",
+      "advanced nuclear measurement techniques"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "aidana-ramazanova",
+    "name": "Aidana Ramazanova",
+    "title": "Master",
+    "institution": "Leuven Uni",
+    "country": "Belgium",
+    "city": "Leuven",
+    "topics": [
+      "sport medicine"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 50.5039,
+    "lng": 4.4699
+  },
+  {
+    "id": "aidana-tleuken",
+    "name": "Aidana Tleuken",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Netherlands",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.1326,
+    "lng": 5.2913
+  },
+  {
+    "id": "aidyn-kairolla",
+    "name": "Aidyn Kairolla",
+    "title": "Student",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "chemical engineering"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "aiganym-abduraimova",
+    "name": "Aiganym Abduraimova",
+    "title": "PhD Candidate",
+    "institution": "University of Graz",
+    "country": "Austria",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "marie skłodowska-curie phd fellow at the university of graz",
+      "where i explore sustainable materials",
+      "life cycle assessment. i hold a master’s degree in biological",
+      "chemical engineering from paris-saclay university"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 47.5162,
+    "lng": 14.5501
+  },
+  {
+    "id": "aiganym-imakhanova",
+    "name": "Aiganym Imakhanova",
+    "title": "",
+    "institution": "",
+    "country": "Japan",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 36.2048,
+    "lng": 138.2529
+  },
+  {
+    "id": "aigerim-abilova",
+    "name": "Aigerim Abilova",
+    "title": "",
+    "institution": "University Medical Center",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medical genetics",
+      "diagnosis",
+      "research of inherited diseases"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "aigerim-dairabekova",
+    "name": "Aigerim Dairabekova",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Finland",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 61.9241,
+    "lng": 25.7482
+  },
+  {
+    "id": "aigerim-kassym",
+    "name": "Aigerim Kassym",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "functional proteomics",
+      "mass spectrometry in clinical practise"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "aigerim-omirkhan",
+    "name": "Aigerim Omirkhan",
+    "title": "Staff Scientist",
+    "institution": "Imperial College London",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "materials science",
+      "ithium-ion batteries",
+      "cathodes",
+      "electrochemistry",
+      "corrosion",
+      "materials degradation"
+    ],
+    "bio": "Helps develop advanced battery materials and understand degradation mechanisms to improve energy storage performance, safety, and lifetime",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "https://uk.linkedin.com/in/aigerimomirkkhan"
+  },
+  {
+    "id": "aigerim-otepbergen",
+    "name": "Aigerim Otepbergen",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "economics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "aigerim-zkrina",
+    "name": "Aigerim Zkrina",
+    "title": "Master",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "medicine"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "aiman-uteyeva",
+    "name": "Aiman Uteyeva",
+    "title": "",
+    "institution": "Imperial College London",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "water-sector consultant specialising in cold-climate sanitation",
+      "wastewater treatment",
+      "anaerobic digestion",
+      "digital water infrastructure."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "ainel-iskakova",
+    "name": "Ainel iskakova",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Spain",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 40.4637,
+    "lng": -3.7492
+  },
+  {
+    "id": "ainur-aiypkhanova",
+    "name": "Ainur Aiypkhanova",
+    "title": "Staff Scientist",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "health policy",
+      "health financing",
+      "public health",
+      "governance",
+      "patient safety"
+    ],
+    "bio": "Helps governments and healthcare organizations design and implement effective health policies, financing systems, and quality improvement strategies",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "ainur-almukhambetova",
+    "name": "Ainur Almukhambetova",
+    "title": "",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "education",
+      "equity issues in higher education",
+      "internationalization of higher education"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "ainur-bishmanova",
+    "name": "Ainur Bishmanova",
+    "title": "PhD Candidate",
+    "institution": "KNMU named after S.D. Asfendiyarov",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "human papillomavirus (hpv)",
+      "healthy lifestyle practices",
+      "nutrition",
+      "immunology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "ainur-botagarova",
+    "name": "Ainur Botagarova",
+    "title": "",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "ainur-imangaliyeva",
+    "name": "Ainur Imangaliyeva",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Israel",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "catalysis",
+      "nanomaterials",
+      "organic chemistry",
+      "sorption",
+      "heavy metals"
+    ],
+    "bio": "Helps develop advanced materials and catalytic systems for environmental remediation, water purification, and industrial chemical processes",
+    "featured": 0,
+    "lat": 31.0461,
+    "lng": 34.8516,
+    "link": "https://www.linkedin.com/in/ainur-imangaly"
+  },
+  {
+    "id": "ainur-sanaubarova",
+    "name": "Ainur Sanaubarova",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Australia",
+    "city": "",
+    "topics": [
+      "biology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": -25.2744,
+    "lng": 133.7751
+  },
+  {
+    "id": "ainur-suranchina",
+    "name": "Ainur Suranchina",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "ainur-zhaikan",
+    "name": "Ainur Zhaikan",
+    "title": "PhD",
+    "institution": "reinforcement learning(machine learning) theory",
+    "country": "Switzerland",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.8182,
+    "lng": 8.2275
+  },
+  {
+    "id": "ainur-zhaikhan",
+    "name": "Ainur Zhaikhan",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Switzerland",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "electrical engineering"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.8182,
+    "lng": 8.2275
+  },
+  {
+    "id": "ainur-zhanturina",
+    "name": "Ainur Zhanturina",
+    "title": "other",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "rise research",
+      "data-driven studies on fintech",
+      "ai"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "aisana-tastanbekova",
+    "name": "Aisana Tastanbekova",
+    "title": "",
+    "institution": "",
+    "country": "Japan",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 36.2048,
+    "lng": 138.2529
+  },
+  {
+    "id": "aisha-yesbolatova",
+    "name": "Aisha Yesbolatova",
+    "title": "",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "life science",
+      "immunoengineering"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "aisulu-aitbekova",
+    "name": "Aisulu Aitbekova",
+    "title": "Assistant Professor",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "chemical engineering",
+      "solar fuels",
+      "co2 conversion",
+      "catalysis",
+      "sustainable chemistry"
+    ],
+    "bio": "Helps develop sustainable chemical processes that convert CO₂ and sunlight into fuels and chemicals, enabling the transition to low-carbon industrial systems",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/aisulu-aitbekova-0a400685"
+  },
+  {
+    "id": "aivar",
+    "name": "Aivar",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "aizat-nurshatayeva",
+    "name": "Aizat Nurshatayeva",
+    "title": "Staff Scientist",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "education",
+      "educational economics",
+      "education policy",
+      "higher education",
+      "college access",
+      "college success"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "aizere-malibek",
+    "name": "Aizere Malibek",
+    "title": "Student",
+    "institution": "University of Melbourne",
+    "country": "Australia",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "biology",
+      "epigenetics",
+      "cancer"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": -25.2744,
+    "lng": 133.7751,
+    "link": "https://www.linkedin.com/in/aizere-malibek/"
+  },
+  {
+    "id": "aizhan-aliyeva",
+    "name": "Aizhan Aliyeva",
+    "title": "Staff Scientist",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "computer science",
+      "visual search",
+      "cognitive load",
+      "multimodal ux methods"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "aizhan-shomotova",
+    "name": "Aizhan Shomotova",
+    "title": "",
+    "institution": "",
+    "country": "UAE",
+    "city": "",
+    "topics": [
+      "education",
+      "higher education"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 23.4241,
+    "lng": 53.8478
+  },
+  {
+    "id": "aizhan-uristenova",
+    "name": "Aizhan Uristenova",
+    "title": "",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "vascular surgeon"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "akbope-abdykalyk",
+    "name": "Akbope Abdykalyk",
+    "title": "Staff Scientist",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biology",
+      "microbiology",
+      "vaccines",
+      "molecular biology",
+      "bacteriophages"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "akbope-myrkassymova",
+    "name": "Akbope Myrkassymova",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "akbota-oryssova",
+    "name": "Akbota Oryssova",
+    "title": "PhD Candidate",
+    "institution": "Tianjin Normal University",
+    "country": "China",
+    "city": "",
+    "topics": [
+      "education",
+      "doctoral researcher in educational",
+      "developmental psychology at tianjin normal university",
+      "a senior lecturer at m. narikbayev university"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 35.8617,
+    "lng": 104.1954
+  },
+  {
+    "id": "akerke-janzakova",
+    "name": "Akerke Janzakova",
+    "title": "MD",
+    "institution": "KazNMU",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "infectious disease",
+      "vaccinology",
+      "immunology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/akerke-janzakova-8a0036238/"
+  },
+  {
+    "id": "akmaral-rakhymzhanova",
+    "name": "Akmaral Rakhymzhanova",
+    "title": "PhD candidate",
+    "institution": "Merck Life Science",
+    "country": "Israel",
+    "city": "",
+    "topics": [
+      "biology",
+      "t cell immunity",
+      "immune aging",
+      "iron metabolism"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 31.0461,
+    "lng": 34.8516,
+    "link": "https://il.linkedin.com/in/akmaralrakhymzhanova"
+  },
+  {
+    "id": "akzhol-almukhametov",
+    "name": "Akzhol Almukhametov",
+    "title": "Research Fellow",
+    "institution": "Texas A&M University",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "physics",
+      "nuclear technology",
+      "ai",
+      "ml",
+      "thermal-hydraulic system"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "aldiyar-sopybek",
+    "name": "Aldiyar Sopybek",
+    "title": "Master",
+    "institution": "Humboldt-Universität zu Berlin",
+    "country": "Poland",
+    "city": "",
+    "topics": [
+      "biology",
+      "psychology&neuroscience",
+      "clinical psychology",
+      "cognitive neuroscience"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.9194,
+    "lng": 19.1451
+  },
+  {
+    "id": "aleem-aleem",
+    "name": "Aleem Aleem",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "alexandr-pak",
+    "name": "Alexandr Pak",
+    "title": "Postdoc",
+    "institution": "New York University",
+    "country": "USA",
+    "city": "New York",
+    "topics": [
+      "neuroscience"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "alima-suleimenova",
+    "name": "Alima Suleimenova",
+    "title": "",
+    "institution": "",
+    "country": "Canada",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 56.1304,
+    "lng": -106.3468
+  },
+  {
+    "id": "alina-abdusalyamova",
+    "name": "Alina Abdusalyamova",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "alinur-jaboldinov",
+    "name": "Alinur Jaboldinov",
+    "title": "Student",
+    "institution": "Hamilton College",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "biochemistry",
+      "molecular biology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "alisher-saduakas",
+    "name": "Alisher Saduakas",
+    "title": "Industry professional",
+    "institution": "Samsung Electronics",
+    "country": "South Korea",
+    "city": "",
+    "topics": [
+      "physics",
+      "i am a robot design engineer at samsung electronics",
+      "south korea. i have completed my bachelor’s",
+      "master’s degrees in pusan nat’l university",
+      "unist."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 35.9078,
+    "lng": 127.7669
+  },
+  {
+    "id": "aliya-bizhanova",
+    "name": "Aliya Bizhanova",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "education"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "aliya-sarmanova",
+    "name": "Aliya Sarmanova",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Switzerland",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "oncology biomarkers",
+      "digital health algorithms",
+      "liver cancer",
+      "gastrointestinal cancer"
+    ],
+    "bio": "Helps develop and translate biomarker-driven and AI-enabled solutions for cancer diagnosis, treatment, and clinical trials",
+    "featured": 0,
+    "lat": 46.8182,
+    "lng": 8.2275,
+    "link": "https://ch.linkedin.com/in/aliyasarmanova/en"
+  },
+  {
+    "id": "aliya-sarsenbayeva",
+    "name": "Aliya Sarsenbayeva",
+    "title": "PhD Candidate",
+    "institution": "Nazarbayev University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "education",
+      "international academic mobility"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "aliya-sembayeva",
+    "name": "Aliya Sembayeva",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "science policy",
+      "sustainable development",
+      "research",
+      "innovation",
+      "horizon europe"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://kz.linkedin.com/in/aliya-sembayeva-765a26122"
+  },
+  {
+    "id": "aliya-tekenova",
+    "name": "Aliya Tekenova",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "almas-khamza",
+    "name": "Almas Khamza",
+    "title": "other",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "background in international management",
+      "experience working in investment promotion",
+      "stakeholder engagement"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "almas-serikov",
+    "name": "Almas Serikov",
+    "title": "PhD Candidate",
+    "institution": "Seoul National university",
+    "country": "South Korea",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "psychology&neuroscience",
+      "ibo (2015)",
+      "affective touch behaviors in mice (wild type vs autism models)",
+      "encoding them of physical objects within associative cortex"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 35.9078,
+    "lng": 127.7669
+  },
+  {
+    "id": "almat-kenen",
+    "name": "Almat Kenen",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [],
+    "bio": "Google",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "almira-zhantuyakova",
+    "name": "Almira Zhantuyakova",
+    "title": "PhD Candidate",
+    "institution": "UBC",
+    "country": "Canada",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "immunology",
+      "gynecologic cancer"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 56.1304,
+    "lng": -106.3468
+  },
+  {
+    "id": "altyn-taisheva",
+    "name": "Altyn Taisheva",
+    "title": "Lecturer",
+    "institution": "Czech University of Life Sciences",
+    "country": "Czech Republic",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "environmental chemistry",
+      "waste valorisation"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 49.8175,
+    "lng": 15.473
+  },
+  {
+    "id": "altynay-balmukhanova",
+    "name": "Altynay Balmukhanova",
+    "title": "Staff Scientist",
+    "institution": "Farabi University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "nephrologist with a strong interest in advancing kidney health through clinical practice",
+      "research",
+      "education"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "altynbek-murat",
+    "name": "Altynbek Murat",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "materials science",
+      "physics",
+      "computational materials",
+      "dft",
+      "materials informatics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "link": "https://altynbek.com"
+  },
+  {
+    "id": "alua-kulmurzina",
+    "name": "Alua Kulmurzina",
+    "title": "other",
+    "institution": "Nazarbayev University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "scientific researcher",
+      "project manager at universal tech decisions llp (utd)"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "alua-yeskendir",
+    "name": "Alua Yeskendir",
+    "title": "PhD",
+    "institution": "UCL",
+    "country": "UK",
+    "city": "London",
+    "topics": [
+      "public health"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "amina-bolatkan",
+    "name": "Amina Bolatkan",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "Japan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "oncology",
+      "cancer epigenetics",
+      "machine learning",
+      "artificial intelligence in medicine"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 36.2048,
+    "lng": 138.2529,
+    "link": "https://jp.linkedin.com/in/amina-bolatkan-515437214"
+  },
+  {
+    "id": "amina-valiyeva",
+    "name": "Amina Valiyeva",
+    "title": "other",
+    "institution": "University Medical Center",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "pediatric oncology",
+      "hematology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/amina-valiyeva-890646141/"
+  },
+  {
+    "id": "amir-rakhimov",
+    "name": "Amir Rakhimov",
+    "title": "",
+    "institution": "National Institute of Genetics in Mishima, Shizuoka",
+    "country": "Japan",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 36.2048,
+    "lng": 138.2529
+  },
+  {
+    "id": "amir-zholdasbekov",
+    "name": "Amir Zholdasbekov",
+    "title": "Student",
+    "institution": "ETH Zurich",
+    "country": "Switzerland",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "inorganic materials chemistry",
+      "heterogeneous catalysis"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.8182,
+    "lng": 8.2275
+  },
+  {
+    "id": "anar-rakhmetova",
+    "name": "Anar Rakhmetova",
+    "title": "Master",
+    "institution": "Karaganda Economic University of Kazpotrebsouz",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "gis",
+      "climate resilience",
+      "land use modeling"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/anar-rakhmetova-39ba50141/"
+  },
+  {
+    "id": "anar-zhexembekova",
+    "name": "Anar Zhexembekova",
+    "title": "Postdoc",
+    "institution": "UNIST",
+    "country": "South Korea",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "phd scientist who is looking for a postdoc position (chemical engineer)"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 35.9078,
+    "lng": 127.7669
+  },
+  {
+    "id": "anara-molkenova",
+    "name": "Anara Molkenova",
+    "title": "Staff Scientist",
+    "institution": "",
+    "country": "South Korea",
+    "city": "",
+    "topics": [
+      "materials science",
+      "inorganic nanomaterials",
+      "photomedicine",
+      "biomaterials",
+      "bioimaging",
+      "chemical sensing"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 35.9078,
+    "lng": 127.7669,
+    "link": "https://kr.linkedin.com/in/anara-molkenova-52539618"
+  },
+  {
+    "id": "anara-nursaitova",
+    "name": "Anara Nursaitova",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "medicine",
+      "clinical test development",
+      "diagnostics",
+      "parkinson’s disease",
+      "neurodegeneration",
+      "stem cell biology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "anara-roche",
+    "name": "Anara Roche",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "anargul-kuntuganova",
+    "name": "Anargul Kuntuganova",
+    "title": "Instructor",
+    "institution": "Nazarbayev University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "public health"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "anastassiya-khan",
+    "name": "Anastassiya Khan",
+    "title": "Postdoc",
+    "institution": "Stanford University",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "particle accelerator for catalysis application"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "anel-botakhanova",
+    "name": "Anel Botakhanova",
+    "title": "Master",
+    "institution": "University of Vienna",
+    "country": "Austria",
+    "city": "",
+    "topics": [
+      "biology",
+      "master’s degree in molecular biology at university of vienna. i have moved to austria after recently completing my bachelor studies with honours at sapienza university of rome."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 47.5162,
+    "lng": 14.5501
+  },
+  {
+    "id": "anuar",
+    "name": "Anuar",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "anuar-togaibekov",
+    "name": "Anuar Togaibekov",
+    "title": "Postdoc",
+    "institution": "University of Grenoble Alpes",
+    "country": "France",
+    "city": "",
+    "topics": [
+      "earth science",
+      "gnss",
+      "geodesy",
+      "earth observation",
+      "glaciology",
+      "glacier dynamics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.6034,
+    "lng": 1.8883,
+    "link": "https://fr.linkedin.com/in/togaibekov"
+  },
+  {
+    "id": "arai-suleimen",
+    "name": "Arai Suleimen",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "psychology&neuroscience",
+      "neurosurgery",
+      "neuroimaging",
+      "cryptogenic stroke"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "arailym-aronova",
+    "name": "Arailym Aronova",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "aray-ilyassova-schoenfeld",
+    "name": "Aray ILYASSOVA-Schoenfeld",
+    "title": "Professor",
+    "institution": "NU",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "public policy"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "aray-yesseikyzy",
+    "name": "Aray Yesseikyzy",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "productivity",
+      "hybrid team management",
+      "burnout prevention"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "ardak-nysan",
+    "name": "Ardak Nysan",
+    "title": "MD",
+    "institution": "",
+    "country": "USA",
+    "city": "Houston",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "arkhat-abzhanov",
+    "name": "Arkhat Abzhanov",
+    "title": "Assistant Professor",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "biology",
+      "evolution",
+      "developmental genetics",
+      "evo-devo",
+      "craniofacial development",
+      "craniofacial evolution"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "https://uk.linkedin.com/in/arkhat-abzhanov-8b52a24"
+  },
+  {
+    "id": "arlan-yelzhanov",
+    "name": "Arlan Yelzhanov",
+    "title": "Master",
+    "institution": "",
+    "country": "UAE",
+    "city": "",
+    "topics": [
+      "biology",
+      "chemistry",
+      "kinase fusion proteins (kfps)",
+      "plant study",
+      "cancer",
+      "biochemistry"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 23.4241,
+    "lng": 53.8478
+  },
+  {
+    "id": "arman-burkitbayev",
+    "name": "Arman Burkitbayev",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "physics",
+      "thermal fluid science",
+      "battery thermal management system for hev",
+      "hydrogen combustion engines"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "arodh-lal-karn",
+    "name": "ARODH LAL KARN",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "data science",
+      "management information system",
+      "mathematics"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "aruzhan-myrzatayeva",
+    "name": "Aruzhan Myrzatayeva",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "medicine"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "aruzhan-naren",
+    "name": "Aruzhan Naren",
+    "title": "Master",
+    "institution": "Ulsan National Institute of Science and Technology",
+    "country": "South Korea",
+    "city": "Ulsan",
+    "topics": [
+      "biotech"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 35.9078,
+    "lng": 127.7669
+  },
+  {
+    "id": "arypzhan-aben",
+    "name": "Arypzhan Aben",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "ai",
+      "deep learning",
+      "machine learning"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "asel-mukanova",
+    "name": "Asel Mukanova",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "education",
+      "ai & data science",
+      "stem",
+      "data science",
+      "digital education"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "askar-abiltayev",
+    "name": "Askar Abiltayev",
+    "title": "acting Associate Professor",
+    "institution": "Semey Medical University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "public health",
+      "cardiology",
+      "cardio surgery",
+      "data science"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "askarbek-orakov",
+    "name": "Askarbek Orakov",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biology",
+      "computational microbiology",
+      "microbial genomics",
+      "microbiomes",
+      "clinical microbiomics",
+      "metagenomics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/askarbek-orakov"
+  },
+  {
+    "id": "askhar-mazhikenov",
+    "name": "Askhar Mazhikenov",
+    "title": "PhD Candidate",
+    "institution": "University of Helsinki",
+    "country": "Finland",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "redox biology",
+      "mitophagy",
+      "cancer cell signaling"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 61.9241,
+    "lng": 25.7482
+  },
+  {
+    "id": "askhat-myngbay",
+    "name": "Askhat Myngbay",
+    "title": "PhD Candidate",
+    "institution": "Zhubanov University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "pathogenesis",
+      "autoimmune diseases – rheumatoid arthitiritis",
+      "kidney disease"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/askhat-myngbay-a2015547/"
+  },
+  {
+    "id": "askhat-sabitov",
+    "name": "Askhat Sabitov",
+    "title": "Industry professional",
+    "institution": "Takeda",
+    "country": "Switzerland",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "biopharma"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.8182,
+    "lng": 8.2275,
+    "link": "https://www.linkedin.com/in/acxam"
+  },
+  {
+    "id": "aslan-bulekbay",
+    "name": "Aslan Bulekbay",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "energy",
+      "petrol",
+      "gas",
+      "mining"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "assan-abdirakhmanov",
+    "name": "Assan Abdirakhmanov",
+    "title": "Postdoc",
+    "institution": "University of Mons",
+    "country": "Belgium",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "plasma technology",
+      "hydrogen production",
+      "carbon materials",
+      "plasma-surface interactions",
+      "methane pyrolysis"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 50.5039,
+    "lng": 4.4699,
+    "link": "https://kz.linkedin.com/in/assan-abdirakhmanov-1726a2b1"
+  },
+  {
+    "id": "assel-altayeva",
+    "name": "Assel Altayeva",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "product",
+      "growth analyst at thrilld labs",
+      "financial freedom",
+      "career success"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "assel-bekmurat",
+    "name": "Assel Bekmurat",
+    "title": "Student",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "neurosurgery",
+      "stroke"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "assel-bukharbayeva",
+    "name": "Assel Bukharbayeva",
+    "title": "PhD Candidate",
+    "institution": "KazNMU",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "epidemiologist",
+      "public health researcher"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/bukharbayeva/"
+  },
+  {
+    "id": "assel-kembay",
+    "name": "Assel Kembay",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "assel-mussabekova",
+    "name": "Assel Mussabekova",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "France",
+    "city": "",
+    "topics": [
+      "biomedical"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.6034,
+    "lng": 1.8883
+  },
+  {
+    "id": "assel-nugmanova",
+    "name": "Assel Nugmanova",
+    "title": "Research Fellow",
+    "institution": "Nazarbayev University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "materials science",
+      "civil",
+      "environmental engineering researcher specializing in sustainable road infrastructure",
+      "pavement materials",
+      "transport development"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "assel-sadykova",
+    "name": "Assel Sadykova",
+    "title": "Assistant Professor",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "postdoc in public health",
+      "epidemiologist",
+      "biosafety manager in lab"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "assem-imandossova",
+    "name": "Assem Imandossova",
+    "title": "PhD Candidate",
+    "institution": "KNMU named after S.D. Asfendiyarov",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "public health",
+      "public health nutrition",
+      "health literacy"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "assem-kalykova",
+    "name": "Assem Kalykova",
+    "title": "Professor",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "pharmacy",
+      "biotechnology",
+      "metagenomics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "assem-tazhiyeva",
+    "name": "Assem Tazhiyeva",
+    "title": "",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "education",
+      "inclusive education",
+      "early intervention"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "assemgul-kozhabek",
+    "name": "Assemgul Kozhabek",
+    "title": "Postdoc",
+    "institution": "Heriot-Watt University",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "computer science",
+      "ai & data science",
+      "network science",
+      "transport modelling",
+      "data-driven decision-making",
+      "urban road networks"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "https://uk.linkedin.com/in/assemgul-kozhabek-86a60510b"
+  },
+  {
+    "id": "asset-kabdiyev",
+    "name": "Asset Kabdiyev",
+    "title": "other",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "physics",
+      "mathematics",
+      "ai & data science",
+      "professional with expertise in machine learning",
+      "data analysis"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "assiya-boltaboyeva",
+    "name": "Assiya Boltaboyeva",
+    "title": "",
+    "institution": "Al-Farabi Kazakh National University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "intelligent monitoring systems"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "assylbek-nurgabdeshov",
+    "name": "Assylbek Nurgabdeshov",
+    "title": "Professor",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "strategy",
+      "hrm",
+      "innovation",
+      "international business",
+      "knowledge transfer"
+    ],
+    "bio": "Helps organizations and governments improve competitiveness and innovation through strategic management, human capital optimization, and international business insights",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "auezhan-amanov",
+    "name": "Auezhan Amanov",
+    "title": "Professor",
+    "institution": "",
+    "country": "Finland",
+    "city": "",
+    "topics": [
+      "materials science",
+      "tribology",
+      "surface engineering",
+      "wear reduction",
+      "fatigue",
+      "bearings"
+    ],
+    "bio": "Helps industrial companies extend component lifespan and reduce energy losses by optimizing friction, wear, and surface performance of mechanical systems",
+    "featured": 0,
+    "lat": 61.9241,
+    "lng": 25.7482
+  },
+  {
+    "id": "ayan",
+    "name": "Ayan",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "Singapore",
+    "city": "",
+    "topics": [
+      "materials science",
+      "chemistry"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 1.3521,
+    "lng": 103.8198
+  },
+  {
+    "id": "ayana-daurenkyzy",
+    "name": "Ayana Daurenkyzy",
+    "title": "Student",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "art workhsop"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "ayana-yelemanova",
+    "name": "Ayana Yelemanova",
+    "title": "Student",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "biology",
+      "neuroscience",
+      "epigenetics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "ayat-tassanov",
+    "name": "Ayat Tassanov",
+    "title": "PhD Candidate",
+    "institution": "Penn State University’s Eberly College of Science",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "solid-state chemistry",
+      "complex functional materials for energy-related applications"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "ayauzhan-kamatayeva",
+    "name": "Ayauzhan Kamatayeva",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "political science",
+      "human rights: ethical",
+      "social",
+      "political"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "ayazhan-akhatova",
+    "name": "Ayazhan Akhatova",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Spain",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "embryology",
+      "reproductive medicine",
+      "women's health"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 40.4637,
+    "lng": -3.7492
+  },
+  {
+    "id": "ayazhan-askarova",
+    "name": "Ayazhan Askarova",
+    "title": "",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "finance",
+      "economics",
+      "higher education",
+      "mentoring students"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "azhar-zhartybayeva",
+    "name": "Azhar Zhartybayeva",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Denmark",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 56.2639,
+    "lng": 9.5018
+  },
+  {
+    "id": "aziza-baubekova",
+    "name": "Aziza Baubekova",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "Finland",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 61.9241,
+    "lng": 25.7482
+  },
+  {
+    "id": "bakhtiyar-azhken",
+    "name": "Bakhtiyar Azhken",
+    "title": "Research Fellow",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "medicine",
+      "oncology prevention",
+      "immunology",
+      "infectious diseases"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "bakhyt-altynbassov",
+    "name": "Bakhyt Altynbassov",
+    "title": "PhD",
+    "institution": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "topics": [
+      "education"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "bakhytbol-khumyrzakh",
+    "name": "Bakhytbol Khumyrzakh",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biology",
+      "bone morphogenetic protein (bmp) signaling",
+      "regenerative medicine"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "bakhytzhan-alzhanuly",
+    "name": "Bakhytzhan Alzhanuly",
+    "title": "PhD Candidate",
+    "institution": "Aitkhozhin institute of molecular biology",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biology",
+      "molecular biology",
+      "genetics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "bakhytzhan-bekmanov",
+    "name": "Bakhytzhan Bekmanov",
+    "title": "",
+    "institution": "Institute of Genetics and Physiology",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "bakytzhan-sariyev",
+    "name": "Bakytzhan Sariyev",
+    "title": "other",
+    "institution": "Astana IT University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "materials science",
+      "aerospace",
+      "energy",
+      "biomedical sectors"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "balym-mukhaddi",
+    "name": "Balym Mukhaddi",
+    "title": "PhD Candidate",
+    "institution": "Northwest A&F University",
+    "country": "China",
+    "city": "",
+    "topics": [
+      "biology",
+      "environmental science",
+      "microbiology",
+      "biotechnology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 35.8617,
+    "lng": 104.1954
+  },
+  {
+    "id": "barselona",
+    "name": "barselona",
+    "title": "",
+    "institution": "",
+    "country": "Spain",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 40.4637,
+    "lng": -3.7492
+  },
+  {
+    "id": "bauirzhan-primkulov",
+    "name": "Bauirzhan Primkulov",
+    "title": "Professor",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "physics"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "baurzhan-zhakanov",
+    "name": "Baurzhan Zhakanov",
+    "title": "PhD Candidate",
+    "institution": "Taltech",
+    "country": "Estonia",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "data analysis",
+      "validation for data collection"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 58.5953,
+    "lng": 25.0136
+  },
+  {
+    "id": "beibut-zhumabay",
+    "name": "Beibut Zhumabay",
+    "title": "",
+    "institution": "Warwick University",
+    "country": "UK",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "beken-arymbekov",
+    "name": "Beken Arymbekov",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "physics",
+      "national coordinator",
+      "europe research",
+      "innovation framework",
+      "msca"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "beket",
+    "name": "Beket",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "France",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.6034,
+    "lng": 1.8883
+  },
+  {
+    "id": "beksultan-sagyndyk",
+    "name": "Beksultan Sagyndyk",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "i’m an ai",
+      "ml specialist focused on natural language processing (nlp)",
+      "large language models",
+      "with industry experience spanning telecom",
+      "u.s.-based adtech. i’ve contributed to kazakh language ai initiatives (including kazllm)"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "bektash-atabek",
+    "name": "Bektash Atabek",
+    "title": "",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "bekzat-usmanov",
+    "name": "Bekzat Usmanov",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "carina-bektur",
+    "name": "Carina Bektur",
+    "title": "Postdoc",
+    "institution": "Clarivate",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "economics",
+      "health economics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "chingiz-akniyazov",
+    "name": "Chingiz Akniyazov",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "New Zealand",
+    "city": "",
+    "topics": [
+      "space"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": -40.9006,
+    "lng": 174.886
+  },
+  {
+    "id": "colpan-kesici",
+    "name": "Colpan Kesici",
+    "title": "Industry professional",
+    "institution": "Tilburg University",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "cybersecurity",
+      "data protection",
+      "the regulation of ai"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "dalila-s",
+    "name": "Dalila S",
+    "title": "",
+    "institution": "Institut Curie",
+    "country": "France",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.6034,
+    "lng": 1.8883
+  },
+  {
+    "id": "damir-dubchev",
+    "name": "Damir Dubchev",
+    "title": "Associate Professor",
+    "institution": "KNMU after S.D. Asfendiyarov",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "neurosurgery",
+      "traumatic brain injury"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "damira-mussina",
+    "name": "Damira Mussina",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "ai",
+      "engineering",
+      "energy systems"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "dana-artykbayeva",
+    "name": "Dana Artykbayeva",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "dana-tleugozhina",
+    "name": "Dana Tleugozhina",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "danial-daniyaruly",
+    "name": "Danial Daniyaruly",
+    "title": "Master",
+    "institution": "KBTU",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "ai & data science",
+      "data science program with a specialization in computational neuroscience."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "daniyar-aldabergenov",
+    "name": "Daniyar Aldabergenov",
+    "title": "PhD",
+    "institution": "King's College London",
+    "country": "UK",
+    "city": "London",
+    "topics": [
+      "pharmaceutical sciences"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "daniyar-karabayev",
+    "name": "Daniyar Karabayev",
+    "title": "PhD Candidate",
+    "institution": "University of Helsinki",
+    "country": "Finland",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "molecular biology",
+      "early cancer diagnosis",
+      "machine learning",
+      "ai"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 61.9241,
+    "lng": 25.7482
+  },
+  {
+    "id": "daniyar-medetov",
+    "name": "Daniyar Medetov",
+    "title": "Professor",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "emerging markets",
+      "eurasia",
+      "innovation",
+      "knowledge transfer",
+      "institutional development"
+    ],
+    "bio": "Helps governments and organizations design economic and innovation strategies for emerging and transition economies",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "daulet-ashirov",
+    "name": "Daulet Ashirov",
+    "title": "",
+    "institution": "Goethe University",
+    "country": "",
+    "city": "",
+    "topics": [
+      "physics",
+      "mathematics",
+      "data analysis",
+      "biostatistics"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "daulet-sengirov",
+    "name": "Daulet Sengirov",
+    "title": "other",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "robotics",
+      "ai",
+      "drone technologies"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "daulet-sharipov",
+    "name": "Daulet Sharipov",
+    "title": "PhD",
+    "institution": "King's College London",
+    "country": "UK",
+    "city": "London",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "dauren-adilbay",
+    "name": "Dauren Adilbay",
+    "title": "Professor",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "surgical oncology",
+      "fluorescence imaging",
+      "molecular imaging",
+      "cancer diagnostics",
+      "microvascular surgery"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "diana-aldiarbek",
+    "name": "Diana Aldiarbek",
+    "title": "Master",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "applied mathematics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "diana-madibekova",
+    "name": "Diana Madibekova",
+    "title": "",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "diana-omarova",
+    "name": "Diana Omarova",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "cell therapy"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "dias",
+    "name": "Dias",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "dias-akimbay",
+    "name": "Dias Akimbay",
+    "title": "Master",
+    "institution": "NU",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "robotics",
+      "robotics engineering",
+      "bio-inspired robotics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "dias-urozayev",
+    "name": "Dias Urozayev",
+    "title": "Industry professional",
+    "institution": "SINTEF",
+    "country": "Norway",
+    "city": "",
+    "topics": [
+      "energy",
+      "environmental science",
+      "geophysics",
+      "ccs",
+      "co₂ storage",
+      "seismic imaging"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 60.472,
+    "lng": 8.4689
+  },
+  {
+    "id": "didar-baimanov",
+    "name": "Didar Baimanov",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "China",
+    "city": "",
+    "topics": [
+      "materials science",
+      "physics",
+      "materials"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 35.8617,
+    "lng": 104.1954
+  },
+  {
+    "id": "didar-urynbassarova",
+    "name": "Didar Urynbassarova",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "UAE",
+    "city": "",
+    "topics": [
+      "physics",
+      "mathematics",
+      "mathemeatics",
+      "biomedical engineering",
+      "aerospace"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 23.4241,
+    "lng": 53.8478
+  },
+  {
+    "id": "didar-zhakanbayev",
+    "name": "Didar Zhakanbayev",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "education"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "dikhan-yesmukhanov",
+    "name": "Dikhan Yesmukhanov",
+    "title": "Master",
+    "institution": "",
+    "country": "Italy",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 41.8719,
+    "lng": 12.5674
+  },
+  {
+    "id": "dilyara-woodward",
+    "name": "Dilyara Woodward",
+    "title": "Assistant Professor",
+    "institution": "",
+    "country": "Saudi Arabia",
+    "city": "",
+    "topics": [
+      "education",
+      "reforming higher education",
+      "«eduworld consulting» director",
+      "saudi arabia"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 23.8859,
+    "lng": 45.0792,
+    "link": "https://www.linkedin.com/in/dilyara-woodward-0b773468/"
+  },
+  {
+    "id": "dimash-davletov",
+    "name": "Dimash Davletov",
+    "title": "Research Fellow",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "dimitry-nakashidze",
+    "name": "Dimitry Nakashidze",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "biology",
+      "cellular immunology",
+      "molecular genetics",
+      "in vitro fertilization",
+      "translating life sciences research into biotech solutions",
+      "product development"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "dina-bahelanbieke",
+    "name": "Dina Bahelanbieke",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "dinara-arganchiyeva",
+    "name": "Dinara Arganchiyeva",
+    "title": "Senior Lecturer",
+    "institution": "Narxoz University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "social sciences",
+      "psychological well-being"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "dinara-ibrayeva",
+    "name": "Dinara Ibrayeva",
+    "title": "PhD",
+    "institution": "ta",
+    "country": "USA",
+    "city": "Tallahassee",
+    "topics": [
+      "education"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "dinara-shaimakhanova",
+    "name": "Dinara Shaimakhanova",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "education"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "dinara-sultan",
+    "name": "Dinara Sultan",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "dinara-yessimova",
+    "name": "Dinara Yessimova",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "biostatistics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "dinmukhamed-omarov",
+    "name": "Dinmukhamed Omarov",
+    "title": "Master",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "political theory",
+      "ai"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "diyar-talbayev",
+    "name": "Diyar Talbayev",
+    "title": "Professor",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "physics",
+      "terahertz spectroscopy",
+      "ultrafast optics",
+      "quantum materials",
+      "nonlinear optics",
+      "photonics"
+    ],
+    "bio": "Helps develop advanced optical and terahertz technologies to study and control material properties, enabling innovation in photonics, sensing, and next-generation electronic systems",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "doszhan-zhussupov",
+    "name": "Doszhan Zhussupov",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "ai & data science"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "dulat-karim",
+    "name": "Dulat Karim",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Australia",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "lithium ion battery",
+      "thermal runaway"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": -25.2744,
+    "lng": 133.7751
+  },
+  {
+    "id": "eduard-abrahamyan",
+    "name": "Eduard Abrahamyan",
+    "title": "Assistant Professor",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "international relations",
+      "security"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "eleonora-kudaibergenova",
+    "name": "Eleonora Kudaibergenova",
+    "title": "Postdoc",
+    "institution": "Technical University of Darmstadt",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "physics",
+      "nuclear physics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "elvira-abzhanova",
+    "name": "Elvira Abzhanova",
+    "title": "PhD Candidate",
+    "institution": "Kumamoto University",
+    "country": "Japan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "developmental neuroscience"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 36.2048,
+    "lng": 138.2529
+  },
+  {
+    "id": "elvira-shirimbaeva",
+    "name": "Elvira Shirimbaeva",
+    "title": "other",
+    "institution": "STEAM School-Lyceum in Almaty",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "education",
+      "i am the founder",
+      "educational leader of steam school-lyceum in almaty",
+      "kazakhstan—the first",
+      "only ifip global flagship inclusion school in kazakhstan",
+      "central asia."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "erhan-dumanuli",
+    "name": "Erhan Dumanuli",
+    "title": "Master",
+    "institution": "Colombia University",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "physics",
+      "mathematics",
+      "modellling",
+      "business",
+      "bsg"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/erhan-dumanuli/"
+  },
+  {
+    "id": "farida",
+    "name": "Farida",
+    "title": "",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "fariza-maikanova",
+    "name": "Fariza Maikanova",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "fatima-kassymbekova",
+    "name": "Fatima Kassymbekova",
+    "title": "Professor",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "women’s health",
+      "hpv vaccination",
+      "cervical cancer prevention",
+      "maternal health research"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "galiulla-abdraim",
+    "name": "Galiulla Abdraim",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "climate change",
+      "hydrology",
+      "sustainable land management",
+      "gis",
+      "soil mechanics"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "galym-imanbayev",
+    "name": "Galym Imanbayev",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "ai & data science"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "galym-ismagulov",
+    "name": "Galym Ismagulov",
+    "title": "PhD Candidate",
+    "institution": "Kumamoto University",
+    "country": "Japan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "biology",
+      "specialize in human ips cells",
+      "chicken embryology"
+    ],
+    "bio": "human iPS cells differentiation potential into lateral mesoderm and generation of primitive blood/ endothelium. Also in the morphogenesis of chorioallantoic membrane tissue and its use in cancer biology.",
+    "featured": 0,
+    "lat": 36.2048,
+    "lng": 138.2529,
+    "link": "https://www.linkedin.com/in/galymismagulov/"
+  },
+  {
+    "id": "galymzhan-issabekov",
+    "name": "Galymzhan Issabekov",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "conducting translational clinical research in invasive neuromodulation",
+      "particularly deep brain stimulation (dbs) surgery",
+      "microelectrode recording to improve parkinson’s disease treatment. my research is centered around conducting micro-electrode recordings of individual neurons deep within the human brain",
+      "both during sleep"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515,
+    "link": "https://www.linkedin.com/in/gissabek/"
+  },
+  {
+    "id": "gaukhar-baidildinova",
+    "name": "Gaukhar Baidildinova",
+    "title": "",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "neuroscience"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "gaukhar-chekembayeva",
+    "name": "Gaukhar Chekembayeva",
+    "title": "Professor",
+    "institution": "",
+    "country": "Austria",
+    "city": "",
+    "topics": [
+      "economics policy"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 47.5162,
+    "lng": 14.5501
+  },
+  {
+    "id": "gaukhar-mukash",
+    "name": "Gaukhar Mukash",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Finland",
+    "city": "",
+    "topics": [
+      "medicine",
+      "a medical technology startup"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 61.9241,
+    "lng": 25.7482,
+    "link": "https://www.linkedin.com/in/gmukash/"
+  },
+  {
+    "id": "gaziza-konyssova",
+    "name": "Gaziza Konyssova",
+    "title": "PhD Candidate",
+    "institution": "Alfred Wegener Institute",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "oceanographer",
+      "coastal researcher"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515,
+    "link": "https://www.linkedin.com/in/gaziza-konyssova/"
+  },
+  {
+    "id": "gulaim-seisenbaeva",
+    "name": "Gulaim Seisenbaeva",
+    "title": "Professor",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "computer science",
+      "ai",
+      "cybersecurity",
+      "computer vision"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "gulbadam-kutushova",
+    "name": "Gulbadam Kutushova",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Turkey",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "straregy",
+      "brand growth",
+      "business innovation"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 38.9637,
+    "lng": 35.2433,
+    "link": "https://www.linkedin.com/in/gulbadam-kutushova-b969551a5/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+  },
+  {
+    "id": "gulfairus-sapargazy",
+    "name": "Gulfairus Sapargazy",
+    "title": "other",
+    "institution": "AUES",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "education",
+      "management",
+      "edtech",
+      "language learning"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/gulfairus-sapargazy/"
+  },
+  {
+    "id": "gulfairus-yessenbayeva",
+    "name": "Gulfairus Yessenbayeva",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "general anesthesia",
+      "lung-protective ventilation",
+      "multimodal analgesia."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/gulfairus-yessenbayeva-802bb4102/"
+  },
+  {
+    "id": "gulfiya-kadyrzhanova",
+    "name": "Gulfiya Kadyrzhanova",
+    "title": "Postdoc",
+    "institution": "Kyoto University",
+    "country": "Japan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "immunology",
+      "t-cell immunology",
+      "cancer immunotherapy"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 36.2048,
+    "lng": 138.2529,
+    "link": "https://www.linkedin.com/in/gulfiya-kadyrzhanova21/?skipRedirect=true"
+  },
+  {
+    "id": "gulmira-asmaganbetova",
+    "name": "Gulmira Asmaganbetova",
+    "title": "Master",
+    "institution": "London School of Economics and Political Science",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "public policy",
+      "global health policy",
+      "health economics",
+      "health system performance"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "gulnar-imasheva",
+    "name": "Gulnar Imasheva",
+    "title": "Professor",
+    "institution": "Satbaev Univeristy",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "education",
+      "transportation engineer",
+      "optimization",
+      "safe ecosystem"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/gulnar-imasheva-2242762b2/"
+  },
+  {
+    "id": "gulnara-alexandrova",
+    "name": "Gulnara Alexandrova",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "education",
+      "educational leadership",
+      "edtech",
+      "social media",
+      "global mobility"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "gulzhamal-sagidollova",
+    "name": "Gulzhamal Sagidollova",
+    "title": "PhD Candidate",
+    "institution": "Univerisity College London",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "ophthalmology resident",
+      "oncology",
+      "bolashak scholar"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "gulzhan-karibayeva",
+    "name": "Gulzhan Karibayeva",
+    "title": "other",
+    "institution": "",
+    "country": "UAE",
+    "city": "",
+    "topics": [
+      "cultural heritage",
+      "museums"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 23.4241,
+    "lng": 53.8478
+  },
+  {
+    "id": "gulzhan-khamitova",
+    "name": "Gulzhan Khamitova",
+    "title": "Postdoc",
+    "institution": "Zhetysu University named after I. Zhansugurov",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "food chemistry field",
+      "in particular",
+      "the chemical analyses of honey samples from different geographical origins"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/gulzhan-khamitova-92346a263/"
+  },
+  {
+    "id": "gulzhan-oralova",
+    "name": "Gulzhan Oralova",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "education",
+      "art education"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "gulzhan-rysbekova",
+    "name": "Gulzhan Rysbekova",
+    "title": "Research Fellow",
+    "institution": "London Metropolitan University's Guildhall School of Business and Law",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "management",
+      "education",
+      "ex deloitte",
+      "icf certification"
+    ],
+    "bio": "HRM strategies",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "https://www.linkedin.com/in/gulzhan-rysbekova/?locale=ru"
+  },
+  {
+    "id": "gulzhanat-aimagambetova",
+    "name": "Gulzhanat Aimagambetova",
+    "title": "Assistant Professor",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "education",
+      "obstetrician-gynecologist",
+      "women’s health",
+      "cervical cancer screening",
+      "hpv infection"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "gulzhibek-yelshekenova",
+    "name": "Gulzhibek Yelshekenova",
+    "title": "Student",
+    "institution": "Nazarbeyev University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "md",
+      "red crescent",
+      "health awareness",
+      "awareness"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "heitor-valente",
+    "name": "Heitor Valente",
+    "title": "Professor",
+    "institution": "",
+    "country": "China",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "football",
+      "sports analytics",
+      "global sports"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 35.8617,
+    "lng": 104.1954
+  },
+  {
+    "id": "hurmanbek-dayitkhan",
+    "name": "Hurmanbek Dayitkhan",
+    "title": "Professor",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "biomedical"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "igor-shenberger",
+    "name": "Igor Shenberger",
+    "title": "Research Fellow",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "water resources",
+      "hydrology",
+      "sewage system"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "ikram-bekzhigit",
+    "name": "Ikram Bekzhigit",
+    "title": "other",
+    "institution": "Science Academies of New York",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "education",
+      "teaching",
+      "computer science",
+      "cybersecurity"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "indira-murymbayeva",
+    "name": "Indira Murymbayeva",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "economics",
+      "accounting",
+      "accounts receivable",
+      "sap",
+      "cash flow"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515,
+    "link": "http://linkedin.com/in/indira-murymbayeva-b8097794/?skipRedirect=true"
+  },
+  {
+    "id": "indira-omarova",
+    "name": "Indira Omarova",
+    "title": "PhD Candidate",
+    "institution": "Kazakh National Medical University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "phd student at kaznmu"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "ireko-zamilov",
+    "name": "Ireko Zamilov",
+    "title": "PhD Candidate",
+    "institution": "London Business School",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "phd candidate in finance at london business school. my research interests include household finance",
+      "behavioral finance",
+      "ai",
+      "with a primary focus on empirical work (e.g. casual inference)."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "iskander-isgandarov",
+    "name": "Iskander Isgandarov",
+    "title": "Student",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "biology",
+      "biomedical",
+      "bioinformatics",
+      "plant biology"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "iskander-karibzhanov",
+    "name": "Iskander Karibzhanov",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Canada",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "economics",
+      "macroeconomics",
+      "monetary policy",
+      "computational economics",
+      "international trade"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 56.1304,
+    "lng": -106.3468,
+    "link": "https://www.linkedin.com/in/iskander-karibzhanov-1b74881/"
+  },
+  {
+    "id": "islam-salikhanov",
+    "name": "Islam Salikhanov",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "Switzerland",
+    "city": "",
+    "topics": [
+      "medicine",
+      "cost-effectiveness study i designed for lynch syndrome screening changed swiss national screening policy",
+      "7+ years in cardiovascular",
+      "oncology clinical research at the university hospital of basel"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.8182,
+    "lng": 8.2275,
+    "link": "https://www.linkedin.com/in/islam-salikhanov-md/"
+  },
+  {
+    "id": "jan-muller",
+    "name": "Jan Muller",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Switzerland",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "leveraging claims & routine healthcare data to generate insights on underserved populations",
+      "inform innovative care models"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.8182,
+    "lng": 8.2275,
+    "link": "https://www.linkedin.com/in/janbmueller/"
+  },
+  {
+    "id": "janarbek-matai",
+    "name": "Janarbek Matai",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "efficient ml",
+      "edge ai",
+      "hw-sw co-design",
+      "ai accelerators",
+      "efficient ai"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://janarbek.github.io"
+  },
+  {
+    "id": "jasmin",
+    "name": "Jasmin",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "materials chemistry",
+      "characterisation of solid products by ssnmr",
+      "xps",
+      "xrd",
+      "physisorption. developed"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515,
+    "link": "https://www.linkedin.com/in/yasmin-okhassova-387117136/?locale=ru"
+  },
+  {
+    "id": "kadyrzhan-tortayev",
+    "name": "Kadyrzhan Tortayev",
+    "title": "Master",
+    "institution": "University of Washington",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "physics",
+      "mathematics",
+      "signal processing",
+      "wireless communication",
+      "bolashak scholar"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/kadyrzhan-tortayev-3395ba219?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+  },
+  {
+    "id": "kaisar-kushibar",
+    "name": "Kaisar Kushibar",
+    "title": "Professor",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "biomedical",
+      "medical imaging",
+      "deep learning",
+      "segmentation",
+      "ct"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "kamil-kayode-katibi",
+    "name": "Kamil kayode Katibi",
+    "title": "",
+    "institution": "",
+    "country": "Malaysia",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "environmental sustainability",
+      "water purification",
+      "bio energy",
+      "renewable energy",
+      "emi shielding"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 4.2105,
+    "lng": 101.9758
+  },
+  {
+    "id": "kamila",
+    "name": "Kamila",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "biomedical"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "kamila-bekshentayeva",
+    "name": "Kamila Bekshentayeva",
+    "title": "Professor",
+    "institution": "",
+    "country": "China",
+    "city": "",
+    "topics": [
+      "computer science",
+      "ai & data science",
+      "design technology",
+      "ai"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 35.8617,
+    "lng": 104.1954,
+    "link": "https://www.linkedin.com/in/kdagilova/"
+  },
+  {
+    "id": "kanat-dukenbayev",
+    "name": "Kanat Dukenbayev",
+    "title": "Professor",
+    "institution": "",
+    "country": "Saudi Arabia",
+    "city": "",
+    "topics": [
+      "management",
+      "strategic development",
+      "implementation of top-notch competitive research",
+      "translational funding grant calls",
+      "programs",
+      "research centers that are key in promoting scientific leadership"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 23.8859,
+    "lng": 45.0792,
+    "link": "https://www.linkedin.com/in/kanat-dukenbayev/"
+  },
+  {
+    "id": "kanat-tossekbayev",
+    "name": "Kanat Tossekbayev",
+    "title": "PhD Candidate",
+    "institution": "Pennsylvania State University",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "management",
+      "organization in healthcare"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "kanat-ydrys",
+    "name": "Kanat Ydrys",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "Hungary",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 47.1625,
+    "lng": 19.5033
+  },
+  {
+    "id": "kanat-ydyrys",
+    "name": "Kanat Ydyrys",
+    "title": "Master",
+    "institution": "",
+    "country": "Hungary",
+    "city": "Budapeht",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 47.1625,
+    "lng": 19.5033
+  },
+  {
+    "id": "kapna",
+    "name": "KAPNA",
+    "title": "",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "karlygash-kuralbayeva",
+    "name": "Karlygash Kuralbayeva",
+    "title": "Professor",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "economics",
+      "international macro",
+      "development",
+      "natural resource",
+      "environmental economics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/karlygash-kuralbayeva-88952730/"
+  },
+  {
+    "id": "kayir-tekebayev",
+    "name": "Kayir Tekebayev",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Netherlands",
+    "city": "",
+    "topics": [
+      "energy",
+      "engineering",
+      "operations support",
+      "troubleshooting of amine based systems in refining",
+      "carbon capture",
+      "e-fuel."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.1326,
+    "lng": 5.2913,
+    "link": "https://www.linkedin.com/in/kaiyr-tekebayev-14802787/"
+  },
+  {
+    "id": "khalid-miah",
+    "name": "Khalid Miah",
+    "title": "Professor",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "education",
+      "ai",
+      "technology",
+      "higher education",
+      "electrical"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "khamidulla-tukhtaev",
+    "name": "Khamidulla Tukhtaev",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "UAE",
+    "city": "",
+    "topics": [
+      "materials science",
+      "chemistry",
+      "development of new porous materials",
+      "organic",
+      "supramolecular chemistry"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 23.4241,
+    "lng": 53.8478
+  },
+  {
+    "id": "khasankhon-yusupkhujaev",
+    "name": "Khasankhon Yusupkhujaev",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "machine learning",
+      "ai",
+      "including predictive modeling",
+      "natural language processing",
+      "with a particular interest in low-resource languages"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "khaumdas-ashim",
+    "name": "Khaumdas Ashim",
+    "title": "",
+    "institution": "",
+    "country": "Mongolia",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "of rare earth elements",
+      "ore enrichment",
+      "complex processing of concentrates"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.8625,
+    "lng": 103.8467
+  },
+  {
+    "id": "kibriyanur-abdugafarova",
+    "name": "Kibriyanur Abdugafarova",
+    "title": "Student",
+    "institution": "KAIST",
+    "country": "South Korea",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "chemistry",
+      "bio brain engineering"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 35.9078,
+    "lng": 127.7669
+  },
+  {
+    "id": "kristina-shcherbatiuk",
+    "name": "Kristina Shcherbatiuk",
+    "title": "Postdoc",
+    "institution": "Franfurt University",
+    "country": "Germany",
+    "city": "Frankfurt",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "kurmanaliyev-abylkhair",
+    "name": "Kurmanaliyev Abylkhair",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Latvia",
+    "city": "",
+    "topics": [
+      "medicine"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 56.8796,
+    "lng": 24.6032
+  },
+  {
+    "id": "kurmet-danebek",
+    "name": "Kurmet Danebek",
+    "title": "Student",
+    "institution": "NU",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "nursing",
+      "disaster",
+      "radiation",
+      "organ donation",
+      "nurses' nuclear disaster preparedness"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "lazzat-tilekkabylova",
+    "name": "Lazzat Tilekkabylova",
+    "title": "Master",
+    "institution": "Univesity of Manchester",
+    "country": "UK",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "leila-abulgazina",
+    "name": "Leila Abulgazina",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "leila-salykova",
+    "name": "Leila Salykova",
+    "title": "other",
+    "institution": "Astana IT University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "education",
+      "economics",
+      "management",
+      "trade policy",
+      "resource management"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/leila-salykova-b5432613/"
+  },
+  {
+    "id": "leila-ulmanova",
+    "name": "Leila Ulmanova",
+    "title": "",
+    "institution": "",
+    "country": "Italy",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 41.8719,
+    "lng": 12.5674
+  },
+  {
+    "id": "lev-shalev",
+    "name": "Lev Shalev",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "luca-lantero",
+    "name": "Luca Lantero",
+    "title": "Industry professional",
+    "institution": "EPLO, CIMEA",
+    "country": "",
+    "city": "",
+    "topics": [
+      "management",
+      "innovation",
+      "intergration",
+      "law"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "lyazzat-adilova",
+    "name": "Lyazzat Adilova",
+    "title": "PhD Candidate",
+    "institution": "Pennsylvania State University",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "education",
+      "higher education systems",
+      "the policies"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "lyazzat-kosherbayeva",
+    "name": "Lyazzat Kosherbayeva",
+    "title": "Professor",
+    "institution": "Kazakh National Medical University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "health systems accessment",
+      "techonology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/lyazzat-kosherbayeva-ba433838/"
+  },
+  {
+    "id": "madina-abenova",
+    "name": "Madina Abenova",
+    "title": "",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "public health"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "madina-akan",
+    "name": "Madina Akan",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "madina-bekisheva",
+    "name": "Madina Bekisheva",
+    "title": "PhD",
+    "institution": "University of Georgia",
+    "country": "USA",
+    "city": "Athens",
+    "topics": [
+      "political economy",
+      "politics of development"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "madina-tokmurzina",
+    "name": "Madina Tokmurzina",
+    "title": "other",
+    "institution": "Ministry of Ecology and Natural Resources",
+    "country": "",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "urban forestry",
+      "forestry"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "magzhan-mukanova",
+    "name": "Magzhan Mukanova",
+    "title": "PhD Candidate",
+    "institution": "Purdue University",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "computer science",
+      "hci embodied ai agents",
+      "behavioural appearance"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/magzhan-mukanova-28283a11b/"
+  },
+  {
+    "id": "magzhan-serikuly",
+    "name": "Magzhan Serikuly",
+    "title": "Master",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "self-motivated",
+      "science-driven specialist in the biopharmaceutical industry",
+      "with a strong passion for bioinformatics",
+      "genomics",
+      "a clear goal of pursuing a phd in the near future."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "maiya-suyunchaliyeva",
+    "name": "Maiya Suyunchaliyeva",
+    "title": "Staff Scientist",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "digital marketing",
+      "innovation management",
+      "tourism"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "makpal",
+    "name": "Makpal",
+    "title": "",
+    "institution": "",
+    "country": "Japan",
+    "city": "",
+    "topics": [
+      "renewable energy specialist"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 36.2048,
+    "lng": 138.2529
+  },
+  {
+    "id": "makpal-abdinova",
+    "name": "Makpal Abdinova",
+    "title": "Visiting Scholar",
+    "institution": "Heriot-Watt University",
+    "country": "UK",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "malik-shukayev",
+    "name": "Malik Shukayev",
+    "title": "Professor",
+    "institution": "",
+    "country": "Canada",
+    "city": "",
+    "topics": [
+      "economics policy"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 56.1304,
+    "lng": -106.3468
+  },
+  {
+    "id": "malika-alimussina",
+    "name": "Malika Alimussina",
+    "title": "PhD Candidate",
+    "institution": "University of Glasgow",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "rare endocrine conditions",
+      "disordered sex development in boys."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "https://www.linkedin.com/in/malika-alimussina-690b7b51/?skipRedirect=true."
+  },
+  {
+    "id": "malika-toqmadi",
+    "name": "Malika Toqmadi",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "public policy",
+      "political sociology",
+      "elite studies",
+      "anthropological methods to examine how international education shapes institutional norms",
+      "practices."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/malika-toqmadi/"
+  },
+  {
+    "id": "maral-muratbekova",
+    "name": "Maral Muratbekova",
+    "title": "Professor",
+    "institution": "",
+    "country": "France",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "management",
+      "professor",
+      "escp business school"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.6034,
+    "lng": 1.8883,
+    "link": "https://www.linkedin.com/in/maral-muratbekova-57b26b4a/"
+  },
+  {
+    "id": "maral-shagatay",
+    "name": "Maral Shagatay",
+    "title": "Master",
+    "institution": "University of Lorraine and KTH Royal Institute of Technology",
+    "country": "France",
+    "city": "",
+    "topics": [
+      "energy",
+      "digital hvac",
+      "smart buildings",
+      "decentralized energy systems."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.6034,
+    "lng": 1.8883
+  },
+  {
+    "id": "margulan-otanuly",
+    "name": "Margulan Otanuly",
+    "title": "PhD Candidate",
+    "institution": "University of Geneva",
+    "country": "Switzerland",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "gene therapy",
+      "stem cell therapy"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.8182,
+    "lng": 8.2275,
+    "link": "https://www.linkedin.com/in/margulan-otanuly-15672b228/"
+  },
+  {
+    "id": "mariyam-kutchanova",
+    "name": "Mariyam Kutchanova",
+    "title": "Master",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "biology",
+      "biomedical",
+      "cancer",
+      "stem cells"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "marlen-doskali",
+    "name": "Marlen Doskali",
+    "title": "Lecturer",
+    "institution": "",
+    "country": "Japan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "is interwoven with the pioneering of advanced cellular immunotherapy applications in patient care"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 36.2048,
+    "lng": 138.2529,
+    "link": "https://www.linkedin.com/in/marlen-doskali-7192a6b5/"
+  },
+  {
+    "id": "marsel-ganeyev",
+    "name": "Marsel Ganeyev",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Sweden",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "biomaterials",
+      "tissue engineering",
+      "biomaterial-associated infections",
+      "metal implants"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 60.1282,
+    "lng": 18.6435,
+    "link": "https://www.linkedin.com/in/marsel-ganeyev-31a021150/"
+  },
+  {
+    "id": "marzhan-akhmetkulova",
+    "name": "Marzhan Akhmetkulova",
+    "title": "Master",
+    "institution": "TUM",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "nutrition",
+      "biomedicine",
+      "chemistry (analytical",
+      "electrochemistry)"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515,
+    "link": "https://www.linkedin.com/in/marzhan-akhmetkulova/"
+  },
+  {
+    "id": "marzhan-nurlankyzy",
+    "name": "Marzhan Nurlankyzy",
+    "title": "Master",
+    "institution": "Nazarbayev University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "molecular medicine",
+      "biomedical researcher"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/marzhann/"
+  },
+  {
+    "id": "maya-mutalipova",
+    "name": "Maya Mutalipova",
+    "title": "Professor",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "director of the human stem cell laboratory at the massachusetts institute of technology. research into the nature of alzheimer's",
+      "parkinson's diseases through the study of stem cells."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "medet-segizbayev",
+    "name": "Medet Segizbayev",
+    "title": "Industry professional",
+    "institution": "University of Toronto",
+    "country": "Canada",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "chemistry",
+      "organic",
+      "organometallic chemistry"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 56.1304,
+    "lng": -106.3468,
+    "link": "https://www.linkedin.com/in/medet-segizbayev-a08a11138/?locale=ru"
+  },
+  {
+    "id": "meerim-sultankulova",
+    "name": "Meerim Sultankulova",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "socio-philosophical analysis of international policy",
+      "global migration discourse",
+      "human rights"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "meirambek-zhaparov",
+    "name": "Meirambek Zhaparov",
+    "title": "Vice rector",
+    "institution": "Paragon IU",
+    "country": "Cambodia",
+    "city": "",
+    "topics": [
+      "education",
+      "it in education",
+      "ai in education"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 12.5657,
+    "lng": 104.991,
+    "link": "https://www.linkedin.com/in/meirambek-zhaparov-10626466/"
+  },
+  {
+    "id": "meirbek-mussatayev",
+    "name": "Meirbek Mussatayev",
+    "title": "Professor",
+    "institution": "Civil Aviation Academy",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "physics",
+      "education",
+      "mechanical engineering",
+      "metrology",
+      "automazition of processes"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "http://linkedin.com/in/meirbek-mussatayev-87b467196/"
+  },
+  {
+    "id": "meirgul-kaleshova",
+    "name": "Meirgul Kaleshova",
+    "title": "PhD Candidate",
+    "institution": "State University of New York",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "management",
+      "organizational behavior",
+      "leadership intervention",
+      "behavioral research"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/meirgul-kaleshova/?locale=ru"
+  },
+  {
+    "id": "mereilim-gaisina",
+    "name": "Mereilim Gaisina",
+    "title": "Research Fellow",
+    "institution": "Nazarbayev University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biology",
+      "public health researcher",
+      "master of public health"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "mereke-alibek",
+    "name": "Mereke Alibek",
+    "title": "Staff Scientist",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "how people develop their leader identities",
+      "what affects to how they self-perceive themselves as leaders"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/alibekmereke/"
+  },
+  {
+    "id": "merey-anas",
+    "name": "Merey Anas",
+    "title": "Master",
+    "institution": "Brunel University London",
+    "country": "UK",
+    "city": "London",
+    "topics": [
+      "psychology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "merey-jetpissov",
+    "name": "Merey Jetpissov",
+    "title": "other",
+    "institution": "AUES",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "physics",
+      "electrical engineering",
+      "medium voltage systems",
+      "fault analysis"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515,
+    "link": "https://www.linkedin.com/in/merey-jetpissov-234b4877/"
+  },
+  {
+    "id": "meruyert-iskakova",
+    "name": "Meruyert Iskakova",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "space",
+      "astrophysics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/miskak/"
+  },
+  {
+    "id": "meruyert-suleimen",
+    "name": "Meruyert Suleimen",
+    "title": "Master",
+    "institution": "The London School of Economics and Political Science (LSE)",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "it"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "merve-zeynep-kesici",
+    "name": "Merve-Zeynep Kesici",
+    "title": "PhD Candidate",
+    "institution": "Ludwig-Maximilians-Universität München in the Tinnefeld group",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "biology",
+      "biomedical",
+      "dna repair enzymes",
+      "dna–protein interactions at the single-molecule level"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "mira-budenova",
+    "name": "Mira Budenova",
+    "title": "",
+    "institution": "University of Turku",
+    "country": "Finland",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 61.9241,
+    "lng": 25.7482
+  },
+  {
+    "id": "mirac-batur-tosun",
+    "name": "Miraç Batur Tosun",
+    "title": "",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "computer science",
+      "media computer science"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "mohamed-bouhrara",
+    "name": "Mohamed Bouhrara",
+    "title": "Professor",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "materials science",
+      "engineering"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "mohamed-mabrouk",
+    "name": "Mohamed Mabrouk",
+    "title": "Student",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "surgery"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "moldir-pocstar",
+    "name": "Moldir Pocstar",
+    "title": "Industry professional",
+    "institution": "Shiwaforce",
+    "country": "Hungary",
+    "city": "",
+    "topics": [
+      "computer science",
+      "ai & data science",
+      "ai",
+      "machine learning",
+      "educational leadership"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 47.1625,
+    "lng": 19.5033,
+    "link": "https://www.linkedin.com/in/moldirpocstar/"
+  },
+  {
+    "id": "mukhit-kulmaganbekov",
+    "name": "Mukhit Kulmaganbekov",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "Hong Kong",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 22.3193,
+    "lng": 114.1694
+  },
+  {
+    "id": "mukhit-kulmaganbetov",
+    "name": "Mukhit Kulmaganbetov",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "Hong Kong",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "ophthalmology",
+      "oct",
+      "retinal diseases",
+      "vision science"
+    ],
+    "bio": "Helps develop advanced diagnostic technologies for early detection of eye diseases by combining clinical expertise with AI and optical imaging",
+    "featured": 0,
+    "lat": 22.3193,
+    "lng": 114.1694,
+    "link": "https://www.linkedin.com/in/mukhit-kulmaganbetov/"
+  },
+  {
+    "id": "mukhtar-karazym",
+    "name": "Mukhtar Karazym",
+    "title": "Postdoc",
+    "institution": "NU",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "physics",
+      "mathematics",
+      "partial differential equations",
+      "spectral theory",
+      "functional analysis"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/mukhtar-karazym-113136314/"
+  },
+  {
+    "id": "murat",
+    "name": "Murat",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "exploring light",
+      "light-matter interactions",
+      "their applications across diverse industries"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/yessenov/"
+  },
+  {
+    "id": "murat-anelya",
+    "name": "Murat Anelya",
+    "title": "Master",
+    "institution": "Nagasaki University",
+    "country": "Japan",
+    "city": "Nagasaki",
+    "topics": [
+      "hematology"
+    ],
+    "bio": "Transgenic mice and hematopoietic stem cells",
+    "featured": 0,
+    "lat": 36.2048,
+    "lng": 138.2529
+  },
+  {
+    "id": "murat-saparbeyev",
+    "name": "Murat Saparbeyev",
+    "title": "Professor",
+    "institution": "",
+    "country": "France",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.6034,
+    "lng": 1.8883
+  },
+  {
+    "id": "mustafa-korkmaz",
+    "name": "Mustafa Korkmaz",
+    "title": "Master",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "robotics",
+      "biomechanics",
+      "computer engineering",
+      "ai"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "nail-beisekenov",
+    "name": "Nail Beisekenov",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "biology",
+      "nasa",
+      "remote sensing",
+      "gis",
+      "machine learning"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "nardana-bazybek",
+    "name": "Nardana Bazybek",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Sweden",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "reenhouse gases like ch4",
+      "n2o"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 60.1282,
+    "lng": 18.6435,
+    "link": "https://www.linkedin.com/in/nardana-bazybek-5a40b8160/"
+  },
+  {
+    "id": "nargis-kassenova",
+    "name": "Nargis Kassenova",
+    "title": "Professor",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "environmental science"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/nargis-kassenova-15b4a2a5/"
+  },
+  {
+    "id": "natalya-glushkova",
+    "name": "Natalya Glushkova",
+    "title": "Professor",
+    "institution": "Al-Farabi",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "naveed-ahmad-sajid",
+    "name": "Naveed Ahmad Sajid",
+    "title": "Staff Scientist",
+    "institution": "",
+    "country": "Pakistan",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "international relations",
+      "diplomacy",
+      "foreign policy"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 30.3753,
+    "lng": 69.3451
+  },
+  {
+    "id": "nazerke-amangeldy",
+    "name": "Nazerke Amangeldy",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Belgium",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "bio-based fertilization",
+      "precision agriculture",
+      "proximal soil sensing"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 50.5039,
+    "lng": 4.4699
+  },
+  {
+    "id": "nazgul-zakiyeva",
+    "name": "Nazgul Zakiyeva",
+    "title": "Professor",
+    "institution": "",
+    "country": "Japan",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "statistics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 36.2048,
+    "lng": 138.2529,
+    "link": "https://www.linkedin.com/in/naz-zakiyeva-73b13463/"
+  },
+  {
+    "id": "nazym-sagandykova",
+    "name": "Nazym Sagandykova",
+    "title": "Industry professional",
+    "institution": "The University Medical Center Corporate Fund",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "a clinical experience in computational fluid dynamics of nasal airflow",
+      "educator",
+      "practical otolaryngology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/nazym-sagandykova-785441110/"
+  },
+  {
+    "id": "nazym-seitova",
+    "name": "Nazym Seitova",
+    "title": "PhD Candidate",
+    "institution": "Queen Mary University of London",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "management",
+      "tourism",
+      "hospitality",
+      "digital transformation in service industries."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "https://www.linkedin.com/in/nazym-seitova/"
+  },
+  {
+    "id": "niyaz-badykhan",
+    "name": "Niyaz Badykhan",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "energy",
+      "physics",
+      "lithium ion battery engineering",
+      "bess",
+      "smart grids",
+      "fcr"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515,
+    "link": "https://www.linkedin.com/in/niyaz-badykhan/"
+  },
+  {
+    "id": "nurassyl-yerzhanov",
+    "name": "Nurassyl Yerzhanov",
+    "title": "other",
+    "institution": "Xander Group",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "computer science",
+      "spanning engineering",
+      "global technology leadership."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "nurbol-ibadulla",
+    "name": "Nurbol Ibadulla",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "UAE",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "materials science",
+      "engineering",
+      "chemistry - battery research"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 23.4241,
+    "lng": 53.8478,
+    "link": "http://linkedin.com/in/nurbolibadulla/"
+  },
+  {
+    "id": "nurbolat-nurush",
+    "name": "Nurbolat Nurush",
+    "title": "Research Fellow",
+    "institution": "University of Utah",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "management",
+      "marketing"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "nurgissa-bekenov",
+    "name": "Nurgissa Bekenov",
+    "title": "Master",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "energy",
+      "bts frankfurt"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515,
+    "link": "https://www.linkedin.com/in/nurgissa-bekenov/"
+  },
+  {
+    "id": "nurgul-sarsembekova",
+    "name": "Nurgul Sarsembekova",
+    "title": "PhD Candidate",
+    "institution": "University of Bologna",
+    "country": "Italy",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "nanoscience for medicine",
+      "environment",
+      "expert in solid-state nmr spectroscopy",
+      "uncovering the potential of perovskite materials for next-generation technologies."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 41.8719,
+    "lng": 12.5674
+  },
+  {
+    "id": "nurkhat-zhakiyev",
+    "name": "Nurkhat Zhakiyev",
+    "title": "Professor",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "physics",
+      "energy",
+      "environment",
+      "energy system modelling"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "nurlan-ongdas",
+    "name": "Nurlan Ongdas",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "materials science",
+      "water resources engineering",
+      "working mainly in hydrologic",
+      "hydraulic modeling"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515,
+    "link": "https://www.linkedin.com/in/nurlan-ongdas-a4813193/"
+  },
+  {
+    "id": "nurlybek-mursali",
+    "name": "Nurlybek Mursali",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "bior&d labs to design",
+      "implement custom ai models for precision image analysis at scale."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/nurlybek/"
+  },
+  {
+    "id": "nurlybek-temirbay",
+    "name": "Nurlybek Temirbay",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "UAE",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "chemistry",
+      "nurlybek temirbay is an ai engineer who blends cheminformatics with production-grade software. having worked at healthcare",
+      "drug discovery domains (insilico medicine",
+      "ryte.ai",
+      "academia)"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 23.4241,
+    "lng": 53.8478
+  },
+  {
+    "id": "nursaya-zhumabay",
+    "name": "Nursaya Zhumabay",
+    "title": "PhD Candidate",
+    "institution": "KAUST",
+    "country": "Saudi Arabia",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "green hydrogen",
+      "electrochemistry",
+      "photocatalysis",
+      "spectroelectrochemistry"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 23.8859,
+    "lng": 45.0792,
+    "link": "https://www.linkedin.com/in/nursaya-z-385229a1/"
+  },
+  {
+    "id": "nursultan-akhmetov",
+    "name": "Nursultan Akhmetov",
+    "title": "other",
+    "institution": "Bilim-Innovation network",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "computer science",
+      "education",
+      "computer science educator with over 12 years of experience in the bilim-innovation network"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "nursultan-assylov",
+    "name": "Nursultan Assylov",
+    "title": "PhD Candidate",
+    "institution": "University of Massachusetts Amherst,",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "education",
+      "phd candidate in language",
+      "literacy",
+      "culture"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "nursulu-aldiarbek",
+    "name": "Nursulu Aldiarbek",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "energy systems",
+      "modular hybrid wind-solar technologies"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "nurtileu-duysekeshov",
+    "name": "Nurtileu Duysekeshov",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "private blockchain",
+      "ai"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "nurtoza-aykhujayev",
+    "name": "Nurtoza Aykhujayev",
+    "title": "Student",
+    "institution": "Széchenyi István University",
+    "country": "Hungary",
+    "city": "",
+    "topics": [
+      "computer science",
+      "economics",
+      "ai",
+      "business"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 47.1625,
+    "lng": 19.5033
+  },
+  {
+    "id": "nurzhan-abdukarimov",
+    "name": "Nurzhan Abdukarimov",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "biology",
+      "biomedical",
+      "immunology",
+      "synthetic biology",
+      "cancer biology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "olzhas-kaupbay",
+    "name": "Olzhas Kaupbay",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Austria",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "energy",
+      "energy storage"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 47.5162,
+    "lng": 14.5501,
+    "link": "https://www.linkedin.com/in/sodium/"
+  },
+  {
+    "id": "olzhas-ospanzhanov",
+    "name": "Olzhas Ospanzhanov",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "agricultural economics",
+      "market-data analysis",
+      "supply chain structure"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "olzhas-zhorayev",
+    "name": "Olzhas Zhorayev",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "economics",
+      "world bank researcher with extensive experience across academia",
+      "government",
+      "industry. proficient in economic",
+      "public policy analysis"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/olzhas-zhorayev/"
+  },
+  {
+    "id": "oman-abyshev",
+    "name": "Oman Abyshev",
+    "title": "PhD Candidate",
+    "institution": "ITMO/KSTU University",
+    "country": "Kyrgyzstan",
+    "city": "",
+    "topics": [
+      "computer science",
+      "cyber-physical systems",
+      "industrial automation",
+      "deep tech. hoigh tech"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 41.2044,
+    "lng": 74.7661
+  },
+  {
+    "id": "omarova",
+    "name": "Omarova",
+    "title": "Professor",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "oral-kdirshayev",
+    "name": "Oral Kdirshayev",
+    "title": "Master",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "education",
+      "educator",
+      "school mentor",
+      "ms in educational leadership nu",
+      "sdg goals"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/oralkdirshayev/"
+  },
+  {
+    "id": "oxford",
+    "name": "oxford",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "ozat-shamshiyev",
+    "name": "Ozat Shamshiyev",
+    "title": "Professor",
+    "institution": "Social Sciences University of Ankara",
+    "country": "Turkey",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "economics",
+      "islamic economics",
+      "finance"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 38.9637,
+    "lng": 35.2433,
+    "link": "https://linkedin.com/in/ozat-shamshiyev-7594782b2/?skipRedirect=true"
+  },
+  {
+    "id": "perizat-komekbayeva",
+    "name": "Perizat Komekbayeva",
+    "title": "PhD Candidate",
+    "institution": "KBTU",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "nanotechnology",
+      "nano materials"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "qammer-abbasi",
+    "name": "Qammer Abbasi",
+    "title": "Professor",
+    "institution": "University of Glasgow",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "professor of applied electromagnetics & sensing at the university of glasgow",
+      "uk government policy advisor (dsit)",
+      "a member of the scottish science advisory council"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "raiymbek-akshulakov",
+    "name": "Raiymbek Akshulakov",
+    "title": "PhD Candidate",
+    "institution": "Inria",
+    "country": "France",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "computer science",
+      "phd student working on multimodal ai",
+      "vision–language models"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.6034,
+    "lng": 1.8883
+  },
+  {
+    "id": "ramil-salihar",
+    "name": "Ramil Salihar",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Kyrgyzstan",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "central asian market"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 41.2044,
+    "lng": 74.7661
+  },
+  {
+    "id": "ramiya-khalitova",
+    "name": "Ramiya Khalitova",
+    "title": "Master",
+    "institution": "Nagasaki University",
+    "country": "Japan",
+    "city": "Nagasaki",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 36.2048,
+    "lng": 138.2529
+  },
+  {
+    "id": "ramiz-zulhkarnay",
+    "name": "Ramiz Zulhkarnay",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "materials science"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "ramkrushna-jadhav",
+    "name": "RAMKRUSHNA JADHAV",
+    "title": "Student",
+    "institution": "New Delhi",
+    "country": "India",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "research scholar at indian council of medical research under ministry of health & family welfare"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 20.5937,
+    "lng": 78.9629
+  },
+  {
+    "id": "rana-salieva",
+    "name": "Rana Salieva",
+    "title": "Assistant Professor",
+    "institution": "",
+    "country": "Kyrgyzstan",
+    "city": "",
+    "topics": [
+      "biomedical"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 41.2044,
+    "lng": 74.7661
+  },
+  {
+    "id": "rasit-colakel",
+    "name": "Rasit Colakel",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "computer science",
+      "programming",
+      "it",
+      "software engineer"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "rauan-kaiyrzhanov",
+    "name": "Rauan Kaiyrzhanov",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "clinician-scientist: pioneering large-scale genetic studies in neurological diseases"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "https://www.linkedin.com/in/rauan-kaiyrzhanov-0a6592248/"
+  },
+  {
+    "id": "rauan-kankin",
+    "name": "Rauan Kankin",
+    "title": "PhD Candidate",
+    "institution": "Nazarbayev University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "he is currently pursuing a phd in business administration at nazarbayev university",
+      "focusing on the intersection of digital transformation (ai)",
+      "data-driven decision-making in emerging markets."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "rauan-yesselbayev",
+    "name": "Rauan Yesselbayev",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "education",
+      "governance",
+      "leadership in education"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "raushan-kambar",
+    "name": "Raushan Kambar",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "project management",
+      "scientific research coordination",
+      "grant funding"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "raushan-nugmanova",
+    "name": "Raushan Nugmanova",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "biology",
+      "study of apicomplexan parasite plasmodium spp",
+      "that causes malaria"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "renata-gaineddenova",
+    "name": "Renata Gaineddenova",
+    "title": "Professor",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "economics",
+      "assistant professor at harvard business school"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/renata-gaineddenova-b6a9b981/"
+  },
+  {
+    "id": "riza-akhitova",
+    "name": "Riza Akhitova",
+    "title": "Assistant Professor",
+    "institution": "Astana IT University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "education",
+      "ai & data science",
+      "teach the courses : ai",
+      "media",
+      "digital technologies",
+      "computer graphics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "ruslan-barikulov",
+    "name": "Ruslan Barikulov",
+    "title": "other",
+    "institution": "Zhanibekov University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "education",
+      "head of academic of center of excellence"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/ruslan-barikulov/"
+  },
+  {
+    "id": "ruslan-kurmashev",
+    "name": "Ruslan Kurmashev",
+    "title": "Staff Scientist",
+    "institution": "",
+    "country": "Ireland",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "biology",
+      "biomedical",
+      "medical ai",
+      "computational biology. autism research",
+      "iscb rsg kazakhstan"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 53.4129,
+    "lng": -8.2439
+  },
+  {
+    "id": "rustam-gatamov",
+    "name": "Rustam Gatamov",
+    "title": "Postdoc",
+    "institution": "University of Miami",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "space",
+      "quantum optics",
+      "ultrafast spectroscopy"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/rustam-gatamov/"
+  },
+  {
+    "id": "sabina-baitemir",
+    "name": "Sabina Baitemir",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "biomedical",
+      "fabstory ai",
+      "health tech",
+      "3d",
+      "plastic surgery"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "sabina-schmid",
+    "name": "Sabina Schmid",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "pharma industry professional with msc in molecular biomedicine"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "safiullah-shirzad",
+    "name": "Safiullah Shirzad",
+    "title": "Master",
+    "institution": "Ghazni Technical University",
+    "country": "Turkey",
+    "city": "",
+    "topics": [
+      "energy",
+      "renewable energy systems",
+      "solar photovoltaic technologies",
+      "energy efficiency"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 38.9637,
+    "lng": 35.2433
+  },
+  {
+    "id": "sagit-bakirov",
+    "name": "Sagit Bakirov",
+    "title": "Research Fellow",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "public policy",
+      "public policy expert | strategic planning",
+      "ai geopolitical risk assessment",
+      "organizational transformation & reforms"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/sagitbakirov/?locale=ru"
+  },
+  {
+    "id": "sagyntay-yerkebulan",
+    "name": "Sagyntay Yerkebulan",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Hungary",
+    "city": "",
+    "topics": [
+      "computer science",
+      "education",
+      "devops | project coordinator"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 47.1625,
+    "lng": 19.5033,
+    "link": "https://www.linkedin.com/in/erkebulan-sagin/"
+  },
+  {
+    "id": "saken-sandybay",
+    "name": "Saken Sandybay",
+    "title": "PhD Candidate",
+    "institution": "NU",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "materials science",
+      "environmental science",
+      "sustainable construction materials",
+      "including geopolymer systems",
+      "steel industry byproducts",
+      "co₂ sequestration"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "saltanat-janenova",
+    "name": "Saltanat Janenova",
+    "title": "Professor",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "public policy",
+      "social policy courses",
+      "doing research on public sector reforms in the eurasia region"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "https://www.linkedin.com/in/saltanat-janenova-2526aa13/"
+  },
+  {
+    "id": "saltanat-kamenova",
+    "name": "Saltanat Kamenova",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Australia",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "public policy",
+      "human geography",
+      "migration",
+      "gender",
+      "care"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": -25.2744,
+    "lng": 133.7751,
+    "link": "http://linkedin.com/in/saltanat-kamenova-29710a106/"
+  },
+  {
+    "id": "saltanat-toiganbayeva",
+    "name": "Saltanat Toiganbayeva",
+    "title": "Industry professional",
+    "institution": "Unilever",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "chemistry | organometallic chemistry | life science | formulation science"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "https://www.linkedin.com/in/saltanat-toiganbayevaeva-a7817b108/"
+  },
+  {
+    "id": "samat-sagatov",
+    "name": "Samat Sagatov",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Denmark",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "optimizing processes",
+      "enhancing compliance within the dynamic landscape of the pharmaceutical",
+      "educational sectors"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 56.2639,
+    "lng": 9.5018,
+    "link": "https://www.linkedin.com/in/samat-sagatov-2971a827/"
+  },
+  {
+    "id": "samuel-roshaven",
+    "name": "Samuel Roshaven",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "robotic fabrication",
+      "design"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "sanat-kozhakhmet",
+    "name": "Sanat Kozhakhmet",
+    "title": "Professor",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "public policy",
+      "senior lecturer in hrm | phd | fhea |"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "https://www.linkedin.com/in/sanat-kozhakhmet-20b2b89a/"
+  },
+  {
+    "id": "sanzhar-korganbayev",
+    "name": "Sanzhar Korganbayev",
+    "title": "Postdoc",
+    "institution": "University of Southampton",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "materials science",
+      "computer science",
+      "engineering",
+      "optics",
+      "photonics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "https://www.linkedin.com/in/sanzhar-korganbayev/"
+  },
+  {
+    "id": "saule-zholdayakova",
+    "name": "Saule Zholdayakova",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Austria",
+    "city": "",
+    "topics": [
+      "energy",
+      "hydrogen energy"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 47.5162,
+    "lng": 14.5501,
+    "link": "https://www.linkedin.com/in/dr-saule-zholdayakova-11b74a199/"
+  },
+  {
+    "id": "sauran-yerdessov",
+    "name": "Sauran Yerdessov",
+    "title": "",
+    "institution": "National Center for Public Health",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "public healt",
+      "emergency management",
+      "epidemiological research"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "saya-kakim",
+    "name": "Saya Kakim",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "heory-driven",
+      "interdisciplinary approach to community-engaged research",
+      "health equity",
+      "health literacy",
+      "health communication"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "sazhar-taizhan",
+    "name": "sazhar taizhan",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "energy"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "seda-keskin",
+    "name": "Seda Keskin",
+    "title": "",
+    "institution": "",
+    "country": "Turkey",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 38.9637,
+    "lng": 35.2433
+  },
+  {
+    "id": "serdar-charyyev",
+    "name": "Serdar Charyyev",
+    "title": "Professor",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "clinical assistant professor at stanford university"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/serdar-charyyev-349854170/"
+  },
+  {
+    "id": "serik-kairdenov",
+    "name": "Serik Kairdenov",
+    "title": "other",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "economics",
+      "goal is to create learning environments that inspire growth",
+      "collaboration",
+      "meaningful social impac"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "serik-postdoc",
+    "name": "serik postdoc",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "serik-sagitov",
+    "name": "Serik Sagitov",
+    "title": "Professor",
+    "institution": "",
+    "country": "Sweden",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "math",
+      "statistics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 60.1282,
+    "lng": 18.6435,
+    "link": "https://www.linkedin.com/in/serik-sagitov-5b0828198/"
+  },
+  {
+    "id": "serik-tabarak",
+    "name": "Serik Tabarak",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "decoding memory reactivation during sleep in humans by using whole night eeg-fmri sleep recording"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "serik-tokbolat",
+    "name": "Serik Tokbolat",
+    "title": "Professor",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "sustainable construction",
+      "life cycle assessment",
+      "building energy efficiency",
+      "circularity in construction",
+      "construction digitalization"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "http://linkedin.com/in/serik-t-90647a332/"
+  },
+  {
+    "id": "sevara-ilmuratova",
+    "name": "Sevara Ilmuratova",
+    "title": "Industry professional",
+    "institution": "Gedeon Richter",
+    "country": "",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "pediatrician",
+      "global medical operations manager at gedeon richter hq"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "shamil-ibragimov",
+    "name": "Shamil Ibragimov",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "ai & data science"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "shayakhmet-tokubayev",
+    "name": "Shayakhmet Tokubayev",
+    "title": "PhD",
+    "institution": "University of Exeter",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "politics ir"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "shaziya-islam",
+    "name": "Shaziya Islam",
+    "title": "Professor",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "computer science",
+      "education",
+      "it",
+      "ai",
+      "health ai",
+      "blockchain"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "shenol-jadik",
+    "name": "Shenol Jadik",
+    "title": "Professor",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "biomedical"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "sherzod-hakimov",
+    "name": "Sherzod Hakimov",
+    "title": "Professor",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "computational linguist",
+      "human-robot interaction",
+      "nlp"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "shokhjakhon-kodirov",
+    "name": "Shokhjakhon Kodirov",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "electronics",
+      "electronics industry",
+      "high-precision manufacturing"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "shoukhrat-mutalipov",
+    "name": "Shoukhrat Mutalipov",
+    "title": "Professor",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "head of the center for embryonic cells",
+      "gene therapy. he is one of the world's leading scientists in the treatment of genetic diseases."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/shoukhrat-mitalipov-5807001/"
+  },
+  {
+    "id": "stepan-shramko",
+    "name": "Stepan Shramko",
+    "title": "other",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "education",
+      "economist",
+      "analytics executive",
+      "higher education professional"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "suleimen",
+    "name": "Suleimen",
+    "title": "",
+    "institution": "",
+    "country": "Finland",
+    "city": "",
+    "topics": [
+      "biomedical"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 61.9241,
+    "lng": 25.7482
+  },
+  {
+    "id": "sultan-saburov",
+    "name": "Sultan Saburov",
+    "title": "PhD Candidate",
+    "institution": "Hokkaido University",
+    "country": "Japan",
+    "city": "",
+    "topics": [
+      "physics",
+      "space",
+      "researcher in early-universe cosmology",
+      "inflationary theory",
+      "primordial black holes",
+      "modified gravity"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 36.2048,
+    "lng": 138.2529,
+    "link": "https://www.linkedin.com/in/sultan-saburov-03ba44181/"
+  },
+  {
+    "id": "sultan-yessenbek",
+    "name": "Sultan Yessenbek",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "building bridges between governments",
+      "investors",
+      "entrepreneurs",
+      "helping companies expand their presence",
+      "localize operations"
+    ],
+    "bio": "",
+    "featured": 0,
+    "link": "https://www.linkedin.com/in/sultan-yessenbek-3a519118a/"
+  },
+  {
+    "id": "sultan-zhandossov",
+    "name": "Sultan Zhandossov",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "neurorehabilitation",
+      "neuromodulation"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "sungat-mukhagali",
+    "name": "Sungat Mukhagali",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "physics",
+      "quantum physics",
+      "iii-v semiconductor nanostructures",
+      "qw",
+      "qd lasers",
+      "photonics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515,
+    "link": "https://www.linkedin.com/in/sungat-mukhangali-30377b19a/"
+  },
+  {
+    "id": "surih-sibaghatullah-jagirani",
+    "name": "Surih sibaghatullah Jagirani",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "geology"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "svetlana-em",
+    "name": "Svetlana Em",
+    "title": "",
+    "institution": "Osaka University",
+    "country": "Japan",
+    "city": "",
+    "topics": [
+      "applied chemistry"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 36.2048,
+    "lng": 138.2529
+  },
+  {
+    "id": "svetlana-shenderova",
+    "name": "Svetlana Shenderova",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "education",
+      "higher education",
+      "tne",
+      "educational leadership",
+      "network governance"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "symbat-alimbek",
+    "name": "Symbat Alimbek",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "takhmina-ayupova",
+    "name": "Takhmina Ayupova",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "talgat-bainazarov",
+    "name": "Talgat Bainazarov",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "education",
+      "quantitative education researcher with expertise as a teacher",
+      "school principal",
+      "policy analyst",
+      "translating policy",
+      "research into practice with a granular understanding of school operations."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/talgat-bainazarov-a5151b160/?locale=ru"
+  },
+  {
+    "id": "tamara-zhukabayeva",
+    "name": "Tamara Zhukabayeva",
+    "title": "Professor",
+    "institution": "L.N. Gumilyov Eurasian National University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "computer science",
+      "ai & data science",
+      "itech",
+      "ai",
+      "syber security"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "tansholpan-zhanabekova",
+    "name": "Tansholpan Zhanabekova",
+    "title": "Research Fellow",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "game theory"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "http://linkedin.com/in/tansholpan-zhanabekova-938aa4222/"
+  },
+  {
+    "id": "temirlan-shilikbay",
+    "name": "Temirlan Shilikbay",
+    "title": "Staff Scientist",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "biology",
+      "neuroscience",
+      "rna helicase",
+      "mouse brain development"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "temur-khujamuratov",
+    "name": "Temur Khujamuratov",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "materials science",
+      "material science"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "tileuzhan-mukhamet",
+    "name": "Tileuzhan Mukhamet",
+    "title": "PhD Candidate",
+    "institution": "Ruhr-University",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "math"
+    ],
+    "bio": "Modeling of composite concrete-steel girder using Abaqus and investigation of the effects of contact interactions (contact at the supports, flanges, shear studs) on the ultimate load and force-displacement curves.",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515,
+    "link": "https://www.linkedin.com/in/tileuzhan/"
+  },
+  {
+    "id": "toktar-aben",
+    "name": "Toktar Aben",
+    "title": "Master",
+    "institution": "Eurasian National University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "college counseling",
+      "psychology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/toktar-aben/"
+  },
+  {
+    "id": "tomiris-kadyrbek",
+    "name": "Tomiris Kadyrbek",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "ualikhan-yerkinbek",
+    "name": "Ualikhan Yerkinbek",
+    "title": "Staff Scientist",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "ai & data science",
+      "medicine",
+      "pdt for basal cell carcinoma of the skin"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/ualikhanyerkinbek-a994b81a1/"
+  },
+  {
+    "id": "ulanbek-auyeskhan",
+    "name": "Ulanbek Auyeskhan",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "South Korea",
+    "city": "",
+    "topics": [
+      "materials science",
+      "ai & data science",
+      "materials engineering",
+      "metal 3d printing",
+      "additive manufacturing",
+      "coatings"
+    ],
+    "bio": "Works as a Staff Engineer at Samsung Electronics, specifically in materials for mobile devices",
+    "featured": 0,
+    "lat": 35.9078,
+    "lng": 127.7669,
+    "link": "https://www.linkedin.com/in/auyeskhan-ulanbek/"
+  },
+  {
+    "id": "ulugbek-kamilov",
+    "name": "Ulugbek Kamilov",
+    "title": "Professor",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "computational imaging",
+      "machine learning",
+      "inverse problems",
+      "diffusion models",
+      "signal processing"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "ulzhan-bassembek",
+    "name": "Ulzhan Bassembek",
+    "title": "Industry professional",
+    "institution": "Nanopower Semiconductor",
+    "country": "Norway",
+    "city": "",
+    "topics": [
+      "electronics",
+      "electronics engineering",
+      "semiconductor industry",
+      "integrated circuits",
+      "electronics product design"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 60.472,
+    "lng": 8.4689,
+    "link": "https://www.linkedin.com/in/ulzhan-bassembek/"
+  },
+  {
+    "id": "ulzhan-urazaliyeva",
+    "name": "Ulzhan Urazaliyeva",
+    "title": "PhD Candidate",
+    "institution": "SDU",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "education",
+      "course lecturer",
+      "transformation of tecl through vr-supported instruction"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/ulzhanurazaliyeva?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+  },
+  {
+    "id": "ulzhan-zhumakeldi",
+    "name": "ULZHAN ZHUMAKELDI",
+    "title": "other",
+    "institution": "KLA",
+    "country": "Belgium",
+    "city": "",
+    "topics": [
+      "materials science",
+      "product development application engineer at kla"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 50.5039,
+    "lng": 4.4699
+  },
+  {
+    "id": "vadim-yapiyev",
+    "name": "Vadim Yapiyev",
+    "title": "Professor",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "environmental science"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/ulzhan-bassembek/"
+  },
+  {
+    "id": "vitaliu-hutorinskyii",
+    "name": "Vitaliu Hutorinskyii",
+    "title": "Professor",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "chemistry",
+      "polymers for pharmaceutical applications",
+      "mucoadhesive drug delivery systems",
+      "water-soluble polymers",
+      "amphiphilic polymers"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "https://www.linkedin.com/in/vitaliy-khutoryanskiy-97101118/"
+  },
+  {
+    "id": "yanwei-wang",
+    "name": "Yanwei Wang",
+    "title": "Professor",
+    "institution": "Nazarbayev University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "materials science",
+      "associate professor in digital modeling",
+      "ai in energy"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "yelena-kalyuzhnova",
+    "name": "Yelena Kalyuzhnova",
+    "title": "Professor",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "energy",
+      "energy economics",
+      "oil & gas",
+      "emerging markets",
+      "local content policy"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "yenglik-dussipova",
+    "name": "Yenglik Dussipova",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "yerasyl",
+    "name": "Yerasyl",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "yerbol",
+    "name": "Yerbol",
+    "title": "Professor",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biomedical"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "yerbolat-dauletyarov",
+    "name": "Yerbolat Dauletyarov",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "spectroscopy",
+      "biomolecules",
+      "mass spectrometry",
+      "laser desorption",
+      "molecular analysis"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "https://www.linkedin.com/in/yerbolat-dauletyarov-562925288/?originalSubdomain=uk"
+  },
+  {
+    "id": "yerbolat-ussenov",
+    "name": "Yerbolat Ussenov",
+    "title": "Staff Scientist",
+    "institution": "Princeton University",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "physics",
+      "princeton plasma physics laboratory",
+      "associate research physicist"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://www.linkedin.com/in/yerbolat-ussenov-94a44186/"
+  },
+  {
+    "id": "yerden-shaimardan-galym-project",
+    "name": "Yerden Shaimardan (Galym Project)",
+    "title": "other",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "yerkanat-kanafin",
+    "name": "Yerkanat Kanafin",
+    "title": "Assistant Professor",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "materials science",
+      "environmental science",
+      "chemical engineering",
+      "advanced materials",
+      "environmental sustainability"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "yerke-suleimenova",
+    "name": "Yerke Suleimenova",
+    "title": "Master",
+    "institution": "",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "antimicrobial resistance",
+      "infectious diseases",
+      "evidence-based pharmacotherapy"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "yerkebulan-raiymbekov",
+    "name": "Yerkebulan Raiymbekov",
+    "title": "Professor",
+    "institution": "M.Auezov South Kazakhstan University.",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "chemistry",
+      "water quality monitoring",
+      "water technologies"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "yerkesh",
+    "name": "Yerkesh",
+    "title": "PhD",
+    "institution": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "topics": [
+      "education"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743
+  },
+  {
+    "id": "yerkezhan-yerkinkazhina",
+    "name": "Yerkezhan Yerkinkazhina",
+    "title": "PhD Candidate",
+    "institution": "Shenzhen University.",
+    "country": "China",
+    "city": "",
+    "topics": [
+      "biology",
+      "biomedical",
+      "oncology",
+      "dna damage",
+      "epigenetics."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 35.8617,
+    "lng": 104.1954
+  },
+  {
+    "id": "yermek-rakhat",
+    "name": "Yermek Rakhat",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "Canada",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "endocriniologist",
+      "eminent researcher",
+      "md",
+      "phd",
+      "postdoc fellow in mcgill"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 56.1304,
+    "lng": -106.3468,
+    "link": "https://linkedin.com/in/yermek-rakhat-23467767"
+  },
+  {
+    "id": "yernar-sailybayev",
+    "name": "Yernar Sailybayev",
+    "title": "Industry professional",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "water",
+      "food",
+      "climate nexus",
+      "caspian cdr",
+      "alma alliance"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "yernaz-yesbergenov",
+    "name": "Yernaz Yesbergenov",
+    "title": "PhD Candidate",
+    "institution": "University of Calgary",
+    "country": "Canada",
+    "city": "",
+    "topics": [
+      "energy",
+      "worked in qa",
+      "qc",
+      "primary interest in a heavy machinery industry. a co-founder of quality management company."
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 56.1304,
+    "lng": -106.3468,
+    "link": "https://linkedin.com/in/yernaz-yesbergenov-464937b"
+  },
+  {
+    "id": "yertay-yeskali",
+    "name": "Yertay Yeskali",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "yerzhan-tokbolat",
+    "name": "Yerzhan Tokbolat",
+    "title": "Professor",
+    "institution": "Queen's University Belfast",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "economics",
+      "finance",
+      "governance issues",
+      "undergraduate (equity valuation)",
+      "postgraduate (corporate finance)"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "https://www.linkedin.com/in/yerzhan-tokbolat-a05320133/"
+  },
+  {
+    "id": "yesbol-sartayev",
+    "name": "Yesbol Sartayev",
+    "title": "Assistant Professor",
+    "institution": "Nagasaki University",
+    "country": "Japan",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "energy",
+      "life sciences"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 36.2048,
+    "lng": 138.2529
+  },
+  {
+    "id": "yussuf-shakhin",
+    "name": "Yussuf Shakhin",
+    "title": "PhD Candidate",
+    "institution": "Nazarbayev University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "computer science",
+      "physics",
+      "robotics"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "zairagul-zhaketay",
+    "name": "Zairagul Zhaketay",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Hungary",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "cancer research",
+      "nslc",
+      "meht",
+      "treatment"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 47.1625,
+    "lng": 19.5033,
+    "link": "https://linkedin.com/in/zairagul-z-3730a8201/?skipRedirect=true"
+  },
+  {
+    "id": "zarema-akhmadieya",
+    "name": "Zarema Akhmadieya",
+    "title": "Lecturer",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "environmental science",
+      "agricultural economics",
+      "rural development",
+      "agriculture"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "zarina-turtayeva",
+    "name": "Zarina Turtayeva",
+    "title": "Postdoc",
+    "institution": "Paul Scherrer Institute",
+    "country": "Switzerland",
+    "city": "",
+    "topics": [
+      "chemistry",
+      "materials science",
+      "electrochemical engineering",
+      "material sciene",
+      "green hydrogen technologies"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 46.8182,
+    "lng": 8.2275,
+    "link": "https://linkedin.com/in/zarina-turtayeva"
+  },
+  {
+    "id": "zaure-umarova",
+    "name": "Zaure Umarova",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "zebo-adirova",
+    "name": "Zebo Adirova",
+    "title": "other",
+    "institution": "",
+    "country": "Uzbekistan",
+    "city": "",
+    "topics": [
+      "education",
+      "young researcher",
+      "entrepreneur",
+      "founder of research hub"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 41.3775,
+    "lng": 64.5853
+  },
+  {
+    "id": "zeinesh-beimenbetova",
+    "name": "Zeinesh Beimenbetova",
+    "title": "",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "zhadyra-shagyrova",
+    "name": "Zhadyra Shagyrova",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "zhalaliddin-makhammajanov",
+    "name": "Zhalaliddin Makhammajanov",
+    "title": "PhD Candidate",
+    "institution": "Nazarbayev University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "medicine",
+      "protein biomarker",
+      "chronic kidney diseases",
+      "diabates",
+      "mass spectrometry"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://linkedin.com/in/zhalaliddin"
+  },
+  {
+    "id": "zhanar-abu",
+    "name": "Zhanar Abu",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "ophthalmology",
+      "pharmacology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "zhanar-argynbayeva",
+    "name": "Zhanar Argynbayeva",
+    "title": "Lecturer",
+    "institution": "",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "public policy",
+      "academic admininstrator",
+      "political scientist",
+      "research development"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491
+  },
+  {
+    "id": "zhanar-gabdsattarova",
+    "name": "Zhanar Gabdsattarova",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "gynecology",
+      "plastic",
+      "reconstructive surgery"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "zhanas-baimagambet",
+    "name": "Zhanas Baimagambet",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "South Africa",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "ai & data science",
+      "anatomical pathology",
+      "ai",
+      "ml in digital pathology",
+      "cancer biomarker detection"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": -30.5595,
+    "lng": 22.9375,
+    "link": "https://linkedin.com/in/zhanas-baimagambet"
+  },
+  {
+    "id": "zhanat-koshenov",
+    "name": "Zhanat Koshenov",
+    "title": "Professor",
+    "institution": "",
+    "country": "Austria",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "molecular biology",
+      "biochemistry",
+      "mitochondria metobolism cell signalling"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 47.5162,
+    "lng": 14.5501
+  },
+  {
+    "id": "zhanbolat-khumarkhan",
+    "name": "Zhanbolat Khumarkhan",
+    "title": "other",
+    "institution": "Farabi University",
+    "country": "Kazakhstan",
+    "city": "",
+    "topics": [
+      "public policy",
+      "islamic studies",
+      "teaching faculty"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1694,
+    "lng": 71.4491,
+    "link": "https://www.linkedin.com/in/zhanbolat-khumarkhan-427705a4/"
+  },
+  {
+    "id": "zhanbolat-zhuleuov",
+    "name": "Zhanbolat Zhuleuov",
+    "title": "PhD Candidate",
+    "institution": "Florida international University",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "economics policy",
+      "public policy",
+      "quantitave analyst",
+      "central banker",
+      "economist",
+      "policy-researcher"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795,
+    "link": "https://linkedin.com/in/zhanbolat-zhuleuov"
+  },
+  {
+    "id": "zhangatay-nurekeyev",
+    "name": "Zhangatay Nurekeyev",
+    "title": "Postdoc",
+    "institution": "",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "physics",
+      "mathematics",
+      "ultrafast optics",
+      "fluorescence spectroscopy",
+      "x-ray science"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "zhanibek-alpishev",
+    "name": "Zhanibek Alpishev",
+    "title": "Professor",
+    "institution": "",
+    "country": "Austria",
+    "city": "",
+    "topics": [
+      "physics",
+      "ultrafast spectroscopy",
+      "condensed matter physics",
+      "quantum materials"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 47.5162,
+    "lng": 14.5501,
+    "link": "https://www.linkedin.com/in/zhanybek-alpichshev-41bb4b207/"
+  },
+  {
+    "id": "zhansultan-nurmukhanov",
+    "name": "Zhansultan Nurmukhanov",
+    "title": "PhD Candidate",
+    "institution": "",
+    "country": "UK",
+    "city": "",
+    "topics": [
+      "education",
+      "public policy"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 52.3555,
+    "lng": -1.1743,
+    "link": "https://www.linkedin.com/in/%D0%B6%D0%B0%D0%BD%D1%81%D1%83%D0%BB%D1%82%D0%B0%D0%BD-%D0%BD%D1%83%D1%80%D0%BC%D1%83%D1%85%D0%B0%D0%BD%D0%BE%D0%B2-07681596/"
+  },
+  {
+    "id": "zhazira-taubayeva",
+    "name": "Zhazira Taubayeva",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [
+      "management",
+      "law",
+      "politics",
+      "international relations",
+      "politics",
+      "security studies"
+    ],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "zhibek-keneskhanova",
+    "name": "Zhibek Keneskhanova",
+    "title": "PhD Candidate",
+    "institution": "Ludwig-Maximilian University Munich",
+    "country": "Germany",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "molecular parasitology"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 51.1657,
+    "lng": 10.4515
+  },
+  {
+    "id": "zhuldyz-les",
+    "name": "Zhuldyz Les",
+    "title": "",
+    "institution": "UNIST",
+    "country": "South Korea",
+    "city": "",
+    "topics": [
+      "ai & data science",
+      "business management"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 35.9078,
+    "lng": 127.7669
+  },
+  {
+    "id": "zhuldyz-zhanzak",
+    "name": "Zhuldyz Zhanzak",
+    "title": "Postdoc",
+    "institution": "UCSF",
+    "country": "USA",
+    "city": "",
+    "topics": [
+      "biomedical",
+      "immunology in transplantation",
+      "type 1 diabetes"
+    ],
+    "bio": "",
+    "featured": 0,
+    "lat": 39.8283,
+    "lng": -98.5795
+  },
+  {
+    "id": "zhuldyz-zhiyessova",
+    "name": "Zhuldyz Zhiyessova",
+    "title": "",
+    "institution": "Beijing Capital Medical University",
+    "country": "China",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0,
+    "lat": 35.8617,
+    "lng": 104.1954
+  },
+  {
+    "id": "person-6",
+    "name": "Айман Алиева",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "person-9",
+    "name": "Альфия Бактиярова",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "person",
+    "name": "Арзу-Алмаз Машуров",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "person-2",
+    "name": "Асель Байгоджаева",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "baidullaeva",
+    "name": "Асем Baidullaeva",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "person-8",
+    "name": "Аяз Белкожаев",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "person-7",
+    "name": "Бекнур Алдияр",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "person-3",
+    "name": "Дана Абдрахман",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "person-5",
+    "name": "Жансая Кабболлина",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "",
+    "featured": 0
+  },
+  {
+    "id": "person-4",
+    "name": "Қуат Қасымбек",
+    "title": "",
+    "institution": "",
+    "country": "",
+    "city": "",
+    "topics": [],
+    "bio": "Biostatistics",
+    "featured": 0
   }
 ]

@@ -71,9 +71,11 @@
 
   const countrySel = document.getElementById('map-country');
   const topicSel = document.getElementById('map-topic');
-  [...new Set(people.map(p => p.country))].sort().forEach(c =>
+  [...new Set(people.map(p => p.country))].filter(Boolean).sort().forEach(c =>
     countrySel.insertAdjacentHTML('beforeend', `<option>${QIST.esc(c)}</option>`));
-  [...new Set(people.flatMap(p => p.topics || []))].sort().forEach(t =>
+  const topicCounts = {};
+  people.flatMap(p => p.topics || []).forEach(t => topicCounts[t] = (topicCounts[t] || 0) + 1);
+  Object.keys(topicCounts).filter(t => topicCounts[t] >= 3).sort().forEach(t =>
     topicSel.insertAdjacentHTML('beforeend', `<option>${QIST.esc(t)}</option>`));
 
   function popupHtml(p) {
@@ -82,7 +84,7 @@
       <div>
         <b>${QIST.esc(p.name)}</b>
         <div class="small">${QIST.esc(p.title || '')}<br>${QIST.esc(p.institution || '')}<br>
-        📍 ${QIST.esc(p.city)}, ${QIST.esc(p.country)}<br>
+        ${(p.city || p.country) ? `📍 ${QIST.esc([p.city, p.country].filter(Boolean).join(', '))}<br>` : ''}
         <span class="muted">${(p.topics || []).slice(0, 3).map(QIST.esc).join(' · ')}</span><br>
         <a href="directory.html?person=${QIST.esc(p.id)}">View profile →</a></div>
       </div>

@@ -204,7 +204,7 @@ const QIST = {
         <div>
           <h3>${this.esc(p.name)}</h3>
           <div class="role">${this.esc(p.title || '')}${p.institution ? ' · ' + this.esc(p.institution) : ''}</div>
-          <div class="loc">📍 ${this.esc(p.city || '')}${p.country ? ', ' + this.esc(p.country) : ''}</div>
+          ${(p.city || p.country) ? `<div class="loc">📍 ${this.esc([p.city, p.country].filter(Boolean).join(', '))}</div>` : ''}
         </div>
       </div>
       <div class="tags">${tags}</div>
