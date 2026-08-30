@@ -7,7 +7,7 @@
 <meta name="description" content="QIST connects researchers, PhD students, postdocs and professors from Kazakhstan around the world: researcher map, directory, jobs, grants, conferences and academic matching.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2316263d' stroke='%23b58a2e' stroke-width='6'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='%23f4e9d2' font-family='Georgia'>Q</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -15,22 +15,76 @@
 
 <section class="hero">
   <div class="container">
-    <span class="kicker">Qazaq International Science &amp; Technology Association</span>
-    <h1>The Global Professional Scientific Community of <em>Greater Central Asian Researchers</em></h1>
-<p class="lead">Uniting <strong>500+ members — PhDs, postdocs, professors, and industry R&amp;D professionals working across 30+ countries</strong> to bridge global expertise with the region, foster international collaboration, mentor the next generation of scientific leaders, and advance <strong>science, technology, and innovation across Greater Central Asia</strong>.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="map.html">🗺️ Explore the researcher map</a>
-      <a class="btn btn-ghost" href="login.html#register">Join the community</a>
-    </div>
+    <span class="kicker">
+  SCIENCE BRIDGE PROJECT | QAZAQ INTERNATIONAL SCIENCE &amp; TECHNOLOGY ASSOCIATION
+</span>
+
+<h1>
+  Find the <em>scientists</em><br>
+  to solve your R&amp;D needs, fast.
+</h1>
+
+<p class="lead">
+  An <strong>AI-powered scientific intelligence platform</strong> connecting
+  scientists, universities, industry, startups, and governments.
+  Discover experts. Explore solutions. Build collaborations.
+</p>
+    <div class="science-bridge-search">
+
+  <form class="challenge-search" action="matching.html" method="get">
+    <span class="search-icon">⌕</span>
+
+    <input
+      type="text"
+      name="q"
+      placeholder="Describe the R&amp;D problem you want to solve…"
+      aria-label="Describe your R&D need"
+    >
+
+    <button type="submit" class="search-submit" aria-label="Search">
+      →
+    </button>
+  </form>
+
+<div class="search-suggestions">
+  <span class="suggested-label">Suggested:</span>
+
+  <a href="matching.html?q=Oil%20%26%20gas%20technologies">Oil &amp; gas technologies</a>
+  <a href="matching.html?q=Mining%20%26%20metallurgy">Mining &amp; metallurgy</a>
+  <a href="matching.html?q=Critical%20raw%20materials">Critical raw materials</a>
+  <a href="matching.html?q=Renewable%20energy%20%26%20energy%20transition">Energy transition</a>
+  <a href="matching.html?q=Biomedical%20engineering">Biomedical engineering</a>
+  <a href="matching.html?q=Logistics%20%26%20supply%20chains">Logistics &amp; supply chains</a>
+  <a href="matching.html?q=AI%20%26%20smart%20systems">AI &amp; smart systems</a>
+</div>
+
+</div>
   </div>
 </section>
 
 <section class="stats-band">
   <div class="container" id="stats">
-    <div class="stat"><b id="st-people">—</b><span>Researchers</span></div>
-    <div class="stat"><b id="st-countries">—</b><span>Countries</span></div>
-    <div class="stat"><b id="st-topics">—</b><span>Research fields</span></div>
-    <div class="stat"><b id="st-posts">—</b><span>Opportunities posted</span></div>
+
+    <div class="stat">
+        <b class="count-up" id="st-people" data-target="0">0</b>
+      <span>Scientists</span>
+    </div>
+
+    <div class="stat">
+      <b class="count-up" data-target="42">0</b>
+      <span>Countries</span>
+    </div>
+
+    <div class="stat">
+      <b class="count-up" data-target="13">0</b>
+      <span>Institutions</span>
+    </div>
+
+    <div class="stat">
+      <b class="count-up" data-target="902">0</b>
+      <span>Research fields</span>
+    </div>
+
   </div>
 </section>
 
@@ -121,11 +175,7 @@
   await QIST.boot('index.html');
 
   const [people, posts] = await Promise.all([QIST.getPeople(), QIST.getPosts()]);
-
-  document.getElementById('st-people').textContent = people.length;
-  document.getElementById('st-countries').textContent = new Set(people.map(p => p.country)).size;
-  document.getElementById('st-topics').textContent = new Set(people.flatMap(p => p.topics || [])).size;
-  document.getElementById('st-posts').textContent = posts.length;
+  document.getElementById('st-people').dataset.target = people.length;
 
   const chan = Object.fromEntries(QIST.channels().map(c => [c.id, c]));
   document.getElementById('recent-posts').innerHTML = posts.slice(0, 3).map(p => `
@@ -149,7 +199,50 @@
     document.getElementById('cta-email').value = '';
     QIST.toast('Subscribed! You will receive the next QIST digest.');
   });
-})();
+})(); const counters = document.querySelectorAll('.count-up');
+
+const animateCounter = (counter) => {
+  const target = Number(counter.dataset.target);
+  const suffix = counter.dataset.suffix || '';
+  const duration = 1600;
+  const startTime = performance.now();
+
+  const update = (currentTime) => {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // Smooth easing
+    const eased = 1 - Math.pow(1 - progress, 3);
+
+    const value = Math.floor(target * eased);
+
+    counter.textContent = value.toLocaleString() + suffix;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      counter.textContent = target.toLocaleString() + suffix;
+    }
+  };
+
+  requestAnimationFrame(update);
+};
+
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.4
+  }
+);
+
+counters.forEach(counter => observer.observe(counter));
 </script>
 </body>
 </html>

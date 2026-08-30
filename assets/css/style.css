@@ -314,3 +314,158 @@ table.data tr:hover td { background: var(--paper); }
   .map-panel { position: static; width: auto; max-height: none; margin: 0; border-radius: 0; }
   #map { height: 62vh; }
 }
+/* =========================================================
+   SCIENCE BRIDGE — HERO SEARCH
+   ========================================================= */
+
+.science-bridge-search {
+  margin-top: 30px;
+  max-width: 920px;
+}
+
+/* Main search bar */
+.challenge-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+  padding: 8px 10px 8px 20px;
+
+  background: #ffffff;
+  border: 1.5px solid #25a9e0;
+  border-radius: 50px;
+
+  box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.08);
+}
+
+/* Search icon */
+.challenge-search .search-icon {
+  flex-shrink: 0;
+  font-size: 24px;
+  color: #667085;
+}
+
+/* Text input */
+.challenge-search input {
+  flex: 1;
+  min-width: 0;
+
+  border: 0;
+  outline: 0;
+  background: transparent;
+
+  font: inherit;
+  font-size: 16px;
+  color: #172033;
+}
+
+.challenge-search input::placeholder {
+  color: #7b8190;
+}
+
+/* Round arrow button */
+.search-submit {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #169bd5;
+  color: #ffffff;
+
+  font-size: 25px;
+  cursor: pointer;
+
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.search-submit:hover {
+  transform: translateX(2px);
+  opacity: 0.9;
+}
+
+/* Suggested searches */
+.search-suggestions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 18px;
+
+  font-size: 13px;
+}
+
+.suggested-label {
+  margin-right: 4px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.search-suggestions a {
+  padding: 5px 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+
+  text-decoration: none;
+
+  transition: background 0.15s ease;
+}
+
+.search-suggestions a:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+
+  .science-bridge-search {
+    margin-top: 24px;
+  }
+
+  .challenge-search {
+    padding-left: 15px;
+  }
+
+  .challenge-search input {
+    font-size: 14px;
+  }
+
+  .search-submit {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+  }
+
+  .search-suggestions {
+    justify-content: flex-start;
+  }
+}
+/* Science Bridge statistics typography */
+
+.stats-band .stat b {
+  font-family: "Oswald", sans-serif;
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.stats-band .stat span {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
