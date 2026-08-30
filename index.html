@@ -71,17 +71,17 @@
     </div>
 
     <div class="stat">
-      <b class="count-up" data-target="42">0</b>
+      <b class="count-up" id="st-countries" data-target="0">0</b>
       <span>Countries</span>
     </div>
 
     <div class="stat">
-      <b class="count-up" data-target="13">0</b>
+      <b class="count-up" id="st-institutions" data-target="0">0</b>
       <span>Institutions</span>
     </div>
 
     <div class="stat">
-      <b class="count-up" data-target="902">0</b>
+      <b class="count-up" id="st-fields" data-target="0">0</b>
       <span>Research fields</span>
     </div>
 
@@ -176,6 +176,9 @@
 
   const [people, posts] = await Promise.all([QIST.getPeople(), QIST.getPosts()]);
   document.getElementById('st-people').dataset.target = people.length;
+  document.getElementById('st-countries').dataset.target = new Set(people.map(p => p.country).filter(Boolean)).size;
+  document.getElementById('st-institutions').dataset.target = new Set(people.map(p => p.institution).filter(Boolean)).size;
+  document.getElementById('st-fields').dataset.target = new Set(people.flatMap(p => p.topics || [])).size;
 
   const chan = Object.fromEntries(QIST.channels().map(c => [c.id, c]));
   document.getElementById('recent-posts').innerHTML = posts.slice(0, 3).map(p => `
@@ -199,7 +202,7 @@
     document.getElementById('cta-email').value = '';
     QIST.toast('Subscribed! You will receive the next QIST digest.');
   });
-})(); const counters = document.querySelectorAll('.count-up');
+  const counters = document.querySelectorAll('.count-up');
 
 const animateCounter = (counter) => {
   const target = Number(counter.dataset.target);
@@ -243,6 +246,7 @@ const observer = new IntersectionObserver(
 );
 
 counters.forEach(counter => observer.observe(counter));
+})();
 </script>
 </body>
 </html>

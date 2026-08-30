@@ -156,6 +156,13 @@
     const p = people.find(x => String(x.id) === withId);
     if (p) { $('m-topics').value = (p.topics || []).join(', '); run(); }
   }
+
+  const q = new URLSearchParams(location.search).get('q');
+  if (q && !withId) {
+    $('m-topics').value = q.split(/[,;&/]/).map(s => s.trim()).filter(Boolean).join(', ');
+    $('m-goal').value = 'any';
+    run();
+  }
 })();
 </script>
 </body>
