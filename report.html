@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expert Intelligence Report — Science Bridge | QIST</title>
+<meta name="description" content="AI Expert & Research Partner Finder — generated Expert Intelligence Report.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2316263d' stroke='%23b58a2e' stroke-width='6'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='%23f4e9d2' font-family='Georgia'>Q</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header no-print" id="site-header"></header>
+
+<section class="section" style="padding-top:40px">
+  <div class="container" style="max-width:860px">
+    <div id="rp-controls" class="no-print" style="display:flex;gap:10px;align-items:center;margin-bottom:26px;flex-wrap:wrap">
+      <a class="btn btn-outline btn-sm" id="rp-back" href="finder.html">← Back to finder</a>
+      <button class="btn btn-primary btn-sm" onclick="window.print()">🖨️ Print / save as PDF</button>
+      <span class="muted small">Generated from live community data — the deliverable format for paid pilot engagements.</span>
+    </div>
+
+    <div id="rp-body" class="report"></div>
+  </div>
+</section>
+
+<footer class="site-footer no-print" id="site-footer"></footer>
+
+<script src="assets/js/app.js"></script>
+<script>
+(async () => {
+  await QIST.boot('report.html');
+  const people = await QIST.getPeople();
+  const q = (new URLSearchParams(location.search).get('q') || '').trim();
+  const body = document.getElementById('rp-body');
+  document.getElementById('rp-back').href = 'finder.html' + (q ? '?q=' + encodeURIComponent(q) : '');
+
+  if (!q) {
+    body.innerHTML = `<div class="alert alert-info">No challenge provided. Describe one in the
+      <a href="finder.html">Expert Finder</a> and generate the report from there.</div>`;
+    return;
+  }
+
+  const { results } = QIST.expertSearch(q, people);
+  const top = results.slice(0, 12);
+
+  if (!top.length) {
+    body.innerHTML = `<div class="alert alert-info">No matching expertise found for this challenge —
+      try broader keywords in the <a href="finder.html">Expert Finder</a>.</div>`;
+    return;
+  }
+
+  const r1 = top[0], p1 = r1.p;
+  const today = new Date().toISOString().slice(0, 10);
+
+  const collabRows = [];
+  if (p1.collab === 'yes') collabRows.push('✓ Volunteered for the QIST expert panel');
+  if (p1.collab === 'maybe') collabRows.push('✓ Expressed interest in the QIST expert panel');
+  if (p1.sector === 'Industry' || p1.sector === 'Academia & Industry') collabRows.push('✓ Industry R&D experience');
+  if (p1.link) collabRows.push('✓ Public research profile available');
+  collabRows.push('✓ Reachable through the QIST community network');
+
+  body.innerHTML = `
+    <div class="rp-head">
+      <div class="kicker" style="color:var(--gold)">SCIENCE BRIDGE PROJECT | QIST</div>
+      <h1 style="font-family:var(--serif);font-size:2rem;margin:6px 0 4px">Expert Intelligence Report</h1>
+      <div class="muted small">AI Expert &amp; Research Partner Finder · Generated ${today}</div>
+    </div>
+
+    <div class="card rp-challenge" style="margin:26px 0">
+      <div class="small muted" style="letter-spacing:.06em">YOUR R&amp;D CHALLENGE</div>
+      <p style="font-family:var(--serif);font-size:1.2rem;font-style:italic;margin-top:6px">“${QIST.esc(q)}”</p>
+      <div class="small muted" style="margin-top:8px">${top.length} experts identified based on research relevance,
+      profile depth, industry experience and collaboration fit.</div>
+    </div>
+
+    <div class="card" style="margin-bottom:26px">
+      <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start">
+        <div>
+          <h2 style="font-family:var(--serif);margin:0">#1 ${QIST.esc(p1.name)}</h2>
+          <div style="color:var(--ink-soft)">${QIST.esc(p1.institution || '')}${p1.institution && (p1.title || p1.country) ? '<br>' : ''}${QIST.esc(p1.title || '')}${p1.country ? ' · ' + QIST.esc(p1.country) : ''}</div>
+        </div>
+        <div class="match-score" style="flex-shrink:0">${r1.score}<div class="small muted" style="font-size:.65rem;font-weight:400">/100 MATCH</div></div>
+      </div>
+
+      <h3 style="margin-top:18px">Expertise</h3>
+      <div class="tags">${(p1.topics || []).map(t =>
+        `<span class="tag ${r1.matched.includes(t.toLowerCase()) ? 'gold' : ''}">${QIST.esc(t)}</span>`).join('')}</div>
+
+      <h3 style="margin-top:18px">Why this expert matches</h3>
+      <p class="small" style="color:var(--ink-soft)">${QIST.esc(QIST.sbWhy(r1, 0))}</p>
+
+      <h3 style="margin-top:18px">Match breakdown</h3>
+      <div style="overflow-x:auto"><table class="data"><thead>
+        <tr><th>Criteria</th><th>Weight</th><th>Expert score</th></tr></thead><tbody>
+        ${QIST.SB_CRITERIA.map(([k, label, w]) =>
+          `<tr><td>${label}</td><td>${w}%</td><td>${r1.sub[k]}/100</td></tr>`).join('')}
+      </tbody></table></div>
+
+      ${p1.bio ? `<h3 style="margin-top:18px">Profile statement</h3>
+      <p class="small" style="color:var(--ink-soft)">${QIST.esc(p1.bio)}</p>` : ''}
+
+      <h3 style="margin-top:18px">Collaboration profile</h3>
+      <p class="small" style="color:var(--ink-soft)">${collabRows.join('<br>')}</p>
+
+      <h3 style="margin-top:18px">Recommended action</h3>
+      <p class="small" style="color:var(--ink-soft)">Strong candidate for direct introduction. The combination of
+      matching research expertise${p1.sector && p1.sector !== 'Academia' ? ', industry experience' : ''}${p1.collab ? ', expressed collaboration interest' : ''}
+      and standing in the QIST community makes ${QIST.esc(p1.name.split(' ')[0])} the strongest match for this challenge.</p>
+
+      <div class="no-print" style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+        <button class="btn btn-primary sb-intro" data-id="${QIST.esc(p1.id)}" data-name="${QIST.esc(p1.name)}">REQUEST INTRODUCTION</button>
+        <a class="btn btn-outline" href="directory.html?person=${QIST.esc(p1.id)}">VIEW FULL PROFILE</a>
+      </div>
+    </div>
+
+    ${top.length > 1 ? `
+    <h3 style="font-family:var(--serif);margin-bottom:12px">Other top matches</h3>
+    <div style="overflow-x:auto"><table class="data"><thead>
+      <tr><th>Expert</th><th>Match</th><th>Institution</th><th>Expertise</th></tr></thead><tbody>
+      ${top.slice(1).map((r, i) => `<tr>
+        <td><b>#${i + 2} <a href="directory.html?person=${QIST.esc(r.p.id)}">${QIST.esc(r.p.name)}</a></b></td>
+        <td>${r.score}/100</td>
+        <td>${QIST.esc(r.p.institution || '—')}</td>
+        <td>${(r.p.topics || []).slice(0, 3).map(QIST.esc).join(' · ')}</td></tr>`).join('')}
+    </tbody></table></div>` : ''}
+
+    <p class="small muted" style="margin-top:26px">Scores derive deterministically from verified community profiles:
+    research-topic overlap, profile depth, sector, network standing, geography and expressed collaboration interest.
+    Publication, patent and laboratory data integration ships in Phase 2. ·
+    <span class="no-print"><a href="organizations.html">Commission a full pilot report →</a></span></p>`;
+
+  document.querySelectorAll('.sb-intro').forEach(btn => btn.addEventListener('click', () => {
+    const me = QIST.currentUser();
+    if (!me) {
+      QIST.toast('Sign in to request introductions.');
+      setTimeout(() => location.href = 'login.html?next=' + encodeURIComponent('report.html?q=' + q), 900);
+      return;
+    }
+    QIST.pushOverlay('collab_requests', {
+      from: me.email, to: btn.dataset.id, toName: btn.dataset.name,
+      topics: q, goal: 'introduction', date: new Date().toISOString().slice(0, 10)
+    });
+    QIST.toast(`Introduction request to ${btn.dataset.name} recorded.`);
+    btn.textContent = '✓ REQUESTED'; btn.disabled = true;
+  }));
+})();
+</script>
+</body>
+</html>

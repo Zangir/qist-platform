@@ -16,7 +16,13 @@
     "link": "https://researcher.apu.ac.jp/apuhp/KgApp?resId=S001494&Language=2",
     "bio": "President of QIST. MD (1997), PhD (2004); leads academic affairs at Ritsumeikan APU and champions the global Qazaq scientific community.",
     "experience": 25,
-    "featured": 1
+    "featured": 1,
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "biomedical",
+      "medicine"
+    ]
   },
   {
     "id": "kuanysh-yergaliyev",
@@ -34,7 +40,25 @@
     "link": "https://kz.linkedin.com/in/kuanysh-yergaliyev",
     "bio": "QIST board member working on public health and health policy in Kazakhstan.",
     "experience": 12,
-    "featured": 1
+    "featured": 1,
+    "sector": "Academia",
+    "collab": "yes",
+    "keywords": [
+      "medical doctor",
+      "public health specialist",
+      "higher education",
+      "science management",
+      "policy for low",
+      "health advocacy",
+      "analytical skills",
+      "community health planning",
+      "policy development",
+      "monitoring",
+      "evaluation of public health programs",
+      "leadership",
+      "management.",
+      "medicine"
+    ]
   },
   {
     "id": "shoukhrat-mitalipov",
@@ -91,7 +115,18 @@
     "link": "https://www.kcl.ac.uk/people/dana-minbaeva",
     "bio": "Professor at KCL (previously Copenhagen Business School); one of the most cited Kazakhstani scholars in management.",
     "experience": 25,
-    "featured": 1
+    "featured": 1,
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "human capital",
+      "hr strategy",
+      "talent management",
+      "global workforce",
+      "organizational performance",
+      "economics policy",
+      "economics"
+    ]
   },
   {
     "id": "nariman-shelekpayev",
@@ -109,7 +144,20 @@
     ],
     "link": "https://slavic.yale.edu/people/nari-shelekpayev",
     "bio": "Historian of Central Asia and capital cities, teaching at Yale.",
-    "experience": 10
+    "experience": 10,
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "cities",
+      "cultural history",
+      "global & transnational & comparative history",
+      "russian empire",
+      "ussr",
+      "opera",
+      "central asia",
+      "late soviet & early post-soviet biopolitics.",
+      "environmental science"
+    ]
   },
   {
     "id": "yerkin-kitapbayev",
@@ -127,7 +175,15 @@
     ],
     "link": "https://www.ku.ac.ae/college-people/yerkin-kitapbayev",
     "bio": "Previously at MIT Sloan and NC State; works on optimal stopping problems and financial mathematics.",
-    "experience": 12
+    "experience": 12,
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "quantitative finance",
+      "economics",
+      "teaching math finance programs",
+      "economics policy"
+    ]
   },
   {
     "id": "mansur-khamitov",
@@ -145,7 +201,24 @@
     ],
     "link": "https://kelley.iu.edu/faculty-research/faculty-directory/profile.html?id=mkhamito",
     "bio": "Marketing scholar at Kelley School of Business researching brands and consumer-AI interaction.",
-    "experience": 10
+    "experience": 10,
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "brand relationships",
+      "brand loyalty)",
+      "financial decision-making (money",
+      "jm",
+      "jcp",
+      "jams)",
+      "psychology (jesp",
+      "cognition)",
+      "jmr",
+      "jams",
+      "ijrm.",
+      "economics policy",
+      "management"
+    ]
   },
   {
     "id": "maral-muratbekova-touron",
@@ -181,7 +254,21 @@
     ],
     "link": "https://disae.uniparthenope.it/disae/organigramma/53562",
     "bio": "Researches people analytics and the ethics of AI in the workplace; industry experience at HSBC and KPMG.",
-    "experience": 15
+    "experience": 15,
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "artificial intelligence",
+      "hrm",
+      "hr technologies",
+      "responsible ai",
+      "future of work",
+      "digital transformation",
+      "healthcare",
+      "management",
+      "economics policy",
+      "business"
+    ]
   },
   {
     "id": "aliya-nurmukhanbetova",
@@ -217,7 +304,13 @@
     ],
     "link": "https://www.linkedin.com/in/saken-sherkhanov-398a65264",
     "bio": "Caltech BSc, UCLA PhD; IBO gold medalist (1996). Works on protein engineering and biofuels.",
-    "experience": 18
+    "experience": 18,
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "hydroxybutyrate)",
+      "biomedical"
+    ]
   },
   {
     "id": "assel-mussagulova",
@@ -235,7 +328,19 @@
     ],
     "link": "https://www.sydney.edu.au/arts/about/our-people/academic-staff/assel-mussagulova.html",
     "bio": "Public policy scholar with prior experience in the Kazakhstani civil service.",
-    "experience": 15
+    "experience": 15,
+    "collab": "maybe",
+    "keywords": [
+      "public management",
+      "public administration reform",
+      "public sector ethics",
+      "integrity",
+      "collaboration",
+      "public services",
+      "policy advisory systems",
+      "economics policy",
+      "economics"
+    ]
   },
   {
     "id": "aliya-kuzhabekova",
@@ -253,7 +358,26 @@
     ],
     "link": "https://profiles.ucalgary.ca/aliya-kuzhabekova",
     "bio": "Studies higher-education reform and researcher mobility in post-Soviet countries; formerly professor at Nazarbayev University.",
-    "experience": 18
+    "experience": 18,
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "international mobility in higher education",
+      "transnational academics",
+      "international faculty",
+      "international students",
+      "immigrant",
+      "refugee students",
+      "researcher socialization",
+      "doctoral education",
+      "research function of higher education",
+      "equity in higher education",
+      "women in stem",
+      "educational reform in post-soviet eurasia",
+      "central asia",
+      "education",
+      "ai & data science"
+    ]
   },
   {
     "id": "marat-bakpayev",
@@ -271,7 +395,15 @@
     ],
     "link": "https://lsbe.d.umn.edu/faculty-staff/marat-bakpayev-phd",
     "bio": "Marketing researcher focusing on consumer behavior and AI-driven markets.",
-    "experience": 20
+    "experience": 20,
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "technology",
+      "macro (sociocultural) perspectives.",
+      "economics policy",
+      "management"
+    ]
   },
   {
     "id": "murat-munkin",
@@ -289,7 +421,13 @@
     ],
     "link": "https://muratmunkin.github.io",
     "bio": "Econometrician (PhD 2001) working on Bayesian methods and health economics.",
-    "experience": 25
+    "experience": 25,
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "economics policy",
+      "economics"
+    ]
   },
   {
     "id": "nargiza-buranova",
@@ -307,7 +445,13 @@
     ],
     "link": "https://cehd.missouri.edu/person/nargiza-buranova/",
     "bio": "Early-career researcher on autism and social-communication interventions.",
-    "experience": 5
+    "experience": 5,
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "autism research & special education",
+      "biomedical"
+    ]
   },
   {
     "id": "askar-dzhumadildayev",
@@ -521,7 +665,12 @@
     ],
     "link": "https://www.linkedin.com/in/aidar-alimbayev/",
     "bio": "Machine learning PhD student at MBZUAI.",
-    "experience": 3
+    "experience": 3,
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "ai & data science"
+    ]
   },
   {
     "id": "abay-buranov",
@@ -557,7 +706,17 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://kz.linkedin.com/in/abduzhappar-gaipov-4a23a738"
+    "link": "https://kz.linkedin.com/in/abduzhappar-gaipov-4a23a738",
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "stem cells",
+      "renal regeneration",
+      "urinary proteomics",
+      "biomarkers of kidney diseases",
+      "clinical epidemiology",
+      "big data in healthcare"
+    ]
   },
   {
     "id": "abulhair-saparov",
@@ -578,7 +737,12 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://asaparov.org"
+    "link": "https://asaparov.org",
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "ai robustness"
+    ]
   },
   {
     "id": "abylaikhan-khangeldiyev",
@@ -597,7 +761,11 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia",
+    "keywords": [
+      "politcs"
+    ]
   },
   {
     "id": "adel-abenova",
@@ -658,7 +826,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "collab": "maybe"
   },
   {
     "id": "aida-amantayeva",
@@ -678,7 +847,12 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1657,
-    "lng": 10.4515
+    "lng": 10.4515,
+    "sector": "Industry",
+    "keywords": [
+      "mems scanners",
+      "biophotonics."
+    ]
   },
   {
     "id": "aida-kabibulatova",
@@ -698,7 +872,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "aida-kumarbayeva",
@@ -759,7 +934,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia"
   },
   {
     "id": "aidana-ramazanova",
@@ -822,7 +998,8 @@
     "bio": "",
     "featured": 0,
     "lat": 47.5162,
-    "lng": 14.5501
+    "lng": 14.5501,
+    "sector": "Academia"
   },
   {
     "id": "aiganym-imakhanova",
@@ -883,7 +1060,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1657,
-    "lng": 10.4515
+    "lng": 10.4515,
+    "sector": "Academia"
   },
   {
     "id": "aigerim-omirkhan",
@@ -904,7 +1082,12 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "https://uk.linkedin.com/in/aigerimomirkkhan"
+    "link": "https://uk.linkedin.com/in/aigerimomirkkhan",
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "energy storage"
+    ]
   },
   {
     "id": "aigerim-otepbergen",
@@ -919,7 +1102,15 @@
     "bio": "",
     "featured": 0,
     "lat": 52.3555,
-    "lng": -1.1743
+    "lng": -1.1743,
+    "sector": "Academia",
+    "keywords": [
+      "performance measurement",
+      "management systems",
+      "management",
+      "law",
+      "politcs"
+    ]
   },
   {
     "id": "aigerim-zkrina",
@@ -986,7 +1177,12 @@
     "bio": "Helps governments and healthcare organizations design and implement effective health policies, financing systems, and quality improvement strategies",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "health systems reform"
+    ]
   },
   {
     "id": "ainur-almukhambetova",
@@ -1003,7 +1199,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "ainur-bishmanova",
@@ -1023,7 +1220,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "ainur-botagarova",
@@ -1057,7 +1255,14 @@
     "featured": 0,
     "lat": 31.0461,
     "lng": 34.8516,
-    "link": "https://www.linkedin.com/in/ainur-imangaly"
+    "link": "https://www.linkedin.com/in/ainur-imangaly",
+    "sector": "Industry",
+    "collab": "maybe",
+    "keywords": [
+      "wastewater treatment",
+      "water analysis",
+      "biopolymer materials"
+    ]
   },
   {
     "id": "ainur-sanaubarova",
@@ -1112,7 +1317,9 @@
     "bio": "",
     "featured": 0,
     "lat": 46.8182,
-    "lng": 8.2275
+    "lng": 8.2275,
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "ainur-zhanturina",
@@ -1130,7 +1337,12 @@
       "ai"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "keywords": [
+      "digital assets",
+      "venture capital",
+      "politcs"
+    ]
   },
   {
     "id": "aisana-tastanbekova",
@@ -1160,7 +1372,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia"
   },
   {
     "id": "aisulu-aitbekova",
@@ -1181,7 +1394,12 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/aisulu-aitbekova-0a400685"
+    "link": "https://www.linkedin.com/in/aisulu-aitbekova-0a400685",
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "photocatalysis"
+    ]
   },
   {
     "id": "aivar",
@@ -1214,7 +1432,13 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "large-scale data",
+      "international education"
+    ]
   },
   {
     "id": "aizere-malibek",
@@ -1233,7 +1457,9 @@
     "featured": 0,
     "lat": -25.2744,
     "lng": 133.7751,
-    "link": "https://www.linkedin.com/in/aizere-malibek/"
+    "link": "https://www.linkedin.com/in/aizere-malibek/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "aizhan-aliyeva",
@@ -1249,7 +1475,8 @@
       "multimodal ux methods"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Industry"
   },
   {
     "id": "aizhan-shomotova",
@@ -1265,7 +1492,8 @@
     "bio": "",
     "featured": 0,
     "lat": 23.4241,
-    "lng": 53.8478
+    "lng": 53.8478,
+    "sector": "Academia"
   },
   {
     "id": "aizhan-uristenova",
@@ -1281,7 +1509,12 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Industry",
+    "keywords": [
+      "a vascular surgeon",
+      "kazakhstan"
+    ]
   },
   {
     "id": "akbope-abdykalyk",
@@ -1329,7 +1562,8 @@
     "bio": "",
     "featured": 0,
     "lat": 35.8617,
-    "lng": 104.1954
+    "lng": 104.1954,
+    "sector": "Academia"
   },
   {
     "id": "akerke-janzakova",
@@ -1348,7 +1582,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/akerke-janzakova-8a0036238/"
+    "link": "https://www.linkedin.com/in/akerke-janzakova-8a0036238/",
+    "sector": "Industry"
   },
   {
     "id": "akmaral-rakhymzhanova",
@@ -1367,7 +1602,10 @@
     "featured": 0,
     "lat": 31.0461,
     "lng": 34.8516,
-    "link": "https://il.linkedin.com/in/akmaralrakhymzhanova"
+    "link": "https://il.linkedin.com/in/akmaralrakhymzhanova",
+    "keywords": [
+      "immunology"
+    ]
   },
   {
     "id": "akzhol-almukhametov",
@@ -1387,7 +1625,18 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "keywords": [
+      "nuclear reactors",
+      "digital twins",
+      "graph neural networks",
+      "reactor safety",
+      "thermal-hydraulics",
+      "nuclear engineering",
+      "ai for energy systems",
+      "reactor control",
+      "energy"
+    ]
   },
   {
     "id": "aldiyar-sopybek",
@@ -1405,7 +1654,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.9194,
-    "lng": 19.1451
+    "lng": 19.1451,
+    "sector": "Academia"
   },
   {
     "id": "aleem-aleem",
@@ -1472,7 +1722,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia"
   },
   {
     "id": "alisher-saduakas",
@@ -1491,7 +1742,9 @@
     "bio": "",
     "featured": 0,
     "lat": 35.9078,
-    "lng": 127.7669
+    "lng": 127.7669,
+    "sector": "Industry",
+    "collab": "maybe"
   },
   {
     "id": "aliya-bizhanova",
@@ -1527,7 +1780,12 @@
     "featured": 0,
     "lat": 46.8182,
     "lng": 8.2275,
-    "link": "https://ch.linkedin.com/in/aliyasarmanova/en"
+    "link": "https://ch.linkedin.com/in/aliyasarmanova/en",
+    "sector": "Industry",
+    "collab": "yes",
+    "keywords": [
+      "clinical development"
+    ]
   },
   {
     "id": "aliya-sarsenbayeva",
@@ -1543,7 +1801,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "aliya-sembayeva",
@@ -1564,7 +1823,14 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://kz.linkedin.com/in/aliya-sembayeva-765a26122"
+    "link": "https://kz.linkedin.com/in/aliya-sembayeva-765a26122",
+    "collab": "maybe",
+    "keywords": [
+      "mechanochemistry",
+      "supramolecular polymers",
+      "science commercialization",
+      "esg strategy"
+    ]
   },
   {
     "id": "aliya-tekenova",
@@ -1591,7 +1857,8 @@
       "stakeholder engagement"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "collab": "yes"
   },
   {
     "id": "almas-serikov",
@@ -1610,7 +1877,8 @@
     "bio": "",
     "featured": 0,
     "lat": 35.9078,
-    "lng": 127.7669
+    "lng": 127.7669,
+    "sector": "Academia"
   },
   {
     "id": "almat-kenen",
@@ -1640,7 +1908,8 @@
     "bio": "",
     "featured": 0,
     "lat": 56.1304,
-    "lng": -106.3468
+    "lng": -106.3468,
+    "sector": "Academia"
   },
   {
     "id": "altyn-taisheva",
@@ -1657,7 +1926,8 @@
     "bio": "",
     "featured": 0,
     "lat": 49.8175,
-    "lng": 15.473
+    "lng": 15.473,
+    "collab": "maybe"
   },
   {
     "id": "altynay-balmukhanova",
@@ -1675,7 +1945,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "altynbek-murat",
@@ -1694,7 +1965,12 @@
     ],
     "bio": "",
     "featured": 0,
-    "link": "https://altynbek.com"
+    "link": "https://altynbek.com",
+    "collab": "maybe",
+    "keywords": [
+      "machine learning",
+      "nanomaterials"
+    ]
   },
   {
     "id": "alua-kulmurzina",
@@ -1747,7 +2023,8 @@
     "featured": 0,
     "lat": 36.2048,
     "lng": 138.2529,
-    "link": "https://jp.linkedin.com/in/amina-bolatkan-515437214"
+    "link": "https://jp.linkedin.com/in/amina-bolatkan-515437214",
+    "sector": "Industry"
   },
   {
     "id": "amina-valiyeva",
@@ -1765,7 +2042,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/amina-valiyeva-890646141/"
+    "link": "https://www.linkedin.com/in/amina-valiyeva-890646141/",
+    "sector": "Academia"
   },
   {
     "id": "amir-rakhimov",
@@ -1814,7 +2092,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/anar-rakhmetova-39ba50141/"
+    "link": "https://www.linkedin.com/in/anar-rakhmetova-39ba50141/",
+    "sector": "Academia"
   },
   {
     "id": "anar-zhexembekova",
@@ -1830,7 +2109,8 @@
     "bio": "",
     "featured": 0,
     "lat": 35.9078,
-    "lng": 127.7669
+    "lng": 127.7669,
+    "sector": "Academia"
   },
   {
     "id": "anara-molkenova",
@@ -1851,7 +2131,12 @@
     "featured": 0,
     "lat": 35.9078,
     "lng": 127.7669,
-    "link": "https://kr.linkedin.com/in/anara-molkenova-52539618"
+    "link": "https://kr.linkedin.com/in/anara-molkenova-52539618",
+    "collab": "maybe",
+    "keywords": [
+      "biosensors",
+      "upconversion nanoparticles"
+    ]
   },
   {
     "id": "anara-nursaitova",
@@ -1871,7 +2156,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1657,
-    "lng": 10.4515
+    "lng": 10.4515,
+    "collab": "maybe"
   },
   {
     "id": "anara-roche",
@@ -1898,7 +2184,9 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "anastassiya-khan",
@@ -1914,7 +2202,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia"
   },
   {
     "id": "anel-botakhanova",
@@ -1930,7 +2219,8 @@
     "bio": "",
     "featured": 0,
     "lat": 47.5162,
-    "lng": 14.5501
+    "lng": 14.5501,
+    "sector": "Academia"
   },
   {
     "id": "anuar",
@@ -1943,7 +2233,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1657,
-    "lng": 10.4515
+    "lng": 10.4515,
+    "collab": "yes"
   },
   {
     "id": "anuar-togaibekov",
@@ -1964,7 +2255,11 @@
     "featured": 0,
     "lat": 46.6034,
     "lng": 1.8883,
-    "link": "https://fr.linkedin.com/in/togaibekov"
+    "link": "https://fr.linkedin.com/in/togaibekov",
+    "keywords": [
+      "mass balance",
+      "basal friction"
+    ]
   },
   {
     "id": "arai-suleimen",
@@ -2014,7 +2309,11 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia",
+    "keywords": [
+      "politcs"
+    ]
   },
   {
     "id": "aray-yesseikyzy",
@@ -2034,7 +2333,10 @@
     "bio": "",
     "featured": 0,
     "lat": 52.3555,
-    "lng": -1.1743
+    "lng": -1.1743,
+    "keywords": [
+      "politcs"
+    ]
   },
   {
     "id": "ardak-nysan",
@@ -2068,7 +2370,13 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "https://uk.linkedin.com/in/arkhat-abzhanov-8b52a24"
+    "link": "https://uk.linkedin.com/in/arkhat-abzhanov-8b52a24",
+    "collab": "maybe",
+    "keywords": [
+      "morphogenesis",
+      "vertebrate development",
+      "developmental evolution"
+    ]
   },
   {
     "id": "arlan-yelzhanov",
@@ -2088,7 +2396,12 @@
     "bio": "",
     "featured": 0,
     "lat": 23.4241,
-    "lng": 53.8478
+    "lng": 53.8478,
+    "sector": "Academia",
+    "keywords": [
+      "molecular mechanisms underlying disease",
+      "cellular signaling."
+    ]
   },
   {
     "id": "arman-burkitbayev",
@@ -2124,7 +2437,11 @@
       "mathematics"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "keywords": [
+      "statistics",
+      "politcs"
+    ]
   },
   {
     "id": "aruzhan-myrzatayeva",
@@ -2170,7 +2487,8 @@
       "machine learning"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Academia"
   },
   {
     "id": "asel-mukanova",
@@ -2187,7 +2505,8 @@
       "digital education"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Industry"
   },
   {
     "id": "askar-abiltayev",
@@ -2207,7 +2526,12 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia",
+    "collab": "yes",
+    "keywords": [
+      "biostatistics"
+    ]
   },
   {
     "id": "askarbek-orakov",
@@ -2228,7 +2552,13 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/askarbek-orakov"
+    "link": "https://www.linkedin.com/in/askarbek-orakov",
+    "collab": "maybe",
+    "keywords": [
+      "bioinformatics",
+      "microbiology",
+      "microbiome research"
+    ]
   },
   {
     "id": "askhar-mazhikenov",
@@ -2246,7 +2576,8 @@
     "bio": "",
     "featured": 0,
     "lat": 61.9241,
-    "lng": 25.7482
+    "lng": 25.7482,
+    "collab": "yes"
   },
   {
     "id": "askhat-myngbay",
@@ -2265,7 +2596,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/askhat-myngbay-a2015547/"
+    "link": "https://www.linkedin.com/in/askhat-myngbay-a2015547/",
+    "sector": "Academia"
   },
   {
     "id": "askhat-sabitov",
@@ -2282,7 +2614,9 @@
     "featured": 0,
     "lat": 46.8182,
     "lng": 8.2275,
-    "link": "https://www.linkedin.com/in/acxam"
+    "link": "https://www.linkedin.com/in/acxam",
+    "sector": "Industry",
+    "collab": "yes"
   },
   {
     "id": "aslan-bulekbay",
@@ -2298,7 +2632,9 @@
       "mining"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Industry",
+    "collab": "yes"
   },
   {
     "id": "assan-abdirakhmanov",
@@ -2319,7 +2655,12 @@
     "featured": 0,
     "lat": 50.5039,
     "lng": 4.4699,
-    "link": "https://kz.linkedin.com/in/assan-abdirakhmanov-1726a2b1"
+    "link": "https://kz.linkedin.com/in/assan-abdirakhmanov-1726a2b1",
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "carbon-based materials"
+    ]
   },
   {
     "id": "assel-altayeva",
@@ -2335,7 +2676,16 @@
       "career success"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Industry",
+    "keywords": [
+      "femmes finance initiative",
+      "social change",
+      "global studies",
+      "computer science",
+      "engineering",
+      "ai & data science"
+    ]
   },
   {
     "id": "assel-bekmurat",
@@ -2370,7 +2720,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/bukharbayeva/"
+    "link": "https://www.linkedin.com/in/bukharbayeva/",
+    "sector": "Academia"
   },
   {
     "id": "assel-kembay",
@@ -2383,7 +2734,16 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "keywords": [
+      "continual learning",
+      "neuromorphic ai",
+      "spiking neural networks",
+      "knowledge distillation",
+      "adaptive ai",
+      "ai & data science",
+      "biomedical"
+    ]
   },
   {
     "id": "assel-mussabekova",
@@ -2398,7 +2758,8 @@
     "bio": "",
     "featured": 0,
     "lat": 46.6034,
-    "lng": 1.8883
+    "lng": 1.8883,
+    "collab": "maybe"
   },
   {
     "id": "assel-nugmanova",
@@ -2417,7 +2778,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "assel-sadykova",
@@ -2435,7 +2797,9 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "assem-imandossova",
@@ -2453,7 +2817,10 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "keywords": [
+      "medicine"
+    ]
   },
   {
     "id": "assem-kalykova",
@@ -2471,7 +2838,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "assem-tazhiyeva",
@@ -2509,7 +2877,12 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "https://uk.linkedin.com/in/assemgul-kozhabek-86a60510b"
+    "link": "https://uk.linkedin.com/in/assemgul-kozhabek-86a60510b",
+    "keywords": [
+      "transport data",
+      "reproducibility",
+      "data science"
+    ]
   },
   {
     "id": "asset-kabdiyev",
@@ -2526,7 +2899,8 @@
       "data analysis"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Academia"
   },
   {
     "id": "assiya-boltaboyeva",
@@ -2562,7 +2936,12 @@
     "bio": "Helps organizations and governments improve competitiveness and innovation through strategic management, human capital optimization, and international business insights",
     "featured": 0,
     "lat": 52.3555,
-    "lng": -1.1743
+    "lng": -1.1743,
+    "collab": "maybe",
+    "keywords": [
+      "r&d offshoring",
+      "organizational agility"
+    ]
   },
   {
     "id": "auezhan-amanov",
@@ -2582,7 +2961,12 @@
     "bio": "Helps industrial companies extend component lifespan and reduce energy losses by optimizing friction, wear, and surface performance of mechanical systems",
     "featured": 0,
     "lat": 61.9241,
-    "lng": 25.7482
+    "lng": 25.7482,
+    "collab": "maybe",
+    "keywords": [
+      "friction optimization",
+      "additive manufacturing"
+    ]
   },
   {
     "id": "ayan",
@@ -2598,7 +2982,8 @@
     "bio": "",
     "featured": 0,
     "lat": 1.3521,
-    "lng": 103.8198
+    "lng": 103.8198,
+    "collab": "yes"
   },
   {
     "id": "ayana-daurenkyzy",
@@ -2645,7 +3030,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia"
   },
   {
     "id": "ayauzhan-kamatayeva",
@@ -2663,7 +3049,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "ayazhan-akhatova",
@@ -2701,7 +3088,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "azhar-zhartybayeva",
@@ -2745,7 +3133,12 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "collab": "yes",
+    "keywords": [
+      "oncology",
+      "infection disease"
+    ]
   },
   {
     "id": "bakhyt-altynbassov",
@@ -2777,7 +3170,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "bakhytzhan-alzhanuly",
@@ -2794,7 +3188,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "bakhytzhan-bekmanov",
@@ -2823,7 +3218,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "balym-mukhaddi",
@@ -2841,7 +3237,9 @@
     "bio": "",
     "featured": 0,
     "lat": 35.8617,
-    "lng": 104.1954
+    "lng": 104.1954,
+    "sector": "Academia",
+    "collab": "yes"
   },
   {
     "id": "barselona",
@@ -2867,7 +3265,8 @@
       "physics"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "collab": "maybe"
   },
   {
     "id": "baurzhan-zhakanov",
@@ -2884,7 +3283,8 @@
     "bio": "",
     "featured": 0,
     "lat": 58.5953,
-    "lng": 25.0136
+    "lng": 25.0136,
+    "sector": "Academia"
   },
   {
     "id": "beibut-zhumabay",
@@ -2985,7 +3385,8 @@
     "bio": "",
     "featured": 0,
     "lat": 52.3555,
-    "lng": -1.1743
+    "lng": -1.1743,
+    "sector": "Industry"
   },
   {
     "id": "chingiz-akniyazov",
@@ -3018,7 +3419,9 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1657,
-    "lng": 10.4515
+    "lng": 10.4515,
+    "sector": "Industry",
+    "collab": "maybe"
   },
   {
     "id": "dalila-s",
@@ -3048,7 +3451,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "damira-mussina",
@@ -3105,7 +3509,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "daniyar-aldabergenov",
@@ -3140,7 +3545,8 @@
     "bio": "",
     "featured": 0,
     "lat": 61.9241,
-    "lng": 25.7482
+    "lng": 25.7482,
+    "sector": "Academia"
   },
   {
     "id": "daniyar-medetov",
@@ -3160,7 +3566,11 @@
     "bio": "Helps governments and organizations design economic and innovation strategies for emerging and transition economies",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "collab": "maybe",
+    "keywords": [
+      "economic strategy"
+    ]
   },
   {
     "id": "daulet-ashirov",
@@ -3176,7 +3586,8 @@
       "biostatistics"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Academia"
   },
   {
     "id": "daulet-sengirov",
@@ -3196,7 +3607,12 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Industry",
+    "keywords": [
+      "digital health",
+      "politcs"
+    ]
   },
   {
     "id": "daulet-sharipov",
@@ -3229,7 +3645,11 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "collab": "maybe",
+    "keywords": [
+      "head & neck cancer"
+    ]
   },
   {
     "id": "diana-aldiarbek",
@@ -3274,7 +3694,9 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1657,
-    "lng": 10.4515
+    "lng": 10.4515,
+    "sector": "Industry",
+    "collab": "maybe"
   },
   {
     "id": "dias",
@@ -3302,7 +3724,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "dias-urozayev",
@@ -3322,7 +3745,12 @@
     "bio": "",
     "featured": 0,
     "lat": 60.472,
-    "lng": 8.4689
+    "lng": 8.4689,
+    "collab": "yes",
+    "keywords": [
+      "bayesian inference",
+      "subsurface monitoring"
+    ]
   },
   {
     "id": "didar-baimanov",
@@ -3339,7 +3767,8 @@
     "bio": "",
     "featured": 0,
     "lat": 35.8617,
-    "lng": 104.1954
+    "lng": 104.1954,
+    "collab": "yes"
   },
   {
     "id": "didar-urynbassarova",
@@ -3373,7 +3802,8 @@
     "bio": "",
     "featured": 0,
     "lat": 52.3555,
-    "lng": -1.1743
+    "lng": -1.1743,
+    "collab": "maybe"
   },
   {
     "id": "dikhan-yesmukhanov",
@@ -3405,7 +3835,8 @@
     "featured": 0,
     "lat": 23.8859,
     "lng": 45.0792,
-    "link": "https://www.linkedin.com/in/dilyara-woodward-0b773468/"
+    "link": "https://www.linkedin.com/in/dilyara-woodward-0b773468/",
+    "sector": "Industry"
   },
   {
     "id": "dimash-davletov",
@@ -3436,7 +3867,10 @@
       "product development"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "keywords": [
+      "international cooperation"
+    ]
   },
   {
     "id": "dina-bahelanbieke",
@@ -3463,7 +3897,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "dinara-ibrayeva",
@@ -3538,7 +3973,10 @@
       "ai"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "keywords": [
+      "politcs"
+    ]
   },
   {
     "id": "diyar-talbayev",
@@ -3558,7 +3996,8 @@
     "bio": "Helps develop advanced optical and terahertz technologies to study and control material properties, enabling innovation in photonics, sensing, and next-generation electronic systems",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "collab": "yes"
   },
   {
     "id": "doszhan-zhussupov",
@@ -3571,7 +4010,9 @@
       "ai & data science"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Industry",
+    "collab": "maybe"
   },
   {
     "id": "dulat-karim",
@@ -3588,7 +4029,8 @@
     "bio": "",
     "featured": 0,
     "lat": -25.2744,
-    "lng": 133.7751
+    "lng": 133.7751,
+    "sector": "Academia"
   },
   {
     "id": "eduard-abrahamyan",
@@ -3607,7 +4049,11 @@
     "bio": "",
     "featured": 0,
     "lat": 52.3555,
-    "lng": -1.1743
+    "lng": -1.1743,
+    "sector": "Academia",
+    "keywords": [
+      "politcs"
+    ]
   },
   {
     "id": "eleonora-kudaibergenova",
@@ -3623,7 +4069,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1657,
-    "lng": 10.4515
+    "lng": 10.4515,
+    "sector": "Academia"
   },
   {
     "id": "elvira-abzhanova",
@@ -3640,7 +4087,8 @@
     "bio": "",
     "featured": 0,
     "lat": 36.2048,
-    "lng": 138.2529
+    "lng": 138.2529,
+    "sector": "Academia"
   },
   {
     "id": "elvira-shirimbaeva",
@@ -3680,7 +4128,8 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/erhan-dumanuli/"
+    "link": "https://www.linkedin.com/in/erhan-dumanuli/",
+    "sector": "Industry"
   },
   {
     "id": "farida",
@@ -3741,7 +4190,10 @@
       "soil mechanics"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "keywords": [
+      "soil-plant-atmosphere modelling"
+    ]
   },
   {
     "id": "galym-imanbayev",
@@ -3754,7 +4206,9 @@
       "ai & data science"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Academia",
+    "collab": "yes"
   },
   {
     "id": "galym-ismagulov",
@@ -3773,7 +4227,8 @@
     "featured": 0,
     "lat": 36.2048,
     "lng": 138.2529,
-    "link": "https://www.linkedin.com/in/galymismagulov/"
+    "link": "https://www.linkedin.com/in/galymismagulov/",
+    "sector": "Academia"
   },
   {
     "id": "galymzhan-issabekov",
@@ -3794,7 +4249,12 @@
     "featured": 0,
     "lat": 51.1657,
     "lng": 10.4515,
-    "link": "https://www.linkedin.com/in/gissabek/"
+    "link": "https://www.linkedin.com/in/gissabek/",
+    "collab": "yes",
+    "keywords": [
+      "ceo qist",
+      "cast"
+    ]
   },
   {
     "id": "gaukhar-baidildinova",
@@ -3810,7 +4270,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "gaukhar-chekembayeva",
@@ -3825,7 +4286,8 @@
     "bio": "",
     "featured": 0,
     "lat": 47.5162,
-    "lng": 14.5501
+    "lng": 14.5501,
+    "collab": "maybe"
   },
   {
     "id": "gaukhar-mukash",
@@ -3842,7 +4304,9 @@
     "featured": 0,
     "lat": 61.9241,
     "lng": 25.7482,
-    "link": "https://www.linkedin.com/in/gmukash/"
+    "link": "https://www.linkedin.com/in/gmukash/",
+    "sector": "Industry",
+    "collab": "maybe"
   },
   {
     "id": "gaziza-konyssova",
@@ -3860,7 +4324,8 @@
     "featured": 0,
     "lat": 51.1657,
     "lng": 10.4515,
-    "link": "https://www.linkedin.com/in/gaziza-konyssova/"
+    "link": "https://www.linkedin.com/in/gaziza-konyssova/",
+    "sector": "Academia"
   },
   {
     "id": "gulaim-seisenbaeva",
@@ -3878,7 +4343,9 @@
     "bio": "",
     "featured": 0,
     "lat": 52.3555,
-    "lng": -1.1743
+    "lng": -1.1743,
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "gulbadam-kutushova",
@@ -3899,7 +4366,10 @@
     "featured": 0,
     "lat": 38.9637,
     "lng": 35.2433,
-    "link": "https://www.linkedin.com/in/gulbadam-kutushova-b969551a5/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+    "link": "https://www.linkedin.com/in/gulbadam-kutushova-b969551a5/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    "keywords": [
+      "politcs"
+    ]
   },
   {
     "id": "gulfairus-sapargazy",
@@ -3918,7 +4388,9 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/gulfairus-sapargazy/"
+    "link": "https://www.linkedin.com/in/gulfairus-sapargazy/",
+    "sector": "Industry",
+    "collab": "maybe"
   },
   {
     "id": "gulfairus-yessenbayeva",
@@ -3938,7 +4410,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/gulfairus-yessenbayeva-802bb4102/"
+    "link": "https://www.linkedin.com/in/gulfairus-yessenbayeva-802bb4102/",
+    "sector": "Industry"
   },
   {
     "id": "gulfiya-kadyrzhanova",
@@ -3957,7 +4430,8 @@
     "featured": 0,
     "lat": 36.2048,
     "lng": 138.2529,
-    "link": "https://www.linkedin.com/in/gulfiya-kadyrzhanova21/?skipRedirect=true"
+    "link": "https://www.linkedin.com/in/gulfiya-kadyrzhanova21/?skipRedirect=true",
+    "collab": "maybe"
   },
   {
     "id": "gulmira-asmaganbetova",
@@ -3995,7 +4469,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/gulnar-imasheva-2242762b2/"
+    "link": "https://www.linkedin.com/in/gulnar-imasheva-2242762b2/",
+    "sector": "Academia"
   },
   {
     "id": "gulnara-alexandrova",
@@ -4030,7 +4505,8 @@
     "bio": "",
     "featured": 0,
     "lat": 52.3555,
-    "lng": -1.1743
+    "lng": -1.1743,
+    "sector": "Academia"
   },
   {
     "id": "gulzhan-karibayeva",
@@ -4065,7 +4541,11 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/gulzhan-khamitova-92346a263/"
+    "link": "https://www.linkedin.com/in/gulzhan-khamitova-92346a263/",
+    "collab": "yes",
+    "keywords": [
+      "food chemistry"
+    ]
   },
   {
     "id": "gulzhan-oralova",
@@ -4081,7 +4561,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia"
   },
   {
     "id": "gulzhan-rysbekova",
@@ -4100,7 +4581,8 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "https://www.linkedin.com/in/gulzhan-rysbekova/?locale=ru"
+    "link": "https://www.linkedin.com/in/gulzhan-rysbekova/?locale=ru",
+    "sector": "Industry"
   },
   {
     "id": "gulzhanat-aimagambetova",
@@ -4120,7 +4602,11 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia",
+    "keywords": [
+      "vaccination"
+    ]
   },
   {
     "id": "gulzhibek-yelshekenova",
@@ -4139,7 +4625,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "heitor-valente",
@@ -4159,7 +4646,11 @@
     "bio": "",
     "featured": 0,
     "lat": 35.8617,
-    "lng": 104.1954
+    "lng": 104.1954,
+    "sector": "Academia",
+    "keywords": [
+      "politcs"
+    ]
   },
   {
     "id": "hurmanbek-dayitkhan",
@@ -4172,7 +4663,8 @@
       "biomedical"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "collab": "maybe"
   },
   {
     "id": "igor-shenberger",
@@ -4190,7 +4682,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "ikram-bekzhigit",
@@ -4208,7 +4701,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Industry"
   },
   {
     "id": "indira-murymbayeva",
@@ -4229,7 +4723,14 @@
     "featured": 0,
     "lat": 51.1657,
     "lng": 10.4515,
-    "link": "http://linkedin.com/in/indira-murymbayeva-b8097794/?skipRedirect=true"
+    "link": "http://linkedin.com/in/indira-murymbayeva-b8097794/?skipRedirect=true",
+    "sector": "Industry",
+    "collab": "maybe",
+    "keywords": [
+      "erp",
+      "financial operations",
+      "reconciliation"
+    ]
   },
   {
     "id": "indira-omarova",
@@ -4245,7 +4746,9 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "ireko-zamilov",
@@ -4264,7 +4767,8 @@
     "bio": "",
     "featured": 0,
     "lat": 52.3555,
-    "lng": -1.1743
+    "lng": -1.1743,
+    "sector": "Academia"
   },
   {
     "id": "iskander-isgandarov",
@@ -4301,7 +4805,12 @@
     "featured": 0,
     "lat": 56.1304,
     "lng": -106.3468,
-    "link": "https://www.linkedin.com/in/iskander-karibzhanov-1b74881/"
+    "link": "https://www.linkedin.com/in/iskander-karibzhanov-1b74881/",
+    "sector": "Industry",
+    "collab": "maybe",
+    "keywords": [
+      "economic forecasting"
+    ]
   },
   {
     "id": "islam-salikhanov",
@@ -4359,7 +4868,15 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://janarbek.github.io"
+    "link": "https://janarbek.github.io",
+    "sector": "Industry",
+    "collab": "yes",
+    "keywords": [
+      "hardware acceleration",
+      "quantization",
+      "ml optimization",
+      "fpga"
+    ]
   },
   {
     "id": "jasmin",
@@ -4380,7 +4897,11 @@
     "featured": 0,
     "lat": 51.1657,
     "lng": 10.4515,
-    "link": "https://www.linkedin.com/in/yasmin-okhassova-387117136/?locale=ru"
+    "link": "https://www.linkedin.com/in/yasmin-okhassova-387117136/?locale=ru",
+    "keywords": [
+      "hydrogen evolution reaction",
+      "co2 reduction reactions"
+    ]
   },
   {
     "id": "kadyrzhan-tortayev",
@@ -4400,7 +4921,8 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/kadyrzhan-tortayev-3395ba219?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+    "link": "https://www.linkedin.com/in/kadyrzhan-tortayev-3395ba219?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    "sector": "Academia"
   },
   {
     "id": "kaisar-kushibar",
@@ -4418,7 +4940,12 @@
       "ct"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "collab": "maybe",
+    "keywords": [
+      "mri",
+      "uncertainty estimation"
+    ]
   },
   {
     "id": "kamil-kayode-katibi",
@@ -4438,7 +4965,8 @@
     "bio": "",
     "featured": 0,
     "lat": 4.2105,
-    "lng": 101.9758
+    "lng": 101.9758,
+    "sector": "Academia"
   },
   {
     "id": "kamila",
@@ -4451,7 +4979,9 @@
       "biomedical"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Industry",
+    "collab": "yes"
   },
   {
     "id": "kamila-bekshentayeva",
@@ -4470,7 +5000,8 @@
     "featured": 0,
     "lat": 35.8617,
     "lng": 104.1954,
-    "link": "https://www.linkedin.com/in/kdagilova/"
+    "link": "https://www.linkedin.com/in/kdagilova/",
+    "sector": "Academia"
   },
   {
     "id": "kanat-dukenbayev",
@@ -4491,7 +5022,12 @@
     "featured": 0,
     "lat": 23.8859,
     "lng": 45.0792,
-    "link": "https://www.linkedin.com/in/kanat-dukenbayev/"
+    "link": "https://www.linkedin.com/in/kanat-dukenbayev/",
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "excellence of kaust at global stage."
+    ]
   },
   {
     "id": "kanat-tossekbayev",
@@ -4508,7 +5044,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia"
   },
   {
     "id": "kanat-ydrys",
@@ -4568,7 +5105,13 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/karlygash-kuralbayeva-88952730/"
+    "link": "https://www.linkedin.com/in/karlygash-kuralbayeva-88952730/",
+    "sector": "Academia",
+    "collab": "maybe",
+    "keywords": [
+      "climate change",
+      "central asia"
+    ]
   },
   {
     "id": "kayir-tekebayev",
@@ -4589,7 +5132,14 @@
     "featured": 0,
     "lat": 52.1326,
     "lng": 5.2913,
-    "link": "https://www.linkedin.com/in/kaiyr-tekebayev-14802787/"
+    "link": "https://www.linkedin.com/in/kaiyr-tekebayev-14802787/",
+    "sector": "Industry",
+    "collab": "maybe",
+    "keywords": [
+      "petrol",
+      "gas",
+      "chemistry"
+    ]
   },
   {
     "id": "khalid-miah",
@@ -4609,7 +5159,12 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia",
+    "keywords": [
+      "computer engineering",
+      "erospace engineering"
+    ]
   },
   {
     "id": "khamidulla-tukhtaev",
@@ -4628,7 +5183,8 @@
     "bio": "",
     "featured": 0,
     "lat": 23.4241,
-    "lng": 53.8478
+    "lng": 53.8478,
+    "sector": "Academia"
   },
   {
     "id": "khasankhon-yusupkhujaev",
@@ -4646,7 +5202,10 @@
       "with a particular interest in low-resource languages"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "keywords": [
+      "socially impactful applications of technolog"
+    ]
   },
   {
     "id": "khaumdas-ashim",
@@ -4776,7 +5335,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/leila-salykova-b5432613/"
+    "link": "https://www.linkedin.com/in/leila-salykova-b5432613/",
+    "sector": "Academia"
   },
   {
     "id": "leila-ulmanova",
@@ -4816,7 +5376,8 @@
       "law"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Industry"
   },
   {
     "id": "lyazzat-adilova",
@@ -4833,7 +5394,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia"
   },
   {
     "id": "lyazzat-kosherbayeva",
@@ -4851,7 +5413,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/lyazzat-kosherbayeva-ba433838/"
+    "link": "https://www.linkedin.com/in/lyazzat-kosherbayeva-ba433838/",
+    "sector": "Academia"
   },
   {
     "id": "madina-abenova",
@@ -4928,7 +5491,9 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/magzhan-mukanova-28283a11b/"
+    "link": "https://www.linkedin.com/in/magzhan-mukanova-28283a11b/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "magzhan-serikuly",
@@ -4948,7 +5513,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "maiya-suyunchaliyeva",
@@ -4966,7 +5532,11 @@
       "tourism"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "keywords": [
+      "marketing",
+      "politcs"
+    ]
   },
   {
     "id": "makpal",
@@ -5009,7 +5579,8 @@
     "bio": "",
     "featured": 0,
     "lat": 56.1304,
-    "lng": -106.3468
+    "lng": -106.3468,
+    "collab": "maybe"
   },
   {
     "id": "malika-alimussina",
@@ -5028,7 +5599,8 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "https://www.linkedin.com/in/malika-alimussina-690b7b51/?skipRedirect=true."
+    "link": "https://www.linkedin.com/in/malika-alimussina-690b7b51/?skipRedirect=true.",
+    "sector": "Academia"
   },
   {
     "id": "malika-toqmadi",
@@ -5048,7 +5620,8 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/malika-toqmadi/"
+    "link": "https://www.linkedin.com/in/malika-toqmadi/",
+    "sector": "Academia"
   },
   {
     "id": "maral-muratbekova",
@@ -5067,7 +5640,9 @@
     "featured": 0,
     "lat": 46.6034,
     "lng": 1.8883,
-    "link": "https://www.linkedin.com/in/maral-muratbekova-57b26b4a/"
+    "link": "https://www.linkedin.com/in/maral-muratbekova-57b26b4a/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "maral-shagatay",
@@ -5085,7 +5660,8 @@
     "bio": "",
     "featured": 0,
     "lat": 46.6034,
-    "lng": 1.8883
+    "lng": 1.8883,
+    "sector": "Industry"
   },
   {
     "id": "margulan-otanuly",
@@ -5121,7 +5697,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1657,
-    "lng": 10.4515
+    "lng": 10.4515,
+    "sector": "Academia"
   },
   {
     "id": "marlen-doskali",
@@ -5138,7 +5715,9 @@
     "featured": 0,
     "lat": 36.2048,
     "lng": 138.2529,
-    "link": "https://www.linkedin.com/in/marlen-doskali-7192a6b5/"
+    "link": "https://www.linkedin.com/in/marlen-doskali-7192a6b5/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "marsel-ganeyev",
@@ -5158,7 +5737,8 @@
     "featured": 0,
     "lat": 60.1282,
     "lng": 18.6435,
-    "link": "https://www.linkedin.com/in/marsel-ganeyev-31a021150/"
+    "link": "https://www.linkedin.com/in/marsel-ganeyev-31a021150/",
+    "sector": "Industry"
   },
   {
     "id": "marzhan-akhmetkulova",
@@ -5178,7 +5758,8 @@
     "featured": 0,
     "lat": 51.1657,
     "lng": 10.4515,
-    "link": "https://www.linkedin.com/in/marzhan-akhmetkulova/"
+    "link": "https://www.linkedin.com/in/marzhan-akhmetkulova/",
+    "sector": "Academia"
   },
   {
     "id": "marzhan-nurlankyzy",
@@ -5197,7 +5778,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/marzhann/"
+    "link": "https://www.linkedin.com/in/marzhann/",
+    "sector": "Academia"
   },
   {
     "id": "maya-mutalipova",
@@ -5214,7 +5796,9 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia",
+    "collab": "yes"
   },
   {
     "id": "medet-segizbayev",
@@ -5233,7 +5817,9 @@
     "featured": 0,
     "lat": 56.1304,
     "lng": -106.3468,
-    "link": "https://www.linkedin.com/in/medet-segizbayev-a08a11138/?locale=ru"
+    "link": "https://www.linkedin.com/in/medet-segizbayev-a08a11138/?locale=ru",
+    "sector": "Industry",
+    "collab": "maybe"
   },
   {
     "id": "meerim-sultankulova",
@@ -5251,7 +5837,11 @@
       "human rights"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Academia",
+    "keywords": [
+      "politcs"
+    ]
   },
   {
     "id": "meirambek-zhaparov",
@@ -5269,7 +5859,9 @@
     "featured": 0,
     "lat": 12.5657,
     "lng": 104.991,
-    "link": "https://www.linkedin.com/in/meirambek-zhaparov-10626466/"
+    "link": "https://www.linkedin.com/in/meirambek-zhaparov-10626466/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "meirbek-mussatayev",
@@ -5289,7 +5881,9 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "http://linkedin.com/in/meirbek-mussatayev-87b467196/"
+    "link": "http://linkedin.com/in/meirbek-mussatayev-87b467196/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "meirgul-kaleshova",
@@ -5309,7 +5903,9 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/meirgul-kaleshova/?locale=ru"
+    "link": "https://www.linkedin.com/in/meirgul-kaleshova/?locale=ru",
+    "sector": "Academia",
+    "collab": "yes"
   },
   {
     "id": "mereilim-gaisina",
@@ -5326,7 +5922,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "mereke-alibek",
@@ -5344,7 +5941,8 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/alibekmereke/"
+    "link": "https://www.linkedin.com/in/alibekmereke/",
+    "sector": "Industry"
   },
   {
     "id": "merey-anas",
@@ -5378,7 +5976,8 @@
     "featured": 0,
     "lat": 51.1657,
     "lng": 10.4515,
-    "link": "https://www.linkedin.com/in/merey-jetpissov-234b4877/"
+    "link": "https://www.linkedin.com/in/merey-jetpissov-234b4877/",
+    "sector": "Industry"
   },
   {
     "id": "meruyert-iskakova",
@@ -5395,7 +5994,8 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/miskak/"
+    "link": "https://www.linkedin.com/in/miskak/",
+    "sector": "Academia"
   },
   {
     "id": "meruyert-suleimen",
@@ -5428,7 +6028,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1657,
-    "lng": 10.4515
+    "lng": 10.4515,
+    "sector": "Academia"
   },
   {
     "id": "mira-budenova",
@@ -5473,7 +6074,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "mohamed-mabrouk",
@@ -5489,7 +6091,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "moldir-pocstar",
@@ -5509,7 +6112,8 @@
     "featured": 0,
     "lat": 47.1625,
     "lng": 19.5033,
-    "link": "https://www.linkedin.com/in/moldirpocstar/"
+    "link": "https://www.linkedin.com/in/moldirpocstar/",
+    "sector": "Academia"
   },
   {
     "id": "mukhit-kulmaganbekov",
@@ -5543,7 +6147,12 @@
     "featured": 0,
     "lat": 22.3193,
     "lng": 114.1694,
-    "link": "https://www.linkedin.com/in/mukhit-kulmaganbetov/"
+    "link": "https://www.linkedin.com/in/mukhit-kulmaganbetov/",
+    "collab": "maybe",
+    "keywords": [
+      "medical imaging",
+      "ai diagnostics"
+    ]
   },
   {
     "id": "mukhtar-karazym",
@@ -5563,7 +6172,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/mukhtar-karazym-113136314/"
+    "link": "https://www.linkedin.com/in/mukhtar-karazym-113136314/",
+    "sector": "Academia"
   },
   {
     "id": "murat",
@@ -5582,7 +6192,8 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/yessenov/"
+    "link": "https://www.linkedin.com/in/yessenov/",
+    "sector": "Academia"
   },
   {
     "id": "murat-anelya",
@@ -5613,7 +6224,9 @@
     "bio": "",
     "featured": 0,
     "lat": 46.6034,
-    "lng": 1.8883
+    "lng": 1.8883,
+    "sector": "Academia",
+    "collab": "yes"
   },
   {
     "id": "mustafa-korkmaz",
@@ -5650,7 +6263,11 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "keywords": [
+      "ecosystem",
+      "environmental change"
+    ]
   },
   {
     "id": "nardana-bazybek",
@@ -5685,7 +6302,9 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/nargis-kassenova-15b4a2a5/"
+    "link": "https://www.linkedin.com/in/nargis-kassenova-15b4a2a5/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "natalya-glushkova",
@@ -5716,7 +6335,11 @@
     "bio": "",
     "featured": 0,
     "lat": 30.3753,
-    "lng": 69.3451
+    "lng": 69.3451,
+    "keywords": [
+      "governance studies",
+      "politcs"
+    ]
   },
   {
     "id": "nazerke-amangeldy",
@@ -5734,7 +6357,8 @@
     "bio": "",
     "featured": 0,
     "lat": 50.5039,
-    "lng": 4.4699
+    "lng": 4.4699,
+    "sector": "Academia"
   },
   {
     "id": "nazgul-zakiyeva",
@@ -5751,7 +6375,9 @@
     "featured": 0,
     "lat": 36.2048,
     "lng": 138.2529,
-    "link": "https://www.linkedin.com/in/naz-zakiyeva-73b13463/"
+    "link": "https://www.linkedin.com/in/naz-zakiyeva-73b13463/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "nazym-sagandykova",
@@ -5770,7 +6396,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/nazym-sagandykova-785441110/"
+    "link": "https://www.linkedin.com/in/nazym-sagandykova-785441110/",
+    "sector": "Academia"
   },
   {
     "id": "nazym-seitova",
@@ -5789,7 +6416,8 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "https://www.linkedin.com/in/nazym-seitova/"
+    "link": "https://www.linkedin.com/in/nazym-seitova/",
+    "sector": "Academia"
   },
   {
     "id": "niyaz-badykhan",
@@ -5810,7 +6438,12 @@
     "featured": 0,
     "lat": 51.1657,
     "lng": 10.4515,
-    "link": "https://www.linkedin.com/in/niyaz-badykhan/"
+    "link": "https://www.linkedin.com/in/niyaz-badykhan/",
+    "sector": "Industry",
+    "collab": "maybe",
+    "keywords": [
+      "energy trading"
+    ]
   },
   {
     "id": "nurassyl-yerzhanov",
@@ -5847,7 +6480,8 @@
     "featured": 0,
     "lat": 23.4241,
     "lng": 53.8478,
-    "link": "http://linkedin.com/in/nurbolibadulla/"
+    "link": "http://linkedin.com/in/nurbolibadulla/",
+    "collab": "yes"
   },
   {
     "id": "nurbolat-nurush",
@@ -5863,7 +6497,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia"
   },
   {
     "id": "nurgissa-bekenov",
@@ -5899,7 +6534,8 @@
     "bio": "",
     "featured": 0,
     "lat": 41.8719,
-    "lng": 12.5674
+    "lng": 12.5674,
+    "sector": "Academia"
   },
   {
     "id": "nurkhat-zhakiyev",
@@ -5917,7 +6553,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "nurlan-ongdas",
@@ -5936,7 +6573,8 @@
     "featured": 0,
     "lat": 51.1657,
     "lng": 10.4515,
-    "link": "https://www.linkedin.com/in/nurlan-ongdas-a4813193/"
+    "link": "https://www.linkedin.com/in/nurlan-ongdas-a4813193/",
+    "sector": "Industry"
   },
   {
     "id": "nurlybek-mursali",
@@ -5954,7 +6592,9 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/nurlybek/"
+    "link": "https://www.linkedin.com/in/nurlybek/",
+    "sector": "Industry",
+    "collab": "maybe"
   },
   {
     "id": "nurlybek-temirbay",
@@ -5974,7 +6614,15 @@
     "bio": "",
     "featured": 0,
     "lat": 23.4241,
-    "lng": 53.8478
+    "lng": 53.8478,
+    "keywords": [
+      "generative ai",
+      "cheminformatics",
+      "drug discovery",
+      "molecular modeling",
+      "chemical space",
+      "biomedical"
+    ]
   },
   {
     "id": "nursaya-zhumabay",
@@ -5994,7 +6642,8 @@
     "featured": 0,
     "lat": 23.8859,
     "lng": 45.0792,
-    "link": "https://www.linkedin.com/in/nursaya-z-385229a1/"
+    "link": "https://www.linkedin.com/in/nursaya-z-385229a1/",
+    "sector": "Industry"
   },
   {
     "id": "nursultan-akhmetov",
@@ -6011,7 +6660,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "nursultan-assylov",
@@ -6029,7 +6679,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia"
   },
   {
     "id": "nursulu-aldiarbek",
@@ -6046,7 +6697,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "nurtileu-duysekeshov",
@@ -6078,7 +6730,8 @@
     "bio": "",
     "featured": 0,
     "lat": 47.1625,
-    "lng": 19.5033
+    "lng": 19.5033,
+    "sector": "Industry"
   },
   {
     "id": "nurzhan-abdukarimov",
@@ -6097,7 +6750,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1657,
-    "lng": 10.4515
+    "lng": 10.4515,
+    "sector": "Academia"
   },
   {
     "id": "olzhas-kaupbay",
@@ -6131,7 +6785,8 @@
       "supply chain structure"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Industry"
   },
   {
     "id": "olzhas-zhorayev",
@@ -6152,7 +6807,13 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/olzhas-zhorayev/"
+    "link": "https://www.linkedin.com/in/olzhas-zhorayev/",
+    "sector": "Industry",
+    "collab": "maybe",
+    "keywords": [
+      "program evaluation",
+      "consulting."
+    ]
   },
   {
     "id": "oman-abyshev",
@@ -6170,7 +6831,8 @@
     "bio": "",
     "featured": 0,
     "lat": 41.2044,
-    "lng": 74.7661
+    "lng": 74.7661,
+    "sector": "Academia"
   },
   {
     "id": "omarova",
@@ -6183,7 +6845,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "collab": "maybe"
   },
   {
     "id": "oral-kdirshayev",
@@ -6233,7 +6896,9 @@
     "featured": 0,
     "lat": 38.9637,
     "lng": 35.2433,
-    "link": "https://linkedin.com/in/ozat-shamshiyev-7594782b2/?skipRedirect=true"
+    "link": "https://linkedin.com/in/ozat-shamshiyev-7594782b2/?skipRedirect=true",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "perizat-komekbayeva",
@@ -6250,7 +6915,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "qammer-abbasi",
@@ -6270,7 +6936,11 @@
     "bio": "",
     "featured": 0,
     "lat": 52.3555,
-    "lng": -1.1743
+    "lng": -1.1743,
+    "sector": "Academia",
+    "keywords": [
+      "politcs"
+    ]
   },
   {
     "id": "raiymbek-akshulakov",
@@ -6288,7 +6958,8 @@
     "bio": "",
     "featured": 0,
     "lat": 46.6034,
-    "lng": 1.8883
+    "lng": 1.8883,
+    "sector": "Academia"
   },
   {
     "id": "ramil-salihar",
@@ -6304,7 +6975,8 @@
     "bio": "",
     "featured": 0,
     "lat": 41.2044,
-    "lng": 74.7661
+    "lng": 74.7661,
+    "sector": "Industry"
   },
   {
     "id": "ramiya-khalitova",
@@ -6348,7 +7020,8 @@
     "bio": "",
     "featured": 0,
     "lat": 20.5937,
-    "lng": 78.9629
+    "lng": 78.9629,
+    "sector": "Academia"
   },
   {
     "id": "rana-salieva",
@@ -6397,7 +7070,9 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "https://www.linkedin.com/in/rauan-kaiyrzhanov-0a6592248/"
+    "link": "https://www.linkedin.com/in/rauan-kaiyrzhanov-0a6592248/",
+    "sector": "Academia",
+    "collab": "yes"
   },
   {
     "id": "rauan-kankin",
@@ -6417,7 +7092,10 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "keywords": [
+      "politcs"
+    ]
   },
   {
     "id": "rauan-yesselbayev",
@@ -6434,7 +7112,8 @@
     "bio": "",
     "featured": 0,
     "lat": 52.3555,
-    "lng": -1.1743
+    "lng": -1.1743,
+    "sector": "Academia"
   },
   {
     "id": "raushan-kambar",
@@ -6452,7 +7131,10 @@
       "grant funding"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "keywords": [
+      "politcs"
+    ]
   },
   {
     "id": "raushan-nugmanova",
@@ -6467,7 +7149,8 @@
       "that causes malaria"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Academia"
   },
   {
     "id": "renata-gaineddenova",
@@ -6485,7 +7168,9 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/renata-gaineddenova-b6a9b981/"
+    "link": "https://www.linkedin.com/in/renata-gaineddenova-b6a9b981/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "riza-akhitova",
@@ -6505,7 +7190,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "ruslan-barikulov",
@@ -6522,7 +7208,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/ruslan-barikulov/"
+    "link": "https://www.linkedin.com/in/ruslan-barikulov/",
+    "sector": "Academia"
   },
   {
     "id": "ruslan-kurmashev",
@@ -6542,7 +7229,8 @@
     "bio": "",
     "featured": 0,
     "lat": 53.4129,
-    "lng": -8.2439
+    "lng": -8.2439,
+    "sector": "Academia"
   },
   {
     "id": "rustam-gatamov",
@@ -6560,7 +7248,8 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/rustam-gatamov/"
+    "link": "https://www.linkedin.com/in/rustam-gatamov/",
+    "sector": "Academia"
   },
   {
     "id": "sabina-baitemir",
@@ -6580,7 +7269,11 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Industry",
+    "keywords": [
+      "med tech"
+    ]
   },
   {
     "id": "sabina-schmid",
@@ -6594,7 +7287,8 @@
       "pharma industry professional with msc in molecular biomedicine"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Industry"
   },
   {
     "id": "safiullah-shirzad",
@@ -6612,7 +7306,8 @@
     "bio": "",
     "featured": 0,
     "lat": 38.9637,
-    "lng": 35.2433
+    "lng": 35.2433,
+    "sector": "Academia"
   },
   {
     "id": "sagit-bakirov",
@@ -6632,7 +7327,9 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/sagitbakirov/?locale=ru"
+    "link": "https://www.linkedin.com/in/sagitbakirov/?locale=ru",
+    "sector": "Academia & Industry",
+    "collab": "maybe"
   },
   {
     "id": "sagyntay-yerkebulan",
@@ -6670,7 +7367,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "saltanat-janenova",
@@ -6689,7 +7387,9 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "https://www.linkedin.com/in/saltanat-janenova-2526aa13/"
+    "link": "https://www.linkedin.com/in/saltanat-janenova-2526aa13/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "saltanat-kamenova",
@@ -6710,7 +7410,12 @@
     "featured": 0,
     "lat": -25.2744,
     "lng": 133.7751,
-    "link": "http://linkedin.com/in/saltanat-kamenova-29710a106/"
+    "link": "http://linkedin.com/in/saltanat-kamenova-29710a106/",
+    "keywords": [
+      "exploring how social",
+      "spatial dynamics shape lived experiences",
+      "inequalities"
+    ]
   },
   {
     "id": "saltanat-toiganbayeva",
@@ -6727,7 +7432,9 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "https://www.linkedin.com/in/saltanat-toiganbayevaeva-a7817b108/"
+    "link": "https://www.linkedin.com/in/saltanat-toiganbayevaeva-a7817b108/",
+    "sector": "Industry",
+    "collab": "maybe"
   },
   {
     "id": "samat-sagatov",
@@ -6746,7 +7453,9 @@
     "featured": 0,
     "lat": 56.2639,
     "lng": 9.5018,
-    "link": "https://www.linkedin.com/in/samat-sagatov-2971a827/"
+    "link": "https://www.linkedin.com/in/samat-sagatov-2971a827/",
+    "sector": "Industry",
+    "collab": "maybe"
   },
   {
     "id": "samuel-roshaven",
@@ -6763,7 +7472,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Industry"
   },
   {
     "id": "sanat-kozhakhmet",
@@ -6781,7 +7491,9 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "https://www.linkedin.com/in/sanat-kozhakhmet-20b2b89a/"
+    "link": "https://www.linkedin.com/in/sanat-kozhakhmet-20b2b89a/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "sanzhar-korganbayev",
@@ -6801,7 +7513,8 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "https://www.linkedin.com/in/sanzhar-korganbayev/"
+    "link": "https://www.linkedin.com/in/sanzhar-korganbayev/",
+    "sector": "Academia"
   },
   {
     "id": "saule-zholdayakova",
@@ -6818,7 +7531,9 @@
     "featured": 0,
     "lat": 47.5162,
     "lng": 14.5501,
-    "link": "https://www.linkedin.com/in/dr-saule-zholdayakova-11b74a199/"
+    "link": "https://www.linkedin.com/in/dr-saule-zholdayakova-11b74a199/",
+    "sector": "Industry",
+    "collab": "maybe"
   },
   {
     "id": "sauran-yerdessov",
@@ -6856,7 +7571,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia"
   },
   {
     "id": "sazhar-taizhan",
@@ -6869,7 +7585,9 @@
       "energy"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Industry",
+    "collab": "maybe"
   },
   {
     "id": "seda-keskin",
@@ -6899,7 +7617,9 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/serdar-charyyev-349854170/"
+    "link": "https://www.linkedin.com/in/serdar-charyyev-349854170/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "serik-kairdenov",
@@ -6947,7 +7667,9 @@
     "featured": 0,
     "lat": 60.1282,
     "lng": 18.6435,
-    "link": "https://www.linkedin.com/in/serik-sagitov-5b0828198/"
+    "link": "https://www.linkedin.com/in/serik-sagitov-5b0828198/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "serik-tabarak",
@@ -6964,7 +7686,9 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1657,
-    "lng": 10.4515
+    "lng": 10.4515,
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "serik-tokbolat",
@@ -6985,7 +7709,9 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "http://linkedin.com/in/serik-t-90647a332/"
+    "link": "http://linkedin.com/in/serik-t-90647a332/",
+    "sector": "Academia",
+    "collab": "yes"
   },
   {
     "id": "sevara-ilmuratova",
@@ -7000,7 +7726,8 @@
       "global medical operations manager at gedeon richter hq"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Industry"
   },
   {
     "id": "shamil-ibragimov",
@@ -7014,7 +7741,9 @@
       "ai & data science"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Academia",
+    "collab": "yes"
   },
   {
     "id": "shayakhmet-tokubayev",
@@ -7047,7 +7776,12 @@
       "blockchain"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Academia",
+    "keywords": [
+      "fintech",
+      "machine learning"
+    ]
   },
   {
     "id": "shenol-jadik",
@@ -7060,7 +7794,8 @@
       "biomedical"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "collab": "maybe"
   },
   {
     "id": "sherzod-hakimov",
@@ -7076,7 +7811,8 @@
       "nlp"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Academia"
   },
   {
     "id": "shokhjakhon-kodirov",
@@ -7091,7 +7827,8 @@
       "high-precision manufacturing"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Industry"
   },
   {
     "id": "shoukhrat-mutalipov",
@@ -7110,7 +7847,9 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/shoukhrat-mitalipov-5807001/"
+    "link": "https://www.linkedin.com/in/shoukhrat-mitalipov-5807001/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "stepan-shramko",
@@ -7129,7 +7868,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "suleimen",
@@ -7144,7 +7884,8 @@
     "bio": "",
     "featured": 0,
     "lat": 61.9241,
-    "lng": 25.7482
+    "lng": 25.7482,
+    "collab": "maybe"
   },
   {
     "id": "sultan-saburov",
@@ -7165,7 +7906,11 @@
     "featured": 0,
     "lat": 36.2048,
     "lng": 138.2529,
-    "link": "https://www.linkedin.com/in/sultan-saburov-03ba44181/"
+    "link": "https://www.linkedin.com/in/sultan-saburov-03ba44181/",
+    "sector": "Academia",
+    "keywords": [
+      "quantum cosmology"
+    ]
   },
   {
     "id": "sultan-yessenbek",
@@ -7184,7 +7929,12 @@
     ],
     "bio": "",
     "featured": 0,
-    "link": "https://www.linkedin.com/in/sultan-yessenbek-3a519118a/"
+    "link": "https://www.linkedin.com/in/sultan-yessenbek-3a519118a/",
+    "keywords": [
+      "business",
+      "geopolitics",
+      "benelux"
+    ]
   },
   {
     "id": "sultan-zhandossov",
@@ -7220,7 +7970,11 @@
     "featured": 0,
     "lat": 51.1657,
     "lng": 10.4515,
-    "link": "https://www.linkedin.com/in/sungat-mukhangali-30377b19a/"
+    "link": "https://www.linkedin.com/in/sungat-mukhangali-30377b19a/",
+    "sector": "Industry",
+    "keywords": [
+      "mbe growth"
+    ]
   },
   {
     "id": "surih-sibaghatullah-jagirani",
@@ -7234,7 +7988,8 @@
       "geology"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Academia"
   },
   {
     "id": "svetlana-em",
@@ -7266,7 +8021,8 @@
       "network governance"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Academia"
   },
   {
     "id": "symbat-alimbek",
@@ -7328,7 +8084,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "tansholpan-zhanabekova",
@@ -7362,7 +8119,8 @@
       "mouse brain development"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Academia"
   },
   {
     "id": "temur-khujamuratov",
@@ -7376,7 +8134,8 @@
       "material science"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Academia"
   },
   {
     "id": "tileuzhan-mukhamet",
@@ -7393,7 +8152,8 @@
     "featured": 0,
     "lat": 51.1657,
     "lng": 10.4515,
-    "link": "https://www.linkedin.com/in/tileuzhan/"
+    "link": "https://www.linkedin.com/in/tileuzhan/",
+    "sector": "Academia"
   },
   {
     "id": "toktar-aben",
@@ -7411,7 +8171,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/toktar-aben/"
+    "link": "https://www.linkedin.com/in/toktar-aben/",
+    "sector": "Industry"
   },
   {
     "id": "tomiris-kadyrbek",
@@ -7441,7 +8202,9 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/ualikhanyerkinbek-a994b81a1/"
+    "link": "https://www.linkedin.com/in/ualikhanyerkinbek-a994b81a1/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "ulanbek-auyeskhan",
@@ -7462,7 +8225,11 @@
     "featured": 0,
     "lat": 35.9078,
     "lng": 127.7669,
-    "link": "https://www.linkedin.com/in/auyeskhan-ulanbek/"
+    "link": "https://www.linkedin.com/in/auyeskhan-ulanbek/",
+    "collab": "yes",
+    "keywords": [
+      "smartphone materials"
+    ]
   },
   {
     "id": "ulugbek-kamilov",
@@ -7480,7 +8247,8 @@
       "signal processing"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "collab": "yes"
   },
   {
     "id": "ulzhan-bassembek",
@@ -7500,7 +8268,9 @@
     "featured": 0,
     "lat": 60.472,
     "lng": 8.4689,
-    "link": "https://www.linkedin.com/in/ulzhan-bassembek/"
+    "link": "https://www.linkedin.com/in/ulzhan-bassembek/",
+    "sector": "Industry",
+    "collab": "maybe"
   },
   {
     "id": "ulzhan-urazaliyeva",
@@ -7518,7 +8288,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/ulzhanurazaliyeva?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+    "link": "https://www.linkedin.com/in/ulzhanurazaliyeva?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+    "sector": "Academia"
   },
   {
     "id": "ulzhan-zhumakeldi",
@@ -7534,7 +8305,8 @@
     "bio": "",
     "featured": 0,
     "lat": 50.5039,
-    "lng": 4.4699
+    "lng": 4.4699,
+    "sector": "Industry"
   },
   {
     "id": "vadim-yapiyev",
@@ -7550,7 +8322,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/ulzhan-bassembek/"
+    "link": "https://www.linkedin.com/in/ulzhan-bassembek/",
+    "collab": "maybe"
   },
   {
     "id": "vitaliu-hutorinskyii",
@@ -7571,7 +8344,26 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "https://www.linkedin.com/in/vitaliy-khutoryanskiy-97101118/"
+    "link": "https://www.linkedin.com/in/vitaliy-khutoryanskiy-97101118/",
+    "sector": "Academia",
+    "collab": "yes",
+    "keywords": [
+      "polymeric complexes",
+      "hydrogels",
+      "biomaterials & polymeric blends",
+      "polymer colloids",
+      "polysaccharides (chitosan",
+      "cellulose ethers",
+      "alginates) silica",
+      "polymer",
+      "metal nanoparticles",
+      "radiation chemistry of polymers",
+      "ocular",
+      "nasal",
+      "oromucosal",
+      "gastrointestinal",
+      "biological activity evaluation"
+    ]
   },
   {
     "id": "yanwei-wang",
@@ -7588,7 +8380,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "yelena-kalyuzhnova",
@@ -7606,7 +8399,12 @@
       "local content policy"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "collab": "maybe",
+    "keywords": [
+      "central asia",
+      "sustainable development"
+    ]
   },
   {
     "id": "yenglik-dussipova",
@@ -7645,7 +8443,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "collab": "maybe"
   },
   {
     "id": "yerbolat-dauletyarov",
@@ -7666,7 +8465,9 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "https://www.linkedin.com/in/yerbolat-dauletyarov-562925288/?originalSubdomain=uk"
+    "link": "https://www.linkedin.com/in/yerbolat-dauletyarov-562925288/?originalSubdomain=uk",
+    "sector": "Academia",
+    "collab": "yes"
   },
   {
     "id": "yerbolat-ussenov",
@@ -7684,7 +8485,9 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://www.linkedin.com/in/yerbolat-ussenov-94a44186/"
+    "link": "https://www.linkedin.com/in/yerbolat-ussenov-94a44186/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "yerden-shaimardan-galym-project",
@@ -7717,7 +8520,12 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia",
+    "keywords": [
+      "waste-to-energy technologies",
+      "wastewater treatment systems"
+    ]
   },
   {
     "id": "yerke-suleimenova",
@@ -7753,7 +8561,9 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "yerkesh",
@@ -7787,7 +8597,8 @@
     "bio": "",
     "featured": 0,
     "lat": 35.8617,
-    "lng": 104.1954
+    "lng": 104.1954,
+    "sector": "Academia"
   },
   {
     "id": "yermek-rakhat",
@@ -7808,7 +8619,8 @@
     "featured": 0,
     "lat": 56.1304,
     "lng": -106.3468,
-    "link": "https://linkedin.com/in/yermek-rakhat-23467767"
+    "link": "https://linkedin.com/in/yermek-rakhat-23467767",
+    "sector": "Academia"
   },
   {
     "id": "yernar-sailybayev",
@@ -7828,7 +8640,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Industry"
   },
   {
     "id": "yernaz-yesbergenov",
@@ -7847,7 +8660,8 @@
     "featured": 0,
     "lat": 56.1304,
     "lng": -106.3468,
-    "link": "https://linkedin.com/in/yernaz-yesbergenov-464937b"
+    "link": "https://linkedin.com/in/yernaz-yesbergenov-464937b",
+    "sector": "Industry"
   },
   {
     "id": "yertay-yeskali",
@@ -7881,7 +8695,9 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "https://www.linkedin.com/in/yerzhan-tokbolat-a05320133/"
+    "link": "https://www.linkedin.com/in/yerzhan-tokbolat-a05320133/",
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "yesbol-sartayev",
@@ -7898,7 +8714,9 @@
     "bio": "",
     "featured": 0,
     "lat": 36.2048,
-    "lng": 138.2529
+    "lng": 138.2529,
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "yussuf-shakhin",
@@ -7915,7 +8733,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "zairagul-zhaketay",
@@ -7935,7 +8754,9 @@
     "featured": 0,
     "lat": 47.1625,
     "lng": 19.5033,
-    "link": "https://linkedin.com/in/zairagul-z-3730a8201/?skipRedirect=true"
+    "link": "https://linkedin.com/in/zairagul-z-3730a8201/?skipRedirect=true",
+    "sector": "Academia",
+    "collab": "yes"
   },
   {
     "id": "zarema-akhmadieya",
@@ -7953,7 +8774,9 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1657,
-    "lng": 10.4515
+    "lng": 10.4515,
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "zarina-turtayeva",
@@ -7973,7 +8796,8 @@
     "featured": 0,
     "lat": 46.8182,
     "lng": 8.2275,
-    "link": "https://linkedin.com/in/zarina-turtayeva"
+    "link": "https://linkedin.com/in/zarina-turtayeva",
+    "sector": "Academia"
   },
   {
     "id": "zaure-umarova",
@@ -8047,7 +8871,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://linkedin.com/in/zhalaliddin"
+    "link": "https://linkedin.com/in/zhalaliddin",
+    "sector": "Academia"
   },
   {
     "id": "zhanar-abu",
@@ -8064,7 +8889,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia"
   },
   {
     "id": "zhanar-argynbayeva",
@@ -8083,7 +8909,9 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1694,
-    "lng": 71.4491
+    "lng": 71.4491,
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "zhanar-gabdsattarova",
@@ -8120,7 +8948,8 @@
     "featured": 0,
     "lat": -30.5595,
     "lng": 22.9375,
-    "link": "https://linkedin.com/in/zhanas-baimagambet"
+    "link": "https://linkedin.com/in/zhanas-baimagambet",
+    "sector": "Academia"
   },
   {
     "id": "zhanat-koshenov",
@@ -8138,7 +8967,9 @@
     "bio": "",
     "featured": 0,
     "lat": 47.5162,
-    "lng": 14.5501
+    "lng": 14.5501,
+    "sector": "Academia",
+    "collab": "maybe"
   },
   {
     "id": "zhanbolat-khumarkhan",
@@ -8156,7 +8987,8 @@
     "featured": 0,
     "lat": 51.1694,
     "lng": 71.4491,
-    "link": "https://www.linkedin.com/in/zhanbolat-khumarkhan-427705a4/"
+    "link": "https://www.linkedin.com/in/zhanbolat-khumarkhan-427705a4/",
+    "sector": "Academia"
   },
   {
     "id": "zhanbolat-zhuleuov",
@@ -8177,7 +9009,8 @@
     "featured": 0,
     "lat": 39.8283,
     "lng": -98.5795,
-    "link": "https://linkedin.com/in/zhanbolat-zhuleuov"
+    "link": "https://linkedin.com/in/zhanbolat-zhuleuov",
+    "sector": "Industry"
   },
   {
     "id": "zhangatay-nurekeyev",
@@ -8196,7 +9029,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1657,
-    "lng": 10.4515
+    "lng": 10.4515,
+    "sector": "Academia"
   },
   {
     "id": "zhanibek-alpishev",
@@ -8215,7 +9049,9 @@
     "featured": 0,
     "lat": 47.5162,
     "lng": 14.5501,
-    "link": "https://www.linkedin.com/in/zhanybek-alpichshev-41bb4b207/"
+    "link": "https://www.linkedin.com/in/zhanybek-alpichshev-41bb4b207/",
+    "sector": "Academia",
+    "collab": "yes"
   },
   {
     "id": "zhansultan-nurmukhanov",
@@ -8232,7 +9068,9 @@
     "featured": 0,
     "lat": 52.3555,
     "lng": -1.1743,
-    "link": "https://www.linkedin.com/in/%D0%B6%D0%B0%D0%BD%D1%81%D1%83%D0%BB%D1%82%D0%B0%D0%BD-%D0%BD%D1%83%D1%80%D0%BC%D1%83%D1%85%D0%B0%D0%BD%D0%BE%D0%B2-07681596/"
+    "link": "https://www.linkedin.com/in/%D0%B6%D0%B0%D0%BD%D1%81%D1%83%D0%BB%D1%82%D0%B0%D0%BD-%D0%BD%D1%83%D1%80%D0%BC%D1%83%D1%85%D0%B0%D0%BD%D0%BE%D0%B2-07681596/",
+    "sector": "Academia",
+    "collab": "yes"
   },
   {
     "id": "zhazira-taubayeva",
@@ -8250,7 +9088,11 @@
       "security studies"
     ],
     "bio": "",
-    "featured": 0
+    "featured": 0,
+    "sector": "Academia",
+    "keywords": [
+      "politcs"
+    ]
   },
   {
     "id": "zhibek-keneskhanova",
@@ -8266,7 +9108,8 @@
     "bio": "",
     "featured": 0,
     "lat": 51.1657,
-    "lng": 10.4515
+    "lng": 10.4515,
+    "sector": "Academia"
   },
   {
     "id": "zhuldyz-les",
@@ -8299,7 +9142,8 @@
     "bio": "",
     "featured": 0,
     "lat": 39.8283,
-    "lng": -98.5795
+    "lng": -98.5795,
+    "sector": "Academia"
   },
   {
     "id": "zhuldyz-zhiyessova",

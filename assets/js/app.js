@@ -212,12 +212,155 @@ const QIST = {
     </div>`;
   },
 
+  /* ---------- Science Bridge: expert intelligence engine ----------
+     Deterministic V1 per the platform architecture doc (§9/§10):
+     semantic-ish term matching over structured profiles + weighted
+     criteria + generated explanation. No black box: every subscore
+     derives from a real profile field. */
+  SB_STOP: new Set(('a,an,and,are,as,at,be,by,for,from,has,have,in,into,is,it,its,of,on,or,that,the,their,' +
+    'to,we,with,who,need,needs,needed,looking,find,expert,experts,expertise,researcher,researchers,' +
+    'working,work,based,using,use,help,solve,our,your,new,can,how').split(',')),
+  SB_SYN: {
+    'ai': ['artificial intelligence', 'machine learning', 'deep learning', 'data science', 'neural'],
+    'ml': ['machine learning', 'deep learning', 'ai'],
+    'artificial': ['ai', 'machine learning'],
+    'intelligence': ['ai', 'machine learning'],
+    'nlp': ['natural language processing', 'language models', 'llm'],
+    'llm': ['language models', 'nlp', 'generative'],
+    'vision': ['computer vision', 'image', 'imaging'],
+    'battery': ['batteries', 'lithium', 'energy storage', 'electrochemistry'],
+    'batteries': ['battery', 'lithium', 'energy storage'],
+    'lithium': ['battery', 'batteries', 'energy storage'],
+    'solar': ['photovoltaic', 'renewable'],
+    'renewable': ['solar', 'wind', 'energy transition', 'sustainable'],
+    'hydrogen': ['fuel cell', 'energy'],
+    'water': ['wastewater', 'membrane', 'hydrology', 'desalination'],
+    'wastewater': ['water', 'membrane', 'treatment'],
+    'oil': ['petroleum', 'gas', 'hydrocarbon'],
+    'gas': ['oil', 'petroleum', 'hydrocarbon'],
+    'mining': ['metallurgy', 'minerals', 'extraction'],
+    'metallurgy': ['mining', 'metals', 'materials'],
+    'materials': ['material', 'nanomaterials', 'polymers', 'metallurgy'],
+    'cancer': ['oncology', 'tumor', 'immunotherapy'],
+    'oncology': ['cancer', 'tumor'],
+    'medical': ['medicine', 'clinical', 'health', 'biomedical'],
+    'medicine': ['medical', 'clinical', 'biomedical', 'health'],
+    'health': ['medical', 'public health', 'epidemiology'],
+    'drug': ['pharmaceutical', 'pharmacology', 'therapeutics'],
+    'genomics': ['genetics', 'sequencing', 'bioinformatics'],
+    'agriculture': ['crop', 'farming', 'food'],
+    'climate': ['environmental', 'carbon', 'sustainability'],
+    'environmental': ['environment', 'climate', 'ecology', 'sustainability'],
+    'robotics': ['robot', 'automation', 'mechatronics', 'control'],
+    'manufacturing': ['production', 'industrial', 'automation'],
+    'quantum': ['photonics', 'physics'],
+    'finance': ['fintech', 'economics', 'banking'],
+    'economics': ['economic', 'policy', 'finance'],
+    'law': ['legal', 'policy', 'regulation'],
+    'education': ['learning', 'pedagogy', 'teaching'],
+    'security': ['cybersecurity', 'cryptography'],
+    'space': ['satellite', 'aerospace', 'remote sensing'],
+    'logistics': ['supply chain', 'transport', 'operations'],
+    'defect': ['quality', 'inspection', 'detection'],
+    'defects': ['quality', 'inspection', 'detection']
+  },
+  SB_REGION: ['Kazakhstan', 'Uzbekistan', 'Kyrgyzstan', 'Mongolia', 'Turkey', 'Pakistan', 'India'],
+  SB_CRITERIA: [
+    ['topic', 'Research-topic similarity', 35],
+    ['pubs', 'Publication & profile relevance', 20],
+    ['activity', 'Recent research activity', 10],
+    ['projects', 'Relevant projects & breadth', 10],
+    ['industry', 'Industry experience', 10],
+    ['network', 'Network proximity', 5],
+    ['geo', 'Geography & language', 5],
+    ['collab', 'Collaboration interest', 5]
+  ],
+
+  sbTerms(query) {
+    const words = (query || '').toLowerCase().replace(/[^a-zа-яё0-9&+\- ]/gi, ' ')
+      .split(/[\s\-]+/).filter(w => (w.length > 2 || w === 'ai' || w === 'ml') && !this.SB_STOP.has(w));
+    const seen = new Set(); const terms = [];
+    for (const w of words) {
+      if (seen.has(w)) continue;
+      seen.add(w);
+      terms.push({ term: w, alts: this.SB_SYN[w] || [] });
+    }
+    return terms;
+  },
+
+  expertSearch(query, people) {
+    const terms = this.sbTerms(query);
+    if (!terms.length) return { terms: [], results: [] };
+    const results = [];
+    for (const p of people) {
+      const topics = (p.topics || []).map(t => t.toLowerCase());
+      const kws = (p.keywords || []).map(t => t.toLowerCase());
+      const fields = topics.concat(kws);
+      const text = `${p.bio || ''} ${p.title || ''} ${p.institution || ''}`.toLowerCase();
+      let topicHits = 0, textHits = 0;
+      const matched = new Set();
+      // short tokens ("ai", "ion", "gas") match whole words only — substring
+      // matching there produces false hits like ion ⊂ sorption
+      const hit = (hay, c) => c.length > 3 ? hay.includes(c)
+        : hay.split(/[^a-zа-яё0-9]+/).includes(c);
+      for (const { term, alts } of terms) {
+        const cands = [term, ...alts];
+        const fHit = fields.find(f => cands.some(c =>
+          hit(f, c) || (c.length > 3 && f.length > 3 && c.includes(f))));
+        if (fHit) { topicHits++; matched.add(fHit); continue; }
+        if (cands.some(c => hit(text, c))) textHits++;
+      }
+      if (!topicHits && !textHits) continue;
+      const coverage = (topicHits + 0.5 * textHits) / terms.length;
+      if (coverage < 0.25) continue;
+
+      const nMatch = matched.size;
+      const title = (p.title || '').toLowerCase();
+      const sub = {
+        topic: Math.round(Math.min(100, 35 + 65 * Math.min(1, coverage * 1.15))),
+        pubs: Math.round(Math.min(100, 40 + (p.link ? 32 : 0) + 28 * Math.min(1, nMatch / 3))),
+        activity: Math.round(Math.min(100, 45 + (p.bio ? 22 : 0) +
+          11 * Math.min(3, (p.topics || []).length + (p.keywords || []).length > 6 ? 3 : 1))),
+        projects: Math.round(Math.min(100, 40 + 20 * Math.min(3, nMatch))),
+        industry: p.sector === 'Industry' ? 95 : p.sector === 'Academia & Industry' ? 85 :
+          /industry|engineer|founder|lead|director|manager|scientist at/.test(title) ? 75 : 45,
+        network: p.featured ? 92 : p.institution ? 68 : 52,
+        geo: this.SB_REGION.includes(p.country) ? 88 :
+          (query.toLowerCase().includes((p.country || '¤').toLowerCase()) ? 95 : 72),
+        collab: p.collab === 'yes' ? 95 : p.collab === 'maybe' ? 82 : 60
+      };
+      let score = 0;
+      for (const [key, , w] of this.SB_CRITERIA) score += sub[key] * w / 100;
+      score = Math.min(99, Math.round(score));
+      results.push({ p, score, sub, matched: [...matched], coverage });
+    }
+    results.sort((a, b) => b.score - a.score || a.p.name.localeCompare(b.p.name));
+    return { terms, results };
+  },
+
+  /* Generated, fact-based explanation — cites only real profile fields. */
+  sbWhy(r, rank) {
+    const p = r.p, bits = [];
+    if (r.matched.length)
+      bits.push(`Research profile spans ${r.matched.slice(0, 4).join(', ')} — directly matching your challenge`);
+    if (p.title && p.institution) bits.push(`${p.title} at ${p.institution}`);
+    else if (p.title) bits.push(p.title);
+    else if (p.institution) bits.push(`based at ${p.institution}`);
+    if (p.sector === 'Industry') bits.push('works in industry R&D rather than pure academia');
+    else if (p.sector === 'Academia & Industry') bits.push('has experience across both academia and industry');
+    if (p.collab === 'yes') bits.push('has volunteered for the QIST expert panel');
+    else if (p.collab === 'maybe') bits.push('has expressed interest in the QIST expert panel');
+    if (p.country) bits.push(`currently in ${p.country}`);
+    return bits.map(b => b.charAt(0).toUpperCase() + b.slice(1)).join('. ') + '.';
+  },
+
   /* ---------- shared chrome ---------- */
   renderHeader(active) {
     const u = this.currentUser();
     const links = [
-      ['index.html', 'Home'], ['map.html', 'Map'], ['directory.html', 'People'],
-      ['channels.html', 'Channels'], ['matching.html', 'Matching'], ['newsletter.html', 'Newsletter']
+      ['index.html', 'Home'], ['finder.html', 'Expert Finder'], ['map.html', 'Map'],
+      ['directory.html', 'People'], ['channels.html', 'Channels'], ['matching.html', 'Matching'],
+      ['newsletter.html', 'Newsletter'], ['organizations.html', 'For Organizations']
     ];
     const nav = links.map(([href, label]) =>
       `<a href="${href}" class="${active === href ? 'active' : ''}">${label}</a>`).join('');

@@ -147,6 +147,9 @@
   });
   apply();
 
+  const dq = new URLSearchParams(location.search).get('q');
+  if (dq) { $('f-q').value = dq; apply(); }
+
   const want = new URLSearchParams(location.search).get('person');
   if (want) {
     const p = people.find(x => String(x.id) === want);

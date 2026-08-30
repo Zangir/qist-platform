@@ -469,3 +469,31 @@ table.data tr:hover td { background: var(--paper); }
   font-weight: 400;
   letter-spacing: 0.08em;
 }
+/* =========================================================
+   SCIENCE BRIDGE — EXPERT FINDER & INTELLIGENCE REPORT
+   ========================================================= */
+.sb-tabs { display: flex; gap: 8px; flex-wrap: wrap; border-bottom: 2px solid var(--line); margin-bottom: 6px; }
+.sb-tab {
+  border: 0; background: transparent; cursor: pointer;
+  font: inherit; font-size: .92rem; font-weight: 600; color: var(--ink-soft);
+  padding: 10px 14px; border-bottom: 3px solid transparent; margin-bottom: -2px;
+}
+.sb-tab:hover { color: var(--navy-2); }
+.sb-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
+.sb-pill {
+  display: inline-block; min-width: 20px; padding: 1px 7px; margin-left: 4px;
+  border-radius: 999px; background: var(--gold-soft); color: var(--gold);
+  font-size: .72rem; text-align: center;
+}
+.sb-expert .match-row { align-items: flex-start; }
+.sb-breakdown { margin-top: 10px; max-width: 480px; }
+.report h3 { font-size: 1.02rem; }
+.rp-challenge { border-left: 4px solid var(--gold); }
+
+@media print {
+  .no-print, .site-header, .site-footer { display: none !important; }
+  body { background: #fff; }
+  .section { padding: 0; }
+  .card { box-shadow: none; border: 1px solid var(--line); page-break-inside: avoid; }
+  table.data th { background: #fff; color: #000; }
+}

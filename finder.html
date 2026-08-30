@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Expert &amp; Research Partner Finder — Science Bridge | QIST</title>
+<meta name="description" content="Describe your R&D challenge and the Science Bridge engine finds the scientists, organizations and research fields best positioned to solve it — with an explained match score.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2316263d' stroke='%23b58a2e' stroke-width='6'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='%23f4e9d2' font-family='Georgia'>Q</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+
+<section class="section" style="padding-top:44px">
+  <div class="container" style="max-width:980px">
+    <div class="section-head">
+      <h2 class="rule">AI Expert &amp; Research Partner Finder</h2>
+      <span class="muted small">Science Bridge · intelligence layer</span>
+    </div>
+    <p class="muted" style="margin-bottom:20px">Describe your research, technology or innovation challenge.
+    The engine searches 500+ verified community profiles, ranks the best-positioned experts and explains every match.</p>
+
+    <form id="sb-form" class="card" style="margin-bottom:10px">
+      <textarea id="sb-q" rows="2" style="width:100%;resize:vertical" required
+        placeholder="e.g. We need expertise in AI-based detection of defects in lithium-ion battery manufacturing"></textarea>
+      <div style="display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap">
+        <button class="btn btn-primary" type="submit">🔎 Find expertise</button>
+        <a class="btn btn-outline" id="sb-report-link" style="display:none" href="#">📄 Generate Intelligence Report</a>
+        <span class="muted small" id="sb-status"></span>
+      </div>
+    </form>
+    <div class="small muted" style="margin-bottom:26px">Examples:
+      <a href="finder.html?q=AI-driven%20water%20treatment">AI-driven water treatment</a> ·
+      <a href="finder.html?q=lithium%20extraction%20from%20brines">lithium extraction from brines</a> ·
+      <a href="finder.html?q=machine%20learning%20for%20medical%20imaging">ML for medical imaging</a>
+    </div>
+
+    <div id="sb-tabs" class="sb-tabs" style="display:none">
+      <button class="sb-tab active" data-tab="scientists">Scientists <span id="tab-n-sci" class="sb-pill"></span></button>
+      <button class="sb-tab" data-tab="orgs">Organizations <span id="tab-n-org" class="sb-pill"></span></button>
+      <button class="sb-tab" data-tab="tech">Technologies &amp; fields <span id="tab-n-tech" class="sb-pill"></span></button>
+      <button class="sb-tab" data-tab="labs">Labs</button>
+    </div>
+
+    <div id="pane-scientists" class="sb-pane"></div>
+    <div id="pane-orgs" class="sb-pane" hidden></div>
+    <div id="pane-tech" class="sb-pane" hidden></div>
+    <div id="pane-labs" class="sb-pane" hidden>
+      <div class="alert alert-info" style="margin-top:18px">
+        <b>Laboratory &amp; equipment data — Phase 2.</b> We are collecting lab, equipment and
+        infrastructure information from member institutions. Members can already flag lab access in their
+        profiles; institutional lab discovery ships as this data accumulates.
+      </div>
+    </div>
+    <div id="sb-empty" class="alert alert-info" style="display:none">
+      No matching expertise found for this challenge — try broader or different keywords
+      (e.g. "machine learning" instead of a niche subfield).
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="assets/js/app.js"></script>
+<script>
+(async () => {
+  await QIST.boot('finder.html');
+  const $ = id => document.getElementById(id);
+  const people = await QIST.getPeople();
+  const me = () => QIST.currentUser();
+
+  const breakdownTable = r => `
+    <table class="data sb-breakdown"><thead>
+      <tr><th>Criteria</th><th>Weight</th><th>Expert score</th></tr></thead><tbody>
+      ${QIST.SB_CRITERIA.map(([k, label, w]) =>
+        `<tr><td>${label}</td><td>${w}%</td><td>${r.sub[k]}/100</td></tr>`).join('')}
+    </tbody></table>`;
+
+  function expertCard(r, i) {
+    const p = r.p;
+    const tags = (p.topics || []).map(t =>
+      `<span class="tag ${r.matched.includes(t.toLowerCase()) ? 'gold' : ''}">${QIST.esc(t)}</span>`).join('');
+    return `
+    <div class="card sb-expert" style="margin-bottom:16px">
+      <div class="match-row">
+        <div class="match-score">${r.score}<div class="small muted" style="font-size:.65rem;font-weight:400">/100 match</div></div>
+        <div style="flex:1;min-width:0">
+          <h3 style="margin:0">#${i + 1} ${QIST.esc(p.name)}</h3>
+          <div class="small" style="color:var(--ink-soft)">${QIST.esc(p.title || '')}${p.institution ? ' · ' + QIST.esc(p.institution) : ''}${p.country ? ' · ' + QIST.esc(p.country) : ''}</div>
+          <div class="tags" style="margin:8px 0 6px">${tags}</div>
+          <p class="small" style="color:var(--ink-soft);margin:6px 0"><b>Why this expert matches:</b> ${QIST.esc(QIST.sbWhy(r, i))}</p>
+          <details class="small"><summary style="cursor:pointer;color:var(--gold)">Match breakdown</summary>${breakdownTable(r)}</details>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0">
+          <button class="btn btn-primary btn-sm sb-intro" data-id="${QIST.esc(p.id)}" data-name="${QIST.esc(p.name)}">🤝 Request introduction</button>
+          <a class="btn btn-outline btn-sm" href="directory.html?person=${QIST.esc(p.id)}">View full profile</a>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function wireIntro(scope) {
+    scope.querySelectorAll('.sb-intro').forEach(btn => btn.addEventListener('click', () => {
+      if (!me()) {
+        QIST.toast('Sign in to request introductions.');
+        setTimeout(() => location.href = 'login.html?next=finder.html', 900);
+        return;
+      }
+      QIST.pushOverlay('collab_requests', {
+        from: me().email, to: btn.dataset.id, toName: btn.dataset.name,
+        topics: $('sb-q').value, goal: 'introduction', date: new Date().toISOString().slice(0, 10)
+      });
+      QIST.toast(`Introduction request to ${btn.dataset.name} recorded.`);
+      btn.textContent = '✓ Requested'; btn.disabled = true;
+    }));
+  }
+
+  function run(q) {
+    const { terms, results } = QIST.expertSearch(q, people);
+    const top = results.slice(0, 12);
+    $('sb-empty').style.display = top.length ? 'none' : 'block';
+    $('sb-tabs').style.display = top.length ? 'flex' : 'none';
+    $('sb-report-link').style.display = top.length ? '' : 'none';
+    $('sb-report-link').href = 'report.html?q=' + encodeURIComponent(q);
+    $('sb-status').textContent = top.length
+      ? `${top.length} experts identified from ${results.length} matching profiles · ranked by research relevance, profile depth, industry experience and collaboration fit`
+      : '';
+    if (!top.length) { ['scientists','orgs','tech'].forEach(t => $('pane-' + t).innerHTML = ''); return; }
+
+    $('pane-scientists').innerHTML = top.map(expertCard).join('');
+    wireIntro($('pane-scientists'));
+    $('tab-n-sci').textContent = top.length;
+
+    // Organizations: institutions aggregated over ALL matching profiles
+    const orgs = {};
+    results.forEach(r => {
+      const inst = r.p.institution; if (!inst) return;
+      (orgs[inst] = orgs[inst] || { n: 0, best: 0, countries: new Set(), fields: new Set() });
+      orgs[inst].n++; orgs[inst].best = Math.max(orgs[inst].best, r.score);
+      if (r.p.country) orgs[inst].countries.add(r.p.country);
+      r.matched.slice(0, 2).forEach(f => orgs[inst].fields.add(f));
+    });
+    const orgRows = Object.entries(orgs).sort((a, b) => b[1].best - a[1].best || b[1].n - a[1].n).slice(0, 10);
+    $('tab-n-org').textContent = orgRows.length;
+    $('pane-orgs').innerHTML = orgRows.length ? `
+      <p class="muted small" style="margin:14px 0">Potential university &amp; organization partners, ranked by their strongest matching expert.</p>
+      <div style="overflow-x:auto"><table class="data"><thead>
+      <tr><th>Organization</th><th>Matching experts</th><th>Best match</th><th>Relevant fields</th><th>Country</th></tr></thead><tbody>
+      ${orgRows.map(([name, o]) => `<tr>
+        <td><b>${QIST.esc(name)}</b></td><td>${o.n}</td><td>${o.best}/100</td>
+        <td>${[...o.fields].slice(0, 3).map(QIST.esc).join(' · ')}</td>
+        <td>${[...o.countries].map(QIST.esc).join(', ')}</td></tr>`).join('')}
+      </tbody></table></div>`
+      : '<div class="alert alert-info" style="margin-top:18px">Matching profiles have no institution data yet.</div>';
+
+    // Technologies & research fields: the matched solution landscape
+    const fields = {};
+    results.forEach(r => r.matched.forEach(f => fields[f] = (fields[f] || 0) + 1));
+    const fRows = Object.entries(fields).sort((a, b) => b[1] - a[1]).slice(0, 20);
+    $('tab-n-tech').textContent = fRows.length;
+    $('pane-tech').innerHTML = `
+      <p class="muted small" style="margin:14px 0">Solution landscape: research fields and technology areas in the community relevant to this challenge (derived from member expertise; patent/technology records ship in Phase 2).</p>
+      <div class="tags">${fRows.map(([f, n]) =>
+        `<a class="tag gold" href="directory.html?q=${encodeURIComponent(f)}" style="text-decoration:none">${QIST.esc(f)} · ${n} expert${n === 1 ? '' : 's'}</a>`).join('')}</div>`;
+  }
+
+  document.querySelectorAll('.sb-tab').forEach(tab => tab.addEventListener('click', () => {
+    document.querySelectorAll('.sb-tab').forEach(t => t.classList.toggle('active', t === tab));
+    document.querySelectorAll('.sb-pane').forEach(p => p.hidden = p.id !== 'pane-' + tab.dataset.tab);
+  }));
+
+  $('sb-form').addEventListener('submit', e => { e.preventDefault(); run($('sb-q').value.trim()); });
+
+  const q = new URLSearchParams(location.search).get('q');
+  if (q) { $('sb-q').value = q; run(q); }
+})();
+</script>
+</body>
+</html>
