@@ -497,3 +497,86 @@ table.data tr:hover td { background: var(--paper); }
   .card { box-shadow: none; border: 1px solid var(--line); page-break-inside: avoid; }
   table.data th { background: #fff; color: #000; }
 }
+
+/* =========================================================
+   HERO GLOBE + ORGANIZATIONS BAND (homepage)
+   ========================================================= */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 400px;
+  gap: 48px;
+  align-items: center;
+}
+.hero-globe { position: relative; }
+.hero-globe svg { display: block; max-width: 440px; margin: 0 auto; }
+.globe-avatar { animation: globe-float 6s ease-in-out infinite; }
+@keyframes globe-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+@media (prefers-reduced-motion: reduce) { .globe-avatar { animation: none; } }
+@media (max-width: 1020px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-globe { display: none; }
+}
+
+.org-band {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(0, 2fr);
+  gap: 34px;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  padding: 38px 42px;
+}
+.org-band-title h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.org-band-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px 26px;
+}
+.org-band-or { color: var(--ink-faint); font-weight: 600; }
+.org-tile {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex: 1;
+  min-width: 230px;
+  color: inherit;
+  text-decoration: none;
+}
+.org-tile > span:last-child { display: flex; flex-direction: column; gap: 3px; }
+.org-tile b { color: var(--navy-2); font-size: 1.05rem; }
+.org-tile:hover b { color: var(--gold); }
+.org-tile-icon {
+  flex: 0 0 52px;
+  width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 12px;
+  font-size: 1.5rem;
+}
+.org-band-tagline {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+@media (max-width: 860px) {
+  .org-band { grid-template-columns: 1fr; padding: 28px; }
+  .org-band-actions { flex-direction: column; align-items: stretch; }
+  .org-band-or { text-align: center; }
+}

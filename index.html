@@ -14,7 +14,8 @@
 <header class="site-header" id="site-header"></header>
 
 <section class="hero">
-  <div class="container">
+  <div class="container hero-grid">
+  <div class="hero-copy">
     <span class="kicker">
   SCIENCE BRIDGE PROJECT | QAZAQ INTERNATIONAL SCIENCE &amp; TECHNOLOGY ASSOCIATION
 </span>
@@ -58,13 +59,82 @@
   <a href="finder.html?q=AI%20%26%20smart%20systems">AI &amp; smart systems</a>
 </div>
 
-<div class="search-suggestions" style="margin-top:10px">
-  <span class="suggested-label">University, company or government?</span>
-  <a href="organizations.html">Run a pilot with us →</a>
-  <a href="report.html?q=We%20need%20expertise%20in%20AI-based%20detection%20of%20defects%20in%20lithium-ion%20battery%20manufacturing">See an example intelligence report →</a>
 </div>
+  </div>
 
-</div>
+  <div class="hero-globe" aria-hidden="true">
+    <svg viewBox="0 0 440 440" width="100%" role="img" aria-label="Global network of scientists">
+      <defs>
+        <radialGradient id="g-sphere" cx="38%" cy="34%" r="75%">
+          <stop offset="0%" stop-color="#3b5e94"/>
+          <stop offset="55%" stop-color="#22395d"/>
+          <stop offset="100%" stop-color="#131f33"/>
+        </radialGradient>
+        <filter id="g-glow" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="3" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <circle cx="220" cy="220" r="168" fill="url(#g-sphere)" stroke="rgba(181,138,46,.35)" stroke-width="1.5"/>
+      <!-- graticule -->
+      <g fill="none" stroke="rgba(199,210,226,.12)" stroke-width="1">
+        <ellipse cx="220" cy="220" rx="168" ry="60"/>
+        <ellipse cx="220" cy="220" rx="168" ry="115"/>
+        <ellipse cx="220" cy="220" rx="60" ry="168"/>
+        <ellipse cx="220" cy="220" rx="115" ry="168"/>
+        <line x1="52" y1="220" x2="388" y2="220"/>
+        <line x1="220" y1="52" x2="220" y2="388"/>
+      </g>
+      <!-- network nodes -->
+      <g fill="#7ea4d8">
+        <circle cx="150" cy="140" r="3"/><circle cx="255" cy="105" r="2.5"/><circle cx="320" cy="180" r="3"/>
+        <circle cx="120" cy="230" r="2.5"/><circle cx="190" cy="300" r="3"/><circle cx="295" cy="290" r="2.5"/>
+        <circle cx="230" cy="200" r="3"/><circle cx="170" cy="215" r="2"/><circle cx="270" cy="235" r="2"/>
+        <circle cx="205" cy="120" r="2"/><circle cx="330" cy="245" r="2"/><circle cx="140" cy="290" r="2"/>
+      </g>
+      <g fill="#e8c56b" filter="url(#g-glow)">
+        <circle cx="182" cy="172" r="3.5"/><circle cx="292" cy="150" r="3.5"/><circle cx="245" cy="265" r="3.5"/>
+        <circle cx="128" cy="188" r="3"/><circle cx="310" cy="315" r="3"/>
+      </g>
+      <!-- connection arcs -->
+      <g fill="none" stroke-width="1.2" opacity=".8">
+        <path d="M182 172 Q 240 100 292 150" stroke="rgba(232,197,107,.45)"/>
+        <path d="M182 172 Q 200 230 245 265" stroke="rgba(232,197,107,.35)"/>
+        <path d="M292 150 Q 290 210 245 265" stroke="rgba(126,164,216,.4)"/>
+        <path d="M128 188 Q 150 170 182 172" stroke="rgba(126,164,216,.4)"/>
+        <path d="M245 265 Q 280 300 310 315" stroke="rgba(126,164,216,.35)"/>
+        <path d="M128 188 Q 170 260 190 300" stroke="rgba(126,164,216,.3)"/>
+        <path d="M150 140 Q 220 90 320 180" stroke="rgba(199,210,226,.18)"/>
+      </g>
+      <!-- member avatars (initials of real featured researchers) -->
+      <g class="globe-avatar" style="animation-delay:0s">
+        <line x1="182" y1="172" x2="130" y2="98" stroke="rgba(232,197,107,.5)" stroke-width="1"/>
+        <circle cx="130" cy="98" r="27" fill="#b58a2e" stroke="#f4e9d2" stroke-width="2.5"/>
+        <text x="130" y="105" text-anchor="middle" font-size="19" font-weight="700" fill="#fff" font-family="Inter,sans-serif">SM</text>
+      </g>
+      <g class="globe-avatar" style="animation-delay:1.2s">
+        <line x1="292" y1="150" x2="352" y2="92" stroke="rgba(126,164,216,.5)" stroke-width="1"/>
+        <circle cx="352" cy="92" r="24" fill="#2e6e62" stroke="#f4e9d2" stroke-width="2.5"/>
+        <text x="352" y="99" text-anchor="middle" font-size="17" font-weight="700" fill="#fff" font-family="Inter,sans-serif">DM</text>
+      </g>
+      <g class="globe-avatar" style="animation-delay:2.4s">
+        <line x1="310" y1="315" x2="368" y2="330" stroke="rgba(126,164,216,.5)" stroke-width="1"/>
+        <circle cx="368" cy="330" r="25" fill="#2c4a77" stroke="#f4e9d2" stroke-width="2.5"/>
+        <text x="368" y="337" text-anchor="middle" font-size="17" font-weight="700" fill="#fff" font-family="Inter,sans-serif">ZA</text>
+      </g>
+      <g class="globe-avatar" style="animation-delay:1.8s">
+        <line x1="128" y1="188" x2="76" y2="238" stroke="rgba(232,197,107,.5)" stroke-width="1"/>
+        <circle cx="76" cy="238" r="23" fill="#8a5f9e" stroke="#f4e9d2" stroke-width="2.5"/>
+        <text x="76" y="245" text-anchor="middle" font-size="16" font-weight="700" fill="#fff" font-family="Inter,sans-serif">AT</text>
+      </g>
+      <g class="globe-avatar" style="animation-delay:.6s">
+        <line x1="245" y1="265" x2="205" y2="368" stroke="rgba(232,197,107,.5)" stroke-width="1"/>
+        <circle cx="205" cy="368" r="24" fill="#a33a3a" stroke="#f4e9d2" stroke-width="2.5"/>
+        <text x="205" y="375" text-anchor="middle" font-size="17" font-weight="700" fill="#fff" font-family="Inter,sans-serif">KY</text>
+      </g>
+    </svg>
+  </div>
   </div>
 </section>
 
@@ -91,6 +161,36 @@
       <span>Research fields</span>
     </div>
 
+  </div>
+</section>
+
+<section class="section" style="padding:44px 0 30px">
+  <div class="container">
+    <div class="org-band">
+      <div class="org-band-title">
+        <h2>University, company<br>or government?</h2>
+        <p class="muted">Explore how QIST can help you find the right expertise and build the right collaborations.</p>
+      </div>
+      <div class="org-band-actions">
+        <a class="org-tile" href="organizations.html">
+          <span class="org-tile-icon" style="background:#e5ebf4">🏛️</span>
+          <span>
+            <b>Run a pilot with us →</b>
+            <span class="small muted">Find experts. Explore solutions. Build your innovation.</span>
+          </span>
+        </a>
+        <span class="org-band-or">or</span>
+        <a class="org-tile" href="report.html?q=We%20need%20expertise%20in%20AI-based%20detection%20of%20defects%20in%20lithium-ion%20battery%20manufacturing">
+          <span class="org-tile-icon" style="background:#e2efe7">📄</span>
+          <span>
+            <b>See an example intelligence report →</b>
+            <span class="small muted">Explore a sample report for an R&amp;D challenge.</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <p class="org-band-tagline">QIST connects global scientific expertise with real-world challenges.<br>
+    <b style="color:var(--navy-2)">Discover. Collaborate. Innovate.</b></p>
   </div>
 </section>
 
