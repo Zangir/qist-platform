@@ -248,44 +248,13 @@
       <div class="dashboard-card">
         <div class="dashboard-card-head">
           <h3>Top Expert Matches</h3>
-          <a href="directory.html">View all</a>
+          <a id="dash-experts-all" href="finder.html">View all</a>
         </div>
 
-        <div class="dashboard-list">
+        <div class="small muted" id="dash-experts-q" style="margin-bottom:8px"></div>
+        <div class="dashboard-list" id="dash-experts"></div>
 
-          <div class="dashboard-person">
-            <div class="mini-avatar">AT</div>
-            <div class="dashboard-person-info">
-              <strong>Prof. Aigerim T.</strong>
-              <span>Materials Science · Nanomaterials</span>
-              <span>Nazarbayev University</span>
-            </div>
-            <div class="match-small">94%</div>
-          </div>
-
-          <div class="dashboard-person">
-            <div class="mini-avatar">MW</div>
-            <div class="dashboard-person-info">
-              <strong>Dr. Markus Weiss</strong>
-              <span>Energy Storage · Battery Materials</span>
-              <span>Technical University of Munich</span>
-            </div>
-            <div class="match-small">92%</div>
-          </div>
-
-          <div class="dashboard-person">
-            <div class="mini-avatar">LW</div>
-            <div class="dashboard-person-info">
-              <strong>Dr. Li Wei</strong>
-              <span>Electrochemistry · Batteries</span>
-              <span>Tsinghua University</span>
-            </div>
-            <div class="match-small">89%</div>
-          </div>
-
-        </div>
-
-        <a class="dashboard-footer-link" href="directory.html">
+        <a class="dashboard-footer-link" href="finder.html">
           Find more experts →
         </a>
       </div>
@@ -294,41 +263,13 @@
       <!-- Labs -->
       <div class="dashboard-card">
         <div class="dashboard-card-head">
-          <h3>Laboratories &amp; Facilities</h3>
-          <a href="finder.html">View all</a>
+          <h3>Institutions &amp; Facilities</h3>
+          <a href="directory.html">View all</a>
         </div>
 
-        <div class="dashboard-list">
+        <div class="dashboard-list" id="dash-insts"></div>
 
-          <div class="dashboard-lab">
-            <div class="lab-thumb">LAB</div>
-            <div>
-              <strong>Advanced Materials Lab</strong>
-              <span>Nazarbayev University</span>
-              <span>Equipment: TEM, AFM, XPS</span>
-            </div>
-          </div>
-
-          <div class="dashboard-lab">
-            <div class="lab-thumb">LAB</div>
-            <div>
-              <strong>Energy Systems Laboratory</strong>
-              <span>KAUST</span>
-              <span>Equipment: Glovebox, XPS, GC-MS</span>
-            </div>
-          </div>
-
-          <div class="dashboard-lab">
-            <div class="lab-thumb">LAB</div>
-            <div>
-              <strong>Nanofabrication Center</strong>
-              <span>University of Tokyo</span>
-              <span>Equipment: Cleanroom, Lithography</span>
-            </div>
-          </div>
-
-        </div>
-
+        <div class="small muted" style="margin-top:8px">Lab &amp; equipment data — Phase 2, collected from member institutions.</div>
         <a class="dashboard-footer-link" href="finder.html">
           Explore infrastructure →
         </a>
@@ -342,36 +283,7 @@
           <a href="channels.html?c=grants">View all</a>
         </div>
 
-        <div class="dashboard-list">
-
-          <div class="funding-row">
-            <div class="funding-logo funding-eu">EU</div>
-            <div>
-              <strong>Horizon Europe</strong>
-              <span>Research &amp; Innovation Actions</span>
-              <span>Deadline: 12 Jun 2027</span>
-            </div>
-          </div>
-
-          <div class="funding-row">
-            <div class="funding-logo funding-erc">ERC</div>
-            <div>
-              <strong>ERC Starting Grant</strong>
-              <span>European Research Council</span>
-              <span>Deadline: 29 Aug 2027</span>
-            </div>
-          </div>
-
-          <div class="funding-row">
-            <div class="funding-logo funding-kz">KZ</div>
-            <div>
-              <strong>Kazakhstan Science Grant</strong>
-              <span>Science &amp; Higher Education</span>
-              <span>Deadline: 30 May 2027</span>
-            </div>
-          </div>
-
-        </div>
+        <div class="dashboard-list" id="dash-grants"></div>
 
         <a class="dashboard-footer-link" href="channels.html?c=grants">
           Find funding →
@@ -422,39 +334,18 @@
   </svg>
 </div>
 
-            <g class="map-lines">
-              <path d="M70 85 Q140 25 205 75"></path>
-              <path d="M70 85 Q145 145 220 95"></path>
-              <path d="M205 75 Q285 20 350 75"></path>
-              <path d="M220 95 Q300 130 360 95"></path>
-              <path d="M105 100 Q210 55 300 105"></path>
-            </g>
-
-            <g class="map-dots">
-              <circle cx="70" cy="85" r="4"></circle>
-              <circle cx="105" cy="100" r="4"></circle>
-              <circle cx="205" cy="75" r="4"></circle>
-              <circle cx="220" cy="95" r="4"></circle>
-              <circle cx="300" cy="105" r="4"></circle>
-              <circle cx="350" cy="75" r="4"></circle>
-              <circle cx="360" cy="95" r="4"></circle>
-            </g>
-
-          </svg>
-        </div>
-
         <div class="collaboration-stats">
           <div>
-            <span>Collaborations</span>
-            <strong>2,482+</strong>
-          </div>
-          <div>
-            <span>Active Projects</span>
-            <strong>713+</strong>
+            <span>Scientists</span>
+            <strong id="cs-people">—</strong>
           </div>
           <div>
             <span>Countries</span>
-            <strong>92+</strong>
+            <strong id="cs-countries">—</strong>
+          </div>
+          <div>
+            <span>Institutions</span>
+            <strong id="cs-insts">—</strong>
           </div>
         </div>
 
@@ -558,83 +449,15 @@
     <div class="partner-trust-head">
       <h2>Built for global R&amp;D collaboration</h2>
       <p>
-        Connect with universities, companies, research organizations and
-        innovation partners around the world.
+        Our members research, teach and innovate at leading institutions
+        around the world — and QIST connects that expertise to you.
       </p>
     </div>
 
   </div>
 
   <div class="partner-logo-marquee">
-    <div class="partner-logo-track">
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">Nazarbayev University</span>
-      </div>
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">Astana Hub</span>
-      </div>
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">Baylor College of Medicine</span>
-      </div>
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">Charité Berlin</span>
-      </div>
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">University of Tokyo</span>
-      </div>
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">KAIST</span>
-      </div>
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">University of Cambridge</span>
-      </div>
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">ETH Zürich</span>
-      </div>
-
-      <!-- duplicated for continuous animation -->
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">Nazarbayev University</span>
-      </div>
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">Astana Hub</span>
-      </div>
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">Baylor College of Medicine</span>
-      </div>
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">Charité Berlin</span>
-      </div>
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">University of Tokyo</span>
-      </div>
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">KAIST</span>
-      </div>
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">University of Cambridge</span>
-      </div>
-
-      <div class="partner-logo-card">
-        <span class="partner-wordmark">ETH Zürich</span>
-      </div>
-
-    </div>
+    <div class="partner-logo-track" id="partner-track"></div>
   </div>
 
 </section>
@@ -682,6 +505,8 @@
         <span class="t-pink">industry</span> and suppliers—
         R&amp;D partners use QIST to build collaborations faster.
       </h2>
+      <p class="small muted" style="margin-top:10px">Illustrative voices — composite personas from our pilot
+      conversations. Named case studies will follow the first paid pilots.</p>
     </div>
 
     <div class="testimonials-grid">
@@ -922,6 +747,70 @@
   document.getElementById('st-countries').dataset.target = new Set(people.map(p => p.country).filter(Boolean)).size;
   document.getElementById('st-institutions').dataset.target = new Set(people.map(p => p.institution).filter(Boolean)).size;
   document.getElementById('st-fields').dataset.target = new Set(people.flatMap(p => p.topics || [])).size;
+
+  /* ---- Discovery dashboard: live data, not mock data ---- */
+  const $id = i => document.getElementById(i);
+
+  // Top expert matches: real ranking for a sample challenge
+  const DASH_Q = 'AI-based detection of defects in lithium-ion battery manufacturing';
+  const dashTop = QIST.expertSearch(DASH_Q, people).results.slice(0, 3);
+  $id('dash-experts-q').textContent = 'Sample challenge: “' + DASH_Q + '”';
+  $id('dash-experts-all').href = 'finder.html?q=' + encodeURIComponent(DASH_Q);
+  $id('dash-experts').innerHTML = dashTop.map(r => `
+    <a class="dashboard-person" href="directory.html?person=${QIST.esc(r.p.id)}" style="text-decoration:none;color:inherit">
+      <div class="mini-avatar" style="background:${QIST.avatarColor(r.p.name)}">${QIST.initials(r.p.name)}</div>
+      <div class="dashboard-person-info">
+        <strong>${QIST.esc(r.p.name)}</strong>
+        <span>${(r.p.topics || []).slice(0, 2).map(QIST.esc).join(' · ')}</span>
+        <span>${QIST.esc(r.p.institution || r.p.country || 'QIST community')}</span>
+      </div>
+      <div class="match-small">${r.score}%</div>
+    </a>`).join('');
+
+  // Institutions: aliases merged, ranked by member count
+  const INST_ALIAS = { 'NU': 'Nazarbayev University', 'Eurasian National University': 'L.N. Gumilyov Eurasian National University' };
+  const instCount = {};
+  people.forEach(p => {
+    const i = INST_ALIAS[p.institution] || p.institution;
+    if (i) instCount[i] = (instCount[i] || 0) + 1;
+  });
+  const instTop = Object.entries(instCount).sort((a, b) => b[1] - a[1]);
+  $id('dash-insts').innerHTML = instTop.slice(0, 3).map(([name, n]) => `
+    <a class="dashboard-lab" href="directory.html?q=${encodeURIComponent(name)}" style="text-decoration:none;color:inherit">
+      <div class="lab-thumb">${QIST.esc(name.replace(/[^A-ZА-Я]/g, '').slice(0, 3) || 'UNI')}</div>
+      <div>
+        <strong>${QIST.esc(name)}</strong>
+        <span>${n} member scientist${n === 1 ? '' : 's'}</span>
+        <span>${QIST.esc([...new Set(people.filter(p => (INST_ALIAS[p.institution] || p.institution) === name && p.country).map(p => p.country))].join(', '))}</span>
+      </div>
+    </a>`).join('');
+
+  // Funding: real posts from the grants channel
+  const grants = posts.filter(p => p.channel === 'grants').slice(0, 3);
+  const gLogo = t => /horizon|msca|erc|europe/i.test(t) ? ['EU', 'funding-eu']
+    : /bolashak|mshe|zhas|kazakh/i.test(t) ? ['KZ', 'funding-kz'] : ['🏛', 'funding-erc'];
+  $id('dash-grants').innerHTML = grants.length ? grants.map(g => {
+    const [txt, cls] = gLogo(g.title || '');
+    return `
+    <a class="funding-row" href="channels.html?c=grants" style="text-decoration:none;color:inherit">
+      <div class="funding-logo ${cls}">${txt}</div>
+      <div>
+        <strong>${QIST.esc((g.title || '').split('—')[0].trim())}</strong>
+        <span>${QIST.esc((g.title || '').split('—')[1] || g.author || '').trim()}</span>
+        <span>Posted: ${QIST.esc(g.date || '')}</span>
+      </div>
+    </a>`;
+  }).join('') : '<div class="small muted">New funding calls are posted in the grants channel.</div>';
+
+  // Collaboration map stats: real network numbers
+  $id('cs-people').textContent = people.length;
+  $id('cs-countries').textContent = new Set(people.map(p => p.country).filter(Boolean)).size;
+  $id('cs-insts').textContent = Object.keys(instCount).length;
+
+  // Partner marquee: institutions where members actually work
+  const marq = instTop.slice(0, 10).map(([name]) =>
+    `<div class="partner-logo-card"><span class="partner-wordmark">${QIST.esc(name)}</span></div>`).join('');
+  $id('partner-track').innerHTML = marq + marq; // duplicated for continuous animation
 
   const chan = Object.fromEntries(QIST.channels().map(c => [c.id, c]));
   document.getElementById('recent-posts').innerHTML = posts.slice(0, 3).map(p => `
