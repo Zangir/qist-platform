@@ -448,13 +448,67 @@ const QIST = {
   /* ---------- shared chrome ---------- */
   renderHeader(active) {
     const u = this.currentUser();
-    const links = [
-      ['index.html', 'Home'], ['finder.html', 'Expert Finder'], ['map.html', 'Map'],
-      ['directory.html', 'People'], ['channels.html', 'Channels'], ['matching.html', 'Matching'],
-      ['newsletter.html', 'Newsletter'], ['organizations.html', 'For Organizations']
-    ];
-    const nav = links.map(([href, label]) =>
-      `<a href="${href}" class="${active === href ? 'active' : ''}">${label}</a>`).join('');
+    const nav = `
+  <a href="index.html" class="${active === 'index.html' ? 'active' : ''}">
+    Home
+  </a>
+
+  <div class="nav-dropdown">
+    <a href="organizations.html"
+       class="nav-dropdown-toggle ${active === 'organizations.html' || active === 'finder.html' ? 'active' : ''}">
+      For Industry Partners <span class="nav-chevron">⌄</span>
+    </a>
+
+    <div class="nav-dropdown-menu">
+      <a href="organizations.html">
+        <strong>Industry Partners</strong>
+        <span>Scientific expertise for your R&amp;D needs</span>
+      </a>
+
+      <a href="finder.html">
+        <strong>Expert Finder</strong>
+        <span>Find scientists and research expertise</span>
+      </a>
+    </div>
+  </div>
+
+  <a href="scientists.html">For Scientists</a>
+
+  <a href="schools.html">For Schools</a>
+
+  <div class="nav-dropdown">
+    <span class="nav-dropdown-toggle">
+      For QIST Community <span class="nav-chevron">⌄</span>
+    </span>
+
+    <div class="nav-dropdown-menu">
+      <a href="map.html">
+        <strong>Map</strong>
+        <span>Explore our global researcher network</span>
+      </a>
+
+      <a href="directory.html">
+        <strong>People</strong>
+        <span>Browse QIST researchers</span>
+      </a>
+
+      <a href="channels.html">
+        <strong>Channels</strong>
+        <span>Community discussions and opportunities</span>
+      </a>
+
+      <a href="matching.html">
+        <strong>Matching</strong>
+        <span>Find collaborators and connections</span>
+      </a>
+
+      <a href="newsletter.html">
+        <strong>Newsletter</strong>
+        <span>News from the QIST community</span>
+      </a>
+    </div>
+  </div>
+`;
     const auth = u
       ? `<a class="btn btn-ghost btn-sm" href="profile.html">👤 ${this.esc(u.name.split(' ')[0])}</a>
          ${u.role === 'admin' ? '<a class="btn btn-primary btn-sm" href="admin.html">Admin</a>' : ''}

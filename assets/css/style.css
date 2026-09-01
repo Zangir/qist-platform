@@ -1562,3 +1562,127 @@ table.data tr:hover td { background: var(--paper); }
 /* uploaded profile photos reuse avatar classes */
 img.avatar, img.mini-avatar { object-fit: cover; }
 #pf-photo-preview .avatar, #pf-photo-preview img.avatar { width: 54px; height: 54px; }
+/* =========================================================
+   HEADER DROPDOWNS
+   ========================================================= */
+
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+/* Dropdown wrapper */
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Main dropdown title */
+.nav-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 10px 12px;
+
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.nav-dropdown-toggle:hover {
+  color: #fff;
+}
+
+.nav-chevron {
+  font-size: 13px;
+  margin-left: 2px;
+  transition: transform 0.2s ease;
+}
+
+/* Actual dropdown box */
+.nav-dropdown-menu {
+  position: absolute;
+
+  top: calc(100% + 8px);
+  left: 0;
+
+  width: 285px;
+  padding: 8px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e7ef;
+  border-radius: 10px;
+
+  box-shadow: 0 16px 40px rgba(10, 28, 50, 0.18);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0.18s ease;
+
+  z-index: 9999;
+}
+
+/* Show dropdown */
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Rotate arrow */
+.nav-dropdown:hover .nav-chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown links */
+.main-nav .nav-dropdown-menu a {
+  display: block;
+
+  padding: 10px 12px;
+
+  border-radius: 7px;
+
+  color: #172b49;
+  text-decoration: none;
+}
+
+.main-nav .nav-dropdown-menu a:hover {
+  background: #f2f6fb;
+}
+
+/* Main title inside dropdown */
+.nav-dropdown-menu strong {
+  display: block;
+
+  color: #172b49;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Description */
+.nav-dropdown-menu span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #718096;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Keep active top navigation styling */
+.nav-dropdown-toggle.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
