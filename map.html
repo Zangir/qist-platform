@@ -80,7 +80,7 @@
 
   function popupHtml(p) {
     return `<div class="map-pop">
-      <div class="avatar" style="background:${QIST.avatarColor(p.name)}">${QIST.initials(p.name)}</div>
+      ${QIST.avatarHtml(p)}
       <div>
         <b>${QIST.esc(p.name)}</b>
         <div class="small">${QIST.esc(p.title || '')}<br>${QIST.esc(p.institution || '')}<br>

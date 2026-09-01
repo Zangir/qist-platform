@@ -100,6 +100,9 @@
       ${p1.bio ? `<h3 style="margin-top:18px">Profile statement</h3>
       <p class="small" style="color:var(--ink-soft)">${QIST.esc(p1.bio)}</p>` : ''}
 
+      <h3 style="margin-top:18px">Relevant research</h3>
+      <div id="rp-scholar"></div>
+
       <h3 style="margin-top:18px">Collaboration profile</h3>
       <p class="small" style="color:var(--ink-soft)">${collabRows.join('<br>')}</p>
 
@@ -129,6 +132,8 @@
     research-topic overlap, profile depth, sector, network standing, geography and expressed collaboration interest.
     Publication, patent and laboratory data integration ships in Phase 2. ·
     <span class="no-print"><a href="organizations.html">Commission a full pilot report →</a></span></p>`;
+
+  QIST.renderScholar(p1, document.getElementById('rp-scholar'));
 
   document.querySelectorAll('.sb-intro').forEach(btn => btn.addEventListener('click', () => {
     const me = QIST.currentUser();

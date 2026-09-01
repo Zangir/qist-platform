@@ -758,7 +758,7 @@
   $id('dash-experts-all').href = 'finder.html?q=' + encodeURIComponent(DASH_Q);
   $id('dash-experts').innerHTML = dashTop.map(r => `
     <a class="dashboard-person" href="directory.html?person=${QIST.esc(r.p.id)}" style="text-decoration:none;color:inherit">
-      <div class="mini-avatar" style="background:${QIST.avatarColor(r.p.name)}">${QIST.initials(r.p.name)}</div>
+      ${QIST.avatarHtml(r.p, 'mini-avatar')}
       <div class="dashboard-person-info">
         <strong>${QIST.esc(r.p.name)}</strong>
         <span>${(r.p.topics || []).slice(0, 2).map(QIST.esc).join(' · ')}</span>

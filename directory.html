@@ -78,7 +78,7 @@
   function openPerson(p) {
     $('person-detail').innerHTML = `
       <div class="top" style="display:flex;gap:16px;align-items:center;margin-bottom:16px">
-        <div class="avatar" style="width:72px;height:72px;flex:0 0 72px;font-size:1.4rem;background:${QIST.avatarColor(p.name)}">${QIST.initials(p.name)}</div>
+        ${QIST.avatarHtml(p, 'avatar', 'width:72px;height:72px;flex:0 0 72px;font-size:1.4rem')}
         <div>
           <h2 style="font-size:1.5rem">${QIST.esc(p.name)}</h2>
           <div class="role">${QIST.esc(p.title || '')}</div>
@@ -90,11 +90,14 @@
       <p style="margin:10px 0"><b>Research topics:</b></p>
       <div class="tags" style="margin-bottom:14px">${(p.topics || []).map(t => `<span class="tag gold">${QIST.esc(t)}</span>`).join('')}</div>
       ${p.bio ? `<p class="small" style="color:var(--ink-soft);margin-bottom:14px">${QIST.esc(p.bio)}</p>` : ''}
+      <p style="margin:10px 0"><b>Publications &amp; research:</b></p>
+      <div id="scholar-box" style="margin-bottom:14px"></div>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         ${p.link ? `<a class="btn btn-navy btn-sm" href="${QIST.esc(p.link)}" target="_blank" rel="noopener">🔗 Public profile</a>` : ''}
         <a class="btn btn-outline btn-sm" href="map.html">🗺️ See on map</a>
         <a class="btn btn-primary btn-sm" href="matching.html?with=${QIST.esc(p.id)}">🤝 Propose collaboration</a>
       </div>`;
+    QIST.renderScholar(p, document.getElementById('scholar-box'));
     $('person-modal').classList.add('open');
   }
 

@@ -194,13 +194,104 @@ const QIST = {
     t._h = setTimeout(() => t.classList.remove('show'), 3200);
   },
 
+  /* Avatar: uploaded photo when present, initials otherwise */
+  avatarHtml(p, cls = 'avatar', style = '') {
+    if (p.photo) return `<img class="${cls}" src="${this.esc(p.photo)}" alt="${this.esc(p.name)}" style="${style}">`;
+    return `<div class="${cls}" style="background:${this.avatarColor(p.name)};${style}">${this.initials(p.name)}</div>`;
+  },
+
+  /* ---------- publications & research lookup ----------
+     Live author search via the OpenAlex API (free, CORS-enabled) with a
+     hardcoded Google Scholar search link as companion / fallback.
+     Auto-matched by name (institution used to disambiguate) — labeled
+     as such in the UI because homonyms exist. */
+  scholarUrl(p) {
+    return 'https://scholar.google.com/scholar?q=' + encodeURIComponent('"' + p.name + '"');
+  },
+
+  async scholarLookup(p) {
+    const key = 'qist_scholar_' + p.id;
+    try { const c = sessionStorage.getItem(key); if (c) return JSON.parse(c); } catch (_) {}
+    const r = await fetch('https://api.openalex.org/authors?search=' +
+      encodeURIComponent(p.name) + '&per_page=5', { signal: AbortSignal.timeout(8000) });
+    if (!r.ok) throw new Error('author search failed');
+    const cands = (await r.json()).results || [];
+    let out = { author: null, works: [] };
+    if (cands.length) {
+      const instWord = (p.institution || '').toLowerCase().split(/\s+/).find(w => w.length > 3) || '';
+      let best = cands[0];
+      if (instWord) {
+        const m = cands.find(a =>
+          (a.last_known_institutions || []).concat((a.affiliations || []).map(x => x.institution || {}))
+            .some(i => (i.display_name || '').toLowerCase().includes(instWord)));
+        if (m) best = m;
+      }
+      const fields = (best.topics || best.x_concepts || [])
+        .slice(0, 6).map(t => t.display_name).filter(Boolean);
+      const wr = await fetch('https://api.openalex.org/works?filter=author.id:' +
+        best.id.split('/').pop() + '&sort=cited_by_count:desc&per_page=5',
+        { signal: AbortSignal.timeout(8000) });
+      const works = wr.ok ? (await wr.json()).results || [] : [];
+      out = {
+        author: {
+          name: best.display_name,
+          works_count: best.works_count, cited: best.cited_by_count,
+          inst: (best.last_known_institutions || [])[0]?.display_name || '',
+          url: best.id, orcid: best.orcid || ''
+        },
+        fields,
+        works: works.map(w => ({
+          title: w.title || w.display_name || 'Untitled', year: w.publication_year || '',
+          venue: w.primary_location?.source?.display_name || '',
+          cited: w.cited_by_count || 0, url: w.doi || w.id
+        }))
+      };
+    }
+    try { sessionStorage.setItem(key, JSON.stringify(out)); } catch (_) {}
+    return out;
+  },
+
+  scholarBoxHtml(p, res) {
+    const links = `<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+      <a class="btn btn-outline btn-sm" href="${this.scholarUrl(p)}" target="_blank" rel="noopener">🎓 Google Scholar search</a>
+      ${res && res.author ? `<a class="btn btn-outline btn-sm" href="${this.esc(res.author.url)}" target="_blank" rel="noopener">📚 OpenAlex profile</a>` : ''}
+    </div>`;
+    if (!res || !res.author) {
+      return `<p class="small muted">No publication record auto-matched on OpenAlex.</p>${links}`;
+    }
+    const a = res.author;
+    return `
+      <p class="small" style="color:var(--ink-soft)">
+        <b>${this.esc(a.name)}</b>${a.inst ? ` · ${this.esc(a.inst)}` : ''} —
+        ${a.works_count} publications · ${a.cited.toLocaleString()} citations
+        <span class="muted">(auto-matched by name via OpenAlex — verify homonyms)</span></p>
+      ${res.fields.length ? `<div class="tags" style="margin:8px 0">${res.fields.map(f =>
+        `<span class="tag">${this.esc(f)}</span>`).join('')}</div>` : ''}
+      ${res.works.length ? `<ul class="small" style="margin:8px 0 0 18px;color:var(--ink-soft)">${res.works.map(w => `
+        <li style="margin-bottom:6px"><a href="${this.esc(w.url)}" target="_blank" rel="noopener">${this.esc(w.title)}</a>
+        <span class="muted">${w.year ? ' · ' + w.year : ''}${w.venue ? ' · ' + this.esc(w.venue) : ''} · cited ${w.cited}×</span></li>`).join('')}
+      </ul>` : ''}
+      ${links}`;
+  },
+
+  async renderScholar(p, el) {
+    if (!el) return;
+    el.innerHTML = '<p class="small muted">Searching publications on OpenAlex…</p>';
+    try {
+      el.innerHTML = this.scholarBoxHtml(p, await this.scholarLookup(p));
+    } catch (_) {
+      el.innerHTML = `<p class="small muted">Publication lookup unavailable right now.</p>
+        <a class="btn btn-outline btn-sm" href="${this.scholarUrl(p)}" target="_blank" rel="noopener">🎓 Google Scholar search</a>`;
+    }
+  },
+
   personCard(p, opts = {}) {
     const tags = (p.topics || []).map(t =>
       `<span class="tag" data-topic="${this.esc(t)}">${this.esc(t)}</span>`).join('');
     return `
     <div class="card person-card" data-id="${this.esc(p.id)}">
       <div class="top">
-        <div class="avatar" style="background:${this.avatarColor(p.name)}">${this.initials(p.name)}</div>
+        ${this.avatarHtml(p)}
         <div>
           <h3>${this.esc(p.name)}</h3>
           <div class="role">${this.esc(p.title || '')}${p.institution ? ' · ' + this.esc(p.institution) : ''}</div>

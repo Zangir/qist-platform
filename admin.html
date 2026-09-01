@@ -50,6 +50,13 @@
         <div class="form-row"><label>Latitude</label><input type="number" step="any" id="pf-lat" style="width:100%"></div>
         <div class="form-row"><label>Longitude</label><input type="number" step="any" id="pf-lng" style="width:100%"></div>
       </div>
+      <div class="form-row"><label>Photo</label>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <span id="pf-photo-preview"></span>
+          <input type="file" id="pf-photo" accept="image/*" style="flex:1;min-width:180px">
+          <button type="button" class="btn btn-outline btn-sm" id="pf-photo-clear" hidden>Remove photo</button>
+        </div>
+      </div>
       <div class="form-row"><label>Research topics (comma-separated)</label><input type="text" id="pf-topics" style="width:100%"></div>
       <div class="form-row"><label>Public link</label><input type="url" id="pf-link" style="width:100%" placeholder="https://scholar.google.com/…"></div>
       <div class="form-row"><label>Short bio</label><textarea id="pf-bio" rows="3"></textarea></div>
@@ -104,6 +111,7 @@
         $('pf-lat').value = p.lat ?? ''; $('pf-lng').value = p.lng ?? '';
         $('pf-topics').value = (p.topics || []).join(', ');
         $('pf-link').value = p.link || ''; $('pf-bio').value = p.bio || '';
+        setPhoto(p.photo || '');
         $('person-modal').classList.add('open');
       }));
 
@@ -126,7 +134,41 @@
   $('btn-add-person').addEventListener('click', () => {
     $('pm-title').textContent = 'Add researcher';
     $('person-form').reset(); $('pf-id').value = '';
+    setPhoto('');
     $('person-modal').classList.add('open');
+  });
+
+  /* ---------- profile photo: preview + client-side resize ---------- */
+  let pfPhoto = '';
+  function setPhoto(dataUrl) {
+    pfPhoto = dataUrl || '';
+    $('pf-photo').value = '';
+    $('pf-photo-clear').hidden = !pfPhoto;
+    $('pf-photo-preview').innerHTML = pfPhoto
+      ? `<img class="avatar" src="${pfPhoto}" alt="Profile photo preview">`
+      : '<div class="avatar" style="background:var(--navy-3)">?</div>';
+  }
+  $('pf-photo-clear').addEventListener('click', () => setPhoto(''));
+  $('pf-photo').addEventListener('change', () => {
+    const file = $('pf-photo').files[0];
+    if (!file) return;
+    if (!file.type.startsWith('image/')) { QIST.toast('Please choose an image file.'); return; }
+    const img = new Image();
+    img.onload = () => {
+      // square-crop and downscale so the data URL stays small in localStorage
+      const S = 256, c = document.createElement('canvas');
+      c.width = c.height = S;
+      const side = Math.min(img.width, img.height);
+      c.getContext('2d').drawImage(img,
+        (img.width - side) / 2, (img.height - side) / 2, side, side, 0, 0, S, S);
+      URL.revokeObjectURL(img.src);
+      const url = c.toDataURL('image/jpeg', 0.85);
+      pfPhoto = url;
+      $('pf-photo-clear').hidden = false;
+      $('pf-photo-preview').innerHTML = `<img class="avatar" src="${url}" alt="Profile photo preview">`;
+    };
+    img.onerror = () => { URL.revokeObjectURL(img.src); QIST.toast('Could not read that image.'); };
+    img.src = URL.createObjectURL(file);
   });
 
   $('person-form').addEventListener('submit', e => {
@@ -139,7 +181,8 @@
       lat: $('pf-lat').value ? +$('pf-lat').value : null,
       lng: $('pf-lng').value ? +$('pf-lng').value : null,
       topics: $('pf-topics').value.split(',').map(s => s.trim()).filter(Boolean),
-      link: $('pf-link').value.trim(), bio: $('pf-bio').value.trim()
+      link: $('pf-link').value.trim(), bio: $('pf-bio').value.trim(),
+      photo: pfPhoto
     };
     const id = $('pf-id').value;
     if (!id) {
