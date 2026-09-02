@@ -449,9 +449,13 @@ const QIST = {
   renderHeader(active) {
     const u = this.currentUser();
     const nav = `
+    
   <a href="index.html" class="${active === 'index.html' ? 'active' : ''}">
     Home
   </a>
+
+<a href="marketplace.html" class="${active === 'marketplace.html' ? 'active' : ''}">Marketplace</a>
+
 
   <div class="nav-dropdown">
     <a href="organizations.html"
@@ -472,13 +476,15 @@ const QIST = {
     </div>
   </div>
 
-  <a href="scientists.html" class="${active === 'scientists.html' ? 'active' : ''}">For Scientists</a>
+<a href="scientists.html" class="${active === 'scientists.html' ? 'active' : ''}">Scientists</a>
 
-  <a href="schools.html" class="${active === 'schools.html' ? 'active' : ''}">For Schools</a>
+<a href="accelerator.html" class="${active === 'accelerator.html' ? 'active' : ''}">DeepTech Accelerator</a>
+
+  <a href="schools.html" class="${active === 'schools.html' ? 'active' : ''}">Schools</a>
 
   <div class="nav-dropdown">
     <span class="nav-dropdown-toggle ${['map.html', 'directory.html', 'channels.html', 'matching.html', 'newsletter.html'].includes(active) ? 'active' : ''}" tabindex="0">
-      For QIST Community <span class="nav-chevron">⌄</span>
+      QIST Community <span class="nav-chevron">⌄</span>
     </span>
 
     <div class="nav-dropdown-menu">

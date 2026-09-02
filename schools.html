@@ -1,60 +1,2627 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Schools — QIST</title>
-<meta name="description" content="QIST science outreach for schools: invite a scientist talk, research mentoring for students, and career guidance from researchers around the world.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2316263d' stroke='%23b58a2e' stroke-width='6'/><text x='50' y='66' font-size='48' text-anchor='middle' fill='%23f4e9d2' font-family='Georgia'>Q</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>For Schools | QIST Science Bridge</title>
+
+  <!-- =====================================================
+       MAIN QIST WEBSITE STYLES
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="assets/css/style.css"
+  >
+
+
+  <style>
+
+    /* =====================================================
+       QIST SCIENCE BRIDGE
+       SCHOOLS PAGE
+    ====================================================== */
+
+    .schools-page {
+
+      --schools-navy: #071528;
+      --schools-navy-2: #0b203a;
+
+      --schools-gold: #d9aa50;
+      --schools-blue: #2876e8;
+      --schools-cyan: #4acbd9;
+
+      --schools-green: #2fa36f;
+      --schools-purple: #7a61d1;
+
+      --schools-text: #14213a;
+      --schools-muted: #69788c;
+
+      --schools-border: #dde5ee;
+      --schools-soft: #f6f8fb;
+
+      background: #ffffff;
+      color: var(--schools-text);
+
+    }
+
+
+    .schools-page * {
+      box-sizing: border-box;
+    }
+
+
+    .schools-page a {
+      text-decoration: none;
+    }
+
+
+
+    /* =====================================================
+       HERO
+    ====================================================== */
+
+    .schools-hero {
+
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 88px 0 82px;
+
+      color: white;
+
+      background:
+
+        radial-gradient(
+          circle at 78% 28%,
+          rgba(52, 133, 245, .27),
+          transparent 29%
+        ),
+
+        radial-gradient(
+          circle at 88% 70%,
+          rgba(69, 207, 217, .10),
+          transparent 28%
+        ),
+
+        linear-gradient(
+          130deg,
+          var(--schools-navy),
+          var(--schools-navy-2)
+        );
+
+    }
+
+
+    .schools-hero::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 760px;
+      height: 760px;
+
+      right: -170px;
+      top: -330px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(100, 175, 255, .18);
+
+      box-shadow:
+
+        0 0 0 55px
+        rgba(70, 150, 250, .035),
+
+        0 0 0 115px
+        rgba(70, 150, 250, .025);
+
+    }
+
+
+    .schools-hero-grid {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: grid;
+
+      grid-template-columns:
+        1.05fr .95fr;
+
+      gap: 72px;
+
+      align-items: center;
+
+    }
+
+
+    .schools-eyebrow {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      margin-bottom: 22px;
+
+      padding: 8px 12px;
+
+      border:
+        1px solid rgba(255,255,255,.13);
+
+      border-radius: 999px;
+
+      color: #cce6ee;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      letter-spacing: .09em;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .schools-eyebrow-dot {
+
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: var(--schools-cyan);
+
+    }
+
+
+    .schools-hero h1 {
+
+      max-width: 720px;
+
+      margin: 0;
+
+      font-size:
+        clamp(48px, 6vw, 76px);
+
+      line-height: .99;
+
+      letter-spacing: -.05em;
+
+    }
+
+
+    .schools-hero h1 span {
+
+      color: var(--schools-gold);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-weight: 400;
+
+      font-style: italic;
+
+    }
+
+
+    .schools-hero-subtitle {
+
+      margin-top: 22px;
+
+      color: #e1edf5;
+
+      font-size: 23px;
+
+      font-weight: 700;
+
+    }
+
+
+    .schools-hero-description {
+
+      max-width: 700px;
+
+      margin-top: 19px;
+
+      color: #b9cada;
+
+      font-size: 17px;
+
+      line-height: 1.65;
+
+    }
+
+
+    .schools-actions {
+
+      display: flex;
+
+      gap: 13px;
+
+      flex-wrap: wrap;
+
+      margin-top: 31px;
+
+    }
+
+
+    .schools-btn {
+
+      min-height: 49px;
+
+      padding: 0 21px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 11px;
+
+      font-size: 14px;
+
+      font-weight: 800;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+    }
+
+
+    .schools-btn:hover {
+
+      transform:
+        translateY(-2px);
+
+    }
+
+
+    .schools-btn-primary {
+
+      background:
+        var(--schools-gold);
+
+      color:
+        #102038;
+
+    }
+
+
+    .schools-btn-secondary {
+
+      color: white;
+
+      border:
+        1px solid rgba(255,255,255,.19);
+
+      background:
+        rgba(255,255,255,.045);
+
+    }
+
+
+
+    /* =====================================================
+       HERO JOURNEY
+    ====================================================== */
+
+    .schools-journey-card {
+
+      padding: 30px;
+
+      border:
+        1px solid rgba(255,255,255,.11);
+
+      border-radius: 27px;
+
+      background:
+        rgba(255,255,255,.055);
+
+      box-shadow:
+        0 24px 70px rgba(0,0,0,.14);
+
+      backdrop-filter:
+        blur(10px);
+
+    }
+
+
+    .schools-journey-label {
+
+      margin-bottom: 20px;
+
+      color: #93a9bb;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: .13em;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .schools-journey {
+
+      display: grid;
+
+      gap: 11px;
+
+    }
+
+
+    .schools-journey-step {
+
+      display: grid;
+
+      grid-template-columns:
+        40px 1fr;
+
+      gap: 14px;
+
+      align-items: center;
+
+      padding: 15px;
+
+      border-radius: 16px;
+
+      border:
+        1px solid rgba(255,255,255,.07);
+
+      background:
+        rgba(255,255,255,.045);
+
+    }
+
+
+    .schools-journey-number {
+
+      width: 38px;
+      height: 38px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 50%;
+
+      background:
+        rgba(72,202,215,.11);
+
+      border:
+        1px solid rgba(72,202,215,.28);
+
+      color: #83dce5;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+    }
+
+
+    .schools-journey-step strong {
+
+      display: block;
+
+      margin-bottom: 3px;
+
+      color: white;
+
+      font-size: 14px;
+
+    }
+
+
+    .schools-journey-step small {
+
+      color: #8fa4b8;
+
+      font-size: 12px;
+
+    }
+
+
+
+    /* =====================================================
+       NETWORK BAR
+    ====================================================== */
+
+    .schools-network {
+
+      border-bottom:
+        1px solid var(--schools-border);
+
+      background: white;
+
+    }
+
+
+    .schools-network-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      padding:
+        27px 0;
+
+    }
+
+
+    .schools-network-stat {
+
+      padding:
+        0 28px;
+
+      border-right:
+        1px solid var(--schools-border);
+
+    }
+
+
+    .schools-network-stat:first-child {
+
+      padding-left: 0;
+
+    }
+
+
+    .schools-network-stat:last-child {
+
+      border-right: 0;
+
+    }
+
+
+    .schools-network-stat strong {
+
+      display: block;
+
+      color:
+        var(--schools-text);
+
+      font-size: 26px;
+
+    }
+
+
+    .schools-network-stat span {
+
+      display: block;
+
+      margin-top: 2px;
+
+      color:
+        var(--schools-muted);
+
+      font-size: 12px;
+
+    }
+
+
+
+    /* =====================================================
+       GENERAL SECTION
+    ====================================================== */
+
+    .schools-section {
+
+      padding:
+        88px 0;
+
+    }
+
+
+    .schools-section-soft {
+
+      background:
+        var(--schools-soft);
+
+    }
+
+
+    .schools-kicker {
+
+      margin-bottom: 11px;
+
+      color: #617187;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      letter-spacing: .13em;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .schools-section-title {
+
+      max-width: 880px;
+
+      margin:
+        0 0 17px;
+
+      font-size:
+        clamp(34px, 4vw, 52px);
+
+      line-height: 1.08;
+
+      letter-spacing: -.04em;
+
+    }
+
+
+    .schools-section-lead {
+
+      max-width: 790px;
+
+      margin:
+        0 0 42px;
+
+      color:
+        var(--schools-muted);
+
+      font-size: 17px;
+
+      line-height: 1.65;
+
+    }
+
+
+
+    /* =====================================================
+       THREE EXPERIENCES
+    ====================================================== */
+
+    .schools-experience-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 20px;
+
+    }
+
+
+    .schools-experience-card {
+
+      position: relative;
+
+      overflow: hidden;
+
+      min-height: 325px;
+
+      padding: 30px;
+
+      border:
+        1px solid var(--schools-border);
+
+      border-radius: 22px;
+
+      background: white;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+    }
+
+
+    .schools-experience-card:hover {
+
+      transform:
+        translateY(-4px);
+
+      box-shadow:
+        0 16px 35px rgba(20,40,70,.08);
+
+    }
+
+
+    .schools-experience-blue {
+
+      background:
+        linear-gradient(
+          135deg,
+          #eef5ff,
+          white
+        );
+
+    }
+
+
+    .schools-experience-green {
+
+      background:
+        linear-gradient(
+          135deg,
+          #edf9f4,
+          white
+        );
+
+    }
+
+
+    .schools-experience-purple {
+
+      background:
+        linear-gradient(
+          135deg,
+          #f3f0ff,
+          white
+        );
+
+    }
+
+
+    .schools-experience-icon {
+
+      width: 53px;
+      height: 53px;
+
+      margin-bottom: 22px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 15px;
+
+      color: white;
+
+      font-size: 22px;
+
+    }
+
+
+    .schools-icon-blue {
+
+      background:
+        var(--schools-blue);
+
+    }
+
+
+    .schools-icon-green {
+
+      background:
+        var(--schools-green);
+
+    }
+
+
+    .schools-icon-purple {
+
+      background:
+        var(--schools-purple);
+
+    }
+
+
+    .schools-experience-card h3 {
+
+      margin:
+        0 0 12px;
+
+      font-size: 24px;
+
+      line-height: 1.18;
+
+    }
+
+
+    .schools-experience-card p {
+
+      margin: 0;
+
+      color:
+        var(--schools-muted);
+
+      font-size: 14px;
+
+      line-height: 1.6;
+
+    }
+
+
+    .schools-field-tags {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      margin-top: 21px;
+
+    }
+
+
+    .schools-field-tag {
+
+      padding:
+        6px 10px;
+
+      border:
+        1px solid #dce5ee;
+
+      border-radius: 999px;
+
+      background:
+        rgba(255,255,255,.75);
+
+      color: #53647a;
+
+      font-size: 11px;
+
+    }
+
+
+
+    /* =====================================================
+       PROJECT FLOW
+    ====================================================== */
+
+    .schools-project-flow {
+
+      display: flex;
+
+      gap: 7px;
+
+      align-items: flex-start;
+
+      flex-wrap: wrap;
+
+      margin-top: 22px;
+
+    }
+
+
+    .schools-project-step {
+
+      width: 55px;
+
+      text-align: center;
+
+      color: #5c6b80;
+
+      font-size: 9px;
+
+    }
+
+
+    .schools-project-step-icon {
+
+      width: 38px;
+      height: 38px;
+
+      margin:
+        0 auto 6px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: white;
+
+      border:
+        1px solid #d8e4df;
+
+      font-size: 14px;
+
+    }
+
+
+
+    /* =====================================================
+       FEATURED OPPORTUNITIES
+    ====================================================== */
+
+    .schools-opportunity-header {
+
+      display: flex;
+
+      align-items: flex-end;
+
+      justify-content: space-between;
+
+      gap: 25px;
+
+      margin-bottom: 27px;
+
+    }
+
+
+    .schools-opportunity-header h2 {
+
+      margin: 0;
+
+      font-size: 31px;
+
+      letter-spacing: -.025em;
+
+    }
+
+
+    .schools-opportunity-header a {
+
+      color:
+        var(--schools-blue);
+
+      font-size: 13px;
+
+      font-weight: 800;
+
+    }
+
+
+    .schools-opportunity-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 20px;
+
+    }
+
+
+    .schools-opportunity-card {
+
+      overflow: hidden;
+
+      background: white;
+
+      border:
+        1px solid var(--schools-border);
+
+      border-radius: 18px;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+    }
+
+
+    .schools-opportunity-card:hover {
+
+      transform:
+        translateY(-4px);
+
+      box-shadow:
+        0 16px 34px rgba(20,40,70,.08);
+
+    }
+
+
+    .schools-opportunity-image {
+
+      position: relative;
+
+      height: 185px;
+
+      display: grid;
+
+      place-items: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #dcecff,
+          #7aa3d5
+        );
+
+      font-size: 58px;
+
+    }
+
+
+    .schools-opportunity-badge {
+
+      position: absolute;
+
+      left: 15px;
+      top: 15px;
+
+      padding:
+        6px 9px;
+
+      border-radius: 999px;
+
+      color: white;
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      letter-spacing: .04em;
+
+    }
+
+
+    .schools-badge-blue {
+
+      background:
+        var(--schools-blue);
+
+    }
+
+
+    .schools-badge-green {
+
+      background:
+        var(--schools-green);
+
+    }
+
+
+    .schools-badge-purple {
+
+      background:
+        var(--schools-purple);
+
+    }
+
+
+    .schools-opportunity-content {
+
+      padding: 21px;
+
+    }
+
+
+    .schools-opportunity-content h3 {
+
+      margin:
+        0 0 11px;
+
+      font-size: 18px;
+
+      line-height: 1.3;
+
+    }
+
+
+    .schools-opportunity-meta {
+
+      margin-bottom: 11px;
+
+      color:
+        var(--schools-muted);
+
+      font-size: 12px;
+
+      line-height: 1.6;
+
+    }
+
+
+    .schools-opportunity-description {
+
+      min-height: 57px;
+
+      color: #56677b;
+
+      font-size: 12px;
+
+      line-height: 1.55;
+
+    }
+
+
+    .schools-opportunity-footer {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 12px;
+
+      margin-top: 17px;
+
+    }
+
+
+    .schools-opportunity-info {
+
+      color:
+        var(--schools-muted);
+
+      font-size: 11px;
+
+    }
+
+
+    .schools-view-btn {
+
+      padding:
+        8px 11px;
+
+      border:
+        1px solid #b7cef4;
+
+      border-radius: 8px;
+
+      background: #f8fbff;
+
+      color:
+        var(--schools-blue);
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+    }
+
+
+
+    /* =====================================================
+       HOW IT WORKS
+    ====================================================== */
+
+    .schools-how-box {
+
+      padding: 34px;
+
+      background: white;
+
+      border:
+        1px solid var(--schools-border);
+
+      border-radius: 22px;
+
+    }
+
+
+    .schools-how-box h2 {
+
+      margin:
+        0 0 36px;
+
+      text-align: center;
+
+      font-size: 30px;
+
+    }
+
+
+    .schools-steps {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(5, 1fr);
+
+      gap: 26px;
+
+    }
+
+
+    .schools-step {
+
+      position: relative;
+
+      text-align: center;
+
+    }
+
+
+    .schools-step:not(:last-child)::after {
+
+      content: "→";
+
+      position: absolute;
+
+      right: -19px;
+      top: 28px;
+
+      color: #8c9aac;
+
+      font-size: 20px;
+
+    }
+
+
+    .schools-step-icon {
+
+      width: 62px;
+      height: 62px;
+
+      margin:
+        0 auto 14px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: #edf4ff;
+
+      color:
+        var(--schools-blue);
+
+      font-size: 24px;
+
+    }
+
+
+    .schools-step strong {
+
+      display: block;
+
+      margin-bottom: 7px;
+
+      font-size: 13px;
+
+    }
+
+
+    .schools-step p {
+
+      margin: 0;
+
+      color:
+        var(--schools-muted);
+
+      font-size: 11px;
+
+      line-height: 1.5;
+
+    }
+
+
+
+    /* =====================================================
+       SCHOOL PARTNERSHIP
+    ====================================================== */
+
+    .schools-partner {
+
+      padding:
+        90px 0;
+
+      background:
+
+        radial-gradient(
+          circle at 84% 30%,
+          rgba(218,170,80,.13),
+          transparent 28%
+        ),
+
+        linear-gradient(
+          130deg,
+          #09182c,
+          #102743
+        );
+
+      color: white;
+
+    }
+
+
+    .schools-partner-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1.25fr;
+
+      gap: 60px;
+
+      align-items: center;
+
+    }
+
+
+    .schools-partner-kicker {
+
+      margin-bottom: 10px;
+
+      color:
+        var(--schools-gold);
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      letter-spacing: .12em;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .schools-partner h2 {
+
+      margin:
+        0 0 17px;
+
+      font-size:
+        clamp(35px, 4vw, 52px);
+
+      line-height: 1.08;
+
+      letter-spacing: -.04em;
+
+    }
+
+
+    .schools-partner-description {
+
+      max-width: 620px;
+
+      margin:
+        0 0 27px;
+
+      color: #b9c9d8;
+
+      font-size: 16px;
+
+      line-height: 1.65;
+
+    }
+
+
+    .schools-benefits {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 13px;
+
+    }
+
+
+    .schools-benefit {
+
+      padding: 18px;
+
+      border:
+        1px solid rgba(255,255,255,.1);
+
+      border-radius: 16px;
+
+      background:
+        rgba(255,255,255,.045);
+
+    }
+
+
+    .schools-benefit-icon {
+
+      width: 40px;
+      height: 40px;
+
+      margin-bottom: 12px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 12px;
+
+      background:
+        rgba(218,170,80,.12);
+
+      color:
+        var(--schools-gold);
+
+      font-size: 19px;
+
+    }
+
+
+    .schools-benefit strong {
+
+      display: block;
+
+      margin-bottom: 5px;
+
+      font-size: 13px;
+
+    }
+
+
+    .schools-benefit span {
+
+      display: block;
+
+      color: #99adbf;
+
+      font-size: 11px;
+
+      line-height: 1.45;
+
+    }
+
+
+
+    /* =====================================================
+       RESPONSIVE
+    ====================================================== */
+
+    @media(max-width: 1050px) {
+
+      .schools-hero-grid,
+      .schools-partner-grid {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .schools-experience-grid,
+      .schools-opportunity-grid {
+
+        grid-template-columns:
+          1fr 1fr;
+
+      }
+
+
+      .schools-steps {
+
+        grid-template-columns:
+          repeat(3, 1fr);
+
+      }
+
+
+      .schools-network-grid {
+
+        grid-template-columns:
+          1fr 1fr;
+
+        gap: 25px;
+
+      }
+
+
+      .schools-network-stat {
+
+        border-right: 0;
+
+        padding: 0;
+
+      }
+
+    }
+
+
+    @media(max-width: 700px) {
+
+      .schools-hero {
+
+        padding:
+          65px 0;
+
+      }
+
+
+      .schools-hero h1 {
+
+        font-size: 47px;
+
+      }
+
+
+      .schools-actions {
+
+        flex-direction: column;
+
+      }
+
+
+      .schools-btn {
+
+        width: 100%;
+
+      }
+
+
+      .schools-experience-grid,
+      .schools-opportunity-grid,
+      .schools-steps,
+      .schools-benefits {
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+
+      .schools-step:not(:last-child)::after {
+
+        display: none;
+
+      }
+
+
+      .schools-network-grid {
+
+        grid-template-columns:
+          1fr 1fr;
+
+      }
+
+
+      .schools-how-box {
+
+        padding:
+          26px 18px;
+
+      }
+
+    }
+
+  </style>
+
 </head>
-<body>
-<header class="site-header" id="site-header"></header>
 
-<section class="hero" style="padding:60px 0">
-  <div class="container">
-    <span class="kicker">FOR SCHOOLS · SCIENCE OUTREACH</span>
-    <h1 style="font-size:clamp(1.8rem,3.6vw,2.7rem)">Bring a <em>real scientist</em> into your classroom.</h1>
-    <p class="lead">QIST members — researchers at universities and labs around the world — volunteer their time
-    for schools: talks, mentoring and career guidance for the next generation of scientists.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="mailto:info@qista.org?subject=School%20outreach%20request&body=School%2C%20city%3A%0ATopic%20or%20field%20of%20interest%3A%0AFormat%20(online%20talk%2C%20visit%2C%20mentoring)%3A%0AStudents%27%20age%20group%3A">✉️ Request a scientist</a>
-      <a class="btn btn-ghost" href="map.html">See where our scientists are</a>
-    </div>
-  </div>
-</section>
 
-<section class="section">
-  <div class="container" style="max-width:980px">
-    <div class="section-head"><h2 class="rule">What we offer schools</h2></div>
-    <div class="grid grid-3">
-      <div class="card"><h3>🎤 Invite-a-scientist talks</h3>
-        <p class="small" style="color:var(--ink-soft)">Online or in-person talks by researchers — from AI and space
-        to medicine and materials — in Kazakh, Russian or English, matched to your students' age group.</p></div>
-      <div class="card"><h3>🔬 Research mentoring</h3>
-        <p class="small" style="color:var(--ink-soft)">Guidance for student research projects, science fairs and
-        olympiad preparation from researchers working in the field.</p></div>
-      <div class="card"><h3>🧭 Career guidance</h3>
-        <p class="small" style="color:var(--ink-soft)">How to choose a field, apply abroad, win scholarships —
-        answered by people who did it, from Astana to Boston to Tokyo.</p></div>
-    </div>
 
-    <div class="card" style="margin-top:34px;text-align:center;padding:30px">
-      <h3 style="font-family:var(--serif)">How it works</h3>
-      <p class="small" style="color:var(--ink-soft);max-width:640px;margin:10px auto 16px">
-        Tell us your school, topic of interest and preferred format. We match you with a volunteering member
-        of the community and coordinate the session — at no cost to the school.</p>
-      <a class="btn btn-primary" href="mailto:info@qista.org?subject=School%20outreach%20request&body=School%2C%20city%3A%0ATopic%20or%20field%20of%20interest%3A%0AFormat%20(online%20talk%2C%20visit%2C%20mentoring)%3A%0AStudents%27%20age%20group%3A">Request a session</a>
-      <div class="muted small" style="margin-top:12px">Are you a QIST member who wants to volunteer for schools?
-      <a href="channels.html?c=general">Say so in the community channels</a>.</div>
-    </div>
-  </div>
-</section>
+<body class="schools-page">
 
-<footer class="site-footer" id="site-footer"></footer>
 
-<script src="assets/js/app.js"></script>
-<script>QIST.boot('schools.html');</script>
+  <!-- =====================================================
+       SAME QIST NAVIGATION AS ALL OTHER PAGES
+  ====================================================== -->
+
+  <header
+    class="site-header"
+    id="site-header"
+  ></header>
+
+
+
+  <main>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="schools-hero">
+
+      <div class="container schools-hero-grid">
+
+
+        <div>
+
+          <div class="schools-eyebrow">
+
+            <span class="schools-eyebrow-dot"></span>
+
+            QIST Science Bridge · For School Students
+
+          </div>
+
+
+          <h1>
+
+            Start your first
+
+            <span>
+              research journey.
+            </span>
+
+          </h1>
+
+
+          <div class="schools-hero-subtitle">
+
+            Find a mentor. Build a project. Visit a lab.
+
+          </div>
+
+
+          <div class="schools-hero-description">
+
+            QIST connects motivated school students with
+            PhD students, researchers and professors around
+            the world.
+
+            <br><br>
+
+            Develop your first research project with a scientist,
+            explore different scientific fields, visit university
+            laboratories and discover research internship opportunities.
+
+          </div>
+
+
+          <div class="schools-actions">
+
+            <a
+              href="#opportunities"
+              class="
+                schools-btn
+                schools-btn-primary
+              "
+            >
+              Find a Mentor →
+            </a>
+
+
+            <a
+              href="#opportunities"
+              class="
+                schools-btn
+                schools-btn-secondary
+              "
+            >
+              Explore Opportunities
+            </a>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- HERO JOURNEY -->
+
+        <aside class="schools-journey-card">
+
+          <div class="schools-journey-label">
+            Your Research Journey
+          </div>
+
+
+          <div class="schools-journey">
+
+
+            <div class="schools-journey-step">
+
+              <span class="schools-journey-number">
+                01
+              </span>
+
+              <div>
+
+                <strong>
+                  Explore
+                </strong>
+
+                <small>
+                  Discover the scientific fields that interest you.
+                </small>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="schools-journey-step">
+
+              <span class="schools-journey-number">
+                02
+              </span>
+
+              <div>
+
+                <strong>
+                  Meet a Mentor
+                </strong>
+
+                <small>
+                  Connect with a PhD student, researcher or professor.
+                </small>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="schools-journey-step">
+
+              <span class="schools-journey-number">
+                03
+              </span>
+
+              <div>
+
+                <strong>
+                  Build
+                </strong>
+
+                <small>
+                  Develop your first scientific research project.
+                </small>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="schools-journey-step">
+
+              <span class="schools-journey-number">
+                04
+              </span>
+
+              <div>
+
+                <strong>
+                  Experience
+                </strong>
+
+                <small>
+                  Visit a laboratory or join a short internship.
+                </small>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="schools-journey-step">
+
+              <span class="schools-journey-number">
+                05
+              </span>
+
+              <div>
+
+                <strong>
+                  Present & Grow
+                </strong>
+
+                <small>
+                  Share your work and continue your scientific journey.
+                </small>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </aside>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         NETWORK
+    ====================================================== -->
+
+    <section class="schools-network">
+
+      <div class="container schools-network-grid">
+
+
+        <div class="schools-network-stat">
+
+          <strong>
+            500+
+          </strong>
+
+          <span>
+            scientists in the QIST network
+          </span>
+
+        </div>
+
+
+        <div class="schools-network-stat">
+
+          <strong>
+            40+
+          </strong>
+
+          <span>
+            countries represented
+          </span>
+
+        </div>
+
+
+        <div class="schools-network-stat">
+
+          <strong>
+            Global
+          </strong>
+
+          <span>
+            PhD students, researchers & professors
+          </span>
+
+        </div>
+
+
+        <div class="schools-network-stat">
+
+          <strong>
+            Many Fields
+          </strong>
+
+          <span>
+            AI, medicine, robotics, biology, physics & more
+          </span>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MAIN EXPERIENCES
+    ====================================================== -->
+
+    <section class="schools-section">
+
+      <div class="container">
+
+
+        <div class="schools-kicker">
+          Explore science
+        </div>
+
+
+        <h2 class="schools-section-title">
+
+          Three ways to start your
+          scientific journey.
+
+        </h2>
+
+
+        <p class="schools-section-lead">
+
+          Whether you already have a research idea or are simply
+          curious about science, QIST helps you connect with real
+          researchers and gain your first experience in academic research.
+
+        </p>
+
+
+
+        <div class="schools-experience-grid">
+
+
+          <!-- MENTOR -->
+
+          <article
+            class="
+              schools-experience-card
+              schools-experience-blue
+            "
+          >
+
+            <div
+              class="
+                schools-experience-icon
+                schools-icon-blue
+              "
+            >
+              👥
+            </div>
+
+
+            <h3>
+              1. Find Your Research Mentor
+            </h3>
+
+
+            <p>
+
+              Get matched with a PhD student,
+              researcher or scientist working in
+              the field you are interested in.
+
+            </p>
+
+
+            <div class="schools-field-tags">
+
+              <span class="schools-field-tag">
+                AI
+              </span>
+
+              <span class="schools-field-tag">
+                Biology
+              </span>
+
+              <span class="schools-field-tag">
+                Medicine
+              </span>
+
+              <span class="schools-field-tag">
+                Robotics
+              </span>
+
+              <span class="schools-field-tag">
+                Physics
+              </span>
+
+              <span class="schools-field-tag">
+                Climate
+              </span>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- PROJECT -->
+
+          <article
+            class="
+              schools-experience-card
+              schools-experience-green
+            "
+          >
+
+            <div
+              class="
+                schools-experience-icon
+                schools-icon-green
+              "
+            >
+              💡
+            </div>
+
+
+            <h3>
+              2. Build a Research Project
+            </h3>
+
+
+            <p>
+
+              Turn your curiosity into a real research
+              project with step-by-step guidance from
+              a scientist.
+
+            </p>
+
+
+            <div class="schools-project-flow">
+
+
+              <div class="schools-project-step">
+
+                <div class="schools-project-step-icon">
+                  💡
+                </div>
+
+                Idea
+
+              </div>
+
+
+              <div class="schools-project-step">
+
+                <div class="schools-project-step-icon">
+                  ?
+                </div>
+
+                Question
+
+              </div>
+
+
+              <div class="schools-project-step">
+
+                <div class="schools-project-step-icon">
+                  🔬
+                </div>
+
+                Method
+
+              </div>
+
+
+              <div class="schools-project-step">
+
+                <div class="schools-project-step-icon">
+                  📊
+                </div>
+
+                Data
+
+              </div>
+
+
+              <div class="schools-project-step">
+
+                <div class="schools-project-step-icon">
+                  📈
+                </div>
+
+                Analysis
+
+              </div>
+
+
+              <div class="schools-project-step">
+
+                <div class="schools-project-step-icon">
+                  🖥
+                </div>
+
+                Present
+
+              </div>
+
+
+            </div>
+
+          </article>
+
+
+
+          <!-- LAB -->
+
+          <article
+            class="
+              schools-experience-card
+              schools-experience-purple
+            "
+          >
+
+            <div
+              class="
+                schools-experience-icon
+                schools-icon-purple
+              "
+            >
+              🧪
+            </div>
+
+
+            <h3>
+              3. Visit a University Lab
+            </h3>
+
+
+            <p>
+
+              Meet professors and research teams,
+              explore laboratories and discover
+              short internships or research experiences.
+
+            </p>
+
+
+            <div class="schools-field-tags">
+
+              <span class="schools-field-tag">
+                Laboratory Visits
+              </span>
+
+              <span class="schools-field-tag">
+                Research Internships
+              </span>
+
+              <span class="schools-field-tag">
+                University Experience
+              </span>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FEATURED OPPORTUNITIES
+    ====================================================== -->
+
+    <section
+      id="opportunities"
+      class="
+        schools-section
+        schools-section-soft
+      "
+    >
+
+      <div class="container">
+
+
+        <div class="schools-opportunity-header">
+
+          <div>
+
+            <div class="schools-kicker">
+              Student opportunities
+            </div>
+
+            <h2>
+              Featured Opportunities
+            </h2>
+
+          </div>
+
+
+          <a href="marketplace.html">
+            View all opportunities →
+          </a>
+
+        </div>
+
+
+
+        <div class="schools-opportunity-grid">
+
+
+          <!-- MENTORSHIP -->
+
+          <article class="schools-opportunity-card">
+
+
+            <div class="schools-opportunity-image">
+
+              👨‍💻
+
+              <span
+                class="
+                  schools-opportunity-badge
+                  schools-badge-blue
+                "
+              >
+                MENTORSHIP
+              </span>
+
+            </div>
+
+
+            <div class="schools-opportunity-content">
+
+              <h3>
+                AI Research Mentor for School Students
+              </h3>
+
+
+              <div class="schools-opportunity-meta">
+
+                PhD Researcher · Artificial Intelligence
+                <br>
+
+                Online · 8-week mentorship
+
+              </div>
+
+
+              <div class="schools-opportunity-description">
+
+                Learn how to build a research project
+                in AI, machine learning and
+                real-world applications.
+
+              </div>
+
+
+              <div class="schools-opportunity-footer">
+
+                <div class="schools-opportunity-info">
+
+                  Online · Ages 15–18
+
+                </div>
+
+
+                <a
+                  href="#"
+                  class="schools-view-btn"
+                >
+                  View Mentorship
+                </a>
+
+              </div>
+
+            </div>
+
+
+          </article>
+
+
+
+          <!-- LAB VISIT -->
+
+          <article class="schools-opportunity-card">
+
+
+            <div class="schools-opportunity-image">
+
+              🔬
+
+              <span
+                class="
+                  schools-opportunity-badge
+                  schools-badge-green
+                "
+              >
+                LAB VISIT
+              </span>
+
+            </div>
+
+
+            <div class="schools-opportunity-content">
+
+              <h3>
+                Neuroscience Laboratory Visit
+              </h3>
+
+
+              <div class="schools-opportunity-meta">
+
+                University Research Lab · Berlin, Germany
+                <br>
+
+                Lab visit · School students 16–18
+
+              </div>
+
+
+              <div class="schools-opportunity-description">
+
+                Explore a neuroscience laboratory,
+                meet the research team and learn
+                how scientists study the brain.
+
+              </div>
+
+
+              <div class="schools-opportunity-footer">
+
+                <div class="schools-opportunity-info">
+
+                  In-person · Ages 16–18
+
+                </div>
+
+
+                <a
+                  href="#"
+                  class="schools-view-btn"
+                >
+                  View Opportunity
+                </a>
+
+              </div>
+
+            </div>
+
+
+          </article>
+
+
+
+          <!-- INTERNSHIP -->
+
+          <article class="schools-opportunity-card">
+
+
+            <div class="schools-opportunity-image">
+
+              🤖
+
+              <span
+                class="
+                  schools-opportunity-badge
+                  schools-badge-purple
+                "
+              >
+                INTERNSHIP
+              </span>
+
+            </div>
+
+
+            <div class="schools-opportunity-content">
+
+              <h3>
+                Robotics Summer Research Internship
+              </h3>
+
+
+              <div class="schools-opportunity-meta">
+
+                Robotics Laboratory · Astana, Kazakhstan
+                <br>
+
+                2-week internship
+
+              </div>
+
+
+              <div class="schools-opportunity-description">
+
+                Gain hands-on experience in robotics,
+                programming and engineering design
+                alongside a research team.
+
+              </div>
+
+
+              <div class="schools-opportunity-footer">
+
+                <div class="schools-opportunity-info">
+
+                  In-person · Ages 16–18
+
+                </div>
+
+
+                <a
+                  href="#"
+                  class="schools-view-btn"
+                >
+                  View Internship
+                </a>
+
+              </div>
+
+            </div>
+
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         HOW IT WORKS
+    ====================================================== -->
+
+    <section class="schools-section">
+
+      <div class="container">
+
+        <div class="schools-how-box">
+
+
+          <div class="schools-kicker"
+               style="text-align:center;">
+
+            How it works
+
+          </div>
+
+
+          <h2>
+            From curiosity to your first research experience.
+          </h2>
+
+
+
+          <div class="schools-steps">
+
+
+            <div class="schools-step">
+
+              <div class="schools-step-icon">
+                👤
+              </div>
+
+              <strong>
+                1. Create Your Profile
+              </strong>
+
+              <p>
+                Tell us about your interests,
+                skills and goals.
+              </p>
+
+            </div>
+
+
+
+            <div class="schools-step">
+
+              <div class="schools-step-icon">
+                🎯
+              </div>
+
+              <strong>
+                2. Choose Your Interests
+              </strong>
+
+              <p>
+                Select the scientific fields
+                you are excited about.
+              </p>
+
+            </div>
+
+
+
+            <div class="schools-step">
+
+              <div class="schools-step-icon">
+                🔎
+              </div>
+
+              <strong>
+                3. Get Matched
+              </strong>
+
+              <p>
+                Find the right mentor,
+                laboratory or opportunity.
+              </p>
+
+            </div>
+
+
+
+            <div class="schools-step">
+
+              <div class="schools-step-icon">
+                👥
+              </div>
+
+              <strong>
+                4. Work with a Scientist
+              </strong>
+
+              <p>
+                Learn, collaborate and develop
+                your research project.
+              </p>
+
+            </div>
+
+
+
+            <div class="schools-step">
+
+              <div class="schools-step-icon">
+                🏆
+              </div>
+
+              <strong>
+                5. Present & Grow
+              </strong>
+
+              <p>
+                Present your project and continue
+                your scientific journey.
+              </p>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOR SCHOOLS / PARTNERS
+    ====================================================== -->
+
+    <section class="schools-partner">
+
+      <div class="container schools-partner-grid">
+
+
+        <div>
+
+
+          <div class="schools-partner-kicker">
+            For Schools
+          </div>
+
+
+          <h2>
+
+            Bring global scientists
+            into your school.
+
+          </h2>
+
+
+          <p class="schools-partner-description">
+
+            Schools can connect students with research mentors,
+            invite scientists for online sessions, organize
+            laboratory visits and build structured research
+            mentorship programs with the QIST global network.
+
+          </p>
+
+
+          <a
+            href="mailto:info@qist.global?subject=QIST%20Schools%20Partnership"
+            class="
+              schools-btn
+              schools-btn-primary
+            "
+          >
+            Partner with QIST →
+          </a>
+
+
+        </div>
+
+
+
+        <div class="schools-benefits">
+
+
+          <div class="schools-benefit">
+
+            <div class="schools-benefit-icon">
+              👥
+            </div>
+
+            <strong>
+              Connect Students
+            </strong>
+
+            <span>
+
+              Match students with PhD mentors,
+              professors and researchers worldwide.
+
+            </span>
+
+          </div>
+
+
+
+          <div class="schools-benefit">
+
+            <div class="schools-benefit-icon">
+              📖
+            </div>
+
+            <strong>
+              Enrich Learning
+            </strong>
+
+            <span>
+
+              Bring real scientists into the classroom
+              through talks and mentorship.
+
+            </span>
+
+          </div>
+
+
+
+          <div class="schools-benefit">
+
+            <div class="schools-benefit-icon">
+              🔬
+            </div>
+
+            <strong>
+              Lab Visits & Internships
+            </strong>
+
+            <span>
+
+              Create access to laboratories and
+              short research experiences.
+
+            </span>
+
+          </div>
+
+
+
+          <div class="schools-benefit">
+
+            <div class="schools-benefit-icon">
+              🌍
+            </div>
+
+            <strong>
+              Global Network
+            </strong>
+
+            <span>
+
+              Build connections with universities
+              and scientists around the world.
+
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       SAME QIST JAVASCRIPT AS ALL OTHER PAGES
+  ====================================================== -->
+
+  <script src="assets/js/app.js"></script>
+
+
+  <script>
+
+    QIST.boot('schools.html');
+
+  </script>
+
+
 </body>
+
 </html>

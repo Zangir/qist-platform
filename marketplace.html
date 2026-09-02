@@ -1,0 +1,2342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>QIST Marketplace | Science Bridge</title>
+
+  <style>
+    :root {
+      --navy: #06152c;
+      --navy2: #0b2140;
+      --blue: #176be8;
+      --blue-soft: #eef5ff;
+      --gold: #e9ad45;
+      --green: #2fb47c;
+      --purple: #7658df;
+
+      --text: #11203b;
+      --muted: #6d7b91;
+
+      --border: #dfe6ef;
+      --background: #f7f9fc;
+      --white: #ffffff;
+
+      --radius: 16px;
+      --max: 1500px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background: var(--background);
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 64px));
+      margin: 0 auto;
+    }
+
+
+    /* ============================
+       NAVIGATION
+    ============================ */
+
+    .nav {
+      height: 70px;
+      background: var(--navy);
+      color: white;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+      display: flex;
+      align-items: center;
+
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-circle {
+      width: 42px;
+      height: 42px;
+
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+
+      display: grid;
+      place-items: center;
+
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .brand-name {
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-sub {
+      font-size: 10px;
+      line-height: 1.2;
+      color: #d0d8e5;
+      border-left: 1px solid rgba(255,255,255,.2);
+      padding-left: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 29px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      color: #e0e6ef;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-links .active {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .nav-links .active::after {
+      content: "";
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: -26px;
+
+      height: 3px;
+      background: var(--gold);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+
+      min-height: 42px;
+      padding: 0 18px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      border-radius: 9px;
+
+      font-weight: 700;
+      font-size: 13px;
+
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      color: white;
+      border: 1px solid rgba(255,255,255,.35);
+      background: transparent;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #131d2c;
+    }
+
+    .btn-blue {
+      background: var(--blue);
+      color: white;
+    }
+
+
+    /* ============================
+       HERO
+    ============================ */
+
+    .hero {
+      background:
+        radial-gradient(
+          circle at 78% 40%,
+          rgba(36, 126, 255, 0.28),
+          transparent 33%
+        ),
+        linear-gradient(
+          115deg,
+          #06152c 0%,
+          #071831 52%,
+          #0b2650 100%
+        );
+
+      color: white;
+
+      padding: 38px 0 42px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+
+      width: 900px;
+      height: 900px;
+
+      right: -100px;
+      top: -340px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(63, 153, 255, 0.28);
+
+      box-shadow:
+        0 0 0 55px rgba(53, 132, 255, 0.035),
+        0 0 0 120px rgba(53, 132, 255, 0.025),
+        0 0 80px rgba(24, 113, 255, 0.25);
+
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 880px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      color: #4ad6e9;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+
+      margin-bottom: 9px;
+    }
+
+    .hero h1 {
+      margin: 0;
+
+      font-size: clamp(40px, 4.7vw, 64px);
+      line-height: 1.02;
+
+      letter-spacing: -0.045em;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero-description {
+      margin: 17px 0 22px;
+
+      max-width: 720px;
+
+      color: #c7d4e3;
+
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+
+    /* HERO STATS */
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 12px;
+
+      max-width: 730px;
+
+      margin-bottom: 18px;
+    }
+
+    .hero-stat {
+      min-height: 74px;
+
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      padding: 13px 15px;
+
+      border-radius: 11px;
+
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.09);
+    }
+
+    .hero-stat-icon {
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 10px;
+
+      background: rgba(29, 109, 255, 0.12);
+
+      font-size: 18px;
+    }
+
+    .hero-stat strong {
+      display: block;
+
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .hero-stat span {
+      display: block;
+
+      margin-top: 5px;
+
+      color: #a9bbce;
+
+      font-size: 10px;
+      line-height: 1.25;
+    }
+
+
+    /* SEARCH */
+
+    .search-row {
+      max-width: 860px;
+
+      display: grid;
+      grid-template-columns: 1fr 120px 110px 150px 92px;
+      gap: 8px;
+    }
+
+    .search-input,
+    .search-select {
+      height: 45px;
+
+      background: white;
+      border: 1px solid #d7deea;
+
+      border-radius: 7px;
+
+      padding: 0 14px;
+
+      outline: none;
+
+      color: #2d3d57;
+      font-size: 12px;
+    }
+
+
+    /* ============================
+       MARKETPLACE
+    ============================ */
+
+    .marketplace {
+      padding: 15px 0 50px;
+    }
+
+
+    /* TABS */
+
+    .marketplace-tabs {
+      background: white;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      display: grid;
+      grid-template-columns:
+        150px
+        1.15fr
+        1.15fr
+        .9fr
+        .9fr;
+
+      margin-bottom: 14px;
+
+      overflow: hidden;
+    }
+
+    .market-tab {
+      min-height: 62px;
+
+      padding: 12px 16px;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      border-right: 1px solid #e8edf3;
+
+      cursor: pointer;
+
+      background: white;
+    }
+
+    .market-tab:last-child {
+      border-right: 0;
+    }
+
+    .market-tab:hover {
+      background: #fafcff;
+    }
+
+    .market-tab.active {
+      background: #f4f8ff;
+      color: var(--blue);
+      border-bottom: 3px solid var(--blue);
+    }
+
+    .market-tab-icon {
+      font-size: 20px;
+    }
+
+    .market-tab strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    .market-tab span {
+      display: block;
+
+      margin-top: 3px;
+
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+
+    /* MAIN GRID */
+
+    .marketplace-grid {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr)
+        270px;
+
+      gap: 14px;
+      align-items: start;
+    }
+
+
+    /* OPPORTUNITY SECTION */
+
+    .market-panel {
+      background: white;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      overflow: hidden;
+    }
+
+    .market-panel-header {
+      min-height: 49px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 16px;
+
+      border-bottom: 1px solid #edf0f5;
+    }
+
+    .market-panel-header h2 {
+      margin: 0;
+
+      font-size: 15px;
+    }
+
+    .market-panel-header a {
+      color: var(--blue);
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+
+    /* OPPORTUNITY CARDS */
+
+    .opportunity {
+      display: grid;
+
+      grid-template-columns:
+        135px
+        minmax(0, 1fr)
+        145px;
+
+      gap: 14px;
+
+      padding: 13px;
+
+      border-bottom: 1px solid #edf0f5;
+    }
+
+    .opportunity:last-child {
+      border-bottom: 0;
+    }
+
+    .opportunity-image {
+      height: 112px;
+
+      border-radius: 8px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #a4c8ed,
+          #1f5c9b
+        );
+
+      display: grid;
+      place-items: center;
+
+      font-size: 38px;
+
+      overflow: hidden;
+    }
+
+    .opportunity-content {
+      min-width: 0;
+    }
+
+    .badge {
+      display: inline-flex;
+
+      padding: 4px 8px;
+
+      border-radius: 999px;
+
+      font-size: 9px;
+      font-weight: 700;
+
+      margin-bottom: 5px;
+    }
+
+    .badge-orange {
+      color: #b76b0b;
+      background: #fff3dd;
+    }
+
+    .badge-green {
+      color: #208159;
+      background: #e9f9f1;
+    }
+
+    .badge-purple {
+      color: #684acf;
+      background: #f0ecff;
+    }
+
+    .badge-blue {
+      color: #236dd1;
+      background: #e9f2ff;
+    }
+
+    .opportunity h3 {
+      margin: 0 0 5px;
+
+      font-size: 14px;
+      line-height: 1.18;
+    }
+
+    .organization {
+      color: #52627a;
+
+      font-size: 10px;
+
+      margin-bottom: 7px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+
+      margin-bottom: 6px;
+    }
+
+    .tag {
+      background: #f1f4f8;
+
+      border-radius: 999px;
+
+      padding: 4px 7px;
+
+      color: #59697e;
+
+      font-size: 8px;
+    }
+
+    .summary {
+      color: #607086;
+
+      font-size: 9px;
+      line-height: 1.4;
+    }
+
+
+    /* META COLUMN */
+
+    .opportunity-meta {
+      border-left: 1px solid #e7ebf1;
+
+      padding-left: 13px;
+
+      font-size: 9px;
+    }
+
+    .meta-row {
+      margin-bottom: 11px;
+    }
+
+    .meta-row span {
+      display: block;
+
+      color: #929dac;
+
+      margin-bottom: 3px;
+    }
+
+    .view-link {
+      color: var(--blue);
+
+      font-weight: 700;
+      font-size: 10px;
+    }
+
+
+    /* ============================
+       SIDEBAR
+    ============================ */
+
+    .sidebar {
+      display: grid;
+      gap: 12px;
+    }
+
+    .sidebar-card {
+      background: white;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      padding: 16px;
+    }
+
+    .sidebar-card h3 {
+      margin: 0 0 14px;
+
+      font-size: 14px;
+    }
+
+    .how-step {
+      display: flex;
+      gap: 10px;
+
+      margin: 14px 0;
+    }
+
+    .step-icon {
+      width: 35px;
+      height: 35px;
+
+      flex: 0 0 35px;
+
+      border-radius: 50%;
+
+      display: grid;
+      place-items: center;
+
+      color: var(--blue);
+
+      background: #edf4ff;
+    }
+
+    .how-step strong {
+      display: block;
+
+      font-size: 11px;
+    }
+
+    .how-step p {
+      margin: 3px 0 0;
+
+      color: var(--muted);
+
+      font-size: 9px;
+      line-height: 1.4;
+    }
+
+
+    /* POST CTA */
+
+    .post-card {
+      background:
+        radial-gradient(
+          circle at 100% 20%,
+          rgba(48, 123, 255, .35),
+          transparent 40%
+        ),
+        var(--navy);
+
+      color: white;
+    }
+
+    .post-card p {
+      margin: 0 0 14px;
+
+      color: #c1cddd;
+
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .post-card .btn {
+      width: 100%;
+    }
+
+
+    /* ALERT */
+
+    .alerts p {
+      color: var(--muted);
+
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .alerts .btn {
+      width: 100%;
+
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+    }
+
+
+    /* ============================
+       BENEFITS
+    ============================ */
+
+    .benefits {
+      margin-top: 13px;
+
+      background: white;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      padding: 18px 24px;
+
+      gap: 28px;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .benefit-icon {
+      width: 38px;
+      height: 38px;
+
+      flex: 0 0 38px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: #edf4ff;
+
+      font-size: 18px;
+    }
+
+    .benefit strong {
+      display: block;
+
+      font-size: 11px;
+      margin-bottom: 3px;
+    }
+
+    .benefit span {
+      color: var(--muted);
+
+      font-size: 9px;
+      line-height: 1.35;
+    }
+
+
+    /* ============================
+       RESPONSIVE
+    ============================ */
+
+    @media (max-width: 1250px) {
+
+      .marketplace-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .sidebar {
+        grid-column: 1 / -1;
+
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .nav-links {
+        gap: 18px;
+      }
+
+    }
+
+
+    @media (max-width: 960px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .marketplace-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        grid-template-columns: 1fr;
+      }
+
+      .marketplace-tabs {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .search-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .search-row input {
+        grid-column: 1 / -1;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 620px) {
+
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .marketplace-tabs {
+        grid-template-columns: 1fr;
+      }
+
+      .search-row {
+        grid-template-columns: 1fr;
+      }
+
+      .opportunity {
+        grid-template-columns: 1fr;
+      }
+
+      .opportunity-image {
+        height: 170px;
+      }
+
+      .opportunity-meta {
+        border-left: 0;
+        border-top: 1px solid #e7ebf1;
+
+        padding-left: 0;
+        padding-top: 11px;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- ============================
+     NAVIGATION
+============================ -->
+
+<header class="nav">
+
+  <div class="container nav-inner">
+
+    <a href="index.html" class="brand">
+
+      <div class="logo-circle">Q</div>
+
+      <div class="brand-name">
+        QIST
+      </div>
+
+      <div class="brand-sub">
+        SCIENCE BRIDGE<br>
+        GLOBAL IMPACT
+      </div>
+
+    </a>
+
+
+    <nav class="nav-links">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="organizations.html">
+        For Organizations
+      </a>
+
+      <a href="scientists.html">
+        For Scientists
+      </a>
+
+      <a href="deeptech-accelerator.html">
+        For DeepTech Accelerator
+      </a>
+
+      <a href="marketplace.html" class="active">
+        Marketplace
+      </a>
+
+      <a href="map.html">
+        Map
+      </a>
+
+      <a href="people.html">
+        People
+      </a>
+
+      <a href="resources.html">
+        Resources
+      </a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+      <a href="#" class="btn btn-outline">
+        Sign in
+      </a>
+
+      <a href="#" class="btn btn-gold">
+        Join QIST
+      </a>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+
+<!-- ============================
+     HERO
+============================ -->
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="hero-content">
+
+      <div class="hero-kicker">
+        Science & Technology Marketplace
+      </div>
+
+
+      <h1>
+
+        Opportunities for research,<br>
+
+        <span>
+          collaboration, careers and commercialization.
+        </span>
+
+      </h1>
+
+
+      <div class="hero-description">
+
+        Connecting organizations, universities and scientists
+        to solve real-world challenges, advance research and
+        build a better future together.
+
+      </div>
+
+
+
+      <!-- STATS -->
+
+      <div class="hero-stats">
+
+
+        <div class="hero-stat">
+
+          <div class="hero-stat-icon">
+            🏢
+          </div>
+
+          <div>
+
+            <strong>
+              13
+            </strong>
+
+            <span>
+              R&D opportunities
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-stat">
+
+          <div class="hero-stat-icon">
+            🎓
+          </div>
+
+          <div>
+
+            <strong>
+              8
+            </strong>
+
+            <span>
+              Academic positions
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-stat">
+
+          <div class="hero-stat-icon">
+            👥
+          </div>
+
+          <div>
+
+            <strong>
+              500+
+            </strong>
+
+            <span>
+              Scientists in our network
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-stat">
+
+          <div class="hero-stat-icon">
+            🌍
+          </div>
+
+          <div>
+
+            <strong>
+              40+
+            </strong>
+
+            <span>
+              Countries represented
+            </span>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- SEARCH -->
+
+      <div class="search-row">
+
+        <input
+          id="searchInput"
+          class="search-input"
+          type="text"
+          placeholder="Search opportunities by keyword, field, or expertise..."
+        />
+
+
+        <select class="search-select">
+
+          <option>
+            All Fields
+          </option>
+
+          <option>
+            AI & Data Science
+          </option>
+
+          <option>
+            Biotechnology
+          </option>
+
+          <option>
+            Energy
+          </option>
+
+          <option>
+            Materials
+          </option>
+
+          <option>
+            Engineering
+          </option>
+
+        </select>
+
+
+        <select class="search-select">
+
+          <option>
+            Location
+          </option>
+
+          <option>
+            Kazakhstan
+          </option>
+
+          <option>
+            Germany
+          </option>
+
+          <option>
+            United Kingdom
+          </option>
+
+          <option>
+            UAE
+          </option>
+
+        </select>
+
+
+        <select class="search-select">
+
+          <option>
+            Opportunity Type
+          </option>
+
+          <option>
+            Industry R&D
+          </option>
+
+          <option>
+            PhD
+          </option>
+
+          <option>
+            Postdoc
+          </option>
+
+          <option>
+            Faculty
+          </option>
+
+        </select>
+
+
+        <button
+          class="btn btn-blue"
+          onclick="searchOpportunities()"
+        >
+          Search
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ============================
+     MARKETPLACE
+============================ -->
+
+<section class="marketplace">
+
+  <div class="container">
+
+
+    <!-- CATEGORY TABS -->
+
+    <div class="marketplace-tabs">
+
+      <div class="market-tab">
+
+        <div class="market-tab-icon">
+          ▦
+        </div>
+
+        <strong>
+          All Opportunities
+        </strong>
+
+      </div>
+
+
+      <div
+        class="market-tab active"
+        data-tab="industry"
+      >
+
+        <div class="market-tab-icon">
+          🏢
+        </div>
+
+        <div>
+
+          <strong>
+            Industry & R&D Opportunities
+          </strong>
+
+          <span>
+            Technology needs, partnerships, pilots
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="market-tab"
+        data-tab="academic"
+      >
+
+        <div class="market-tab-icon">
+          🎓
+        </div>
+
+        <div>
+
+          <strong>
+            Academic & Research Positions
+          </strong>
+
+          <span>
+            Jobs, fellowships, academic careers
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="market-tab">
+
+        <div class="market-tab-icon">
+          💵
+        </div>
+
+        <div>
+
+          <strong>
+            Funding & Grants
+          </strong>
+
+          <span>
+            Calls, grants, funding programs
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="market-tab">
+
+        <div class="market-tab-icon">
+          🚀
+        </div>
+
+        <div>
+
+          <strong>
+            Technology & IP
+          </strong>
+
+          <span>
+            Licensing, IP, technologies
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="marketplace-grid">
+
+
+      <!-- =====================
+           INDUSTRY
+      ====================== -->
+
+      <section class="market-panel">
+
+        <div class="market-panel-header">
+
+          <h2>
+            Industry & R&D Opportunities
+          </h2>
+
+          <a href="#">
+            View all →
+          </a>
+
+        </div>
+
+
+
+        <!-- INDUSTRY 1 -->
+
+        <article
+          class="opportunity"
+          data-search="
+          membrane wastewater treatment
+          materials water mining
+          "
+        >
+
+          <div class="opportunity-image">
+            💧
+          </div>
+
+
+          <div class="opportunity-content">
+
+            <span class="badge badge-orange">
+              Technology Need
+            </span>
+
+            <h3>
+              Advanced membrane solutions for industrial wastewater treatment
+            </h3>
+
+            <div class="organization">
+              Kazakhstan Mining Co. · Almaty, Kazakhstan
+            </div>
+
+            <div class="tags">
+
+              <span class="tag">
+                Water Treatment
+              </span>
+
+              <span class="tag">
+                Membranes
+              </span>
+
+              <span class="tag">
+                Materials Science
+              </span>
+
+            </div>
+
+            <div class="summary">
+
+              Seeking innovative membrane technologies capable
+              of treating highly contaminated industrial wastewater.
+
+            </div>
+
+          </div>
+
+
+          <div class="opportunity-meta">
+
+            <div class="meta-row">
+
+              <span>
+                Partnership type
+              </span>
+
+              Pilot / Co-development
+
+            </div>
+
+
+            <div class="meta-row">
+
+              <span>
+                Deadline
+              </span>
+
+              30 Oct 2026
+
+            </div>
+
+
+            <a
+              class="view-link"
+              href="opportunity.html?id=1"
+            >
+              View Details →
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- INDUSTRY 2 -->
+
+        <article
+          class="opportunity"
+          data-search="
+          artificial intelligence
+          machine learning
+          battery manufacturing
+          computer vision
+          "
+        >
+
+          <div class="opportunity-image">
+            🔋
+          </div>
+
+
+          <div class="opportunity-content">
+
+            <span class="badge badge-green">
+              Research Partnership
+            </span>
+
+            <h3>
+              AI-powered quality control for battery manufacturing
+            </h3>
+
+            <div class="organization">
+              Global Battery Solutions · Berlin, Germany
+            </div>
+
+            <div class="tags">
+
+              <span class="tag">
+                AI / ML
+              </span>
+
+              <span class="tag">
+                Computer Vision
+              </span>
+
+              <span class="tag">
+                Manufacturing
+              </span>
+
+            </div>
+
+            <div class="summary">
+
+              Looking for research partners to develop AI models
+              for defect detection and process optimization.
+
+            </div>
+
+          </div>
+
+
+          <div class="opportunity-meta">
+
+            <div class="meta-row">
+
+              <span>
+                Partnership type
+              </span>
+
+              Research Partnership
+
+            </div>
+
+            <div class="meta-row">
+
+              <span>
+                Deadline
+              </span>
+
+              15 Nov 2026
+
+            </div>
+
+            <a
+              class="view-link"
+              href="opportunity.html?id=2"
+            >
+              View Details →
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- INDUSTRY 3 -->
+
+        <article
+          class="opportunity"
+          data-search="
+          crispr
+          plant science
+          biotechnology
+          crop disease
+          "
+        >
+
+          <div class="opportunity-image">
+            🌱
+          </div>
+
+
+          <div class="opportunity-content">
+
+            <span class="badge badge-purple">
+              Expertise Request
+            </span>
+
+            <h3>
+              Experts in CRISPR for crop disease resistance
+            </h3>
+
+            <div class="organization">
+              AgriTech Innovation Lab · Astana, Kazakhstan
+            </div>
+
+            <div class="tags">
+
+              <span class="tag">
+                Biotechnology
+              </span>
+
+              <span class="tag">
+                CRISPR
+              </span>
+
+              <span class="tag">
+                Plant Science
+              </span>
+
+            </div>
+
+            <div class="summary">
+
+              Seeking expert advice on CRISPR-based approaches
+              and collaboration opportunities.
+
+            </div>
+
+          </div>
+
+
+          <div class="opportunity-meta">
+
+            <div class="meta-row">
+
+              <span>
+                Partnership type
+              </span>
+
+              Consulting / Advisory
+
+            </div>
+
+            <div class="meta-row">
+
+              <span>
+                Deadline
+              </span>
+
+              01 Dec 2026
+
+            </div>
+
+            <a
+              class="view-link"
+              href="opportunity.html?id=3"
+            >
+              View Details →
+            </a>
+
+          </div>
+
+        </article>
+
+
+      </section>
+
+
+
+      <!-- =====================
+           ACADEMIC POSITIONS
+      ====================== -->
+
+      <section class="market-panel">
+
+        <div class="market-panel-header">
+
+          <h2>
+            Academic & Research Positions
+          </h2>
+
+          <a href="#">
+            View all →
+          </a>
+
+        </div>
+
+
+
+        <!-- JOB 1 -->
+
+        <article
+          class="opportunity"
+          data-search="
+          postdoc
+          materials science
+          artificial intelligence
+          machine learning
+          germany
+          "
+        >
+
+          <div class="opportunity-image">
+            🎓
+          </div>
+
+
+          <div class="opportunity-content">
+
+            <span class="badge badge-green">
+              Postdoctoral Position
+            </span>
+
+            <h3>
+              Postdoctoral Researcher — AI for Materials Discovery
+            </h3>
+
+            <div class="organization">
+              Technical University · Berlin, Germany
+            </div>
+
+            <div class="tags">
+
+              <span class="tag">
+                AI / ML
+              </span>
+
+              <span class="tag">
+                Materials Science
+              </span>
+
+              <span class="tag">
+                Python
+              </span>
+
+            </div>
+
+            <div class="summary">
+
+              Join an interdisciplinary research team applying
+              machine learning to functional material discovery.
+
+            </div>
+
+          </div>
+
+
+          <div class="opportunity-meta">
+
+            <div class="meta-row">
+
+              <span>
+                Job type
+              </span>
+
+              Postdoc
+
+            </div>
+
+            <div class="meta-row">
+
+              <span>
+                Employment
+              </span>
+
+              Full-time · 2 years
+
+            </div>
+
+            <div class="meta-row">
+
+              <span>
+                Deadline
+              </span>
+
+              15 Nov 2026
+
+            </div>
+
+            <a
+              class="view-link"
+              href="position.html?id=1"
+            >
+              View Position →
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- JOB 2 -->
+
+        <article
+          class="opportunity"
+          data-search="
+          phd neuroscience
+          brain computer interface
+          bci
+          neural engineering
+          "
+        >
+
+          <div class="opportunity-image">
+            🧠
+          </div>
+
+
+          <div class="opportunity-content">
+
+            <span class="badge badge-blue">
+              PhD Position
+            </span>
+
+            <h3>
+              PhD in Neuroscience & Brain-Computer Interfaces
+            </h3>
+
+            <div class="organization">
+              University Research Lab · Oxford, United Kingdom
+            </div>
+
+            <div class="tags">
+
+              <span class="tag">
+                Neuroscience
+              </span>
+
+              <span class="tag">
+                BCI
+              </span>
+
+              <span class="tag">
+                Signal Processing
+              </span>
+
+            </div>
+
+            <div class="summary">
+
+              Fully funded PhD position working on next-generation
+              brain-computer interface technologies.
+
+            </div>
+
+          </div>
+
+
+          <div class="opportunity-meta">
+
+            <div class="meta-row">
+
+              <span>
+                Job type
+              </span>
+
+              PhD
+
+            </div>
+
+            <div class="meta-row">
+
+              <span>
+                Funding
+              </span>
+
+              Fully Funded
+
+            </div>
+
+            <div class="meta-row">
+
+              <span>
+                Deadline
+              </span>
+
+              20 Dec 2026
+
+            </div>
+
+            <a
+              class="view-link"
+              href="position.html?id=2"
+            >
+              View Position →
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- JOB 3 -->
+
+        <article
+          class="opportunity"
+          data-search="
+          renewable energy
+          research assistant
+          energy systems
+          simulation
+          "
+        >
+
+          <div class="opportunity-image">
+            ☀️
+          </div>
+
+
+          <div class="opportunity-content">
+
+            <span class="badge badge-purple">
+              Research Assistant
+            </span>
+
+            <h3>
+              Research Assistant — Renewable Energy Systems
+            </h3>
+
+            <div class="organization">
+              KAUST · Thuwal, Saudi Arabia
+            </div>
+
+            <div class="tags">
+
+              <span class="tag">
+                Renewable Energy
+              </span>
+
+              <span class="tag">
+                Energy Systems
+              </span>
+
+              <span class="tag">
+                Simulation
+              </span>
+
+            </div>
+
+            <div class="summary">
+
+              Support research in simulation, experimental
+              validation and renewable energy system design.
+
+            </div>
+
+          </div>
+
+
+          <div class="opportunity-meta">
+
+            <div class="meta-row">
+
+              <span>
+                Job type
+              </span>
+
+              Research Assistant
+
+            </div>
+
+            <div class="meta-row">
+
+              <span>
+                Employment
+              </span>
+
+              Full-time
+
+            </div>
+
+            <div class="meta-row">
+
+              <span>
+                Deadline
+              </span>
+
+              10 Nov 2026
+
+            </div>
+
+            <a
+              class="view-link"
+              href="position.html?id=3"
+            >
+              View Position →
+            </a>
+
+          </div>
+
+        </article>
+
+
+      </section>
+
+
+
+      <!-- =====================
+           RIGHT SIDEBAR
+      ====================== -->
+
+      <aside class="sidebar">
+
+
+        <!-- HOW IT WORKS -->
+
+        <div class="sidebar-card">
+
+          <h3>
+            How It Works
+          </h3>
+
+
+          <div class="how-step">
+
+            <div class="step-icon">
+              🔎
+            </div>
+
+            <div>
+
+              <strong>
+                Discover
+              </strong>
+
+              <p>
+                Find relevant opportunities using AI-powered matching.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="how-step">
+
+            <div class="step-icon">
+              👤
+            </div>
+
+            <div>
+
+              <strong>
+                Connect
+              </strong>
+
+              <p>
+                View details and connect with organizations or institutions.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="how-step">
+
+            <div class="step-icon">
+              🚀
+            </div>
+
+            <div>
+
+              <strong>
+                Collaborate
+              </strong>
+
+              <p>
+                Start partnerships, research projects or advance your career.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- POST -->
+
+        <div class="sidebar-card post-card">
+
+          <h3>
+            Have an opportunity to share?
+          </h3>
+
+          <p>
+
+            Post your R&D need, research partnership opportunity
+            or academic position and reach the right audience.
+
+          </p>
+
+          <a
+            href="post-opportunity.html"
+            class="btn btn-gold"
+          >
+            Post an Opportunity →
+          </a>
+
+        </div>
+
+
+
+        <!-- ALERTS -->
+
+        <div class="sidebar-card alerts">
+
+          <h3>
+            Stay Updated
+          </h3>
+
+          <p>
+
+            Get notified about new opportunities that match
+            your expertise and interests.
+
+          </p>
+
+          <button class="btn">
+            🔔 Subscribe to alerts
+          </button>
+
+        </div>
+
+
+      </aside>
+
+
+    </div>
+
+
+
+    <!-- =====================
+         BENEFITS
+    ====================== -->
+
+    <div class="benefits">
+
+
+      <div class="benefit">
+
+        <div class="benefit-icon">
+          🎯
+        </div>
+
+        <div>
+
+          <strong>
+            AI-Powered Matching
+          </strong>
+
+          <span>
+            Personalized recommendations based on expertise and goals.
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="benefit">
+
+        <div class="benefit-icon">
+          🌍
+        </div>
+
+        <div>
+
+          <strong>
+            Global Reach
+          </strong>
+
+          <span>
+            Access opportunities from international institutions.
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="benefit">
+
+        <div class="benefit-icon">
+          ✓
+        </div>
+
+        <div>
+
+          <strong>
+            Trusted Community
+          </strong>
+
+          <span>
+            Verified organizations and research institutions.
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="benefit">
+
+        <div class="benefit-icon">
+          🚀
+        </div>
+
+        <div>
+
+          <strong>
+            From Research to Impact
+          </strong>
+
+          <span>
+            Turn connections into collaboration and innovation.
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<script>
+
+/* ============================
+   SEARCH
+============================ */
+
+function searchOpportunities() {
+
+  const query =
+    document
+      .getElementById("searchInput")
+      .value
+      .toLowerCase()
+      .trim();
+
+
+  const opportunities =
+    document.querySelectorAll(".opportunity");
+
+
+  opportunities.forEach(item => {
+
+    const searchableText =
+      (
+        item.dataset.search +
+        " " +
+        item.innerText
+      )
+      .toLowerCase();
+
+
+    if (
+      query === "" ||
+      searchableText.includes(query)
+    ) {
+
+      item.style.display = "grid";
+
+    } else {
+
+      item.style.display = "none";
+
+    }
+
+  });
+
+}
+
+
+
+/* ENTER TO SEARCH */
+
+document
+  .getElementById("searchInput")
+  .addEventListener(
+    "keydown",
+    function(event) {
+
+      if (event.key === "Enter") {
+
+        searchOpportunities();
+
+      }
+
+    }
+  );
+
+
+
+/* ============================
+   TOP CATEGORY TABS
+============================ */
+
+const marketTabs =
+  document.querySelectorAll(".market-tab");
+
+
+marketTabs.forEach(tab => {
+
+  tab.addEventListener("click", () => {
+
+    marketTabs.forEach(item => {
+      item.classList.remove("active");
+    });
+
+    tab.classList.add("active");
+
+  });
+
+});
+
+</script>
+
+
+</body>
+</html>
