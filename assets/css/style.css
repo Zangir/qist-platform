@@ -1686,3 +1686,18 @@ img.avatar, img.mini-avatar { object-fit: cover; }
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
+/* dropdown nav on mobile: menus rendered inline inside the open drawer */
+@media (max-width: 640px) {
+  .nav-dropdown { flex-direction: column; align-items: stretch; height: auto; }
+  .nav-dropdown-toggle { padding: 9px 12px; }
+  .nav-chevron { display: none; }
+  .nav-dropdown-menu {
+    position: static; opacity: 1; visibility: visible; transform: none;
+    width: auto; box-shadow: none; border: 0; background: rgba(255, 255, 255, .06);
+    margin: 0 0 6px; transition: none;
+  }
+  .main-nav .nav-dropdown-menu a { color: #fff; }
+  .main-nav .nav-dropdown-menu a:hover { background: rgba(255, 255, 255, .1); }
+  .nav-dropdown-menu strong { color: #fff; }
+  .nav-dropdown-menu span { color: rgba(255, 255, 255, .55); }
+}

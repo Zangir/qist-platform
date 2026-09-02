@@ -472,12 +472,12 @@ const QIST = {
     </div>
   </div>
 
-  <a href="scientists.html">For Scientists</a>
+  <a href="scientists.html" class="${active === 'scientists.html' ? 'active' : ''}">For Scientists</a>
 
-  <a href="schools.html">For Schools</a>
+  <a href="schools.html" class="${active === 'schools.html' ? 'active' : ''}">For Schools</a>
 
   <div class="nav-dropdown">
-    <span class="nav-dropdown-toggle">
+    <span class="nav-dropdown-toggle ${['map.html', 'directory.html', 'channels.html', 'matching.html', 'newsletter.html'].includes(active) ? 'active' : ''}" tabindex="0">
       For QIST Community <span class="nav-chevron">⌄</span>
     </span>
 
