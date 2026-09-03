@@ -976,7 +976,7 @@
         For Scientists
       </a>
 
-      <a href="deeptech-accelerator.html">
+      <a href="accelerator.html">
         For DeepTech Accelerator
       </a>
 
@@ -988,11 +988,11 @@
         Map
       </a>
 
-      <a href="people.html">
+      <a href="directory.html">
         People
       </a>
 
-      <a href="resources.html">
+      <a href="channels.html">
         Resources
       </a>
 
@@ -1001,11 +1001,11 @@
 
     <div class="nav-actions">
 
-      <a href="#" class="btn btn-outline">
+      <a href="login.html" class="btn btn-outline">
         Sign in
       </a>
 
-      <a href="#" class="btn btn-gold">
+      <a href="login.html#register" class="btn btn-gold">
         Join QIST
       </a>
 
@@ -1066,8 +1066,8 @@
 
           <div>
 
-            <strong>
-              13
+            <strong id="mk-opp">
+              —
             </strong>
 
             <span>
@@ -1087,8 +1087,8 @@
 
           <div>
 
-            <strong>
-              8
+            <strong id="mk-jobs">
+              —
             </strong>
 
             <span>
@@ -1108,8 +1108,8 @@
 
           <div>
 
-            <strong>
-              500+
+            <strong id="mk-sci">
+              —
             </strong>
 
             <span>
@@ -1129,8 +1129,8 @@
 
           <div>
 
-            <strong>
-              40+
+            <strong id="mk-cty">
+              —
             </strong>
 
             <span>
@@ -1263,6 +1263,11 @@
   <div class="container">
 
 
+    <div style="margin:0 0 18px;padding:12px 16px;border:1px solid #e3d9bf;border-radius:10px;background:#faf5e8;color:#6b5518;font-size:14px">
+      <b>Sample listings.</b> The entries below illustrate the marketplace format.
+      Live opportunities are currently posted in the <a href="channels.html" style="color:#8a6a1c;text-decoration:underline">community channels</a>
+      and will appear here as partner organizations join.
+    </div>
     <!-- CATEGORY TABS -->
 
     <div class="marketplace-tabs">
@@ -1388,7 +1393,7 @@
             Industry & R&D Opportunities
           </h2>
 
-          <a href="#">
+          <a href="channels.html?c=collab">
             View all →
           </a>
 
@@ -1477,7 +1482,7 @@
 
             <a
               class="view-link"
-              href="opportunity.html?id=1"
+              href="channels.html?c=collab"
             >
               View Details →
             </a>
@@ -1569,7 +1574,7 @@
 
             <a
               class="view-link"
-              href="opportunity.html?id=2"
+              href="channels.html?c=collab"
             >
               View Details →
             </a>
@@ -1661,7 +1666,7 @@
 
             <a
               class="view-link"
-              href="opportunity.html?id=3"
+              href="channels.html?c=collab"
             >
               View Details →
             </a>
@@ -1687,7 +1692,7 @@
             Academic & Research Positions
           </h2>
 
-          <a href="#">
+          <a href="channels.html?c=jobs">
             View all →
           </a>
 
@@ -1787,7 +1792,7 @@
 
             <a
               class="view-link"
-              href="position.html?id=1"
+              href="channels.html?c=jobs"
             >
               View Position →
             </a>
@@ -1889,7 +1894,7 @@
 
             <a
               class="view-link"
-              href="position.html?id=2"
+              href="channels.html?c=jobs"
             >
               View Position →
             </a>
@@ -1991,7 +1996,7 @@
 
             <a
               class="view-link"
-              href="position.html?id=3"
+              href="channels.html?c=jobs"
             >
               View Position →
             </a>
@@ -2103,7 +2108,7 @@
           </p>
 
           <a
-            href="post-opportunity.html"
+            href="channels.html?c=collab"
             class="btn btn-gold"
           >
             Post an Opportunity →
@@ -2128,9 +2133,9 @@
 
           </p>
 
-          <button class="btn">
+          <a class="btn" href="newsletter.html">
             🔔 Subscribe to alerts
-          </button>
+          </a>
 
         </div>
 
@@ -2338,5 +2343,27 @@ marketTabs.forEach(tab => {
 </script>
 
 
+<script>
+/* live platform stats + tab filters (follow-up wiring) */
+(async () => {
+  try {
+    const [people, posts] = await Promise.all([
+      fetch('data/people.json').then(r => r.json()),
+      fetch('data/posts.json').then(r => r.json())
+    ]);
+    document.getElementById('mk-opp').textContent = posts.length;
+    document.getElementById('mk-jobs').textContent = posts.filter(p => p.channel === 'jobs').length;
+    document.getElementById('mk-sci').textContent = people.length;
+    document.getElementById('mk-cty').textContent = new Set(people.map(p => p.country).filter(Boolean)).size;
+  } catch (_) {}
+})();
+const tabQueries = ['', 'industry', 'position', 'grant', 'startup'];
+document.querySelectorAll('.market-tab').forEach((tab, i) => {
+  tab.addEventListener('click', () => {
+    const inp = document.getElementById('searchInput');
+    if (inp) { inp.value = tabQueries[i] ?? ''; searchOpportunities(); }
+  });
+});
+</script>
 </body>
 </html>
