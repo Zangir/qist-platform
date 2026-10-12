@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T09:38:45Z",
+ "generated_at": "2026-10-12T09:47:32Z",
  "kinds": {
   "grants": {
    "sources": {
@@ -8,67 +8,67 @@
      "count": 20,
      "kept": 20,
      "error": null,
-     "seconds": 33.9
+     "seconds": 21.0
     },
     "nsf": {
      "ok": true,
      "count": 27,
      "kept": 27,
      "error": null,
-     "seconds": 1.8
+     "seconds": 0.2
     },
     "grants.gov": {
      "ok": true,
      "count": 250,
      "kept": 250,
      "error": null,
-     "seconds": 10.1
+     "seconds": 1.1
     },
     "eu-funding-tenders": {
-     "ok": false,
-     "count": 0,
-     "kept": 0,
-     "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer')))",
-     "seconds": 6.4
+     "ok": true,
+     "count": 300,
+     "kept": 300,
+     "error": null,
+     "seconds": 8.6
     },
     "fundsforngos": {
      "ok": true,
      "count": 7,
      "kept": 7,
      "error": null,
-     "seconds": 1.2
+     "seconds": 0.3
     }
    },
-   "total": 215,
-   "new_today": 215,
+   "total": 503,
+   "new_today": 503,
    "updated": "2026-10-12"
   },
   "jobs": {
    "sources": {
     "jobs.ac.uk": {
      "ok": true,
-     "count": 328,
-     "kept": 258,
+     "count": 339,
+     "kept": 268,
      "error": null,
-     "seconds": 83.6
+     "seconds": 107.2
     },
     "nature-careers": {
      "ok": true,
      "count": 384,
      "kept": 298,
      "error": null,
-     "seconds": 33.6
+     "seconds": 26.5
     },
     "insidehighered": {
      "ok": true,
      "count": 400,
      "kept": 291,
      "error": null,
-     "seconds": 27.6
+     "seconds": 27.3
     }
    },
-   "total": 485,
-   "new_today": 485,
+   "total": 488,
+   "new_today": 488,
    "updated": "2026-10-12"
   },
   "articles": {
@@ -78,21 +78,21 @@
      "count": 3490,
      "kept": 3490,
      "error": null,
-     "seconds": 285.5
+     "seconds": 304.7
     },
     "biorxiv+medrxiv": {
      "ok": true,
      "count": 327,
      "kept": 327,
      "error": null,
-     "seconds": 25.1
+     "seconds": 29.3
     },
     "crossref-journals": {
      "ok": true,
-     "count": 436,
-     "kept": 436,
+     "count": 438,
+     "kept": 438,
      "error": null,
-     "seconds": 240.9
+     "seconds": 38.8
     }
    },
    "total": 3000,
