@@ -1,0 +1,4 @@
+{"errorcode":0,"msg":"Webservice Succeeds","data":{"hitCount":3,"startRecord":0,"oppHits":[
+ {"id":"350001","number":"PAR-26-100","title":"Research Project Grant (R01) Clinical Trial Not Allowed","agencyCode":"HHS-NIH11","agency":"National Institutes of Health","openDate":"09/20/2026","closeDate":"01/05/2027","oppStatus":"posted","docType":"synopsis","cfdaList":["93.866"]},
+ {"id":"350002","number":"NSF-26-500","title":"Quantum Leap Challenge Institutes","agencyCode":"NSF","agency":"National Science Foundation","openDate":"10/01/2026","closeDate":"","oppStatus":"forecasted","docType":"forecast","cfdaList":["47.049"]},
+ {"id":"350003","number":"OLD-1","title":"Archived thing","agencyCode":"X","agency":"X","openDate":"01/01/2020","closeDate":"02/01/2020","oppStatus":"archived","docType":"synopsis","cfdaList":[]}]}}

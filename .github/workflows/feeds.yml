@@ -1,0 +1,41 @@
+name: Daily feeds
+
+# Builds data/feeds/{grants,jobs,articles}.json from public sources once a day and commits them, so the static
+# site (GitHub Pages) always serves fresh feeds without a server. A run fails visibly, and publishes nothing,
+# if the parsers' output no longer passes pipeline/tests/test_feeds_data.py.
+on:
+  schedule:
+    - cron: "17 4 * * *"      # 04:17 UTC, before the working day in Central Asia
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: feeds
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pipeline/requirements.txt
+      - run: pip install -r pipeline/requirements.txt
+      - name: Parser unit tests
+        run: python -m pytest pipeline/tests -q --ignore=pipeline/tests/test_feeds_data.py
+      - name: Fetch and build feeds
+        run: python -m pipeline.run
+      - name: Quality gate on the built feeds
+        run: python -m pytest pipeline/tests/test_feeds_data.py -q
+      - name: Commit feeds
+        run: |
+          git config user.name "qist-feeds[bot]"
+          git config user.email "qist-feeds@users.noreply.github.com"
+          git add data/feeds
+          if git diff --cached --quiet; then echo "no change"; else git commit -m "feeds: $(date -u +%F)" && git push; fi

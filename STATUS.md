@@ -1,6 +1,29 @@
 # STATUS
 
-Updated: 2026-09-28 · Iterations 1–8
+Updated: 2026-10-12 · Iterations 1–9
+
+## Iteration 9 — My feed: daily grants, vacancies and articles, 2026-10-12
+
+Build `2026-10-12a`. Decisions D-59…D-64.
+
+- **Three worldwide feeds**, built once a day by `pipeline/` (GitHub Actions `feeds.yml`) into `data/feeds/`.
+  Articles: arXiv, bioRxiv, medRxiv and ~45 leading journals via Crossref. Vacancies: jobs.ac.uk (by discipline
+  and the PhD section), Nature Careers, Inside Higher Ed. Grants: UKRI, NSF, Grants.gov, fundsforngos.
+- **Not yet verified live:** the EU Funding & Tenders portal (Horizon Europe, ERC, MSCA). The parser follows the
+  documented response shape and passes tests on a hand-written fixture, but `ec.europa.eu` hosts reset every
+  connection from the environment this was built in. `data/feeds/meta.json` records per source whether it worked;
+  the first scheduled run settles it. Grants.gov was reachable on a later attempt and its parser matched the live shape.
+- **Deterministic parsing.** Fields come from `data/taxonomy.json` (one vocabulary for Python and the browser) plus
+  the source's own category (arXiv, bioRxiv, jobs.ac.uk discipline); stage from the title; country from a gazetteer;
+  non-research roles (deans, managers, clinicians) are dropped.
+- **Matching per reader** (`assets/js/feed.js`, `feed.html`): fields, keywords, career stage, countries for
+  vacancies. Wrong-stage vacancies are hidden, not demoted. Each card says why it matched; no percentages (D-62).
+  Daily: "new since your last visit", today's picks, save / not interested. Profile in the browser, and on the
+  account when signed in (`/api/me/feed-profile`). A short "Today for you" card on `profile.html`.
+- **Tests:** `pipeline/tests` (parsers on captured live fixtures, rules, retention, failure isolation, a quality
+  gate on the published feeds), `backend/tests`, and two browser suites (`e2e_feed.py`, `e2e_feed_backend.py`).
+- **Known gaps:** no e-mail digest yet (the page is the daily view); Kazakh/Russian strings for the feed are not
+  reviewed by a native speaker (B-35); EURAXESS and Academic Positions block automated requests and are not included.
 
 ## Iteration 8 — design and UX, 2026-09-28
 

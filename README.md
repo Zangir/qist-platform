@@ -242,3 +242,40 @@ countries against the source before a public launch**, and record who did it in
 
 `PRD.md` — требования · `ROADMAP.md` — этапы · `DECISIONS.md` — решения и причины ·
 `BACKLOG.md` — задачи с приоритетами · `STATUS.md` — что работает и что ограничено.
+
+---
+
+## My feed — ежедневные подборки (2026-10-12)
+
+`feed.html` показывает читателю гранты, вакансии и статьи со всего мира, отранжированные под его
+области, ключевые слова, стадию карьеры и страны, где он ищет работу. Лента обновляется каждое утро.
+
+**Откуда данные** — `pipeline/` (Python, `requests` + `beautifulsoup4`), запускается ежедневно
+`.github/workflows/feeds.yml` и коммитит `data/feeds/{grants,jobs,articles}.json` + `meta.json`
+(по каждому источнику: сколько записей, ошибка, время).
+
+| Лента | Источники | Проверены живыми запросами |
+|---|---|---|
+| Статьи | arXiv (56 категорий), bioRxiv, medRxiv, Crossref по списку из ~45 ведущих журналов | да |
+| Вакансии | jobs.ac.uk, Nature Careers, Inside Higher Ed Careers | да |
+| Гранты | UKRI, NSF, Grants.gov (США, ~160 конкурсов), fundsforngos | да |
+| Гранты | EU Funding & Tenders (Horizon Europe, ERC, MSCA) | **нет** — парсер написан по документации; хосты `ec.europa.eu` из среды разработки недоступны. Первый запуск в GitHub Actions покажет в `meta.json`, работает ли он |
+
+Источник, который упал, не роняет остальные: записи вчерашнего дня остаются, а `feed.html` пишет внизу,
+какие источники сегодня недоступны.
+
+**Как подбирается** — `assets/js/feed.js`, в браузере (описание формулы — в шапке файла). Словарь
+областей — `data/taxonomy.json`, им же классифицирует `pipeline/taxonomy.py`; стадия вакансии, страна и
+«исследовательская ли это должность» определяются правилами в `pipeline/taxonomy.py` и `pipeline/geo.py`.
+Профиль хранится в `localStorage`, а при входе — и на бэкенде (`GET/PUT /api/me/feed-profile`).
+
+**Запуск и тесты**
+
+```bash
+backend/.venv/bin/pip install -r pipeline/requirements.txt
+backend/.venv/bin/python -m pipeline.run            # весь сбор (~6 мин: arXiv ограничивает частоту запросов)
+backend/.venv/bin/python -m pipeline.run --quick    # быстрая проверка
+backend/.venv/bin/python -m pytest pipeline/tests backend/tests -q      # парсеры, правила, ранжирование данных, бэкенд
+python3 -m http.server 8099 &                       # затем браузерные проверки:
+backend/.venv/bin/python pipeline/tests/e2e_feed.py http://localhost:8099
+```

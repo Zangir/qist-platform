@@ -8,7 +8,7 @@
 const QIST = {
   /* Build stamp. Open the browser console on the live site: if this does not match the
      release you uploaded, the file did not reach the server. */
-  BUILD: '2026-09-28f',
+  BUILD: '2026-10-12a',
 
   /* Positioning, in one place, so it cannot drift between pages.
      MVP phase 1: nine countries of Central Asia, the Caucasus and Mongolia, plus their
@@ -353,6 +353,7 @@ const QIST = {
        and matching is personal, so it lives behind sign-in. */
     const links = [
       ['index.html', this.t('nav.home')], ['opportunities.html', this.t('nav.opportunities')],
+      ['feed.html', this.t('nav.feed')],
       ['directory.html', this.t('nav.researchers')], ['organizations.html', this.t('nav.organizations')],
       ['about.html', this.t('nav.about')]
     ];

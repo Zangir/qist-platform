@@ -69,6 +69,14 @@ class User(SQLModel, table=True):
     topics: str = ""
 
 
+class FeedProfile(SQLModel, table=True):
+    """The reader's matching profile for the daily feed (grants / vacancies / articles), one row per account.
+    Stored as JSON text so the profile can grow fields without a schema migration."""
+    email: str = SQLField(primary_key=True)
+    data: str = "{}"
+    updated: str = ""
+
+
 class Post(SQLModel, table=True):
     id: Optional[int] = SQLField(default=None, primary_key=True)
     channel: str = SQLField(index=True)
@@ -133,6 +141,23 @@ class PersonIn(BaseModel):
     link: str = ""
     bio: str = ""
     experience: Optional[int] = None
+
+
+FEED_STAGES = {"any", "phd_student", "phd_plus", "postdoc_plus", "pi_only"}
+
+
+class FeedProfileData(BaseModel):
+    stage: str = "phd_plus"
+    country: str = Field("", max_length=2)
+    fields: list[str] = Field(default_factory=list, max_length=6)
+    keywords: list[str] = Field(default_factory=list, max_length=12)
+    jobCountries: list[str] = Field(default_factory=list, max_length=8)
+    remote: bool = True
+    allStages: bool = False
+
+
+class FeedProfileIn(BaseModel):
+    profile: FeedProfileData
 
 
 class SubscribeIn(BaseModel):
@@ -350,6 +375,34 @@ def subscribe(body: SubscribeIn):
                          created=datetime.now(timezone.utc).isoformat()))
         s.commit()
     return {"status": "subscribed"}
+
+
+# ---- daily feed profile ----
+@main_app.get("/api/me/feed-profile")
+def get_feed_profile(user: dict = Depends(current_user)):
+    with Session(engine) as s:
+        row = s.get(FeedProfile, user["sub"])
+        return {"profile": json.loads(row.data) if row else None, "updated": row.updated if row else None}
+
+
+@main_app.put("/api/me/feed-profile")
+def put_feed_profile(body: FeedProfileIn, user: dict = Depends(current_user)):
+    p = body.profile
+    if p.stage not in FEED_STAGES:
+        raise HTTPException(422, "Unknown career stage.")
+    clean = p.model_copy(update={
+        "country": p.country.upper(),
+        "fields": [f.strip()[:80] for f in p.fields if f.strip()],
+        "keywords": [k.strip()[:60] for k in p.keywords if k.strip()],
+        "jobCountries": [c.strip().upper()[:2] for c in p.jobCountries if c.strip()],
+    })
+    now = datetime.now(timezone.utc).isoformat()
+    with Session(engine) as s:
+        row = s.get(FeedProfile, user["sub"]) or FeedProfile(email=user["sub"])
+        row.data, row.updated = clean.model_dump_json(), now
+        s.add(row)
+        s.commit()
+    return {"status": "saved", "updated": now}
 
 
 # ---- matching / collaboration ----

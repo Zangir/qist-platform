@@ -1,0 +1,6 @@
+grantsgov.json            a REAL response from POST https://api.grants.gov/v1/api/search2 (captured 2026-10-12, 6 hits).
+grantsgov_synthetic.json  hand-written edge cases (an archived hit, a forecast with no close date).
+sedia.json                HAND-WRITTEN from the documented shape of the EU Funding & Tenders portal search API.
+                          api.tech.ec.europa.eu reset every connection from the sandbox this was built in, so the
+                          EU parser has NOT been run against a live response. The first scheduled run reports its
+                          health in data/feeds/meta.json; if the shape differs, fix the parser and replace the fixture.

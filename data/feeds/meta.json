@@ -1,0 +1,103 @@
+{
+ "generated_at": "2026-10-12T09:38:45Z",
+ "kinds": {
+  "grants": {
+   "sources": {
+    "ukri": {
+     "ok": true,
+     "count": 20,
+     "kept": 20,
+     "error": null,
+     "seconds": 33.9
+    },
+    "nsf": {
+     "ok": true,
+     "count": 27,
+     "kept": 27,
+     "error": null,
+     "seconds": 1.8
+    },
+    "grants.gov": {
+     "ok": true,
+     "count": 250,
+     "kept": 250,
+     "error": null,
+     "seconds": 10.1
+    },
+    "eu-funding-tenders": {
+     "ok": false,
+     "count": 0,
+     "kept": 0,
+     "error": "ConnectionError(ProtocolError('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer')))",
+     "seconds": 6.4
+    },
+    "fundsforngos": {
+     "ok": true,
+     "count": 7,
+     "kept": 7,
+     "error": null,
+     "seconds": 1.2
+    }
+   },
+   "total": 215,
+   "new_today": 215,
+   "updated": "2026-10-12"
+  },
+  "jobs": {
+   "sources": {
+    "jobs.ac.uk": {
+     "ok": true,
+     "count": 328,
+     "kept": 258,
+     "error": null,
+     "seconds": 83.6
+    },
+    "nature-careers": {
+     "ok": true,
+     "count": 384,
+     "kept": 298,
+     "error": null,
+     "seconds": 33.6
+    },
+    "insidehighered": {
+     "ok": true,
+     "count": 400,
+     "kept": 291,
+     "error": null,
+     "seconds": 27.6
+    }
+   },
+   "total": 485,
+   "new_today": 485,
+   "updated": "2026-10-12"
+  },
+  "articles": {
+   "sources": {
+    "arxiv": {
+     "ok": true,
+     "count": 3490,
+     "kept": 3490,
+     "error": null,
+     "seconds": 285.5
+    },
+    "biorxiv+medrxiv": {
+     "ok": true,
+     "count": 327,
+     "kept": 327,
+     "error": null,
+     "seconds": 25.1
+    },
+    "crossref-journals": {
+     "ok": true,
+     "count": 436,
+     "kept": 436,
+     "error": null,
+     "seconds": 240.9
+    }
+   },
+   "total": 3000,
+   "new_today": 3000,
+   "updated": "2026-10-12"
+  }
+ }
+}
