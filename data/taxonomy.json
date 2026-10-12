@@ -491,7 +491,15 @@
    "geothermal",
    "electric vehicle*",
    "power grid",
-   "electric grid"
+   "electric grid",
+   "pv",
+   "ccus",
+   "hydropower",
+   "electrification",
+   "carbon capture",
+   "hydrogen*",
+   "energy system*",
+   "decarboni*"
   ],
   "Agriculture and Food Science": [
    "agricultur*",
