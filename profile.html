@@ -102,10 +102,13 @@
   } catch (e) { console.error(e); $('today-body').innerHTML = `<p class="muted">${QIST.t('feed.err')}</p>`; }
 
   /* ---------- my positions ---------- */
+  const dayMonth = iso => {
+    try { return new Intl.DateTimeFormat(QIST.lang === 'kk' ? 'ru' : QIST.lang, { day: 'numeric', month: 'short', year: 'numeric' }).format(new Date(iso + 'T00:00:00')); } catch (_) { return iso; }
+  };
   function drawPositions() {
     $('pos-list').innerHTML = positions.length ? positions.map(p => `
       <article class="opp feed-item" data-pos="${QIST.esc(p.id)}" style="grid-template-columns:110px minmax(0,1fr)">
-        <div class="when plain"><b>${QIST.esc(p.deadline || '—')}</b><span>${QIST.t(p.expired ? 'opp.col.closed' : 'prof.pos.open')}</span></div>
+        <div class="when plain"><b>${QIST.esc(p.deadline ? dayMonth(p.deadline) : '—')}</b><span>${QIST.t(p.expired ? 'opp.col.closed' : 'prof.pos.open')}</span></div>
         <div class="opp-main"><h3><a href="${QIST.esc(p.source_url)}" target="_blank" rel="noopener">${QIST.esc(p.title)}</a></h3>
           <p class="opp-meta"><span>${QIST.esc(p.organization)}</span><span>${QIST.esc(p.where || '')}</span></p>
           <div class="opp-foot"><button type="button" class="btn btn-quiet btn-sm" data-del-pos="${QIST.esc(p.id)}">${QIST.t('prof.pos.remove')}</button></div></div>

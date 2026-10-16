@@ -146,6 +146,7 @@ def page_tests(browser):
     ctx, page, errors, warns = open_page(browser)
     check("nav marks Opportunities current and has no separate My feed", page.locator("#main-nav a.active").inner_text().strip() == "Opportunities" and "My feed" not in page.locator("#main-nav").inner_text())
     check("first visit opens the profile form", page.locator("#pf-form").is_visible())
+    check("a first visit never shows a bare 0 in the headline", int(page.inner_text("#top-num")) > 0, page.inner_text("#top-num"))
     tabs = page.locator("#tabs button")
     check("five tabs: Grants, Vacancies, Collaborations, Papers, Saved", tabs.all_inner_texts() and [t.split()[0] for t in tabs.all_inner_texts()] == ["Grants", "Vacancies", "Collaborations", "Papers", "Saved"], tabs.all_inner_texts())
     check("no Articles tab any more", "Articles" not in page.inner_text("#tabs"))
@@ -286,6 +287,9 @@ def page_tests(browser):
     check("visit date recorded, previous kept", v["prev"] == "2000-01-01" and v["cur"] != "2000-01-01", v)
     page.reload(); page.wait_for_selector("#tabs button")
     check("a second visit the same day keeps 'previous'", json.loads(page.evaluate("localStorage.getItem('qist_feed_state')"))["visit"]["prev"] == "2000-01-01")
+    ctx.close()
+    ctx, page, errors, _ = open_page(browser, storage={"qist_feed_profile": prof, "qist_feed_state": json.dumps({"saved": {}, "dismissed": {}, "visit": {"prev": "2000-01-01", "cur": "2999-01-01"}})})
+    check("with nothing new, the headline shows what matches right now, not 0", int(page.inner_text("#top-num")) > 0 and "right now" in page.inner_text("#top-unit"), (page.inner_text("#top-num"), page.inner_text("#top-unit")))
     ctx.close()
 
 

@@ -126,7 +126,7 @@
   }
   async function renderMembers() {
     members = await (await authed('/api/admin/members')).json();
-    $('tab-members').innerHTML = `<div class="toolbar" style="margin:0 0 14px"><input type="search" id="mem-q" placeholder="Search name, e-mail, institution, field…" style="flex:1 1 280px">
+    $('tab-members').innerHTML = `<div class="toolbar" style="margin:0 0 14px"><input type="text" id="mem-q" placeholder="Search name, e-mail, institution, field…" style="flex:1 1 280px">
       <span class="muted small" id="mem-count"></span><button class="btn btn-outline btn-sm" id="mem-csv">Export CSV</button></div>
       <table class="data"><thead><tr><th>Member</th><th>Title / institution</th><th>Location</th><th>ORCID</th><th>Fields</th><th>Papers</th><th>Positions</th><th>Listed</th><th>Joined</th></tr></thead><tbody id="mem-body"></tbody></table>`;
     $('mem-q').addEventListener('input', drawMembers);

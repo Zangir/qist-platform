@@ -19,6 +19,7 @@
    ============================================================ */
 const QIST_I18N = {
   "en": {
+    "opp2.unit.total": "matches for you right now",
     /* Opportunities (merged), profile builder, post a position, home hero */
     "hero.h1": "Find <em>researchers</em> to solve your R&amp;D needs.",
     "hero.lead": "AI-powered collaboration infrastructure for researchers, universities, industry and funders across Central Asia, the Caucasus and Mongolia.",
@@ -613,6 +614,7 @@ const QIST_I18N = {
     "news.archive.note": "Past issues are shown as they were sent, in the language they were written in."
   },
   "ru": {
+    "opp2.unit.total": "подходящих вам возможностей сейчас",
     /* Opportunities (merged), profile builder, post a position, home hero */
     "hero.h1": "Найдите <em>исследователей</em> для решения ваших R&amp;D-задач.",
     "hero.lead": "Платформа сотрудничества на основе ИИ для исследователей, университетов, индустрии и фондов Центральной Азии, Кавказа и Монголии.",
@@ -1207,6 +1209,7 @@ const QIST_I18N = {
     "news.archive.note": "Прошлые выпуски показаны такими, какими были отправлены, на языке оригинала."
   },
   "kk": {
+    "opp2.unit.total": "қазір сізге сай мүмкіндіктер",
     /* Opportunities (merged), profile builder, post a position, home hero */
     "hero.h1": "R&amp;D міндеттеріңізді шешетін <em>зерттеушілерді</em> табыңыз.",
     "hero.lead": "Орталық Азия, Кавказ және Моңғолияның зерттеушілері, университеттері, индустриясы мен қорларына арналған ЖИ негізіндегі ынтымақтастық платформасы.",

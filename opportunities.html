@@ -357,9 +357,13 @@
     profileLine();
     rankAll();
     drawTabs(); drawSort(); drawActions();
-    const newN = ['grant', 'job', 'collab'].reduce((n, k) => n + ranked[k].filter(r => r.isNew && r.score >= 35).length, 0);
-    $('top-num').textContent = newN;
-    $('top-unit').textContent = QIST.t(prevVisit ? 'feed.unit.new' : 'feed.unit.first');
+    /* The headline number is what is new for this reader. With no profile yet nothing is "strong", so everything new counts;
+       when nothing is new it falls back to everything that matches right now, never a bare 0 on a first visit. */
+    const calls = ['grant', 'job', 'collab'], noProfile = F.prepare(view()).empty;
+    const newN = calls.reduce((n, k) => n + ranked[k].filter(r => r.isNew && (noProfile || r.score >= 35)).length, 0);
+    const allN = calls.reduce((n, k) => n + ranked[k].length, 0);
+    $('top-num').textContent = newN || allN;
+    $('top-unit').textContent = QIST.t(newN ? (prevVisit ? 'feed.unit.new' : 'feed.unit.first') : 'opp2.unit.total');
     $('notice').innerHTML = F.prepare(view()).empty
       ? `<div class="feed-notice"><b>${QIST.t('feed.empty.h')}</b> — ${QIST.t('feed.empty.p')}</div>` : '';
     renderList();

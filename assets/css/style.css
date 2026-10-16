@@ -780,7 +780,7 @@ table.data tr:hover td { background: var(--bg-3); }
 .feed-source { font-size: .75rem; color: var(--fg-3); }
 .feed-caveat { margin: 28px 0 8px; font-size: .8125rem; color: var(--fg-3); max-width: 78ch; }
 .feed-status { margin: 6px 0 64px; font-size: .75rem; color: var(--fg-3); }
-.today-card .t-row { display: grid; grid-template-columns: 68px minmax(0, 1fr); gap: 4px 14px; padding: 8px 0; border-bottom: 1px solid var(--line-2); font-size: .875rem; }
+.today-card .t-row { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 4px 14px; padding: 8px 0; border-bottom: 1px solid var(--line-2); font-size: .875rem; }
 .today-card .t-row:last-child { border-bottom: 0; }
 .today-card .t-kind { color: var(--accent); font-weight: 600; font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; }
 @media (max-width: 720px) {
