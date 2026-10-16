@@ -6,7 +6,7 @@
 <title data-i18n-title="dir.h2">Researchers · ScienceBridge AI</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%232447a8'/><text x='50' y='69' font-size='56' font-weight='700' text-anchor='middle' fill='%23ffffff' font-family='Georgia, serif'>Q</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=2026-10-12a">
+<link rel="stylesheet" href="assets/css/style.css?v=2026-10-16a">
 </head>
 <body>
 <header class="site-header" id="site-header"></header>
@@ -67,8 +67,8 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="assets/js/i18n.js?v=2026-10-12a"></script>
-<script src="assets/js/app.js?v=2026-10-12a"></script>
+<script src="assets/js/i18n.js?v=2026-10-16a"></script>
+<script src="assets/js/app.js?v=2026-10-16a"></script>
 <script>
 (async () => {
   await QIST.boot('directory.html');
@@ -176,7 +176,7 @@
       ? `<span class="loc">${QIST.icon(QIST.hasPreciseGeo(p) ? 'pin' : 'globe')} ${QIST.esc(QIST.geoLabel(p))}</span>` : '';
     const topics = (p.topics || []).slice(0, 4);
     return `<div class="person" role="button" tabindex="0" data-id="${QIST.esc(p.id)}" aria-label="${QIST.esc(p.name)}">
-      <div class="avatar" style="background:${QIST.avatarColor(p.name)}" aria-hidden="true">${QIST.initials(p.name)}</div>
+      ${QIST.avatarHtml(p)}
       <div>
         <h3>${QIST.esc(p.name)}</h3>
         <p class="role">${QIST.esc(p.title || '')}</p>
@@ -208,7 +208,7 @@
       ? `<p class="loc">${QIST.icon(QIST.hasPreciseGeo(p) ? 'pin' : 'globe')} ${QIST.esc(QIST.geoLabel(p))}</p>` : '';
     $('person-detail').innerHTML = `
       <div class="pm-head">
-        <div class="avatar pm-avatar" style="background:${QIST.avatarColor(p.name)}">${QIST.initials(p.name)}</div>
+        ${QIST.avatarHtml(p, 'pm-avatar')}
         <div>
           <h2 id="person-name">${QIST.esc(p.name)}</h2>
           <p class="role">${QIST.esc(p.title || '')}</p>

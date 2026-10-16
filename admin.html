@@ -6,7 +6,7 @@
 <title>Admin — QIST</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%232447a8'/><text x='50' y='69' font-size='56' font-weight='700' text-anchor='middle' fill='%23ffffff' font-family='Georgia, serif'>Q</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=2026-10-12a">
+<link rel="stylesheet" href="assets/css/style.css?v=2026-10-16a">
 </head>
 <body>
 <header class="site-header" id="site-header"></header>
@@ -31,15 +31,17 @@
 
     <div class="tab-row" style="margin-bottom:24px">
       <button class="active" data-tab="people">Researchers</button>
+      <button data-tab="members">Members database</button>
+      <button data-tab="moderation">Positions &amp; papers</button>
       <button data-tab="posts">Posts</button>
-      <button data-tab="accounts">Accounts</button>
       <button data-tab="subs">Subscribers</button>
       <button data-tab="requests">Collab requests</button>
     </div>
 
     <div id="tab-people" class="table-wrap"></div>
+    <div id="tab-members" class="table-wrap" style="display:none"></div>
+    <div id="tab-moderation" class="table-wrap" style="display:none"></div>
     <div id="tab-posts" class="table-wrap" style="display:none"></div>
-    <div id="tab-accounts" class="table-wrap" style="display:none"></div>
     <div id="tab-subs" class="table-wrap" style="display:none"></div>
     <div id="tab-requests" class="table-wrap" style="display:none"></div>
   </div>
@@ -71,8 +73,8 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="assets/js/i18n.js?v=2026-10-12a"></script>
-<script src="assets/js/app.js?v=2026-10-12a"></script>
+<script src="assets/js/i18n.js?v=2026-10-16a"></script>
+<script src="assets/js/app.js?v=2026-10-16a"></script>
 <script>
 (async () => {
   await QIST.boot('admin.html');
@@ -102,9 +104,57 @@
     b.addEventListener('click', () => {
       document.querySelectorAll('.tab-row button').forEach(x => x.classList.remove('active'));
       b.classList.add('active');
-      ['people', 'posts', 'accounts', 'subs', 'requests'].forEach(t =>
+      ['people', 'members', 'moderation', 'posts', 'subs', 'requests'].forEach(t =>
         $('tab-' + t).style.display = t === b.dataset.tab ? '' : 'none');
     }));
+
+  /* ---------- members database: everyone who created a profile, searchable, exportable ---------- */
+  const authed = path => fetch(QIST.apiBase + path, { headers: QIST.authHeaders() });
+  let members = [];
+  function drawMembers() {
+    const q = ($('mem-q') ? $('mem-q').value : '').trim().toLowerCase();
+    const rows = members.filter(m => !q || JSON.stringify(m).toLowerCase().includes(q));
+    $('mem-body').innerHTML = rows.map(m => `<tr>
+      <td><b>${QIST.esc(m.name)}</b><br><span class="muted small">${QIST.esc(m.email)}</span></td>
+      <td>${QIST.esc(m.title || '')}<br><span class="muted small">${QIST.esc(m.institution || '')}</span></td>
+      <td>${QIST.esc([m.city, m.country].filter(Boolean).join(', '))}</td>
+      <td class="small">${m.orcid ? `<a href="https://orcid.org/${QIST.esc(m.orcid)}" target="_blank" rel="noopener">${QIST.esc(m.orcid)}</a>` : ''}</td>
+      <td class="small">${QIST.esc((m.fields || []).join('; '))}</td>
+      <td>${m.papers}</td><td>${m.positions}</td><td>${m.listed === false ? 'no' : 'yes'}</td>
+      <td class="small">${QIST.esc((m.created || '').slice(0, 10))}</td></tr>`).join('') || '<tr><td colspan="9" class="muted">No members yet.</td></tr>';
+    $('mem-count').textContent = `${rows.length} / ${members.length}`;
+  }
+  async function renderMembers() {
+    members = await (await authed('/api/admin/members')).json();
+    $('tab-members').innerHTML = `<div class="toolbar" style="margin:0 0 14px"><input type="search" id="mem-q" placeholder="Search name, e-mail, institution, field…" style="flex:1 1 280px">
+      <span class="muted small" id="mem-count"></span><button class="btn btn-outline btn-sm" id="mem-csv">Export CSV</button></div>
+      <table class="data"><thead><tr><th>Member</th><th>Title / institution</th><th>Location</th><th>ORCID</th><th>Fields</th><th>Papers</th><th>Positions</th><th>Listed</th><th>Joined</th></tr></thead><tbody id="mem-body"></tbody></table>`;
+    $('mem-q').addEventListener('input', drawMembers);
+    $('mem-csv').addEventListener('click', async () => {
+      const r = await authed('/api/admin/export.csv');
+      const a = document.createElement('a'); a.href = URL.createObjectURL(await r.blob()); a.download = 'qist-members.csv'; a.click(); URL.revokeObjectURL(a.href);
+    });
+    drawMembers();
+  }
+
+  /* ---------- moderation: anything a member posted can be removed here ---------- */
+  async function renderModeration() {
+    const [pos, pap] = await Promise.all([fetch(QIST.apiBase + '/api/positions').then(r => r.json()), fetch(QIST.apiBase + '/api/papers?limit=500').then(r => r.json())]);
+    $('tab-moderation').innerHTML = `<h3 style="margin-bottom:8px">Positions (${pos.length})</h3>
+      <table class="data"><tr><th>Title</th><th>Lab</th><th>Posted by</th><th>Deadline</th><th></th></tr>${pos.map(p => `<tr>
+        <td><a href="${QIST.esc(p.source_url)}" target="_blank" rel="noopener">${QIST.esc(p.title)}</a></td><td class="small">${QIST.esc(p.organization)}</td>
+        <td class="small">${QIST.esc(p.posted_by)}</td><td class="small">${QIST.esc(p.deadline || '')}</td>
+        <td><button class="btn btn-danger btn-sm" data-mod="positions/${QIST.esc(p.id.split('-')[1])}">Remove</button></td></tr>`).join('') || '<tr><td colspan="5" class="muted">None.</td></tr>'}</table>
+      <h3 style="margin:26px 0 8px">Papers (${pap.length})</h3>
+      <table class="data"><tr><th>Title</th><th>Venue</th><th>Added by</th><th></th></tr>${pap.map(p => `<tr>
+        <td>${QIST.esc(p.title)}</td><td class="small">${QIST.esc(p.venue || '')} ${QIST.esc(p.year || '')}</td><td class="small">${QIST.esc(p.added_by)}</td>
+        <td><button class="btn btn-danger btn-sm" data-mod="papers/${QIST.esc(p.id.split('-')[1])}">Remove</button></td></tr>`).join('') || '<tr><td colspan="4" class="muted">None.</td></tr>'}</table>`;
+    $('tab-moderation').querySelectorAll('[data-mod]').forEach(b => b.addEventListener('click', async () => {
+      if (!confirm('Remove this from the platform?')) return;
+      const r = await fetch(QIST.apiBase + '/api/' + b.dataset.mod, { method: 'DELETE', headers: QIST.authHeaders() });
+      QIST.toast(r.ok ? 'Removed.' : 'Could not remove.'); renderModeration();
+    }));
+  }
 
   /* ---------- people ---------- */
   async function renderPeople() {
@@ -215,13 +265,7 @@
 
   /* ---------- accounts / subscribers / requests ---------- */
   function renderRest() {
-    const accounts = [...QIST.seededAccounts().map(a => ({ ...a, seeded: true })), ...QIST.overlay('accounts')];
-    $('tab-accounts').innerHTML = `<table class="data">
-      <tr><th>Name</th><th>Email</th><th>Role</th><th>Source</th></tr>
-      ${accounts.map(a => `<tr><td><b>${QIST.esc(a.name)}</b></td><td>${QIST.esc(a.email)}</td>
-        <td>${QIST.esc(a.role || 'member')}</td><td>${a.seeded ? 'seeded demo' : 'self-registered'}</td></tr>`).join('')}
-    </table>`;
-
+    // (the old Accounts tab listed demo accounts that no longer exist; the Members database replaces it)
     const subs = QIST.overlay('subscribers');
     $('tab-subs').innerHTML = subs.length
       ? `<table class="data"><tr><th>Email</th></tr>${subs.map(s => `<tr><td>${QIST.esc(s.email)}</td></tr>`).join('')}</table>`
@@ -238,6 +282,8 @@
   await renderPeople();
   await renderPosts();
   renderRest();
+  renderMembers().catch(e => { $('tab-members').textContent = 'Could not load members: ' + e.message; });
+  renderModeration().catch(() => {});
 })();
 </script>
 </body>

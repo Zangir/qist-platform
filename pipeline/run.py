@@ -174,7 +174,8 @@ def build(kind, sources, prev, today, meta):
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
-    ap.add_argument("--kinds", default="grants,jobs,articles")
+    ap.add_argument("--kinds", default="grants,jobs",
+                    help="articles is still supported (--kinds grants,jobs,articles) but is off by default: the site shows members' papers instead (D-65)")
     ap.add_argument("--out", default=str(OUT))
     ap.add_argument("--quick", action="store_true", help="small fetch, for a smoke test")
     a = ap.parse_args(argv)

@@ -1,6 +1,18 @@
 # STATUS
 
-Updated: 2026-10-12 · Iterations 1–9
+Updated: 2026-10-12 · Iterations 1–10
+
+## Iteration 10 — one Opportunities page, member profiles, positions, new home, 2026-10-16
+
+Build `2026-10-16a`. Decisions D-65…D-70.
+
+- **One page instead of two.** My feed and Opportunities are merged (D-65): curated calls with checked eligibility and its reasons (D-66), daily grants and vacancies, positions posted by members, members' papers. The worldwide articles feed is switched off.
+- **Members post positions** from their labs (title, lab, who it is for, description, required link, deadline). Backend: publishes at once; static: goes to a curator.
+- **Profile builder:** ORCID (checksum, public API), CV (PDF/DOCX/paste, rules not a model), photo, fields, keywords, links, papers by DOI/ORCID/manual; edit, download my data, delete account. Directory and map show photos.
+- **Members database** in the admin panel with CSV export and moderation. Backend gained profile, positions, papers, CV-text and admin endpoints; the default admin password is gone.
+- **Home:** new hero with the globe picture, a search box, four pillars, a large numbers band, the fit check moved under "Closing next".
+- **Tests:** 67 Python, 118 + 99 + 43 browser checks.
+- **Not done / needs you:** the API is not deployed (`render.yaml` is ready), so on the live site profiles and positions are still requests to the team; Kazakh and Russian strings are unreviewed (B-35); the hero picture carries five people's photographs from the design brief.
 
 ## Iteration 9 — My feed: daily grants, vacancies and articles, 2026-10-12
 

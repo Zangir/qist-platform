@@ -3,396 +3,471 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-i18n-title="opp.h2">Opportunities · ScienceBridge AI</title>
-<meta name="description" content="Grants, consortium roles, academic and industry positions and co-author calls, each checked against your country and career stage with a link to the funder's rules.">
+<title data-i18n-title="nav.opportunities">Opportunities · ScienceBridge AI</title>
+<meta name="description" content="Grants, academic vacancies, collaborations and members' papers, ranked for your fields, keywords and career stage, with eligibility checked against your country and the funder's published rules.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%232447a8'/><text x='50' y='69' font-size='56' font-weight='700' text-anchor='middle' fill='%23ffffff' font-family='Georgia, serif'>Q</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=2026-10-12a">
+<link rel="stylesheet" href="assets/css/style.css?v=2026-10-16a">
 </head>
 <body>
 <header class="site-header" id="site-header"></header>
 
 <div class="container">
   <div class="page-top">
-    <div><span class="photo-num" id="top-num" style="background-image:url('assets/img/tiles-samarkand.jpg')" aria-hidden="true">17</span><span class="unit" data-i18n="top.opps"></span></div>
+    <div><span class="photo-num" id="top-num" style="background-image:url('assets/img/steppe-fieldwork.jpg')" aria-hidden="true">0</span><span class="unit" id="top-unit"></span></div>
     <div>
-      <h1 data-i18n="opp.h2">Opportunities</h1>
-      <p class="lede" data-i18n="opp.lede"></p>
-      <p class="aside" id="opp-summary" aria-live="polite"></p>
+      <h1 data-i18n="nav.opportunities">Opportunities</h1>
+      <p class="lede" data-i18n="opp2.lede"></p>
     </div>
   </div>
 </div>
 
 <div class="container">
+  <section class="profile-bar" id="pf" aria-labelledby="pf-h">
+    <div class="pf-head">
+      <p class="pf-line" id="pf-line"></p>
+      <button type="button" class="btn btn-outline btn-sm" id="pf-toggle" aria-expanded="false" aria-controls="pf-form" data-i18n="feed.profile.edit">Edit profile</button>
+    </div>
+    <form class="pf-form" id="pf-form" hidden autocomplete="off">
+      <h2 id="pf-h" class="sr-only" data-i18n="feed.profile.h">Your research profile</h2>
+      <div class="row-2">
+        <div><label for="pf-stage" data-i18n="feed.f.stage">Career stage</label>
+          <select id="pf-stage">
+            <option value="any" data-i18n="opp.stage.any">Student / Master's</option>
+            <option value="phd_student" data-i18n="opp.stage.phd_student">PhD candidate</option>
+            <option value="phd_plus" data-i18n="opp.stage.phd_plus">PhD / Researcher</option>
+            <option value="postdoc_plus" data-i18n="opp.stage.postdoc_plus">Postdoc</option>
+            <option value="pi_only" data-i18n="opp.stage.pi_only">Professor / PI</option>
+          </select></div>
+        <div><label for="pf-country" data-i18n="feed.f.country">Based in</label><select id="pf-country"></select></div>
+      </div>
+      <div><span class="lab" id="pf-fields-l" data-i18n="feed.f.fields">Research fields</span><div class="fchips" id="pf-fields" role="group" aria-labelledby="pf-fields-l"></div></div>
+      <div><label for="pf-kw" data-i18n="feed.f.keywords">Keywords</label>
+        <input type="text" id="pf-kw" data-i18n-attr="placeholder:feed.f.keywords.ph">
+        <p class="hint" data-i18n="feed.f.keywords.hint"></p></div>
+      <div class="row-2">
+        <div><label for="pf-jc" data-i18n="feed.f.jobcountries">Vacancies in these countries</label>
+          <select id="pf-jc"></select><div class="cchips" id="pf-jc-chips"></div>
+          <p class="hint" data-i18n="feed.f.jobcountries.hint"></p></div>
+        <div style="display:grid;gap:12px;align-content:start;padding-top:26px">
+          <label class="check"><input type="checkbox" id="pf-remote"> <span data-i18n="feed.f.remote">Also show remote roles</span></label>
+          <label class="check"><input type="checkbox" id="pf-allstages"> <span data-i18n="feed.f.allstages">Include vacancies above or below my stage</span></label>
+        </div>
+      </div>
+      <div class="pf-actions">
+        <button type="submit" class="btn btn-primary" data-i18n="feed.profile.save">Save and refresh</button>
+        <button type="button" class="btn btn-quiet" id="pf-reset" data-i18n="opp2.profile.clear">Clear profile</button>
+        <button type="button" class="btn btn-quiet" id="pf-cancel" data-i18n="feed.profile.close">Close</button>
+        <span class="state" id="pf-state" role="status" aria-live="polite"></span>
+      </div>
+      <p class="hint" id="pf-where"></p>
+    </form>
+  </section>
 
-  <!-- the reader's profile, said as a sentence: the verdicts depend on it -->
-  <div class="profile-bar lifted">
-    <p class="sentence">
-      <span data-i18n="home.s.a"></span>
-      <select id="of-stage" data-i18n-attr="aria-label:opp.mystage">
-        <option value="any" data-i18n="opp.stage.any">Student / Master's</option>
-        <option value="phd_student" data-i18n="opp.stage.phd_student">PhD candidate</option>
-        <option value="phd_plus" selected data-i18n="opp.stage.phd_plus">PhD / Researcher</option>
-        <option value="postdoc_plus" data-i18n="opp.stage.postdoc_plus">Postdoc</option>
-        <option value="pi_only" data-i18n="opp.stage.pi_only">Professor / PI</option>
-      </select><span data-i18n="home.s.b"></span><select id="of-country" data-i18n-attr="aria-label:opp.mycountry"></select><span data-i18n="opp.s.c"></span><select id="of-myfield" data-i18n-attr="aria-label:opp.myfield"></select>
-    </p>
-    <p class="hint" data-i18n="opp.profile.note"></p>
-  </div>
-
-  <div class="toolbar" id="opp-filters">
-    <span class="search-wrap"><input type="text" id="of-q" class="search-input" data-slash aria-keyshortcuts="/" data-i18n-attr="placeholder:opp.search.ph;aria-label:opp.search.ph"><kbd aria-hidden="true">/</kbd></span>
-    <select id="of-field" data-i18n-attr="aria-label:common.allfields"><option value="" data-i18n="common.allfields">All research fields</option></select>
-    <select id="of-sort" data-i18n-attr="aria-label:opp.sort.deadline">
-      <option value="deadline" data-i18n="opp.sort.deadline"></option>
-      <option value="match" data-i18n="opp.sort.match"></option>
-    </select>
+  <div class="toolbar">
+    <span class="search-wrap"><input type="text" id="q" class="search-input" data-slash aria-keyshortcuts="/" data-i18n-attr="placeholder:opp2.search.ph;aria-label:opp2.search.ph"><kbd aria-hidden="true">/</kbd></span>
+    <button type="button" class="btn btn-outline btn-sm" id="clear" data-i18n="common.clear">Clear</button>
     <div class="checks-row">
-      <label class="check"><input type="checkbox" id="of-elig"> <span data-i18n="opp.onlyelig">Only what I am eligible for</span></label>
-      <label class="check"><input type="checkbox" id="of-open" checked> <span data-i18n="opp.hideexpired">Hide expired</span></label>
+      <label class="check"><input type="checkbox" id="inelig"> <span data-i18n="opp2.showinelig">Also show calls I cannot apply to</span></label>
     </div>
   </div>
-  <div class="seg" id="of-types" role="group" data-i18n-attr="aria-label:opp.alltypes"></div>
 
-  <div class="deadlines" id="deadlines" hidden>
-    <div class="deadlines-head"><span id="tl-title"></span><span class="later" id="tl-later"></span></div>
-    <div class="tl" id="tl"></div>
+  <div id="notice" aria-live="polite"></div>
+  <div class="seg feed-tabs" id="tabs" role="tablist"></div>
+
+  <div class="tab-actions" id="tab-actions"></div>
+
+  <section class="feed-sec" id="picks" hidden>
+    <h2 data-i18n="feed.picks">Today's picks</h2>
+    <p class="sub" id="picks-sub"></p>
+    <div class="rows" id="picks-list"></div>
+  </section>
+
+  <div class="feed-bar">
+    <h2 id="all-h" data-i18n="feed.all">All matches</h2>
+    <div class="right">
+      <span class="count-line" id="count" role="status" aria-live="polite"></span>
+      <select id="sort" data-i18n-attr="aria-label:feed.sort.match"></select>
+    </div>
   </div>
-
-  <p class="count-line" id="opp-count" data-i18n="common.loading">Loading…</p>
-  <div class="rows" id="opp-list"></div>
-
+  <div class="rows" id="list"></div>
+  <div class="more" id="more" hidden><button type="button" class="btn btn-outline" id="more-btn" data-i18n="feed.more">Show more</button></div>
+  <p class="feed-caveat" id="caveat"></p>
+  <p class="feed-status" id="status"></p>
 </div>
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="assets/js/i18n.js?v=2026-10-12a"></script>
-<script src="assets/js/app.js?v=2026-10-12a"></script>
+<script src="assets/js/i18n.js?v=2026-10-16a"></script>
+<script src="assets/js/app.js?v=2026-10-16a"></script>
+<script src="assets/js/feed.js?v=2026-10-16a"></script>
 <script>
 (async () => {
   await QIST.boot('opportunities.html');
+  const F = QIST.feed, $ = id => document.getElementById(id);
+  const TODAY = new Date().toISOString().slice(0, 10);
+  const PAGE = 20;
+  const TABS = ['grant', 'job', 'collab', 'paper', 'saved'];
 
-  const $ = id => document.getElementById(id);
-  const list = $('opp-list'), count = $('opp-count');
-
-  /* Deploy guard. This page needs helpers and data files that ship together with it.
-     When only part of a release reaches the server, a missing helper used to throw and
-     leave a blank page with no explanation. Now we say what is out of date. */
-  function outOfDate(what) {
-    count.textContent = '';
-    list.innerHTML = `<div class="card pad-lg opp-empty">
-      <h3>${QIST.t('opp.stale.h')}</h3>
-      <p class="small muted">Missing or outdated: <code>${QIST.esc(what)}</code>.
-        Upload the whole release together — <code>assets/js/app.js</code>,
-        <code>data/eligibility.json</code> and <code>data/opportunities.json</code> must match this page.</p>
-      <p class="small muted">This page expects build <code>2026-10-12a</code>; the server has
-        <code>${QIST.esc(QIST.BUILD || 'older than 2026-10-12a')}</code>.</p>
-    </div>`;
-  }
-  if (typeof QIST.fillCountrySelect !== 'function' || !QIST.PRIMARY_FIELDS
-      || typeof QIST.fieldsMatch !== 'function' || typeof QIST.oppFieldCounts !== 'function'
-      || typeof QIST.matchOpportunity !== 'function' || typeof QIST.condChips !== 'function') {
-    console.error('opportunities.html: assets/js/app.js is older than this page');
-    return outOfDate('assets/js/app.js');
-  }
-
-  /* ---------- data loading: explicit loading and error states ---------- */
-  let opps, elig;
+  let loaded, elig;
   try {
-    [opps, elig] = await Promise.all([QIST.getOpportunities(), QIST.getEligibility()]);
-  } catch (err) {
-    console.error('Failed to load opportunities:', err);
-    count.textContent = '';
-    list.innerHTML = `<div class="card pad-lg opp-empty">
-      <h3>${QIST.t('opp.err.h')}</h3>
-      <p class="small muted">${QIST.t('opp.err.p')}</p>
-      <button class="btn btn-outline" onclick="location.reload()">${QIST.t('common.reload')}</button></div>`;
+    [loaded, elig] = await Promise.all([F.load(), QIST.getEligibility()]);
+  } catch (e) {
+    console.error('opportunities load failed', e);
+    $('list').innerHTML = `<div class="empty"><h3>${QIST.t('feed.err')}</h3><button class="btn btn-outline" onclick="location.reload()">${QIST.t('common.reload')}</button></div>`;
     return;
   }
+  const { meta, data, failed } = loaded;
 
-  /* ---------- populate the lookups ---------- */
-  if (!elig.priority_countries || Object.keys(elig.countries || {}).length < 50) {
-    console.error('opportunities.html: data/eligibility.json is older than this page');
-    return outOfDate('data/eligibility.json');
+  /* ---------- state ---------- */
+  let profile = F.loadProfile();
+  const remote = await F.pullRemoteProfile();
+  if (remote) profile = F.saveProfile(remote);
+  const hadProfile = F.hasProfile();
+  const prevVisit = F.touchVisit(TODAY);
+  const since = prevVisit || new Date(Date.now() - 2 * 86400000).toISOString().slice(0, 10);
+  const params = new URLSearchParams(location.search);
+  /* A link from the home page can carry a country and stage ("what fits a PhD in Kazakhstan"). They apply to this
+     view only; they are not written over the reader's saved profile. */
+  const asked = {};
+  if (params.get('country') && elig.countries[params.get('country')]) asked.country = params.get('country');
+  if (F.sanitizeProfile({ stage: params.get('stage') }).stage === params.get('stage')) asked.stage = params.get('stage');
+  const view = () => Object.assign({}, profile, asked);
+  let tab = TABS.includes(params.get('tab')) ? params.get('tab') : 'grant';
+  let limit = PAGE, ranked = {};
+  $('q').value = params.get('q') || '';
+  $('inelig').checked = params.get('elig') === '0';
+
+  /* ---------- profile form ---------- */
+  const form = $('pf-form');
+  QIST.fillCountrySelect($('pf-country'), elig, view().country || 'KZ');
+  $('pf-jc').innerHTML = `<option value="">${QIST.esc(QIST.t('feed.f.jobcountries.add'))}</option>` +
+    Object.keys(elig.countries).sort((a, b) => QIST.countryName(a, elig).localeCompare(QIST.countryName(b, elig), QIST.lang))
+      .map(c => `<option value="${c}">${QIST.esc(QIST.countryName(c, elig))}</option>`).join('');
+  let draft = JSON.parse(JSON.stringify(profile));
+
+  function drawChips() {
+    $('pf-fields').innerHTML = QIST.PRIMARY_FIELDS.filter(f => f !== 'Other Research Area').map(f => {
+      const on = draft.fields.includes(f);
+      return `<button type="button" data-f="${QIST.esc(f)}" aria-pressed="${on}"${!on && draft.fields.length >= 6 ? ' disabled' : ''}>${QIST.esc(f)}</button>`;
+    }).join('');
+    $('pf-jc-chips').innerHTML = draft.jobCountries.map(c =>
+      `<button type="button" data-c="${c}" aria-label="${QIST.esc(QIST.countryName(c, elig))}">${QIST.esc(QIST.countryName(c, elig))}</button>`).join('');
   }
-  QIST.fillCountrySelect($('of-country'), elig, 'KZ');
-
-  /* All 35 QIST research fields, always in the same order; fields with nothing behind them
-     are disabled rather than hidden, so the gaps in coverage stay visible. */
-  const fieldCounts = QIST.oppFieldCounts(opps);
-  QIST.PRIMARY_FIELDS.forEach(f => {
-    const n = fieldCounts[f] || 0;
-    $('of-field').insertAdjacentHTML('beforeend',
-      `<option value="${QIST.esc(f)}"${n ? '' : ' disabled'}>${QIST.esc(f)}${n ? ` (${n})` : ''}</option>`);
+  function fillForm() {
+    draft = JSON.parse(JSON.stringify(view()));
+    $('pf-stage').value = draft.stage;
+    $('pf-kw').value = draft.keywords.join(', ');
+    $('pf-remote').checked = draft.remote;
+    $('pf-allstages').checked = draft.allStages;
+    $('pf-country').value = draft.country || 'KZ';
+    drawChips();
+    $('pf-where').textContent = QIST.apiAlive && QIST.currentUser() ? QIST.t('feed.stored.account') : QIST.t('feed.stored.local');
+  }
+  $('pf-fields').addEventListener('click', e => {
+    const b = e.target.closest('button[data-f]'); if (!b) return;
+    const f = b.dataset.f, i = draft.fields.indexOf(f);
+    if (i > -1) draft.fields.splice(i, 1); else if (draft.fields.length < 6) draft.fields.push(f);
+    drawChips();
+    $('pf-fields').querySelector(`[data-f="${CSS.escape(f)}"]`)?.focus();
+  });
+  $('pf-jc').addEventListener('change', e => {
+    const c = e.target.value;
+    if (c && !draft.jobCountries.includes(c) && draft.jobCountries.length < 8) draft.jobCountries.push(c);
+    e.target.value = ''; drawChips();
+  });
+  $('pf-jc-chips').addEventListener('click', e => {
+    const b = e.target.closest('button[data-c]'); if (!b) return;
+    draft.jobCountries = draft.jobCountries.filter(c => c !== b.dataset.c); drawChips();
+  });
+  function setOpen(open) {
+    form.hidden = !open;
+    $('pf-toggle').setAttribute('aria-expanded', String(open));
+    if (open) fillForm();
+  }
+  $('pf-toggle').addEventListener('click', () => setOpen(form.hidden));
+  $('pf-cancel').addEventListener('click', () => { setOpen(false); $('pf-toggle').focus(); });
+  /* "Clear profile" empties the form, so a reader can start a new search from nothing; it is saved only on Save. */
+  $('pf-reset').addEventListener('click', () => {
+    draft = Object.assign(F.defaultProfile(), { country: $('pf-country').value });
+    $('pf-kw').value = ''; $('pf-stage').value = draft.stage; $('pf-remote').checked = true; $('pf-allstages').checked = false;
+    drawChips();
+    $('pf-state').textContent = QIST.t('opp2.profile.cleared');
+  });
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    profile = F.saveProfile({
+      stage: $('pf-stage').value, country: $('pf-country').value, fields: draft.fields,
+      keywords: $('pf-kw').value.split(/[,;\n]/).map(s => s.trim()).filter(Boolean),
+      jobCountries: draft.jobCountries, remote: $('pf-remote').checked, allStages: $('pf-allstages').checked
+    });
+    Object.keys(asked).forEach(k => delete asked[k]);
+    await F.pushRemoteProfile(profile);
+    $('pf-state').textContent = QIST.t('feed.profile.saved');
+    limit = PAGE;
+    renderAll();
+    setTimeout(() => { setOpen(false); $('pf-state').textContent = ''; $('pf-toggle').focus(); }, 600);
   });
 
-  /* The reader's own field feeds the match analysis, not the filter: "show me AI calls" and
-     "I am an AI researcher" are different questions. */
-  $('of-myfield').insertAdjacentHTML('beforeend', `<option value="">${QIST.t('opp.s.anyfield')}</option>`);
-  QIST.PRIMARY_FIELDS.forEach(f =>
-    $('of-myfield').insertAdjacentHTML('beforeend', `<option value="${QIST.esc(f)}">${QIST.esc(f)}</option>`));
+  /* ---------- rendering ---------- */
+  const kindLabel = k => QIST.t('opp2.tab.' + k);
 
-  /* ---------- state lives in the URL ---------- */
-  const IDS = { country: 'of-country', stage: 'of-stage', myfield: 'of-myfield', q: 'of-q', field: 'of-field', sort: 'of-sort' };
-  const TYPES = [...new Set(opps.map(o => o.type))];
-  let type = '';
-  const langParam = new URLSearchParams(location.search).get('lang');
-  function readUrl() {
-    const p = new URLSearchParams(location.search);
-    Object.entries(IDS).forEach(([k, id]) => { if (p.has(k)) $(id).value = p.get(k); });
-    if (p.has('type') && TYPES.includes(p.get('type'))) type = p.get('type');
-    if (p.has('elig')) $('of-elig').checked = p.get('elig') === '1';
-    if (p.has('open')) $('of-open').checked = p.get('open') === '1';
-  }
-  function writeUrl() {
-    const p = new URLSearchParams();
-    if (langParam) p.set('lang', langParam);
-    Object.entries(IDS).forEach(([k, id]) => { if ($(id).value && !(k === 'sort' && $(id).value === 'deadline')) p.set(k, $(id).value); });
-    if (type) p.set('type', type);
-    if ($('of-elig').checked) p.set('elig', '1');
-    if (!$('of-open').checked) p.set('open', '0');
-    history.replaceState(null, '', (p.toString() ? '?' + p : location.pathname) + location.hash);
-  }
-  readUrl();
-  ['of-stage', 'of-country', 'of-myfield'].forEach(id => QIST.fitSelect($(id)));
-
-  function readerProfile() {
-    const f = $('of-myfield').value;
-    return { country: $('of-country').value, stage: $('of-stage').value, fields: f ? [f] : [], methods: [] };
+  function profileLine() {
+    const v = view();
+    const bits = [`<b>${QIST.esc(QIST.t('opp.stage.' + v.stage))}</b>`];
+    if (v.country) bits.push(QIST.esc(QIST.countryName(v.country, elig)));
+    const topics = v.fields.concat(v.keywords);
+    if (topics.length) bits.push(QIST.esc(topics.slice(0, 5).join(', ')) + (topics.length > 5 ? ` +${topics.length - 5}` : ''));
+    $('pf-line').innerHTML = bits.join(' · ');
   }
 
-  /* ---------- one call ---------- */
-  function row(o, profile) {
-    const m = QIST.matchOpportunity(o, profile, elig);
-    const expired = QIST.isExpired(o);
-    const blocker = m.criteria.find(x => x.blocking && !x.ok && !x.unknown);
-    const panelId = `why-${QIST.esc(o.id)}`;
+  function whenCell(it) {
+    if (it.curated && it.deadline) return QIST.whenCell(it.opp);
+    if (it.kind === 'paper') {
+      return `<div class="when plain"><b>${QIST.esc(it.year || '')}</b><span>${QIST.esc(it.venue ? '' : QIST.t('opp2.paper'))}</span></div>`;
+    }
+    if (it.deadline) return QIST.whenCell(it);
+    const ref = it.posted || it.first_seen;
+    const n = ref ? Math.max(0, Math.round((Date.now() - new Date(ref + 'T00:00:00Z')) / 86400000)) : null;
+    let d = ref || '';
+    try { d = new Intl.DateTimeFormat(QIST.lang === 'kk' ? 'ru' : QIST.lang, { day: 'numeric', month: 'short' }).format(new Date(ref + 'T00:00:00Z')); } catch (_) {}
+    const label = n === null ? QIST.t('opp.col.none') : n === 0 ? QIST.t('feed.today') : QIST.t('feed.ago', { n });
+    return `<div class="when plain"><b>${QIST.esc(ref ? d : '—')}</b><span>${QIST.esc(label)}</span></div>`;
+  }
 
-    /* One row per requirement the call states, with the reason and, where the verdict came
-       from a published list, the link it came from. */
+  function metaLine(it) {
+    const bits = [];
+    if (it.kind === 'paper') {
+      if (it.authors && it.authors.length) bits.push(it.authors.slice(0, 4).join(', ') + (it.authors.length > 4 ? ' et al.' : ''));
+      if (it.venue) bits.push(it.venue);
+      if (it.added_by) bits.push(QIST.t('opp2.addedby', { n: it.added_by }));
+    } else if (it.kind === 'job') {
+      if (it.department) bits.push(it.department);
+      if (it.location) bits.push(it.location);
+      if (it.salary) bits.push(it.salary);
+    } else if (it.curated) {
+      if (it.opp.funding_status && it.origin !== 'community') bits.push(QIST.fundingLabel(it.opp.funding_status));
+      if (it.opp.role_expected) bits.push(it.opp.role_expected);
+      if (it.location) bits.push(it.location);
+    } else {
+      if (it.amount) bits.push(it.amount);
+      if (it.status === 'forthcoming' || it.status === 'forecasted') bits.push(it.status);
+    }
+    return bits.map(b => `<span>${QIST.esc(b)}</span>`).join('');
+  }
+
+  /* The reasons an eligibility verdict rests on, one row per condition, with the funder's own source where the
+     verdict came from a published list. */
+  function eligPanel(m, it) {
     const checks = m.criteria.map(x => {
-      const cls = x.unknown ? 'unk' : x.ok ? 'ok' : 'bad';
-      const mark = x.unknown ? '?' : x.ok ? '✓' : '✗';
+      const cls = x.unknown ? 'unk' : x.ok ? 'ok' : 'bad', mark = x.unknown ? '?' : x.ok ? '✓' : '✗';
       const src = x.source
-        ? ` <a class="src" href="${QIST.esc(x.source.url)}" target="_blank" rel="noopener">${QIST.t('elig.source')}${x.source.version ? ' ' + QIST.esc(x.source.version) : ''}${x.source.date ? ', ' + QIST.esc(x.source.date) : ''} ${QIST.icon('external')}</a>` : '';
-      return `<tr><td>${QIST.esc(x.label)}${x.blocking ? '' : ` ${QIST.t('match.soft')}`}</td>
-        <td>${QIST.esc(x.detail)}${src}</td><td><span class="mark ${cls}" aria-hidden="true">${mark}</span></td></tr>`;
+        ? ` <a class="src" href="${QIST.esc(/^https?:\/\//i.test(x.source.url || '') ? x.source.url : '#')}" target="_blank" rel="noopener">${QIST.t('elig.source')}${x.source.version ? ' ' + QIST.esc(x.source.version) : ''}${x.source.date ? ', ' + QIST.esc(x.source.date) : ''} ${QIST.icon('external')}</a>` : '';
+      return `<tr><td>${QIST.esc(x.label)}${x.blocking ? '' : ` ${QIST.t('match.soft')}`}</td><td>${QIST.esc(x.detail)}${src}</td><td><span class="mark ${cls}" aria-hidden="true">${mark}</span></td></tr>`;
     }).join('');
+    const note = it.opp.eligibility && it.opp.eligibility.note ? `<p class="opp-note">${QIST.t('opp.fundercond', { note: QIST.esc(it.opp.eligibility.note) })}</p>` : '';
+    return `<p class="opp-panel-verdict">${QIST.esc(m.verdict)}</p><table class="checks"><tbody>${checks}</tbody></table>${note}
+      <p class="opp-caveat">${QIST.t('match.caveat')} ${QIST.t('opp.sourcelang')}</p>`;
+  }
 
-    const fields = o.all_fields ? QIST.t('opp.allfieldstag') : (o.fields || []).join(', ');
-    const meta = [
-      `<span class="opp-fund opp-fund-${QIST.esc(o.funding_status)}">${QIST.esc(QIST.fundingLabel(o.funding_status))}</span>`,
-      o.role_expected ? `<span>${QIST.esc(o.role_expected)}${o.workload ? ' · ' + QIST.esc(o.workload) : ''}</span>` : '',
-      fields ? `<span>${QIST.esc(fields)}</span>` : ''
-    ].join('');
+  function card(r, withKind) {
+    const it = r.item, saved = F.isSaved(it.id), v = view();
+    const href = it.url && /^https?:\/\//i.test(it.url) ? it.url : '';
+    const lead = [];
+    if (withKind) lead.push(`<span class="kind">${QIST.esc(kindLabel(it.kind))}</span>`);
+    if (it.curated) lead.push(`<span class="opp-type">${QIST.esc(QIST.typeLabel(it.type))}</span>`);
+    if (it.origin === 'community') lead.push(`<span class="tag">${QIST.t('opp2.member')}</span>`);
+    if (it.org) lead.push(`<span>${QIST.esc(it.org)}</span>`);
+    if (r.isNew) lead.push(`<span class="tag tag-new">${QIST.t('feed.new')}</span>`);
+    if (!it.curated && it.source) lead.push(`<span class="feed-source">${QIST.esc(it.source)}</span>`);
 
-    return `<article class="opp opp-${m.tone}${expired ? ' is-expired' : ''}" id="opp-${QIST.esc(o.id)}" data-opp="${QIST.esc(o.id)}">
-      ${QIST.whenCell(o)}
+    /* A green tick means "this fits you": field, keyword, stage, place. "Checked by QIST" and the venue are facts about
+       the item, and the deadline is already in the date column, so none of them gets a tick. */
+    const chips = (r.reasons || []).filter(x => x.kind !== 'soon').map(x =>
+      x.kind === 'venue' || x.kind === 'verified' ? `<span class="tag">${QIST.esc(x.text)}</span>` : `<span class="cond ok">${QIST.esc(x.text)}</span>`).join('');
+
+    let elig = '', panel = '';
+    const m = r.m;
+    if (it.curated && m) {
+      const blocker = m.criteria.find(x => x.blocking && !x.ok && !x.unknown);
+      elig = QIST.condChips(m, { country: v.country, stage: v.stage }, elig_) +
+             (blocker ? `<p class="opp-blocker">${QIST.esc(blocker.detail)}</p>` : '');
+      panel = `<div class="opp-panel" id="why-${QIST.esc(it.id)}" hidden>${eligPanel(m, it)}</div>`;
+    } else if (it.kind === 'grant') {
+      elig = `<p class="opp-unchecked">${QIST.t('opp2.unchecked')}</p>`;
+    }
+    const doi = it.kind === 'paper' && it.doi ? `<span>DOI ${QIST.esc(it.doi)}</span>` : '';
+
+    return `<article class="opp feed-item${m && m.blocked ? ' opp-bad' : ''}" id="opp-${QIST.esc(it.id)}" data-id="${QIST.esc(it.id)}">
+      ${whenCell(it)}
       <div class="opp-main">
-        <p class="opp-line">
-          <span class="opp-type">${QIST.esc(QIST.typeLabel(o.type))}</span>
-          <span>${QIST.esc(o.organization)}</span>
-          ${o.city ? `<span>${QIST.icon('pin')} ${QIST.esc(o.city)}</span>` : ''}
-        </p>
-        <h3>${QIST.esc(o.title)}</h3>
-        <p class="opp-sum">${QIST.esc(o.summary)}</p>
-        ${QIST.condChips(m, profile, elig)}
-        ${blocker ? `<p class="opp-blocker">${QIST.esc(blocker.detail)}</p>` : ''}
-        <p class="opp-meta">${meta}</p>
+        <p class="opp-line">${lead.join('')}</p>
+        <h3>${href ? `<a href="${QIST.esc(href)}" target="_blank" rel="noopener">${QIST.esc(it.title)}</a>` : QIST.esc(it.title)}</h3>
+        ${it.summary ? `<p class="opp-sum">${QIST.esc(it.summary)}</p>` : ''}
+        ${chips ? `<div class="conds">${chips}</div>` : ''}
+        ${elig}
+        <p class="opp-meta">${metaLine(it)}${doi}</p>
         <div class="opp-foot">
-          <button type="button" class="opp-toggle" aria-expanded="false" aria-controls="${panelId}">${QIST.t('opp.details')}</button>
+          ${it.curated && m ? `<button type="button" class="opp-toggle" aria-expanded="false" aria-controls="why-${QIST.esc(it.id)}">${QIST.t('opp.details')}</button>` : ''}
+          <button type="button" class="btn btn-outline btn-sm" data-save="${QIST.esc(it.id)}" aria-pressed="${saved}">${QIST.t(saved ? 'feed.saved' : 'feed.save')}</button>
+          ${saved ? '' : `<button type="button" class="btn btn-quiet btn-sm" data-dismiss="${QIST.esc(it.id)}">${QIST.t('feed.dismiss')}</button>`}
           <span class="spacer"></span>
-          <button class="btn btn-quiet btn-sm" data-dismiss="${QIST.esc(o.id)}">${QIST.t('opp.dismiss')}</button>
-          ${o.source_url ? `<a class="btn btn-outline btn-sm" href="${QIST.esc(o.source_url)}" target="_blank" rel="noopener">${QIST.t('opp.source')} ${QIST.icon('external')}</a>` : ''}
-          <button class="btn btn-primary btn-sm" data-interest="${QIST.esc(o.id)}"${expired ? ' disabled' : ''}>${QIST.t('opp.interested')}</button>
+          ${it.curated && it.kind !== 'paper' && it.origin !== 'community' ? `<button type="button" class="btn btn-outline btn-sm" data-interest="${QIST.esc(it.id)}">${QIST.t('opp.interested')}</button>` : ''}
+          ${href ? `<a class="btn btn-primary btn-sm" href="${QIST.esc(href)}" target="_blank" rel="noopener">${QIST.t('feed.open')} ${QIST.icon('external')}</a>` : ''}
         </div>
-        <div class="opp-panel" id="${panelId}" hidden>
-          <p class="opp-panel-verdict">${QIST.esc(m.verdict)}</p>
-          <table class="checks"><tbody>${checks}</tbody></table>
-          ${o.eligibility && o.eligibility.note ? `<p class="opp-note">${QIST.t('opp.fundercond', { note: QIST.esc(o.eligibility.note) })}</p>` : ''}
-          <p class="opp-caveat">${QIST.t('match.caveat')} ${QIST.t('opp.sourcelang')}</p>
-        </div>
+        ${panel}
       </div>
     </article>`;
   }
+  const elig_ = elig;
 
-  const dismissed = new Set();
+  function rankAll() {
+    const sort = $('sort').value || 'match';
+    const o = { since, sort, elig, showIneligible: $('inelig').checked, q: $('q').value.trim() };
+    F.KINDS.forEach(k => { ranked[k] = F.rank(data[k] || [], view(), o); });
+    ranked.saved = F.savedItems().filter(it => !o.q || F.textMatch(it, o.q)).map(item => ({ item, score: 0, reasons: [], isNew: false,
+      m: item.curated ? QIST.matchOpportunity(item.opp, { country: view().country, stage: view().stage, fields: view().fields, methods: [] }, elig) : null }));
+  }
 
-  function passes(o, profile, ignoreType) {
-    const q = $('of-q').value.trim().toLowerCase();
-    const field = $('of-field').value;
-    if (dismissed.has(o.id)) return false;
-    if (!ignoreType && type && o.type !== type) return false;
-    if (field && !QIST.fieldsMatch(o, field)) return false;
-    if ($('of-open').checked && QIST.isExpired(o)) return false;
-    // "Only what I can apply to" hides anything with a blocking failure: country, career
-    // stage, or a deadline that has already passed.
-    if ($('of-elig').checked && QIST.matchOpportunity(o, profile, elig).blocked) return false;
-    if (q) {
-      const hay = `${o.title} ${o.organization} ${o.summary} ${(o.fields || []).join(' ')} ${(o.methods_required || []).join(' ')}`.toLowerCase();
-      if (!hay.includes(q)) return false;
+  function drawTabs() {
+    const btn = (k, n, nw) => `<button type="button" role="tab" data-tab="${k}" aria-selected="${tab === k}" aria-pressed="${tab === k}">${QIST.esc(kindLabel(k))} <span class="n">${n}${nw ? ` · ${nw} ${QIST.esc(QIST.t('feed.new').toLowerCase())}` : ''}</span></button>`;
+    $('tabs').innerHTML = F.KINDS.map(k => btn(k, ranked[k].length, k === 'paper' ? 0 : ranked[k].filter(r => r.isNew).length)).join('') + btn('saved', ranked.saved.length, 0);
+  }
+  function drawSort() {
+    const opts = [['match', 'feed.sort.match'], ['new', 'feed.sort.new']];
+    if (tab === 'grant' || tab === 'job' || tab === 'collab') opts.push(['soon', 'feed.sort.soon']);
+    const cur = $('sort').value || 'match';
+    $('sort').innerHTML = opts.map(([v, k]) => `<option value="${v}">${QIST.esc(QIST.t(k))}</option>`).join('');
+    $('sort').value = opts.some(o => o[0] === cur) ? cur : 'match';
+    $('sort').hidden = tab === 'saved';
+  }
+  function drawActions() {
+    const signedIn = !!QIST.currentUser();
+    const html = {
+      job: `<a class="btn btn-primary btn-sm" href="post-position.html">${QIST.t('opp2.post')}</a><span class="muted small">${QIST.t('opp2.post.hint')}</span>`,
+      paper: `<a class="btn btn-primary btn-sm" href="${signedIn ? 'profile.html#papers' : 'join.html'}">${QIST.t('opp2.addpaper')}</a><span class="muted small">${QIST.t('opp2.addpaper.hint')}</span>`
+    }[tab] || '';
+    $('tab-actions').innerHTML = html;
+    $('tab-actions').hidden = !html;
+  }
+
+  function renderAll() {
+    profileLine();
+    rankAll();
+    drawTabs(); drawSort(); drawActions();
+    const newN = ['grant', 'job', 'collab'].reduce((n, k) => n + ranked[k].filter(r => r.isNew && r.score >= 35).length, 0);
+    $('top-num').textContent = newN;
+    $('top-unit').textContent = QIST.t(prevVisit ? 'feed.unit.new' : 'feed.unit.first');
+    $('notice').innerHTML = F.prepare(view()).empty
+      ? `<div class="feed-notice"><b>${QIST.t('feed.empty.h')}</b> — ${QIST.t('feed.empty.p')}</div>` : '';
+    renderList();
+    const upd = (meta && meta.generated_at ? meta.generated_at.slice(0, 10) : null);
+    const failing = meta ? Object.entries(meta.kinds || {}).flatMap(([k, v]) => Object.entries(v.sources || {}).filter(([, s]) => !s.ok).map(([n]) => n)) : [];
+    $('status').textContent = [upd ? QIST.t('feed.status', { date: upd }) : '', failing.length ? QIST.t('feed.status.fail', { list: failing.join(', ') }) : ''].filter(Boolean).join(' ');
+  }
+
+  function renderList() {
+    const all = ranked[tab] || [];
+    $('caveat').textContent = tab === 'saved' ? '' : QIST.t('opp2.caveat.' + tab);
+    $('all-h').textContent = tab === 'saved' ? QIST.t('opp2.tab.saved') : QIST.t('feed.all');
+    const showPicks = tab !== 'saved' && tab !== 'paper' && all.length >= 3 && !$('q').value.trim();
+    $('picks').hidden = !showPicks;
+    let pickIds = new Set();
+    if (showPicks) {
+      const fresh = all.filter(r => r.isNew);
+      const useNew = fresh.length >= 3;
+      const pool = [...(useNew ? fresh : all)].sort((a, b) => b.score - a.score);
+      const top = pool.slice(0, 5);
+      pickIds = new Set(top.map(r => r.item.id));
+      $('picks-sub').textContent = QIST.t(useNew ? 'feed.picks.new' : 'feed.picks.best');
+      $('picks-list').innerHTML = top.map(r => card(r, false)).join('');
     }
-    return true;
-  }
-
-  /* Closing soonest first by default; the file order used to decide what was on top. Calls
-     with no deadline come after dated ones, closed calls last. */
-  function sorted(list, profile) {
-    const byDate = (a, b) => (QIST.isExpired(a) - QIST.isExpired(b)) ||
-      ((a.deadline || '9999') .localeCompare(b.deadline || '9999'));
-    if ($('of-sort').value !== 'match') return [...list].sort(byDate);
-    const score = o => { const m = QIST.matchOpportunity(o, profile, elig); return (m.blocked ? -1000 : 0) + m.pct; };
-    return [...list].sort((a, b) => score(b) - score(a) || byDate(a, b));
-  }
-
-  function drawTypes(profile) {
-    const base = opps.filter(o => passes(o, profile, true));
-    const btn = (value, label, n) =>
-      `<button type="button" data-type="${value}" aria-pressed="${type === value}">${QIST.esc(label)} <span class="n">${n}</span></button>`;
-    $('of-types').innerHTML = btn('', QIST.t('opp.type.all'), base.length) +
-      TYPES.map(t => [t, base.filter(o => o.type === t).length])
-        .filter(([t, n]) => n || t === type)
-        .map(([t, n]) => btn(t, QIST.typeLabel(t), n)).join('');
-  }
-
-  function render() {
-    writeUrl();
-    const profile = readerProfile();
-    const active = opps.filter(o => !QIST.isExpired(o));
-    const fit = active.filter(o => !QIST.matchOpportunity(o, profile, elig).blocked).length;
-    $('opp-summary').innerHTML = QIST.t('opp.summary', { open: `<b>${active.length}</b>`, fit: `<b>${fit}</b>` });
-    $('top-num').textContent = active.length;
-
-    drawTypes(profile);
-    const shown = sorted(opps.filter(o => passes(o, profile)), profile);
-    count.innerHTML = shown.length ? QIST.t('opp.count', { shown: `<b>${shown.length}</b>`, total: opps.length }) : '';
-    const html = shown.length
-      ? shown.map(o => row(o, profile)).join('')
-      : `<div class="empty">
-           <h3>${QIST.t('opp.empty.h')}</h3>
-           <p>${QIST.t('opp.empty.p', { n: opps.length })}</p>
-           <button class="btn btn-outline" id="opp-reset">${QIST.t('common.clear')}</button>
-         </div>`;
-    QIST.flashChanges(list, () => { list.innerHTML = html; });
-    drawTimeline(shown, profile);
-    const reset = $('opp-reset');
-    if (reset) reset.addEventListener('click', () => {
-      $('of-q').value = ''; $('of-field').value = ''; type = '';
-      $('of-elig').checked = false; $('of-open').checked = true;
-      render();
-    });
-  }
-
-  /* ---------- deadlines ahead ---------- */
-  const DAYS = 120;
-  function monthLabel(d) {
-    const KK = ['қаң', 'ақп', 'нау', 'сәу', 'мам', 'мау', 'шіл', 'там', 'қыр', 'қаз', 'қар', 'жел'];
-    if (QIST.lang === 'kk') return KK[d.getMonth()];
-    try { return new Intl.DateTimeFormat(QIST.lang, { month: 'short' }).format(d); } catch (_) { return d.getMonth() + 1; }
-  }
-  function drawTimeline(shown, profile) {
-    const box = $('deadlines'), tl = $('tl');
-    const today = new Date(); today.setHours(0, 0, 0, 0);
-    const dated = shown.filter(o => o.deadline && !QIST.isExpired(o));
-    const inRange = dated.filter(o => QIST.daysLeft(o) <= DAYS);
-    box.hidden = !inRange.length;
-    if (!inRange.length) return;
-    const x = days => `${(Math.max(0, days) / DAYS) * 100}%`;
-    let html = '<span class="tl-axis"></span><span class="tl-today" style="left:0"></span>';
-    for (let i = 0; i <= 4; i++) {
-      const m = new Date(today.getFullYear(), today.getMonth() + i, 1);
-      const d = Math.round((m - today) / 86400000);
-      if (d > 0 && d < DAYS) html += `<span class="tl-month" style="left:${x(d)}">${QIST.esc(monthLabel(m))}</span>`;
-    }
-    const stack = {};
-    inRange.sort((a, b) => a.deadline.localeCompare(b.deadline)).forEach(o => {
-      const n = QIST.daysLeft(o), wk = Math.floor(n / 6);
-      const level = stack[wk] = (stack[wk] || 0) + 1;
-      const tone = QIST.matchOpportunity(o, profile, elig).tone;
-      html += `<button type="button" class="tl-dot ${tone}" data-go="${QIST.esc(o.id)}" style="left:${x(n)};bottom:${15 + (level - 1) * 16}px"
-        aria-label="${QIST.esc(o.title)}, ${QIST.esc(QIST.t('opp.deadline.days', { n }))}"
-        data-title="${QIST.esc(o.title)}" data-when="${QIST.esc(QIST.t('opp.deadline.days', { n }))}"></button>`;
-    });
-    tl.innerHTML = html;
-    $('tl-title').innerHTML = QIST.t('opp.tl.h', { n: `<b>${inRange.length}</b>` });
-    const later = dated.length - inRange.length;
-    $('tl-later').textContent = later ? QIST.t('opp.tl.later', { n: later }) : '';
-  }
-  const tipOn = e => {
-    const dot = e.target.closest('.tl-dot'); if (!dot) return;
-    tipOff();
-    const pos = parseFloat(dot.style.left);
-    const edge = pos < 18 ? ' at-start' : pos > 82 ? ' at-end' : '';
-    dot.insertAdjacentHTML('afterend', `<span class="tl-tip${edge}" style="left:${dot.style.left};bottom:${parseInt(dot.style.bottom) + 18}px">${dot.dataset.title}<span>${dot.dataset.when}</span></span>`);
-  };
-  const tipOff = () => { const t = $('tl').querySelector('.tl-tip'); if (t) t.remove(); };
-  $('tl').addEventListener('mouseover', tipOn);
-  $('tl').addEventListener('focusin', tipOn);
-  $('tl').addEventListener('mouseleave', tipOff);
-  $('tl').addEventListener('focusout', tipOff);
-  $('tl').addEventListener('click', e => {
-    const dot = e.target.closest('[data-go]'); if (!dot) return;
-    const row = document.getElementById('opp-' + dot.dataset.go);
-    if (!row) return;
-    toggle(row.querySelector('.opp-toggle'), true);
-    // land just below the sticky profile bar, not under it
-    const bar = document.querySelector('.profile-bar');
-    const barBottom = (parseFloat(getComputedStyle(bar).top) || 0) + bar.offsetHeight + 16;
-    window.scrollTo({ top: row.getBoundingClientRect().top + scrollY - barBottom, behavior: QIST.reducedMotion() ? 'auto' : 'smooth' });
-  });
-
-  /* ---------- actions ---------- */
-  function toggle(btn, open) {
-    btn.setAttribute('aria-expanded', String(open));
-    $(btn.getAttribute('aria-controls')).hidden = !open;
-  }
-  $('of-types').addEventListener('click', e => {
-    const b = e.target.closest('[data-type]');
-    if (!b) return;
-    type = b.dataset.type; render();
-  });
-  list.addEventListener('click', async (e) => {
-    const tog = e.target.closest('.opp-toggle');
-    if (tog) { toggle(tog, tog.getAttribute('aria-expanded') !== 'true'); return; }
-
-    const dis = e.target.closest('[data-dismiss]');
-    if (dis) { dismissed.add(dis.dataset.dismiss); render(); QIST.toast(QIST.t('opp.toast.dismiss')); return; }
-
-    const btn = e.target.closest('[data-interest]');
-    if (!btn) return;
-    const o = opps.find(x => x.id === btn.dataset.interest);
-    btn.disabled = true; btn.textContent = QIST.t('common.sending');
-    const res = await QIST.recordInterest(o, { country: $('of-country').value, stage: $('of-stage').value });
-    if (res.ok) {
-      btn.textContent = QIST.t('opp.interested.ok');
-      QIST.toast(QIST.t('opp.toast.sent'));
+    const rest = tab === 'saved' ? all : all.filter(r => !pickIds.has(r.item.id));
+    const shown = rest.slice(0, limit);
+    $('count').innerHTML = all.length ? QIST.t('feed.count', { shown: `<b>${Math.min(limit, rest.length) + pickIds.size}</b>`, total: all.length }) : '';
+    if (!all.length) {
+      const nodata = !(data[tab] || []).length;
+      $('list').innerHTML = `<div class="empty"><h3>${QIST.t(nodata ? (tab === 'paper' ? 'opp2.nopapers' : 'feed.nodata') : 'feed.none')}</h3>
+        ${F.isDismissedAny() ? `<button class="btn btn-outline" id="unhide">${QIST.t('feed.unhide')}</button>` : ''}
+        ${$('q').value.trim() || $('inelig').checked ? `<button class="btn btn-outline" id="clear2">${QIST.t('common.clear')}</button>` : ''}</div>`;
     } else {
-      btn.disabled = false; btn.textContent = QIST.t('opp.interested');
-      QIST.toast(QIST.t(res.reason === 'not_configured' ? 'opp.toast.noendpoint' : 'opp.toast.fail'));
+      $('list').innerHTML = shown.map(r => card(r, tab === 'saved')).join('');
+    }
+    $('more').hidden = rest.length <= limit;
+    const p = new URLSearchParams();
+    if (params.get('lang')) p.set('lang', params.get('lang'));
+    p.set('tab', tab);
+    if ($('q').value.trim()) p.set('q', $('q').value.trim());
+    if ($('inelig').checked) p.set('elig', '0');
+    ['country', 'stage'].forEach(k => { if (asked[k]) p.set(k, asked[k]); });
+    history.replaceState(null, '', '?' + p + location.hash);
+  }
+
+  /* A link such as opportunities.html#opp-o-p3 (from the home page) opens the right tab and scrolls to the call. */
+  function goToHash() {
+    const m = location.hash.match(/^#opp-(.+)$/); if (!m) return;
+    const id = decodeURIComponent(m[1]);
+    const k = F.KINDS.find(k => (data[k] || []).some(it => it.id === id));
+    if (!k) return;
+    // a call the reader cannot apply to is hidden by default; a link to it (the home page's board) must still land on it
+    if (!(ranked[k] || []).some(r => r.item.id === id) && !$('inelig').checked) { $('inelig').checked = true; renderAll(); }
+    if (tab !== k) { tab = k; limit = PAGE; drawTabs(); drawSort(); drawActions(); }
+    // make sure it is in the visible page of results
+    const idx = (ranked[k] || []).findIndex(r => r.item.id === id);
+    if (idx >= limit) limit = idx + 1;
+    renderList();
+    const el = document.getElementById('opp-' + id);
+    if (!el) return;
+    const t = el.querySelector('.opp-toggle'); if (t) toggle(t, true);
+    el.scrollIntoView({ behavior: QIST.reducedMotion() ? 'auto' : 'smooth', block: 'center' });
+    el.classList.add('flash');
+  }
+
+  function toggle(btn, open) {
+    const panel = document.getElementById(btn.getAttribute('aria-controls'));
+    const want = open === undefined ? btn.getAttribute('aria-expanded') !== 'true' : open;
+    btn.setAttribute('aria-expanded', String(want)); panel.hidden = !want;
+  }
+
+  /* ---------- events ---------- */
+  $('tabs').addEventListener('click', e => {
+    const b = e.target.closest('button[data-tab]'); if (!b) return;
+    tab = b.dataset.tab; limit = PAGE; drawTabs(); drawSort(); drawActions(); renderList();
+  });
+  $('sort').addEventListener('change', () => { limit = PAGE; renderAll(); });
+  $('more-btn').addEventListener('click', () => { limit += PAGE; renderList(); });
+  let qTimer; $('q').addEventListener('input', () => { clearTimeout(qTimer); qTimer = setTimeout(() => { limit = PAGE; renderAll(); }, 180); });
+  $('inelig').addEventListener('change', () => { limit = PAGE; renderAll(); });
+  const clearAll = () => { $('q').value = ''; $('inelig').checked = false; Object.keys(asked).forEach(k => delete asked[k]); limit = PAGE; renderAll(); $('q').focus(); };
+  $('clear').addEventListener('click', clearAll);
+
+  document.addEventListener('click', async e => {
+    const s = e.target.closest('[data-save]'), d = e.target.closest('[data-dismiss]'), u = e.target.closest('#unhide'),
+          t = e.target.closest('.opp-toggle'), i = e.target.closest('[data-interest]'), c = e.target.closest('#clear2');
+    if (s) {
+      const id = s.dataset.save;
+      const r = [...F.KINDS.flatMap(k => ranked[k]), ...ranked.saved].find(x => x.item.id === id);
+      if (r) { F.toggleSaved(r.item); renderAll(); QIST.toast(QIST.t(F.isSaved(id) ? 'feed.saved' : 'feed.save')); }
+    } else if (d) { F.dismiss(d.dataset.dismiss); renderAll(); }
+    else if (u) { F.undismissAll(); renderAll(); }
+    else if (c) clearAll();
+    else if (t) toggle(t);
+    else if (i) {
+      const it = F.KINDS.flatMap(k => data[k]).find(x => x.id === i.dataset.interest);
+      if (!it) return;
+      i.disabled = true;
+      const res = await QIST.recordInterest(it.opp, { country: view().country, stage: view().stage });
+      QIST.toast(QIST.t(res.ok ? 'opp.toast.ok' : 'opp.toast.fail'));
+      i.disabled = !!res.ok; if (res.ok) i.textContent = QIST.t('opp.interested.sent');
     }
   });
 
-  ['of-country', 'of-stage', 'of-myfield'].forEach(id => $(id).addEventListener('change', () => { QIST.fitSelect($(id)); render(); }));
-  ['of-field', 'of-sort', 'of-elig', 'of-open'].forEach(id => $(id).addEventListener('change', render));
-  $('of-q').addEventListener('input', render);
-
-  render();
-
-  /* The profile bar sticks under the header; once it does, it drops its hint line. */
-  const bar = document.querySelector('.profile-bar');
-  const onScroll = () => bar.classList.toggle('stuck', bar.getBoundingClientRect().top <= parseFloat(getComputedStyle(bar).top) + 1);
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  /* A link from the home page lands on one call (#opp-<id>): open its conditions and bring
-     it into view. */
-  const target = location.hash.startsWith('#opp-') && document.getElementById(decodeURIComponent(location.hash.slice(1)));
-  if (target) {
-    toggle(target.querySelector('.opp-toggle'), true);
-    target.scrollIntoView({ block: 'start' });
-  }
+  renderAll();
+  goToHash();
+  window.addEventListener('hashchange', goToHash);
+  if (!hadProfile && !location.hash) setOpen(true);
 })();
 </script>
 </body>

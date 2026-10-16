@@ -21,7 +21,7 @@ def load(kind):
     return json.loads(p.read_text(encoding="utf8"))
 
 
-@pytest.mark.parametrize("kind", ["grants", "jobs", "articles"])
+@pytest.mark.parametrize("kind", ["grants", "jobs"])
 def test_common_quality(kind):
     d = load(kind)
     items = d["items"]
@@ -71,6 +71,7 @@ def test_grants():
 
 
 def test_articles():
+    """The articles feed is off by default (D-65); when someone builds it, it must still be clean."""
     items = load("articles")["items"]
     assert len({a["source"] for a in items}) >= 3, "expected arxiv + a bio preprint server + crossref"
     for a in items:

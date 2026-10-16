@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T09:47:32Z",
+ "generated_at": "2026-10-16T06:41:41Z",
  "kinds": {
   "grants": {
    "sources": {
@@ -8,96 +8,68 @@
      "count": 20,
      "kept": 20,
      "error": null,
-     "seconds": 21.0
+     "seconds": 18.9
     },
     "nsf": {
      "ok": true,
-     "count": 27,
-     "kept": 27,
+     "count": 23,
+     "kept": 23,
      "error": null,
-     "seconds": 0.2
+     "seconds": 1.2
     },
     "grants.gov": {
      "ok": true,
      "count": 250,
      "kept": 250,
      "error": null,
-     "seconds": 1.1
+     "seconds": 2.2
     },
     "eu-funding-tenders": {
      "ok": true,
      "count": 300,
      "kept": 300,
      "error": null,
-     "seconds": 8.6
+     "seconds": 9.5
     },
     "fundsforngos": {
      "ok": true,
-     "count": 7,
-     "kept": 7,
+     "count": 6,
+     "kept": 6,
      "error": null,
-     "seconds": 0.3
+     "seconds": 0.8
     }
    },
-   "total": 503,
-   "new_today": 503,
-   "updated": "2026-10-12"
+   "total": 545,
+   "new_today": 60,
+   "updated": "2026-10-16"
   },
   "jobs": {
    "sources": {
     "jobs.ac.uk": {
      "ok": true,
-     "count": 339,
-     "kept": 268,
+     "count": 348,
+     "kept": 287,
      "error": null,
-     "seconds": 107.2
+     "seconds": 87.2
     },
     "nature-careers": {
      "ok": true,
-     "count": 384,
-     "kept": 298,
+     "count": 390,
+     "kept": 309,
      "error": null,
-     "seconds": 26.5
+     "seconds": 32.0
     },
     "insidehighered": {
      "ok": true,
      "count": 400,
-     "kept": 291,
+     "kept": 303,
      "error": null,
-     "seconds": 27.3
+     "seconds": 29.4
     }
    },
-   "total": 488,
-   "new_today": 488,
-   "updated": "2026-10-12"
-  },
-  "articles": {
-   "sources": {
-    "arxiv": {
-     "ok": true,
-     "count": 3490,
-     "kept": 3490,
-     "error": null,
-     "seconds": 304.7
-    },
-    "biorxiv+medrxiv": {
-     "ok": true,
-     "count": 327,
-     "kept": 327,
-     "error": null,
-     "seconds": 29.3
-    },
-    "crossref-journals": {
-     "ok": true,
-     "count": 438,
-     "kept": 438,
-     "error": null,
-     "seconds": 38.8
-    }
-   },
-   "total": 3000,
-   "new_today": 3000,
-   "updated": "2026-10-12"
+   "total": 844,
+   "new_today": 385,
+   "updated": "2026-10-16"
   }
  }
 }

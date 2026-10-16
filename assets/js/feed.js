@@ -1,7 +1,13 @@
 /* ============================================================
-   My feed — per-reader matching of the daily grants / jobs / articles feeds.
+   Opportunities — per-reader matching of grants, vacancies, collaborations and members' papers.
 
-   The feeds (data/feeds/*.json) are built once a day by pipeline/run.py. Everything in this
+   Four kinds of item share one engine:
+     grant / job  the daily feeds (data/feeds/*.json, built by pipeline/run.py) AND the calls QIST curates by hand
+                  (data/opportunities.json) AND positions members post (backend /api/positions). Curated calls
+                  carry a checked eligibility verdict (QIST.matchOpportunity) with its reasons and sources.
+     collab       consortium roles, co-author calls, R&D challenges, expert requests, conferences (curated)
+     paper        papers members list on their profile
+   Everything in this
    file runs in the reader's browser: the profile never leaves it unless the reader is signed in
    to a QIST backend, and the same profile + the same data always give the same ranking. There
    is no model in the loop; every point of a score has a named reason that the card shows.
@@ -42,8 +48,10 @@
   const daysBetween = (isoDate, now) => Math.round((now - new Date(isoDate + 'T00:00:00Z').getTime()) / DAY);
 
   const Feed = {
-    KINDS: ['grant', 'job', 'article'],
-    FILE: { grant: 'grants', job: 'jobs', article: 'articles' },
+    KINDS: ['grant', 'job', 'collab', 'paper'],
+    /* curated opportunity type -> tab */
+    OPP_KIND: { grant: 'grant', academic_job: 'job', industry_job: 'job', consortium_role: 'collab', coauthor: 'collab',
+                rnd_challenge: 'collab', expert_request: 'collab', conference: 'collab' },
     MIN_RELEVANCE: 0.15,
     _tax: null, _compiled: null,
 
@@ -71,7 +79,7 @@
 
     /* ---------- profile ---------- */
     defaultProfile() {
-      return { stage: 'phd_plus', country: '', fields: [], keywords: [], jobCountries: [], remote: true, allStages: false };
+      return { stage: 'phd_plus', country: 'KZ', fields: [], keywords: [], jobCountries: [], remote: true, allStages: false };
     },
     sanitizeProfile(p) {
       const o = Object.assign(this.defaultProfile(), p || {});
@@ -144,15 +152,49 @@
     },
 
     /* ---------- data ---------- */
+    /* A curated call or a member's post, in the shape the matcher uses. The original stays on `opp`
+       because the eligibility check reads it. */
+    fromOpp(o) {
+      const kind = this.OPP_KIND[o.type] || 'collab';
+      const where = [o.city, o.country].filter(Boolean).join(', ');
+      return {
+        id: o.id, kind, curated: true, origin: o.origin || 'external', type: o.type, opp: o, title: o.title, org: o.organization || '',
+        summary: o.summary || '', url: o.source_url || '', deadline: o.deadline || null, fields: o.all_fields ? [] : (o.fields || []),
+        allFields: !!o.all_fields, countries: o.country && kind === 'job' ? [o.country] : [], location: o.where || where,
+        remote: !!o.remote, stages: ['any'], posted: o.curated_at || null, first_seen: o.curated_at || null, postedBy: o.posted_by || ''
+      };
+    },
+    fromPaper(p) {
+      return Object.assign({ kind: 'paper', org: '', stages: ['any'], first_seen: p.first_seen || p.posted || null }, p);
+    },
+
+    async _json(url, fallback) {
+      try { const r = await fetch(url); return r.ok ? await r.json() : fallback; } catch (_) { return fallback; }
+    },
+    /* All four lists. The static site has the daily feeds and the curated file; a backend adds
+       members' positions and papers. A missing piece degrades to an empty list, never to an error page. */
     async load() {
       await this.loadTaxonomy();
-      const [meta, ...sets] = await Promise.all([
-        fetch('data/feeds/meta.json').then(r => (r.ok ? r.json() : null)).catch(() => null),
-        ...this.KINDS.map(k => fetch(`data/feeds/${this.FILE[k]}.json`).then(r => (r.ok ? r.json() : { items: [] })).catch(() => ({ items: [], failed: true })))
+      const api = QIST.apiAlive ? QIST.apiBase : '';
+      const [meta, grants, jobs, opps, papersStatic, positions, papersApi] = await Promise.all([
+        this._json('data/feeds/meta.json', null),
+        this._json('data/feeds/grants.json', { items: [], failed: true }),
+        this._json('data/feeds/jobs.json', { items: [], failed: true }),
+        QIST.getOpportunities().catch(() => []),
+        this._json('data/papers.json', []),
+        api ? this._json(api + '/api/positions', []) : [],
+        api ? this._json(api + '/api/papers', []) : []
       ]);
-      const data = {};
-      this.KINDS.forEach((k, i) => { data[k] = sets[i]; });
-      return { meta, data };
+      const data = { grant: [], job: [], collab: [], paper: [] };
+      (grants.items || []).forEach(i => data.grant.push(i));
+      (jobs.items || []).forEach(i => data.job.push(i));
+      [...opps, ...positions].forEach(o => { const it = this.fromOpp(o); data[it.kind].push(it); });
+      const seen = new Set();
+      [...papersApi, ...papersStatic].forEach(p => {
+        const key = (p.doi || p.title || '').toLowerCase();
+        if (key && !seen.has(key)) { seen.add(key); data.paper.push(this.fromPaper(p)); }
+      });
+      return { meta, data, failed: { grant: !!grants.failed, job: !!jobs.failed } };
     },
 
     /* ---------- scoring ---------- */
@@ -170,8 +212,10 @@
     },
 
     /* -> { score, hidden, why, reasons: [{kind, text}] }. `now` is a ms timestamp (injectable for tests). */
-    score(item, prep, now) {
+    score(item, prep, now, ctx) {
       now = now || Date.now();
+      if (item.kind === 'paper') return this._scorePaper(item, prep, now);
+      if (item.curated) return this._scoreCurated(item, prep, now, ctx || {});
       const T = k => QIST.t(k);
       const reasons = [];
       const title = norm(item.title), body = norm((item.summary || '') + ' ' + (item.org || '') + ' ' + (item.department || '') + ' ' + (item.venue || ''));
@@ -249,6 +293,66 @@
       return { score: Math.min(100, score), hidden: false, why: null, reasons, left, age };
     },
 
+    /* relevance shared by every kind: fields the item is filed under, and the reader's own phrases */
+    _relevance(item, prep) {
+      const title = norm(item.title);
+      const body = norm((item.summary || '') + ' ' + (item.org || '') + ' ' + (item.department || '') + ' ' + (item.venue || '') + ' ' + (item.authors || []).join(' '));
+      const mine = prep.fields.concat(prep.impliedFields);
+      let fieldW = 0, hitField = null;
+      (item.fields || []).forEach((f, i) => {
+        const w = (i === 0 ? 1 : .6) * (prep.fields.includes(f) ? 1 : .8);
+        if (mine.includes(f) && w > fieldW) { fieldW = w; hitField = f; }
+      });
+      let miss = 1; const hits = [];
+      for (const { k, rx } of prep.phrases) {
+        if (rx.test(title)) { miss *= .3; hits.push(k); } else if (rx.test(body)) { miss *= .65; hits.push(k); }
+      }
+      const reasons = [];
+      if (hitField) reasons.push({ kind: 'field', text: hitField });
+      hits.slice(0, 3).forEach(k => reasons.push({ kind: 'keyword', text: k }));
+      let rel = 1 - (1 - fieldW * .6) * (1 - (1 - miss));
+      if (prep.empty) rel = .3;
+      return { rel, reasons };
+    },
+    _age(item, now, dflt) {
+      const ref = item.posted || item.first_seen;
+      return ref ? Math.max(0, daysBetween(ref, now)) : dflt;
+    },
+    _scorePaper(item, prep, now) {
+      const { rel, reasons } = this._relevance(item, prep);
+      const yearAge = item.year ? Math.max(0, new Date(now).getUTCFullYear() - item.year) : 3;
+      const fresh = Math.max(.3, Math.pow(.5, yearAge / 2));
+      // papers are never hidden for being off-topic: there are few, and a reader can browse them
+      return { score: Math.round(100 * Math.max(rel, .1) * (.6 + .4 * fresh)), hidden: false, why: null, reasons };
+    },
+    /* A call QIST curated: eligibility is checked, not guessed (QIST.matchOpportunity). A call the reader
+       cannot apply to is hidden unless they ask to see it; one that merely sits outside their field is kept,
+       because there are few of them and each is checked. */
+    _scoreCurated(item, prep, now, ctx) {
+      const T = k => QIST.t(k);
+      const prof = prep.profile;
+      let m = null;
+      if (ctx.elig) {
+        m = QIST.matchOpportunity(item.opp, { country: prof.country, stage: prof.stage, fields: prep.fields.concat(prep.impliedFields), methods: [] }, ctx.elig);
+        if (m.blocked && !ctx.showIneligible) return { score: 0, hidden: true, why: 'eligibility', reasons: [], m };
+      }
+      const { rel, reasons } = this._relevance(item, prep);
+      const relevance = item.allFields ? Math.max(rel, .5) : Math.max(rel, .25);
+      if (item.kind === 'job') {                                  // the reader's countries, as for any vacancy
+        const want = prof.jobCountries, have = item.countries || [];
+        if (want.length && have.length && !have.some(c => want.includes(c)) && !(item.remote && prof.remote)) return { score: 0, hidden: true, why: 'place', reasons, m };
+      }
+      let left = null, fresh = 1;
+      if (item.deadline) {
+        left = Math.ceil((new Date(item.deadline + 'T23:59:59Z').getTime() - now) / DAY);
+        if (left < 0 && !(ctx.showExpired)) return { score: 0, hidden: true, why: 'expired', reasons, m };
+      } else if (item.kind === 'job') fresh = Math.max(.3, Math.pow(.5, this._age(item, now, 14) / 21));
+      reasons.push({ kind: 'verified', text: T('opp.verified') });
+      const blockedPenalty = m && m.blocked ? .3 : 1;
+      const score = Math.min(100, Math.round(100 * relevance * (.6 + .4 * fresh) * blockedPenalty * 1.15));
+      return { score, hidden: false, why: null, reasons, left, m };
+    },
+
     /* Rank a whole feed for a profile. Returns [{item, score, reasons, isNew}] best first. */
     rank(items, profile, opts) {
       opts = opts || {};
@@ -257,9 +361,10 @@
       const out = [];
       for (const item of items) {
         if (!opts.keepDismissed && state.dismissed[item.id]) continue;
-        const r = this.score(item, prep, now);
+        if (opts.q && !this.textMatch(item, opts.q)) continue;
+        const r = this.score(item, prep, now, opts);
         if (r.hidden) continue;
-        out.push({ item, score: r.score, reasons: r.reasons, left: r.left, age: r.age,
+        out.push({ item, score: r.score, reasons: r.reasons, left: r.left, age: r.age, m: r.m,
                    isNew: !!(opts.since ? item.first_seen > opts.since : false) });
       }
       const by = opts.sort || 'match';
@@ -269,6 +374,12 @@
         return b.score - a.score || (b.item.posted || '').localeCompare(a.item.posted || '');
       });
       return out;
+    },
+
+    /* Free-text search over what a reader sees: every word must appear. */
+    textMatch(item, q) {
+      const hay = norm([item.title, item.summary, item.org, item.department, item.venue, item.location, (item.authors || []).join(' '), (item.fields || []).join(' ')].join(' '));
+      return norm(q).split(' ').filter(Boolean).every(w => hay.includes(w));
     },
 
     /* Today's picks: the best few among what appeared since the reader last looked

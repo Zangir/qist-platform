@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n-title="join.h">Create your profile · ScienceBridge AI</title>
+<meta name="description" content="Create your QIST profile: import from ORCID or a CV, add a photo, your fields, keywords and papers.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%232447a8'/><text x='50' y='69' font-size='56' font-weight='700' text-anchor='middle' fill='%23ffffff' font-family='Georgia, serif'>Q</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=2026-10-16a">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+
+<div class="container">
+  <div class="page-top">
+    <div><span class="photo-num" id="top-num" style="background-image:url('assets/img/tiles-samarkand.jpg');background-position:center 40%" aria-hidden="true">492</span><span class="unit" data-i18n="top.joined"></span></div>
+    <div>
+      <h1 data-i18n="join.h">Create your profile</h1>
+      <p class="lede" id="lede"></p>
+      <p class="aside"><span data-i18n="join.have"></span> <a href="login.html" data-i18n="nav.signin"></a></p>
+    </div>
+  </div>
+  <div class="join-wrap">
+    <div id="form-root"></div>
+    <div id="done" class="card pad-lg" hidden></div>
+  </div>
+</div>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="assets/js/i18n.js?v=2026-10-16a"></script>
+<script src="assets/js/app.js?v=2026-10-16a"></script>
+<script src="assets/js/feed.js?v=2026-10-16a"></script>
+<script src="assets/js/kit.js?v=2026-10-16a"></script>
+<script src="assets/js/profile-form.js?v=2026-10-16a"></script>
+<script>
+(async () => {
+  await QIST.boot('join.html');
+  const $ = id => document.getElementById(id);
+  const backend = QIST.authAvailable();
+  if (QIST.currentUser() && backend) { location.replace('profile.html'); return; }
+
+  $('lede').innerHTML = backend ? QIST.t('join.lede.account') : QIST.t('join.lede.request', { email: QIST.esc(QIST.CONTACT_EMAIL || 'QIST') });
+  try { $('top-num').textContent = QIST.uniquePeople(await QIST.getPeople()).length; } catch (_) {}
+
+  const [elig, taxonomy] = await Promise.all([QIST.getEligibility(), QIST.feed.loadTaxonomy()]);
+
+  /* A server's validation errors arrive as a list of {loc, msg}; show the first one in plain words. */
+  const why = async r => {
+    const j = await r.json().catch(() => ({}));
+    if (Array.isArray(j.detail) && j.detail.length) {
+      const d = j.detail[0], field = (d.loc || []).slice(-1)[0];
+      return `${field}: ${String(d.msg || '').replace(/^Value error, /, '')}`;
+    }
+    return j.detail || QIST.t('join.err.generic');
+  };
+
+  QIST.profileForm.mount($('form-root'), {
+    mode: 'create', backend, elig, taxonomy,
+    async onSubmit(v) {
+      if (backend) {
+        const body = { name: v.name, email: v.email, password: v.password, title: v.title, institution: v.institution, country: v.country,
+          city: v.city, bio: v.bio, orcid: v.orcid, fields: v.fields, keywords: v.keywords, website: v.website, scholar: v.scholar,
+          linkedin: v.linkedin, photo: v.photo, listed: v.listed };
+        const r = await fetch(QIST.apiBase + '/api/auth/register', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        if (!r.ok) return { ok: false, message: await why(r) };
+        const session = await r.json();
+        localStorage.setItem('qist_session', JSON.stringify(session));
+        if (v.papers.length) {
+          await fetch(QIST.apiBase + '/api/papers/bulk', { method: 'POST', headers: QIST.authHeaders(),
+            body: JSON.stringify(v.papers.slice(0, 100).map(p => ({ title: p.title, authors: p.authors || [], venue: p.venue || '', year: p.year || null, doi: p.doi || '', url: p.doi ? '' : (p.url || ''), abstract: p.abstract || '', fields: [] }))) }).catch(() => {});
+        }
+        // the feed profile starts from what they just told us
+        QIST.feed.saveProfile(Object.assign(QIST.feed.loadProfile(), { country: v.country || 'KZ', fields: v.fields, keywords: v.keywords.slice(0, 12) }));
+        location.href = 'profile.html?welcome=1';
+        return { ok: true };
+      }
+      /* No server yet: the request reaches the QIST team, and a curator creates the profile by hand (D-29). */
+      const res = await QIST.submitForm(QIST.SIGNUP_ENDPOINT, {
+        _subject: 'Profile request: ' + v.name, kind: 'profile_request', name: v.name, email: v.email, title: v.title, institution: v.institution,
+        country: v.country, city: v.city, bio: v.bio, orcid: v.orcid, fields: v.fields.join('; '), topics: v.keywords.join(', '), public_link: v.website,
+        scholar: v.scholar, linkedin: v.linkedin, listed: v.listed ? 'yes' : 'no', photo: v.photo,
+        papers: v.papers.slice(0, 30).map(p => `${p.title} (${[p.venue, p.year].filter(Boolean).join(', ')}) ${p.doi ? 'doi:' + p.doi : p.url || ''}`).join('\n'),
+        at: new Date().toISOString()
+      });
+      if (!res.ok) return { ok: false, message: res.reason === 'not_configured' ? QIST.t('org.state.noendpoint') : QIST.t('org.state.fail', { email: QIST.CONTACT_EMAIL || 'QIST' }) };
+      $('form-root').hidden = true;
+      $('done').hidden = false;
+      $('done').innerHTML = `<h2>${QIST.t('join.done.h')}</h2><p>${QIST.t('join.done.p', { email: QIST.esc(v.email) })}</p>
+        <p><a class="btn btn-primary" href="opportunities.html">${QIST.t('nav.opportunities')}</a></p>`;
+      $('done').scrollIntoView({ behavior: 'smooth' });
+      return { ok: true };
+    }
+  });
+})();
+</script>
+</body>
+</html>

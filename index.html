@@ -9,40 +9,65 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=2026-10-12a">
+<link rel="stylesheet" href="assets/css/style.css?v=2026-10-16a">
 </head>
 <body>
 <header class="site-header" id="site-header"></header>
 
 <!-- ================= hero =================
-     The one number the site exists for: how many of the open calls this reader can enter.
-     The numeral is cut out of a photograph of the steppe; it recounts when the stage or the
-     country changes. -->
-<section class="hero">
-  <div class="container">
-    <div class="photo-num" id="hero-num" style="background-image:url('assets/img/steppe-fieldwork.jpg')" aria-hidden="true"><span id="fit-n">13</span>/<span id="open-n">17</span></div>
-    <div class="hero-row">
-      <h1 id="hero-h1" data-i18n-html="home.f.h1"></h1>
-      <p class="lead" data-i18n="home.lead"></p>
-      <div>
-        <p class="sentence">
-          <span data-i18n="home.s.a"></span>
-          <select id="demo-stage" data-i18n-attr="aria-label:opp.mystage">
-            <option value="any" data-i18n="opp.stage.any"></option>
-            <option value="phd_student" data-i18n="opp.stage.phd_student"></option>
-            <option value="phd_plus" selected data-i18n="opp.stage.phd_plus"></option>
-            <option value="postdoc_plus" data-i18n="opp.stage.postdoc_plus"></option>
-            <option value="pi_only" data-i18n="opp.stage.pi_only"></option>
-          </select><span data-i18n="home.s.b"></span><select id="demo-country" data-i18n-attr="aria-label:opp.mycountry"></select>
-        </p>
-        <p class="sr-only" id="hero-result" aria-live="polite"></p>
-        <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" id="hero-show" href="opportunities.html" data-i18n="home.s.show"></a>
-          <a class="link" href="directory.html" data-i18n="home.tab.people"></a>
-        </div>
-      </div>
+     The first thing a visitor sees: what the platform is for, in one sentence, and a box to start with.
+     The picture is the globe with members' connections (assets/img/hero-globe.jpg, from the design brief). -->
+<section class="hg" aria-labelledby="hero-h1">
+  <div class="hg-bg" aria-hidden="true"></div>
+  <div class="container hg-inner">
+    <p class="hg-eyebrow"><span id="hg-brand"></span></p>
+    <h1 id="hero-h1" data-i18n-html="hero.h1"></h1>
+    <p class="hg-lead" data-i18n="hero.lead"></p>
+
+    <form class="hg-search" id="hg-search" action="directory.html" role="search">
+      <label class="sr-only" for="hg-q" data-i18n="hero.search.label"></label>
+      <input id="hg-q" name="q" type="search" autocomplete="off" data-i18n-attr="placeholder:hero.search.ph">
+      <button class="btn btn-primary btn-lg" type="submit" data-i18n="hero.search.btn"></button>
+    </form>
+    <p class="hg-chips"><span data-i18n="hero.try"></span>
+      <a href="directory.html?q=climate%20change" data-i18n="hero.chip.1"></a>
+      <a href="directory.html?q=materials" data-i18n="hero.chip.2"></a>
+      <a href="directory.html?q=public%20health" data-i18n="hero.chip.3"></a>
+      <a href="directory.html?q=agriculture" data-i18n="hero.chip.4"></a>
+      <a href="directory.html?q=machine%20learning" data-i18n="hero.chip.5"></a></p>
+
+    <div class="hg-ctas">
+      <a class="btn btn-gold btn-lg" href="join.html" data-i18n="nav.create"></a>
+      <a class="btn btn-outline btn-lg" href="opportunities.html" data-i18n="hero.cta.opps"></a>
+      <a class="hg-live" id="hg-live" href="opportunities.html" hidden></a>
     </div>
-    <p class="hero-facts" id="hero-facts"></p>
+
+    <ul class="hg-pillars">
+      <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="14" r="6"/><circle cx="10" cy="20" r="4.5"/><circle cx="38" cy="20" r="4.5"/><path d="M14 38c0-6 4.5-10 10-10s10 4 10 10M3 36c0-4.5 3-7.5 7-7.5M45 36c0-4.5-3-7.5-7-7.5"/></svg>
+        <b data-i18n="hero.p1.t"></b><span data-i18n="hero.p1.d"></span></li>
+      <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5a13 13 0 0 0-7 24c1.4 1 2 2.4 2 4v2h10v-2c0-1.600.600-3 2-4A13 13 0 0 0 24 5zM19 40h10M21 44h6"/></svg>
+        <b data-i18n="hero.p2.t"></b><span data-i18n="hero.p2.d"></span></li>
+      <li><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="10" r="5"/><circle cx="10" cy="36" r="5"/><circle cx="38" cy="36" r="5"/><path d="M21.500 14.500 12.500 31.500M26.500 14.500l9 17M15 36h18"/></svg>
+        <b data-i18n="hero.p3.t"></b><span data-i18n="hero.p3.d"></span></li>
+      <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40V28h7v12zM20.500 40V18h7v22zM33 40V8h7v32zM4 40h40"/></svg>
+        <b data-i18n="hero.p4.t"></b><span data-i18n="hero.p4.d"></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= the network in numbers ================= -->
+<section class="stats-band" aria-label="QIST in numbers">
+  <div class="container">
+    <dl class="stats" id="stats">
+      <div class="stat"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="14" r="6"/><circle cx="10" cy="20" r="4.500"/><circle cx="38" cy="20" r="4.500"/><path d="M14 38c0-6 4.500-10 10-10s10 4 10 10M3 36c0-4.500 3-7.500 7-7.500M45 36c0-4.500-3-7.500-7-7.500"/></svg>
+        <dd data-count="researchers">—</dd><dt data-i18n="stat.researchers"></dt></div>
+      <div class="stat"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 18 24 6l20 12M8 18v20M18 18v20M30 18v20M40 18v20M4 40h40M4 44h40"/></svg>
+        <dd data-count="institutions">—</dd><dt data-i18n="stat.institutions"></dt></div>
+      <div class="stat"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 10c6-2 13-1 19 3 6-4 13-5 19-3v28c-6-2-13-1-19 3-6-4-13-5-19-3zM24 13v28"/></svg>
+        <dd data-count="topics">—</dd><dt data-i18n="stat.topics"></dt></div>
+      <div class="stat"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19"/><path d="M5 24h38M24 5c6 5 9 12 9 19s-3 14-9 19M24 5c-6 5-9 12-9 19s3 14 9 19"/></svg>
+        <dd data-count="countries">—</dd><dt data-i18n="stat.countries"></dt></div>
+    </dl>
   </div>
 </section>
 
@@ -57,6 +82,21 @@
       <h2 data-i18n="board.h2"></h2>
       <a href="opportunities.html" id="calls-all"><span data-i18n="home.demo.all"></span></a>
       <p class="lede" id="board-sub"></p>
+    </div>
+    <div class="fit-bar">
+      <p class="sentence">
+        <span data-i18n="home.s.a"></span>
+        <select id="demo-stage" data-i18n-attr="aria-label:opp.mystage">
+          <option value="any" data-i18n="opp.stage.any"></option>
+          <option value="phd_student" data-i18n="opp.stage.phd_student"></option>
+          <option value="phd_plus" selected data-i18n="opp.stage.phd_plus"></option>
+          <option value="postdoc_plus" data-i18n="opp.stage.postdoc_plus"></option>
+          <option value="pi_only" data-i18n="opp.stage.pi_only"></option>
+        </select><span data-i18n="home.s.b"></span><select id="demo-country" data-i18n-attr="aria-label:opp.mycountry"></select>
+      </p>
+      <p class="fit-result"><b id="fit-n">0</b><span class="of">/</span><span id="open-n">0</span> <span data-i18n="home.fit.t"></span></p>
+      <p class="sr-only" id="hero-result" aria-live="polite"></p>
+      <a class="btn btn-primary" id="hero-show" href="opportunities.html" data-i18n="home.s.show"></a>
     </div>
     <div class="board" id="board" role="table">
       <div class="board-head" role="row">
@@ -136,9 +176,9 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="assets/js/i18n.js?v=2026-10-12a"></script>
-<script src="assets/js/app.js?v=2026-10-12a"></script>
-<script src="assets/js/globe.js?v=2026-10-12a"></script>
+<script src="assets/js/i18n.js?v=2026-10-16a"></script>
+<script src="assets/js/app.js?v=2026-10-16a"></script>
+<script src="assets/js/globe.js?v=2026-10-16a"></script>
 <script>
 (async () => {
   await QIST.boot('index.html');
@@ -164,9 +204,38 @@
      only calls with an open deadline count as open. */
   const active = opps.filter(o => !QIST.isExpired(o));
   const countries = new Set(people.map(p => p.country).filter(Boolean)).size;
-  $('hero-facts').innerHTML = QIST.t('home.f.facts', { people: `<b>${people.length}</b>`, countries: `<b>${countries}</b>`, opps: `<b>${active.length}</b>` });
   $('open-n').textContent = active.length;
-  QIST.parallax($('hero-num'), 5);
+  $('hg-brand').textContent = `${QIST.BRAND.toUpperCase()} | ${QIST.BRAND_BY.toUpperCase()}`;
+
+  /* ---------- the network in numbers (D-31: computed from the data, duplicates not counted) ---------- */
+  const norm = x => String(x || '').trim().toLowerCase().replace(/\s+/g, ' ');
+  const stats = {
+    researchers: people.length,
+    institutions: new Set(people.map(p => norm(p.institution)).filter(Boolean)).size,
+    topics: new Set(people.flatMap(p => (p.topics || []).map(norm)).filter(Boolean)).size,
+    countries
+  };
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const n = stats[el.dataset.count];
+    const run = () => QIST.tweenNumber(el, 0, n, 1100);
+    el.textContent = n;     // the real figure is in the page from the start; the count-up only plays when it scrolls into view
+    if (QIST.reducedMotion() || !('IntersectionObserver' in window)) return;
+    new IntersectionObserver((es, io) => { if (es[0].isIntersecting) { run(); io.disconnect(); } }, { threshold: .4 }).observe(el);
+  });
+
+  /* ---------- what the daily feeds hold today ---------- */
+  try {
+    const meta = await fetch('data/feeds/meta.json').then(r => r.ok ? r.json() : null);
+    const k = meta && meta.kinds;
+    if (k && k.jobs && k.grants) {
+      const live = $('hg-live');
+      live.textContent = QIST.t('hero.live', { jobs: k.jobs.total, grants: k.grants.total });
+      live.hidden = false;
+    }
+  } catch (_) { /* the strip is decoration; no strip is fine */ }
+
+  // the search box sends the reader to the directory, ranked by what they typed
+  $('hg-search').addEventListener('submit', e => { if (!$('hg-q').value.trim()) { e.preventDefault(); $('hg-q').focus(); } });
 
   /* ---------- the check ---------- */
   const elig = await QIST.getEligibility();
@@ -203,7 +272,7 @@
     const was = Number(fitEl.textContent) || fit;
     QIST.tweenNumber(fitEl, was, fit, 600);
     $('hero-result').textContent = QIST.t('home.s.result', { fit, open: active.length }).replace(/<[^>]+>/g, '');
-    $('hero-show').href = `opportunities.html?${q}&elig=1`;
+    $('hero-show').href = `opportunities.html?${q}`;
     $('calls-all').href = `opportunities.html?${q}`;
 
     drawBoard(profile, q);

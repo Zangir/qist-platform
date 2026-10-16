@@ -2,6 +2,7 @@
 Inside Higher Ed Careers (US). Searches are role keywords, newest first; every vacancy then goes through the same
 research-role filter, stage detection and country detection."""
 import re
+from datetime import timedelta
 from urllib.parse import quote, urljoin
 
 from bs4 import BeautifulSoup
@@ -96,21 +97,16 @@ def jobsac(disciplines=None, phd_pages=7, pages=2, queries=None):
 
 # ---------- Madgex boards: Nature Careers, Inside Higher Ed ----------
 def _ago(text, ref):
-    """'12 days ago', 'Today', 'Yesterday', '3 hours ago' -> date."""
+    """'12 days ago', 'Today', 'Yesterday', '3 hours ago' -> date, counted back from `ref`."""
     t = (text or "").lower()
     if "today" in t or "hour" in t or "minute" in t:
         return ref
     if "yesterday" in t:
-        return days_ago(1)
-    m = re.search(r"(\d+)\s+day", t)
-    if m:
-        return days_ago(int(m[1]))
-    m = re.search(r"(\d+)\s+week", t)
-    if m:
-        return days_ago(7 * int(m[1]))
-    m = re.search(r"(\d+)\s+month", t)
-    if m:
-        return days_ago(30 * int(m[1]))
+        return ref - timedelta(days=1)
+    for unit, days in (("day", 1), ("week", 7), ("month", 30)):
+        m = re.search(rf"(\d+)\s+{unit}", t)
+        if m:
+            return ref - timedelta(days=days * int(m[1]))
     return None
 
 

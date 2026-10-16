@@ -6,179 +6,43 @@
 <title data-i18n-title="login.h">Create your profile · ScienceBridge AI</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%232447a8'/><text x='50' y='69' font-size='56' font-weight='700' text-anchor='middle' fill='%23ffffff' font-family='Georgia, serif'>Q</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=2026-10-12a">
+<link rel="stylesheet" href="assets/css/style.css?v=2026-10-16a">
 </head>
 <body>
 <header class="site-header" id="site-header"></header>
 
 <div class="auth-wrap">
   <div class="card auth-card">
-    <div class="tab-row">
-      <button id="tab-login" class="active">Sign in</button>
-      <button id="tab-register">Create account</button>
-    </div>
+    <h1 style="font-size:1.6rem;margin-bottom:14px" data-i18n="login.signin.h">Sign in</h1>
     <div id="auth-alert"></div>
-
     <form id="login-form">
-      <div class="form-row">
-        <label>Email</label>
-        <input type="email" id="l-email" required style="width:100%" placeholder="you@university.edu">
-      </div>
-      <div class="form-row">
-        <label>Password</label>
-        <input type="password" id="l-password" required style="width:100%">
-      </div>
-      <button class="btn btn-primary" type="submit" style="width:100%">Sign in</button>
-
+      <div class="form-row"><label for="l-email" data-i18n="common.email">Email</label>
+        <input type="email" id="l-email" required style="width:100%" placeholder="you@university.edu"></div>
+      <div class="form-row"><label for="l-password" data-i18n="pf.password">Password</label>
+        <input type="password" id="l-password" required style="width:100%"></div>
+      <button class="btn btn-primary" type="submit" style="width:100%" data-i18n="nav.signin">Sign in</button>
     </form>
-
-    <form id="register-form" style="display:none">
-      <div class="form-row">
-        <label>Full name</label>
-        <input type="text" id="r-name" required style="width:100%" placeholder="Aigerim Bekova">
-      </div>
-      <div class="form-row">
-        <label>Email</label>
-        <input type="email" id="r-email" required style="width:100%" placeholder="you@university.edu">
-      </div>
-      <div class="form-row">
-        <label>Password</label>
-        <input type="password" id="r-password" required minlength="8" style="width:100%" placeholder="At least 8 characters">
-      </div>
-      <div class="form-grid">
-        <div class="form-row">
-          <label>Position / title</label>
-          <input type="text" id="r-title" style="width:100%" placeholder="PhD Student">
-        </div>
-        <div class="form-row">
-          <label>Institution</label>
-          <input type="text" id="r-inst" style="width:100%" placeholder="Nazarbayev University">
-        </div>
-      </div>
-      <div class="form-row">
-        <label>Research topics (comma-separated)</label>
-        <input type="text" id="r-topics" style="width:100%" placeholder="machine learning, optimization">
-      </div>
-      <button class="btn btn-primary" type="submit" style="width:100%">Create account</button>
-      <p class="small muted" style="margin-top:12px">By joining you agree to be listed in the QIST member directory.</p>
-    </form>
+    <p class="small muted" style="margin-top:16px"><span data-i18n="login.new"></span> <a href="join.html" data-i18n="nav.create">Create profile</a></p>
   </div>
 </div>
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="assets/js/i18n.js?v=2026-10-12a"></script>
-<script src="assets/js/app.js?v=2026-10-12a"></script>
+<script src="assets/js/i18n.js?v=2026-10-16a"></script>
+<script src="assets/js/app.js?v=2026-10-16a"></script>
 <script>
 (async () => {
   await QIST.boot('login.html');
   const $ = id => document.getElementById(id);
-  const next = new URLSearchParams(location.search).get('next') || 'index.html';
-
-  // Accounts live on the server only. Until it is deployed we do not pretend registration
-  // works: it used to write the account into the visitor's own localStorage.
-  if (!QIST.authAvailable()) {
-    /* No server, so there is no account to create — but "Create profile" in the header must
-       still do what it says. It now collects a real request that reaches us by email, and a
-       curator creates the profile by hand until the backend is deployed (DECISIONS.md D-29).
-       No password field: asking for a password we have nowhere to store would be worse than
-       the dead end it replaces. */
-    /* Explanation on the left, the form on the right: what happens to the request and what
-       gets published are read before anything is typed, not squeezed under the button. */
-    document.querySelector('.auth-wrap').innerHTML = `
-      <div class="profile-req">
-        <div class="intro">
-          <span class="photo-num" id="top-num" style="background-image:url('assets/img/tiles-samarkand.jpg');background-position:center 40%;font-size:clamp(6rem,12vw,11rem)" aria-hidden="true">492</span>
-          <span class="unit">${QIST.t('top.joined')}</span>
-          <h1>${QIST.t('login.h')}</h1>
-          <p>${QIST.t('login.p', { email: QIST.esc(QIST.CONTACT_EMAIL || 'QIST') })}</p>
-          <p class="note-line" style="margin-top:20px">${QIST.t('login.privacy')} <a href="about.html#data">${QIST.t('nav.about')}</a></p>
-          <p class="other">${QIST.t('login.org')}</p>
-        </div>
-        <form class="panel form" id="req-form">
-          <label>${QIST.t('login.name')}<input type="text" id="q-name" required placeholder="Aigerim Bekova"></label>
-          <label>${QIST.t('common.email')}<input type="email" id="q-email" required placeholder="you@university.edu"></label>
-          <div class="row-2">
-            <label>${QIST.t('login.title')}<input type="text" id="q-title" placeholder="PhD Student"></label>
-            <label>${QIST.t('login.inst')}<input type="text" id="q-inst" placeholder="Nazarbayev University"></label>
-          </div>
-          <label>${QIST.t('common.country')}<select id="q-country"></select></label>
-          <label>${QIST.t('login.topics')}<input type="text" id="q-topics" placeholder="machine learning, optimization"></label>
-          <label>${QIST.t('login.link')}<input type="text" id="q-link" placeholder="https://orcid.org/…"></label>
-          <div class="actions">
-            <button class="btn btn-primary" type="submit" id="q-send">${QIST.t('login.send')}</button>
-            <span class="state" id="q-state" aria-live="polite"></span>
-          </div>
-        </form>
-      </div>`;
-
-    const s = id => document.getElementById(id);
-    try { QIST.fillCountrySelect(s('q-country'), await QIST.getEligibility(), 'KZ'); } catch (_) {}
-    try { s('top-num').textContent = QIST.uniquePeople(await QIST.getPeople()).length; } catch (_) {}
-
-    s('req-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = s('q-send'), state = s('q-state');
-      btn.disabled = true; btn.textContent = QIST.t('common.sending');
-      const res = await QIST.submitForm(QIST.SIGNUP_ENDPOINT, {
-        _subject: 'Profile request: ' + s('q-name').value.trim(),
-        kind: 'profile_request',
-        name: s('q-name').value.trim(), email: s('q-email').value.trim(),
-        title: s('q-title').value.trim(), institution: s('q-inst').value.trim(),
-        country: s('q-country').value,
-        topics: s('q-topics').value.split(',').map(x => x.trim()).filter(Boolean).join(', '),
-        public_link: s('q-link').value.trim(),
-        at: new Date().toISOString()
-      });
-      if (res.ok) {
-        btn.textContent = QIST.t('common.sent');
-        state.textContent = QIST.t('login.ok');
-        s('req-form').reset();
-      } else {
-        btn.disabled = false; btn.textContent = QIST.t('login.send');
-        state.textContent = res.reason === 'not_configured'
-          ? QIST.t('org.state.noendpoint')
-          : QIST.t('org.state.fail', { email: QIST.CONTACT_EMAIL || 'QIST' });
-      }
-    });
-    return;
-  }
-
-  function show(which) {
-    $('login-form').style.display = which === 'login' ? '' : 'none';
-    $('register-form').style.display = which === 'register' ? '' : 'none';
-    $('tab-login').classList.toggle('active', which === 'login');
-    $('tab-register').classList.toggle('active', which === 'register');
-    $('auth-alert').innerHTML = '';
-  }
-  $('tab-login').addEventListener('click', () => show('login'));
-  $('tab-register').addEventListener('click', () => show('register'));
-  if (location.hash === '#register') show('register');
-
-  function err(msg) { $('auth-alert').innerHTML = `<div class="alert alert-error">${QIST.esc(msg)}</div>`; }
-
+  const next = new URLSearchParams(location.search).get('next') || 'profile.html';
+  // No server yet: there is nothing to sign in to, and the profile form explains what happens instead.
+  if (!QIST.authAvailable()) { location.replace('join.html' + location.search); return; }
   $('login-form').addEventListener('submit', async e => {
     e.preventDefault();
     try {
       await QIST.login($('l-email').value.trim(), $('l-password').value);
-      location.href = next;
-    } catch (ex) { err(ex.message); }
-  });
-
-  $('register-form').addEventListener('submit', async e => {
-    e.preventDefault();
-    try {
-      const topics = $('r-topics').value.split(',').map(s => s.trim()).filter(Boolean);
-      await QIST.register({
-        name: $('r-name').value.trim(),
-        email: $('r-email').value.trim(),
-        password: $('r-password').value,
-        title: $('r-title').value.trim(),
-        institution: $('r-inst').value.trim(),
-        topics
-      });
-      location.href = next;
-    } catch (ex) { err(ex.message); }
+      location.href = /^[\w.\-]+\.html(\?.*)?$/.test(next) ? next : 'profile.html';   // never an off-site address
+    } catch (ex) { $('auth-alert').innerHTML = `<div class="alert alert-error">${QIST.esc(ex.message)}</div>`; }
   });
 })();
 </script>

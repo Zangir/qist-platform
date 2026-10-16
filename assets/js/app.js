@@ -8,7 +8,7 @@
 const QIST = {
   /* Build stamp. Open the browser console on the live site: if this does not match the
      release you uploaded, the file did not reach the server. */
-  BUILD: '2026-10-12a',
+  BUILD: '2026-10-16a',
 
   /* Positioning, in one place, so it cannot drift between pages.
      MVP phase 1: nine countries of Central Asia, the Caucasus and Mongolia, plus their
@@ -110,6 +110,9 @@ const QIST = {
 
   // Set to a deployed FastAPI URL (e.g. "https://api.qist.org") to go live.
   // Can also be overridden without redeploy: localStorage.setItem('qist_api_url', '...')
+  /* The address of the deployed API (see render.yaml). Empty = the site runs in static mode: profiles and positions are
+     sent to the QIST team as requests instead of being stored. A browser can override it for testing. */
+  API_DEFAULT: '',
   apiBase: localStorage.getItem('qist_api_url') || '',
   apiAlive: false,
   cache: {},
@@ -288,6 +291,14 @@ const QIST = {
   },
   /* Four tones from the brand, not seven unrelated hues: a page of purple, red and olive
      avatars read as noise, and red already means "not eligible" everywhere else. */
+  /* A member's photo when they added one, otherwise their initials on one of four brand tones. Only an inline
+     image the member uploaded is accepted as a photo; anything else falls back to the initials. */
+  avatarHtml(p, cls = '', attrs = '') {
+    const ok = p && typeof p.photo === 'string' && /^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(p.photo);
+    return ok
+      ? `<div class="avatar has-photo ${cls}" ${attrs}><img src="${p.photo}" alt="" loading="lazy"></div>`
+      : `<div class="avatar ${cls}" style="background:${this.avatarColor(p.name)}" ${attrs} aria-hidden="true">${this.initials(p.name)}</div>`;
+  },
   avatarColor(name) {
     const palette = ['#2c4a77', '#2e6e62', '#4b5d78', '#1f4f63'];
     let h = 0; for (const c of name) h = (h * 31 + c.charCodeAt(0)) >>> 0;
@@ -329,7 +340,7 @@ const QIST = {
     return `
     <div class="card person-card" data-id="${this.esc(p.id)}">
       <div class="top">
-        <div class="avatar" style="background:${this.avatarColor(p.name)}">${this.initials(p.name)}</div>
+        ${this.avatarHtml(p)}
         <div>
           <h3>${this.esc(p.name)}</h3>
           <div class="role">${this.esc(p.title || '')}${p.institution ? ' · ' + this.esc(p.institution) : ''}</div>
@@ -353,7 +364,6 @@ const QIST = {
        and matching is personal, so it lives behind sign-in. */
     const links = [
       ['index.html', this.t('nav.home')], ['opportunities.html', this.t('nav.opportunities')],
-      ['feed.html', this.t('nav.feed')],
       ['directory.html', this.t('nav.researchers')], ['organizations.html', this.t('nav.organizations')],
       ['about.html', this.t('nav.about')]
     ];
@@ -367,7 +377,7 @@ const QIST = {
          ${u.role === 'admin' ? '<a class="btn btn-gold btn-sm" href="admin.html">Admin</a>' : ''}
          <button class="btn btn-ghost btn-sm" onclick="QIST.logout()">${this.t('nav.signout')}</button>`
       : `${this.apiBase ? `<a class="btn btn-ghost btn-sm" href="login.html">${this.t('nav.signin')}</a>` : ''}
-         <a class="btn btn-gold btn-sm" href="login.html#register">${this.t('nav.create')}</a>`;
+         <a class="btn btn-gold btn-sm" href="join.html">${this.t('nav.create')}</a>`;
 
     /* Language switcher. Three codes, current one marked; the choice is remembered and also
        written into the address, so a link can be sent in the language it was read in. */
@@ -388,7 +398,7 @@ const QIST = {
           </span>
         </a>
         <nav class="main-nav" id="main-nav">${nav}
-          ${u ? '' : `<a class="btn btn-gold nav-create" href="login.html#register">${this.t('nav.create')}</a>`}
+          ${u ? '' : `<a class="btn btn-gold nav-create" href="join.html">${this.t('nav.create')}</a>`}
         </nav>
         <div class="nav-auth">
           <div class="lang-switch" role="group" aria-label="${this.esc(this.t('nav.language'))}">${langs}</div>
@@ -431,7 +441,7 @@ const QIST = {
             <a href="about.html">${this.t('nav.about')}</a>
             <a href="newsletter.html">${this.t('foot.newsletter')}</a>
             <a href="channels.html">${this.t('foot.discussions')}</a>
-            <a href="login.html#register">${this.t('nav.create')}</a>
+            <a href="join.html">${this.t('nav.create')}</a>
           </div>
         </div>
         <div class="fine">© ${new Date().getFullYear()} QIST · ${this.t('foot.fine', { short: this.t('region.short') })} · <a href="https://github.com/Aika369/qist-platform">${this.t('foot.source')}</a>

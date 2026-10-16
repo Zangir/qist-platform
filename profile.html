@@ -3,90 +3,164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Profile — QIST</title>
+<title data-i18n-title="prof.h">My profile · ScienceBridge AI</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%232447a8'/><text x='50' y='69' font-size='56' font-weight='700' text-anchor='middle' fill='%23ffffff' font-family='Georgia, serif'>Q</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=2026-10-12a">
+<link rel="stylesheet" href="assets/css/style.css?v=2026-10-16a">
 </head>
 <body>
 <header class="site-header" id="site-header"></header>
 
-<section class="section">
-  <div class="container" style="max-width:840px">
-    <div class="section-head"><h2 class="rule">My profile</h2></div>
-    <div class="card" style="margin-bottom:24px" id="me-card"></div>
-
-    <div class="card today-card" style="margin-bottom:24px" id="today-card">
-      <h3 data-i18n="feed.today.h">Today for you</h3>
-      <div id="today-body" class="small" style="margin-top:10px"></div>
-      <p style="margin-top:14px"><a class="btn btn-outline btn-sm" href="feed.html" data-i18n="feed.today.all">Open my full feed</a></p>
-    </div>
-
-    <div class="grid grid-2">
-      <div class="card">
-        <h3>My collaboration requests</h3>
-        <div id="my-requests" class="small" style="margin-top:10px"></div>
-      </div>
-      <div class="card">
-        <h3>My posts</h3>
-        <div id="my-posts" class="small" style="margin-top:10px"></div>
-      </div>
+<div class="container">
+  <div class="page-top">
+    <div class="me-id" id="me-id"></div>
+    <div>
+      <h1 data-i18n="prof.h">My profile</h1>
+      <p class="lede" id="me-sub"></p>
+      <p class="aside" id="welcome" hidden></p>
     </div>
   </div>
-</section>
+
+  <div class="card today-card" id="today-card" style="margin-bottom:28px">
+    <h3 data-i18n="feed.today.h">Today for you</h3>
+    <div id="today-body" class="small" style="margin-top:10px"></div>
+    <p style="margin-top:14px"><a class="btn btn-outline btn-sm" href="opportunities.html" data-i18n="feed.today.all">Open all opportunities</a></p>
+  </div>
+
+  <section class="pf-sec" id="positions" aria-labelledby="h-pos" style="margin-bottom:36px">
+    <div class="sec-line"><h2 id="h-pos" data-i18n="prof.pos.h">My positions</h2>
+      <a class="btn btn-primary btn-sm" href="post-position.html" data-i18n="opp2.post">Post a position</a></div>
+    <p class="hint" data-i18n="prof.pos.p"></p>
+    <div class="rows" id="pos-list"></div>
+  </section>
+
+  <div id="form-root"></div>
+
+  <section class="pf-sec danger" id="data" aria-labelledby="h-data">
+    <h2 id="h-data" data-i18n="prof.data.h">Your data</h2>
+    <p class="hint" data-i18n="prof.data.p"></p>
+    <div class="pf-actions">
+      <button type="button" class="btn btn-outline" id="export" data-i18n="prof.export">Download my data</button>
+      <button type="button" class="btn btn-danger" id="delete" data-i18n="prof.delete">Delete my account</button>
+      <button type="button" class="btn btn-quiet" id="signout" data-i18n="nav.signout">Sign out</button>
+      <span class="state" id="data-state" role="status" aria-live="polite"></span>
+    </div>
+  </section>
+</div>
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="assets/js/i18n.js?v=2026-10-12a"></script>
-<script src="assets/js/app.js?v=2026-10-12a"></script>
-<script src="assets/js/feed.js?v=2026-10-12a"></script>
+<script src="assets/js/i18n.js?v=2026-10-16a"></script>
+<script src="assets/js/app.js?v=2026-10-16a"></script>
+<script src="assets/js/feed.js?v=2026-10-16a"></script>
+<script src="assets/js/kit.js?v=2026-10-16a"></script>
+<script src="assets/js/profile-form.js?v=2026-10-16a"></script>
 <script>
 (async () => {
   await QIST.boot('profile.html');
+  const $ = id => document.getElementById(id);
   const u = QIST.requireRole('member');
   if (!u) return;
+  const api = path => QIST.apiBase + path;
+  const call = async (path, opt = {}) => {
+    const r = await fetch(api(path), Object.assign({ headers: QIST.authHeaders() }, opt));
+    if (r.status === 401) { localStorage.removeItem('qist_session'); location.href = 'login.html?next=profile.html'; throw new Error('401'); }
+    return r;
+  };
+  const why = async r => {
+    const j = await r.json().catch(() => ({}));
+    if (Array.isArray(j.detail) && j.detail.length) return `${(j.detail[0].loc || []).slice(-1)[0]}: ${String(j.detail[0].msg || '').replace(/^Value error, /, '')}`;
+    return j.detail || QIST.t('join.err.generic');
+  };
 
-  document.getElementById('me-card').innerHTML = `
-    <div style="display:flex;gap:16px;align-items:center">
-      <div class="avatar" style="width:64px;height:64px;flex:0 0 64px;font-size:1.3rem;background:${QIST.avatarColor(u.name)}">${QIST.initials(u.name)}</div>
-      <div>
-        <h3 style="margin:0">${QIST.esc(u.name)}</h3>
-        <div class="small muted">${QIST.esc(u.email)} · role: <b>${QIST.esc(u.role)}</b></div>
-      </div>
-    </div>
-    <p class="small muted" style="margin-top:14px">Your account is active${u.role === 'admin' ? ' with administrator privileges — open the <a href="admin.html">admin panel</a> to manage the platform' : ''}.
-    To appear on the <a href="map.html">researcher map</a> with precise coordinates, ask an admin to set your city.</p>`;
+  if (!QIST.apiAlive) {   // a stored session with no server behind it
+    document.querySelector('.container').insertAdjacentHTML('beforeend', `<div class="empty"><h3>${QIST.t('prof.offline')}</h3></div>`);
+    return;
+  }
+  if (new URLSearchParams(location.search).get('welcome')) { $('welcome').hidden = false; $('welcome').textContent = QIST.t('prof.welcome'); }
 
-  /* Today for you: the three best matches in each feed, by the same engine as feed.html. */
+  const [meR, papersR, posR, elig, taxonomy] = await Promise.all([call('/api/me/profile'), call('/api/me/papers'), call('/api/me/positions'), QIST.getEligibility(), QIST.feed.loadTaxonomy()]);
+  const me = await meR.json(), papers = await papersR.json(), positions = await posR.json();
+
+  $('me-id').innerHTML = `<div class="pf-avatar big">${me.photo ? `<img src="${QIST.esc(me.photo)}" alt="">` : `<span style="background:${QIST.avatarColor(me.name)}">${QIST.esc(QIST.initials(me.name))}</span>`}</div>`;
+  $('me-sub').innerHTML = `${QIST.esc(me.name)} · ${QIST.esc(me.email)} · <b>${QIST.esc(me.role)}</b>${me.role === 'admin' ? ` · <a href="admin.html">${QIST.t('prof.admin')}</a>` : ''}`;
+
+  /* ---------- today for you ---------- */
   try {
     const F = QIST.feed, { data } = await F.load();
     let profile = F.loadProfile();
     const remote = await F.pullRemoteProfile();
     if (remote) profile = F.saveProfile(remote);
-    const rows = F.KINDS.map(k => {
-      const top = F.rank(data[k].items || [], profile, {}).slice(0, 3);
-      return top.map((r, i) => `<div class="t-row"><span class="t-kind">${i === 0 ? QIST.esc(QIST.t('feed.tab.' + k)) : ''}</span>
-        <a href="${QIST.esc(r.item.url)}" target="_blank" rel="noopener">${QIST.esc(r.item.title)}</a></div>`).join('');
+    const rows = ['grant', 'job', 'collab'].map(k => {
+      const top = F.rank(data[k] || [], profile, { elig }).slice(0, 3);
+      return top.map((r, i) => `<div class="t-row"><span class="t-kind">${i === 0 ? QIST.esc(QIST.t('opp2.tab.' + k)) : ''}</span>
+        <a href="${QIST.esc(r.item.url || 'opportunities.html')}" target="_blank" rel="noopener">${QIST.esc(r.item.title)}</a></div>`).join('');
     }).join('');
-    document.getElementById('today-body').innerHTML = (F.hasProfile() ? '' : `<p class="muted">${QIST.t('feed.notice.profile')}</p>`) +
-      (rows || `<p class="muted">${QIST.t('feed.none')}</p>`);
-  } catch (e) {
-    console.error(e);
-    document.getElementById('today-body').innerHTML = `<p class="muted">${QIST.t('feed.err')}</p>`;
+    $('today-body').innerHTML = (F.hasProfile() ? '' : `<p class="muted">${QIST.t('feed.notice.profile')}</p>`) + (rows || `<p class="muted">${QIST.t('feed.none')}</p>`);
+  } catch (e) { console.error(e); $('today-body').innerHTML = `<p class="muted">${QIST.t('feed.err')}</p>`; }
+
+  /* ---------- my positions ---------- */
+  function drawPositions() {
+    $('pos-list').innerHTML = positions.length ? positions.map(p => `
+      <article class="opp feed-item" data-pos="${QIST.esc(p.id)}" style="grid-template-columns:110px minmax(0,1fr)">
+        <div class="when plain"><b>${QIST.esc(p.deadline || '—')}</b><span>${QIST.t(p.expired ? 'opp.col.closed' : 'prof.pos.open')}</span></div>
+        <div class="opp-main"><h3><a href="${QIST.esc(p.source_url)}" target="_blank" rel="noopener">${QIST.esc(p.title)}</a></h3>
+          <p class="opp-meta"><span>${QIST.esc(p.organization)}</span><span>${QIST.esc(p.where || '')}</span></p>
+          <div class="opp-foot"><button type="button" class="btn btn-quiet btn-sm" data-del-pos="${QIST.esc(p.id)}">${QIST.t('prof.pos.remove')}</button></div></div>
+      </article>`).join('') : `<div class="empty small">${QIST.t('prof.pos.none')}</div>`;
   }
+  drawPositions();
+  $('pos-list').addEventListener('click', async e => {
+    const b = e.target.closest('[data-del-pos]'); if (!b) return;
+    if (!confirm(QIST.t('prof.pos.confirm'))) return;
+    const r = await call('/api/positions/' + b.dataset.delPos.split('-')[1], { method: 'DELETE' });
+    if (r.ok) { positions.splice(positions.findIndex(p => p.id === b.dataset.delPos), 1); drawPositions(); QIST.toast(QIST.t('prof.pos.removed')); }
+  });
 
-  const reqs = QIST.overlay('collab_requests').filter(r => r.from === u.email);
-  document.getElementById('my-requests').innerHTML = reqs.length
-    ? reqs.map(r => `<div style="padding:8px 0;border-bottom:1px solid var(--paper-2)">
-        → <b>${QIST.esc(r.toName)}</b> <span class="muted">(${QIST.esc(r.date)})</span><br>
-        <span class="muted">topics: ${QIST.esc(r.topics)}</span></div>`).join('')
-    : '<p class="muted">No requests yet — try <a href="matching.html">academic matching</a>.</p>';
+  /* ---------- the profile form (also holds "my papers") ---------- */
+  QIST.profileForm.mount($('form-root'), {
+    mode: 'edit', backend: true, elig, taxonomy,
+    initial: Object.assign({}, me, { papers: papers.map(p => ({ id: p.id, title: p.title, authors: p.authors, venue: p.venue, year: p.year, doi: p.doi, url: p.doi ? '' : p.url })) }),
+    paperApi: {
+      async add(p) {
+        const r = await call('/api/papers', { method: 'POST', body: JSON.stringify({ title: p.title, authors: p.authors || [], venue: p.venue || '', year: p.year || null,
+          doi: p.doi || '', url: p.doi ? '' : (p.url || ''), abstract: p.abstract || '', fields: QIST.feed.fieldsFromText(p.title + ' ' + (p.abstract || '')) }) });
+        if (r.status === 409) return { ok: true, paper: null, dup: true };
+        if (!r.ok) return { ok: false, message: await why(r) };
+        const j = await r.json();
+        return { ok: true, paper: { id: j.id, title: j.title, authors: j.authors, venue: j.venue, year: j.year, doi: j.doi, url: j.doi ? '' : j.url } };
+      },
+      async remove(p) { const r = await call('/api/papers/' + String(p.id).split('-')[1], { method: 'DELETE' }); return { ok: r.ok, message: r.ok ? '' : await why(r) }; }
+    },
+    async onSubmit(v) {
+      const body = { name: v.name, title: v.title, institution: v.institution, country: v.country, city: v.city, bio: v.bio, orcid: v.orcid,
+        fields: v.fields, keywords: v.keywords, website: v.website, scholar: v.scholar, linkedin: v.linkedin, photo: v.photo, listed: v.listed };
+      const r = await call('/api/me/profile', { method: 'PUT', body: JSON.stringify(body) });
+      if (!r.ok) return { ok: false, message: await why(r) };
+      const saved = await r.json();
+      const s = QIST.currentUser(); s.name = saved.name; localStorage.setItem('qist_session', JSON.stringify(s));
+      QIST.feed.saveProfile(Object.assign(QIST.feed.loadProfile(), { country: v.country || QIST.feed.loadProfile().country, fields: v.fields, keywords: v.keywords.slice(0, 12) }));
+      return { ok: true, message: QIST.t('feed.profile.saved') };
+    }
+  });
+  if (location.hash === '#papers') setTimeout(() => $('pf-h-pap').scrollIntoView(), 50);
 
-  const posts = (await QIST.getPosts()).filter(p => p.author === u.name);
-  document.getElementById('my-posts').innerHTML = posts.length
-    ? posts.map(p => `<div style="padding:8px 0;border-bottom:1px solid var(--paper-2)">
-        <b>${QIST.esc(p.title)}</b> <span class="muted">in #${QIST.esc(p.channel)} (${QIST.esc(p.date)})</span></div>`).join('')
-    : '<p class="muted">No posts yet — share something on the <a href="channels.html">channels</a>.</p>';
+  /* ---------- your data ---------- */
+  $('signout').addEventListener('click', () => QIST.logout());
+  $('export').addEventListener('click', async () => {
+    const [m, p, po] = await Promise.all([call('/api/me/profile').then(r => r.json()), call('/api/me/papers').then(r => r.json()), call('/api/me/positions').then(r => r.json())]);
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([JSON.stringify({ exported: new Date().toISOString(), profile: m, papers: p, positions: po }, null, 1)], { type: 'application/json' }));
+    a.download = 'qist-my-data.json'; a.click(); URL.revokeObjectURL(a.href);
+  });
+  $('delete').addEventListener('click', async () => {
+    if (!confirm(QIST.t('prof.delete.confirm'))) return;
+    const r = await call('/api/me', { method: 'DELETE' });
+    if (r.ok) { localStorage.removeItem('qist_session'); localStorage.removeItem('qist_feed_profile'); location.href = 'index.html'; }
+    else $('data-state').textContent = await why(r);
+  });
 })();
 </script>
 </body>

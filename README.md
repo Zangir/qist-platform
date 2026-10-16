@@ -245,37 +245,51 @@ countries against the source before a public launch**, and record who did it in
 
 ---
 
-## My feed — ежедневные подборки (2026-10-12)
+## Opportunities, профили участников, позиции и статьи (2026-10-16)
 
-`feed.html` показывает читателю гранты, вакансии и статьи со всего мира, отранжированные под его
-области, ключевые слова, стадию карьеры и страны, где он ищет работу. Лента обновляется каждое утро.
+**Одна страница `opportunities.html`** вместо двух. Вкладки: Гранты · Вакансии · Коллаборации · Статьи участников · Сохранённое.
+Под профиль читателя (стадия, страна, до 6 областей, ключевые слова, страны для вакансий) ранжируются:
+ежедневные гранты и вакансии из `data/feeds/`, конкурсы, которые вручную ведёт куратор (`data/opportunities.json`, `curate.html`),
+позиции участников (`/api/positions`) и их статьи (`/api/papers` + `data/papers.json`). У конкурсов куратора есть проверенное право
+участия с объяснением («Details»: страна, стадия, срок, область, источник); у остальных грантов — «не проверено». Поиск словами и «Clear».
+`feed.html` перенаправляет сюда.
 
-**Откуда данные** — `pipeline/` (Python, `requests` + `beautifulsoup4`), запускается ежедневно
-`.github/workflows/feeds.yml` и коммитит `data/feeds/{grants,jobs,articles}.json` + `meta.json`
-(по каждому источнику: сколько записей, ошибка, время).
+**Профиль участника** — `join.html` (создание) и `profile.html` (правка): быстрый старт через ORCID iD (публичный API ORCID, в браузере)
+или резюме (PDF/DOCX через `/api/cv/extract`, либо вставкой текста), фото (сжимается до 256 px в браузере), должность, организация, страна,
+области, ключевые слова, ссылки, статьи (по DOI через Crossref, из ORCID или вручную), согласие на показ в каталоге. Без бэкенда форма
+отправляет заявку куратору (Formspree); с бэкендом создаёт аккаунт. Участник может скачать свои данные и удалить аккаунт.
 
-| Лента | Источники | Проверены живыми запросами |
-|---|---|---|
-| Статьи | arXiv (56 категорий), bioRxiv, medRxiv, Crossref по списку из ~45 ведущих журналов | да |
-| Вакансии | jobs.ac.uk, Nature Careers, Inside Higher Ed Careers | да |
-| Гранты | UKRI, NSF, Grants.gov (США, ~160 конкурсов), fundsforngos | да |
-| Гранты | EU Funding & Tenders (Horizon Europe, ERC, MSCA) | **нет** — парсер написан по документации; хосты `ec.europa.eu` из среды разработки недоступны. Первый запуск в GitHub Actions покажет в `meta.json`, работает ли он |
+**Позиции из лабораторий** — `post-position.html`: название, лаборатория, страна, для кого, описание, обязательная ссылка, срок. С аккаунтом
+публикуется сразу и видна во вкладке «Вакансии»; без сервера уходит куратору. Снять позицию может автор (профиль) или админ.
 
-Источник, который упал, не роняет остальные: записи вчерашнего дня остаются, а `feed.html` пишет внизу,
-какие источники сегодня недоступны.
+**База участников** — `admin.html` → «Members database» (поиск, экспорт CSV) и «Positions & papers» (модерация). Данные хранит бэкенд
+(`backend/`, развёртывание: `render.yaml`, `backend/Dockerfile`); до его запуска `QIST.API_DEFAULT` в `app.js` пуст и сайт работает как статический.
 
-**Как подбирается** — `assets/js/feed.js`, в браузере (описание формулы — в шапке файла). Словарь
-областей — `data/taxonomy.json`, им же классифицирует `pipeline/taxonomy.py`; стадия вакансии, страна и
-«исследовательская ли это должность» определяются правилами в `pipeline/taxonomy.py` и `pipeline/geo.py`.
-Профиль хранится в `localStorage`, а при входе — и на бэкенде (`GET/PUT /api/me/feed-profile`).
+**Главная** — новый первый экран (`assets/img/hero-globe.jpg`, поиск «Find researchers», 4 тезиса), крупная полоса цифр из данных
+(исследователи, организации, темы, страны) и «Closing next» с проверкой «I'm a … based in …».
 
-**Запуск и тесты**
+### Ежедневные ленты грантов и вакансий
+
+`pipeline/` (Python, `requests` + `beautifulsoup4`), ежедневно `.github/workflows/feeds.yml`, пишет `data/feeds/{grants,jobs}.json` + `meta.json`
+(по каждому источнику: сколько записей, ошибка, время). Лента статей из мира (arXiv, bioRxiv, medRxiv, Crossref) отключена (D-65), код остался:
+`python -m pipeline.run --kinds grants,jobs,articles`.
+
+| Лента | Источники |
+|---|---|
+| Вакансии | jobs.ac.uk (по дисциплинам и раздел PhD), Nature Careers, Inside Higher Ed Careers |
+| Гранты | UKRI, NSF, Grants.gov (США), EU Funding & Tenders (Horizon Europe, ERC, MSCA), fundsforngos |
+
+Источник, который упал, не роняет остальные: записи вчерашнего дня остаются, а страница пишет внизу, какие источники сегодня недоступны.
+Разбор — детерминированный (`pipeline/taxonomy.py`, `pipeline/geo.py`, словарь `data/taxonomy.json`); подбор — `assets/js/feed.js`.
+
+**Запуск и тесты** (из корня репозитория)
 
 ```bash
-backend/.venv/bin/pip install -r pipeline/requirements.txt
-backend/.venv/bin/python -m pipeline.run            # весь сбор (~6 мин: arXiv ограничивает частоту запросов)
-backend/.venv/bin/python -m pipeline.run --quick    # быстрая проверка
-backend/.venv/bin/python -m pytest pipeline/tests backend/tests -q      # парсеры, правила, ранжирование данных, бэкенд
-python3 -m http.server 8099 &                       # затем браузерные проверки:
-backend/.venv/bin/python pipeline/tests/e2e_feed.py http://localhost:8099
+backend/.venv/bin/pip install -r pipeline/requirements.txt -r backend/requirements.txt
+backend/.venv/bin/python -m pipeline.run                         # сбор лент (~4 мин)
+backend/.venv/bin/python -m pytest pipeline/tests backend/tests -q
+python3 -m http.server 8099 &                                    # затем браузерные проверки (Playwright):
+backend/.venv/bin/python pipeline/tests/e2e_opportunities.py http://localhost:8099
+backend/.venv/bin/python pipeline/tests/e2e_members.py http://localhost:8099
+backend/.venv/bin/python pipeline/tests/e2e_members_backend.py http://localhost:8099   # сам поднимает API на :8100
 ```

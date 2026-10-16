@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n-title="post.h">Post a position · ScienceBridge AI</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%232447a8'/><text x='50' y='69' font-size='56' font-weight='700' text-anchor='middle' fill='%23ffffff' font-family='Georgia, serif'>Q</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=2026-10-16a">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+
+<div class="container">
+  <div class="page-top">
+    <div><span class="photo-num" style="background-image:url('assets/img/lab-astana.jpg');background-position:center 40%;font-size:clamp(5rem,12vw,10rem)" aria-hidden="true">+1</span><span class="unit" data-i18n="post.unit"></span></div>
+    <div>
+      <h1 data-i18n="post.h">Post a position</h1>
+      <p class="lede" data-i18n="post.lede"></p>
+      <p class="aside" id="who"></p>
+    </div>
+  </div>
+
+  <form class="pform pos-form" id="pos-form" novalidate autocomplete="off">
+    <section class="pf-sec">
+      <div><label for="p-title"><span data-i18n="post.title">Position title</span> *</label>
+        <input id="p-title" type="text" maxlength="140" placeholder="PhD position in perovskite solar cells"></div>
+      <div class="row-2">
+        <div><label for="p-org"><span data-i18n="post.org">Lab or institution</span> *</label><input id="p-org" type="text" maxlength="160" placeholder="Materials Lab, Nazarbayev University"></div>
+        <div><label for="p-dept" data-i18n="post.dept">Department (optional)</label><input id="p-dept" type="text" maxlength="120"></div>
+      </div>
+      <div class="row-2">
+        <div><label for="p-country" data-i18n="common.country">Country</label><select id="p-country"></select></div>
+        <div><label for="p-city" data-i18n="pf.city">City</label><input id="p-city" type="text" maxlength="80"></div>
+      </div>
+      <label class="check"><input type="checkbox" id="p-remote"> <span data-i18n="post.remote">Can be done remotely</span></label>
+    </section>
+
+    <section class="pf-sec">
+      <div class="row-2">
+        <div><label for="p-stage" data-i18n="post.stage">Open to</label>
+          <select id="p-stage">
+            <option value="any" data-i18n="post.stage.any">Master's graduates and above (e.g. a PhD position)</option>
+            <option value="phd_student" data-i18n="post.stage.phd_student">PhD candidates and above</option>
+            <option value="phd_plus" selected data-i18n="post.stage.phd_plus">PhD holders (researchers, postdocs)</option>
+            <option value="postdoc_plus" data-i18n="post.stage.postdoc_plus">Postdocs and above</option>
+            <option value="pi_only" data-i18n="post.stage.pi_only">Professors / PIs</option>
+          </select><p class="hint" data-i18n="post.stage.hint"></p></div>
+        <div><label for="p-deadline" data-i18n="post.deadline">Deadline (optional)</label><input id="p-deadline" type="date"></div>
+      </div>
+      <div><span class="lab" id="p-fields-l" data-i18n="post.fields">Research fields (up to 4)</span><div class="fchips" id="p-fields" role="group" aria-labelledby="p-fields-l"></div></div>
+      <div><label for="p-summary"><span data-i18n="post.summary">What the position involves</span> *</label>
+        <textarea id="p-summary" rows="6" maxlength="1500" data-i18n-attr="placeholder:post.summary.ph"></textarea>
+        <p class="hint"><span id="p-count">0</span>/1500 · <span data-i18n="post.summary.hint"></span></p></div>
+      <div><label for="p-link"><span data-i18n="post.link">Link to the full announcement</span> *</label>
+        <input id="p-link" type="url" placeholder="https://" ><p class="hint" data-i18n="post.link.hint"></p></div>
+    </section>
+
+    <section class="pf-sec" id="static-contact" hidden>
+      <p class="hint" data-i18n="post.static.p"></p>
+      <div class="row-2">
+        <div><label for="p-name"><span data-i18n="pf.name">Your name</span> *</label><input id="p-name" type="text"></div>
+        <div><label for="p-email"><span data-i18n="common.email">Email</span> *</label><input id="p-email" type="email"></div>
+      </div>
+    </section>
+
+    <div class="pf-actions">
+      <button type="submit" class="btn btn-primary btn-lg" id="p-submit" data-i18n="post.submit">Publish position</button>
+      <a class="btn btn-quiet" href="opportunities.html?tab=job" data-i18n="feed.profile.close">Close</a>
+      <span class="state" id="p-state" role="status" aria-live="polite"></span>
+    </div>
+  </form>
+  <div class="card pad-lg" id="done" hidden></div>
+</div>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="assets/js/i18n.js?v=2026-10-16a"></script>
+<script src="assets/js/app.js?v=2026-10-16a"></script>
+<script>
+(async () => {
+  await QIST.boot('post-position.html');
+  const $ = id => document.getElementById(id);
+  const backend = QIST.authAvailable(), user = QIST.currentUser();
+  const elig = await QIST.getEligibility();
+  QIST.fillCountrySelect($('p-country'), elig, 'KZ');
+  const fields = [];
+  const drawFields = () => {
+    $('p-fields').innerHTML = QIST.PRIMARY_FIELDS.filter(f => f !== 'Other Research Area').map(f => {
+      const on = fields.includes(f);
+      return `<button type="button" data-f="${QIST.esc(f)}" aria-pressed="${on}"${!on && fields.length >= 4 ? ' disabled' : ''}>${QIST.esc(f)}</button>`;
+    }).join('');
+  };
+  drawFields();
+  $('p-fields').addEventListener('click', e => {
+    const b = e.target.closest('button[data-f]'); if (!b) return;
+    const f = b.dataset.f, i = fields.indexOf(f);
+    if (i > -1) fields.splice(i, 1); else if (fields.length < 4) fields.push(f);
+    drawFields(); $('p-fields').querySelector(`[data-f="${CSS.escape(f)}"]`)?.focus();
+  });
+  $('p-deadline').min = new Date().toISOString().slice(0, 10);
+  $('p-summary').addEventListener('input', () => { $('p-count').textContent = $('p-summary').value.length; });
+
+  if (backend && !user) {
+    $('who').innerHTML = `<a href="login.html?next=post-position.html">${QIST.t('post.signin')}</a> · <a href="join.html">${QIST.t('nav.create')}</a>`;
+    $('pos-form').querySelectorAll('input,select,textarea,button').forEach(el => { el.disabled = true; });
+  } else if (backend) {
+    $('who').textContent = QIST.t('post.as', { name: user.name });
+  } else {
+    $('static-contact').hidden = false;
+    $('who').textContent = QIST.t('post.static.who');
+  }
+
+  const why = async r => {
+    const j = await r.json().catch(() => ({}));
+    if (Array.isArray(j.detail) && j.detail.length) return `${(j.detail[0].loc || []).slice(-1)[0]}: ${String(j.detail[0].msg || '').replace(/^Value error, /, '')}`;
+    return j.detail || QIST.t('join.err.generic');
+  };
+
+  $('pos-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const v = {
+      title: $('p-title').value.trim(), org: $('p-org').value.trim(), department: $('p-dept').value.trim(), country: $('p-country').value,
+      city: $('p-city').value.trim(), remote: $('p-remote').checked, career_stage: $('p-stage').value, fields: [...fields],
+      summary: $('p-summary').value.trim(), link: $('p-link').value.trim(), deadline: $('p-deadline').value
+    };
+    const bad = [];
+    if (v.title.length < 5) bad.push(['p-title', QIST.t('post.err.title')]);
+    if (v.org.length < 2) bad.push(['p-org', QIST.t('post.err.org')]);
+    if (v.summary.length < 20) bad.push(['p-summary', QIST.t('post.err.summary')]);
+    if (!/^https?:\/\/[^\s]+$/i.test(v.link)) bad.push(['p-link', QIST.t('post.err.link')]);
+    if (!backend) {
+      if ($('p-name').value.trim().length < 2) bad.push(['p-name', QIST.t('pf.err.name')]);
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test($('p-email').value.trim())) bad.push(['p-email', QIST.t('pf.err.email')]);
+    }
+    document.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+    if (bad.length) { bad.forEach(([id]) => $(id).setAttribute('aria-invalid', 'true')); $('p-state').textContent = bad[0][1]; $(bad[0][0]).focus(); return; }
+
+    const btn = $('p-submit'), label = btn.textContent; btn.disabled = true; btn.textContent = QIST.t('common.sending'); $('p-state').textContent = '';
+    let ok = false, msg = '';
+    if (backend) {
+      const r = await fetch(QIST.apiBase + '/api/positions', { method: 'POST', headers: QIST.authHeaders(), body: JSON.stringify(v) });
+      ok = r.ok; msg = ok ? '' : await why(r);
+      if (r.status === 401) msg = QIST.t('post.signin');
+    } else {
+      const res = await QIST.submitForm(QIST.SIGNUP_ENDPOINT, Object.assign({ _subject: 'Position submission: ' + v.title, kind: 'position_submission',
+        fields: v.fields.join('; '), contact_name: $('p-name').value.trim(), contact_email: $('p-email').value.trim(), at: new Date().toISOString() }, v));
+      ok = res.ok; msg = ok ? '' : (res.reason === 'not_configured' ? QIST.t('org.state.noendpoint') : QIST.t('org.state.fail', { email: QIST.CONTACT_EMAIL || 'QIST' }));
+    }
+    btn.disabled = false; btn.textContent = label;
+    if (!ok) { $('p-state').textContent = msg; $('p-state').className = 'state bad'; return; }
+    $('pos-form').hidden = true; $('done').hidden = false;
+    $('done').innerHTML = `<h2>${QIST.t(backend ? 'post.done.h' : 'post.done.h.static')}</h2><p>${QIST.t(backend ? 'post.done.p' : 'post.done.p.static')}</p>
+      <p><a class="btn btn-primary" href="opportunities.html?tab=job">${QIST.t('post.done.see')}</a> <a class="btn btn-outline" href="post-position.html">${QIST.t('post.done.another')}</a></p>`;
+  });
+})();
+</script>
+</body>
+</html>

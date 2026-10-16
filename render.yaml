@@ -1,0 +1,22 @@
+# One-click deploy of the API on Render (https://render.com): New > Blueprint > pick this repository.
+# After it is live, copy its URL into assets/js/app.js (QIST.API_DEFAULT) or run in the browser console:
+#   localStorage.setItem('qist_api_url', 'https://<your-service>.onrender.com')
+services:
+  - type: web
+    name: qist-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    plan: starter            # a paid plan: the free plan has no persistent disk, so accounts would be lost on restart
+    healthCheckPath: /api/health
+    disk:
+      name: qist-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: QIST_ADMIN_PASSWORD
+        sync: false           # you type it in the Render dashboard; it is never stored in the repository
+      - key: QIST_JWT_SECRET
+        generateValue: true
+      - key: QIST_CORS_ORIGINS
+        value: https://zangir.github.io

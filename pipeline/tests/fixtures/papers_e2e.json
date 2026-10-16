@@ -1,0 +1,5 @@
+[
+ {"id":"p-1","kind":"paper","title":"Place cells remap when goals change","authors":["A. Member","B. Colleague","C. Third","D. Fourth","E. Fifth"],"venue":"Neuron","year":2025,"doi":"10.1000/place","url":"https://doi.org/10.1000/place","summary":"We record hippocampal place cells while mice learn new goals.","fields":["Neuroscience"],"posted":"2026-10-01","first_seen":"2026-10-01","added_by":"Ada Member"},
+ {"id":"p-2","kind":"paper","title":"Stable perovskite films by sustained release","authors":["A. Member"],"venue":"Advanced Materials","year":2026,"doi":"10.1000/perov","url":"https://doi.org/10.1000/perov","summary":"A route to stable perovskite solar cells.","fields":["Materials Science"],"posted":"2026-10-02","first_seen":"2026-10-02","added_by":"Ada Member"},
+ {"id":"p-3","kind":"paper","title":"Monetary policy under uncertainty","authors":["E. Economist"],"venue":"Econometrica","year":2020,"doi":"","url":"https://example.org/mp","summary":"","fields":["Economics"],"posted":"2026-09-01","first_seen":"2026-09-01","added_by":"Eve Economist"}
+]
