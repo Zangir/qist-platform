@@ -59,7 +59,8 @@ SHEETS = {
              ["Dias Omarov", "Neuroscience", "hippocampus, memory", "", "Germany", "Charité Berlin", "Postdoc", "", "dias@charite.example"],
              ["No Mail Person", "Economics", "", "", "Turkey", "Koc University", "Professor", "", ""],
              ["Bad Mail Person", "Economics", "", "", "Turkey", "Koc University", "Professor", "", "not-an-email"],
-             ["", "Economics", "", "", "", "", "", "", "ghost@example.org"],
+             ["", "Economics", "", "", "", "", "", "", "ghost.writer@example.org"],
+             ["", "Economics", "", "", "", "", "", "", "info@example.org"],
              ["Already Member", "Economics", "", "", "Kazakhstan", "NU", "Professor", "", "member@example.org"]],
     "event attendees1": [["Name", "Surname", "Country", "City", "Academic Role", "Field", "Research Topic", "Institution", "Hobbies & Interests", "Email"],
                          ["Dias", "Omarov", "Germany", "Berlin", "Postdoctoral researcher", "Neurosciences", "place cells and goal coding in mice", "Charité Berlin", "chess", "dias@charite.example"],
@@ -93,9 +94,10 @@ def test_preview_reports_without_writing():
         r = preview(c, h)
         assert r.status_code == 200, r.text
         j = r.json()
-        assert j["committed"] is False and j["records"] == 3                                    # Aigerim, Dias, Mira
-        assert j["rows"] == 9 and j["merged"] == 2                                             # Dias and Mira appear again on later sheets
-        assert j["no_email"] == ["No Mail Person"] and j["bad_email"] == ["Bad Mail Person"] and j["no_name"] == 1 and j["already_accounts"] == 1
+        assert j["committed"] is False and j["records"] == 4                                    # Aigerim, Dias, Mira and Ghost Writer (name guessed)
+        assert j["name_from_email"] == 1 and j["no_name"] == 1                                 # info@ is a mailbox, not a person
+        assert j["rows"] == 10 and j["merged"] == 2                                             # Dias and Mira appear again on later sheets
+        assert j["no_email"] == ["No Mail Person"] and j["bad_email"] == ["Bad Mail Person"] and j["already_accounts"] == 1
         with Session(main.engine) as s:
             assert s.exec(select(main.User).where(main.User.status == "unclaimed")).all() == []   # a preview creates nothing
 
@@ -131,10 +133,10 @@ def test_commit_returns_links_csv_once_and_tokens_are_not_stored():
     with client() as c:
         h = admin(c)
         j = commit(c, h).json()
-        assert j["created"] == 3
+        assert j["created"] == 4
         toks, rows = links(j["csv"])
-        assert set(toks) == {"aigerim.bekova@nu.edu.kz", "dias@charite.example", "mira@auca.example"}
-        assert all(len(t) >= 40 for t in toks.values()) and len(set(toks.values())) == 3
+        assert set(toks) == {"aigerim.bekova@nu.edu.kz", "dias@charite.example", "mira@auca.example", "ghost.writer@example.org"}
+        assert all(len(t) >= 40 for t in toks.values()) and len(set(toks.values())) == 4
         assert all(r["claim_link"].startswith(SITE + "/claim.html?t=") for r in rows)
         with Session(main.engine) as s:
             raw = " ".join((u.claim_hash or "") for u in s.exec(select(main.User)).all())
@@ -181,6 +183,8 @@ def test_claim_with_consent_to_list_in_one_step():
         c.post(f"/api/claim/{t}", json={"password": PW, "accept_terms": True, "listed": True})
         assert [p for p in c.get("/api/people").json() if p["name"] == "Dias Omarov"]
         assert [m for m in c.get("/api/admin/members", headers=h).json() if m["email"] == "dias@charite.example"][0]["status"] == "active"
+        ghost = [m for m in c.get("/api/admin/members", headers=h).json() if m["email"] == "ghost.writer@example.org"][0]
+        assert ghost["name"] == "Ghost Writer"                                                   # guessed from the address, corrected at claim time
 
 
 def test_wrong_used_and_expired_links_look_identical():
@@ -207,7 +211,7 @@ def test_regenerate_invalidates_old_links():
         assert c.get(f"/api/claim/{old['mira@auca.example']}").status_code == 404
         assert c.get(f"/api/claim/{new['mira@auca.example']}").status_code == 200
         assert c.get(f"/api/claim/{old['dias@charite.example']}").status_code == 200              # others untouched
-        assert c.post("/api/admin/invites/regenerate", headers=h, json={"site_url": SITE}).json()["issued"] == 3
+        assert c.post("/api/admin/invites/regenerate", headers=h, json={"site_url": SITE}).json()["issued"] == 4
         assert c.post("/api/admin/invites/regenerate", json={"site_url": SITE}).status_code == 401
 
 
@@ -231,7 +235,7 @@ def test_delete_old_unclaimed_keeps_the_active():
         c.post(f"/api/claim/{toks['dias@charite.example']}", json={"password": PW, "accept_terms": True})
         assert c.delete("/api/admin/unclaimed?older_than_days=0").status_code == 401
         assert c.delete("/api/admin/unclaimed?older_than_days=30", headers=h).json() == {"deleted": 0}      # too new to delete
-        assert c.delete("/api/admin/unclaimed?older_than_days=0", headers=h).json() == {"deleted": 2}
+        assert c.delete("/api/admin/unclaimed?older_than_days=0", headers=h).json() == {"deleted": 3}
         names = {m["email"] for m in c.get("/api/admin/members", headers=h).json()}
         assert "dias@charite.example" in names and "mira@auca.example" not in names
 

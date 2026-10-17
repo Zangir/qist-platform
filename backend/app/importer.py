@@ -45,6 +45,19 @@ def _first_email(*cells) -> tuple[str, str]:
     return "", ("bad_email" if seen_any else "no_email")
 
 
+GENERIC = {"info", "admin", "office", "contact", "mail", "hello", "team", "support", "secretary", "noreply", "no-reply", "sales", "press"}
+
+
+def _name_from_email(email: str) -> str:
+    """A person with an address but no name in the sheet still gets an invitation; the name is a best guess from the part
+    before the @ ("dias.omarov" -> "Dias Omarov") and they correct it when they claim the profile. Shared mailboxes are not people."""
+    local = email.split("@")[0].lower()
+    if local in GENERIC:
+        return ""
+    parts = [p for p in re.split(r"[._\-+]+", re.sub(r"\d+", "", local)) if len(p) > 1]
+    return " ".join(p.capitalize() for p in parts[:3]) if len(parts) >= 1 and len(" ".join(parts)) >= 3 else ""
+
+
 def _split_keywords(s: str) -> list[str]:
     out = []
     for k in re.split(r"[;,\n|/]+", s):
@@ -92,7 +105,7 @@ def parse_workbook(data: bytes, classify, country_code, suppressed: set[str] = f
     """-> (records, report). `classify(text, body) -> [field]`, `country_code(text) -> ISO or ''` are passed in so this module
     stays free of the rest of the app. `suppressed` and `existing` are sets of lower-case e-mails to leave alone."""
     wb = load_workbook(io.BytesIO(data), read_only=True, data_only=True)
-    report = {"sheets": {}, "rows": 0, "no_email": [], "bad_email": [], "no_name": 0, "merged": 0, "already_accounts": 0, "suppressed": 0}
+    report = {"sheets": {}, "rows": 0, "no_email": [], "bad_email": [], "no_name": 0, "merged": 0, "already_accounts": 0, "suppressed": 0, "name_from_email": 0}
     by_email: dict[str, dict] = {}
     for ws in wb.worksheets:
         n = 0
@@ -100,6 +113,9 @@ def parse_workbook(data: bytes, classify, country_code, suppressed: set[str] = f
             n += 1
             report["rows"] += 1
             email, why = _first_email(*r["email_cells"])
+            guessed = False
+            if (not r["name"] or len(r["name"]) < 2) and email:
+                r["name"], guessed = _name_from_email(email), True
             if not r["name"] or len(r["name"]) < 2:
                 report["no_name"] += 1
                 continue
@@ -112,6 +128,8 @@ def parse_workbook(data: bytes, classify, country_code, suppressed: set[str] = f
             if email in existing:
                 report["already_accounts"] += 1
                 continue
+            if guessed:
+                report["name_from_email"] += 1
             rec = by_email.get(email)
             if rec:
                 report["merged"] += 1

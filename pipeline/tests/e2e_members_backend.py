@@ -16,7 +16,8 @@ import requests
 from playwright.sync_api import sync_playwright
 
 BASE = (sys.argv[1] if len(sys.argv) > 1 else "http://localhost:8099").rstrip("/")
-API = "http://localhost:8100"
+API = sys.argv[2].rstrip("/") if len(sys.argv) > 2 else "http://localhost:8100"
+ADMIN_PW = os.environ.get("E2E_ADMIN_PASSWORD", "admin-e2e-password")
 ROOT = Path(__file__).resolve().parents[2]
 FX = Path(__file__).parent / "fixtures"
 ORCID, CROSSREF = (FX / "orcid_record.json").read_text(), (FX / "crossref_doi.json").read_text()
@@ -46,8 +47,8 @@ def minimal_pdf(text):
     return out + b"trailer\n<< /Size %d /Root 1 0 R >>\nstartxref\n%d\n%%%%EOF" % (len(objs) + 1, x)
 
 
-env = dict(os.environ, QIST_DB_URL="sqlite:///" + os.path.join(tempfile.mkdtemp(), "e2e.db"), QIST_JWT_SECRET="e2e-secret-e2e-secret-e2e-secret-1234", QIST_ADMIN_PASSWORD="admin-e2e-password")
-srv = subprocess.Popen([sys.executable, "-m", "uvicorn", "backend.app.main:main_app", "--port", "8100", "--log-level", "warning"], cwd=ROOT, env=env)
+env = dict(os.environ, QIST_DB_URL="sqlite:///" + os.path.join(tempfile.mkdtemp(), "e2e.db"), QIST_JWT_SECRET="e2e-secret-e2e-secret-e2e-secret-1234", QIST_ADMIN_PASSWORD=ADMIN_PW)
+srv = subprocess.Popen([sys.executable, "-m", "uvicorn", "backend.app.main:main_app", "--port", "8100", "--log-level", "warning"], cwd=ROOT, env=env) if len(sys.argv) <= 2 else None
 try:
     for _ in range(60):
         try:
@@ -57,6 +58,11 @@ try:
             time.sleep(0.2)
     else:
         raise SystemExit("backend did not start")
+
+    _adm = requests.post(API + "/api/auth/login", json={"email": "admin@qist.kz", "password": ADMIN_PW}).json()
+    _others = [m for m in requests.get(API + "/api/admin/members", headers={"Authorization": "Bearer " + _adm["token"]}).json() if m["role"] != "admin"]
+    if _others and not os.environ.get("E2E_ALLOW_NONEMPTY"):
+        raise SystemExit(f"Refusing to run: the server already holds {len(_others)} member account(s); this test expects an empty server.")
 
     def new_ctx(b, session=None, width=1440):
         ctx = b.new_context(viewport={"width": width, "height": 900})
@@ -190,7 +196,7 @@ try:
         print("\nAdmin: the members database")
         ctx4, p4 = new_ctx(b)
         p4.goto(f"{BASE}/login.html"); p4.wait_for_selector("body[data-ready]")
-        p4.fill("#l-email", "admin@qist.kz"); p4.fill("#l-password", "admin-e2e-password"); p4.click("#login-form button"); p4.wait_for_url("**/profile.html", timeout=8000)
+        p4.fill("#l-email", "admin@qist.kz"); p4.fill("#l-password", ADMIN_PW); p4.click("#login-form button"); p4.wait_for_url("**/profile.html", timeout=8000)
         p4.goto(f"{BASE}/admin.html"); p4.wait_for_selector("#tab-people table", state="attached", timeout=60000)
         p4.click('button[data-tab="members"]'); p4.wait_for_selector("#mem-body tr")
         check("the Members tab lists the member with e-mail, ORCID and counts", "ada@example.org" in p4.inner_text("#mem-body") and "0000-0002-1825-0097" in p4.inner_text("#mem-body") and "Nazarbayev" not in "MBZUAI")
@@ -208,7 +214,7 @@ try:
 
         print("\nDelete the account")
         ctx5, p5 = new_ctx(b, session=sess)
-        p5.goto(f"{BASE}/profile.html"); p5.wait_for_selector("#delete")
+        p5.goto(f"{BASE}/profile.html"); p5.wait_for_selector("#pf-name")
         with p5.expect_download() as dl:
             p5.click("#export")
         exported = json.loads(Path(dl.value.path()).read_text())
@@ -219,7 +225,8 @@ try:
         check("no JS errors on any page", not (page.errors + p5.errors), page.errors + p5.errors)
         b.close()
 finally:
-    srv.terminate()
+    if srv:
+        srv.terminate()
 
 print(f"\n{sum(results)}/{len(results)} checks passed")
 sys.exit(0 if all(results) else 1)
