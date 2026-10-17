@@ -228,7 +228,7 @@ def test_admin_members_and_csv_are_admin_only_and_formula_safe():
         r = c.get("/api/admin/export.csv", headers=a)
         assert r.status_code == 200 and r.headers["content-type"].startswith("text/csv")
         body = r.text
-        assert body.splitlines()[0].startswith("name,email,title") and "csv@example.org" in body
+        assert body.splitlines()[0].startswith("name,email,status,title") and "csv@example.org" in body
         assert "'=HYPERLINK" in body and ",=HYPERLINK" not in body               # a typed formula is defused
 
 

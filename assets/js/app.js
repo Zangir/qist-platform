@@ -8,7 +8,7 @@
 const QIST = {
   /* Build stamp. Open the browser console on the live site: if this does not match the
      release you uploaded, the file did not reach the server. */
-  BUILD: '2026-10-16a',
+  BUILD: '2026-10-17a',
 
   /* Positioning, in one place, so it cannot drift between pages.
      MVP phase 1: nine countries of Central Asia, the Caucasus and Mongolia, plus their

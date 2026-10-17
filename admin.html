@@ -6,7 +6,7 @@
 <title>Admin — QIST</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%232447a8'/><text x='50' y='69' font-size='56' font-weight='700' text-anchor='middle' fill='%23ffffff' font-family='Georgia, serif'>Q</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=2026-10-16a">
+<link rel="stylesheet" href="assets/css/style.css?v=2026-10-17a">
 </head>
 <body>
 <header class="site-header" id="site-header"></header>
@@ -32,6 +32,7 @@
     <div class="tab-row" style="margin-bottom:24px">
       <button class="active" data-tab="people">Researchers</button>
       <button data-tab="members">Members database</button>
+      <button data-tab="invites">Invitations</button>
       <button data-tab="moderation">Positions &amp; papers</button>
       <button data-tab="posts">Posts</button>
       <button data-tab="subs">Subscribers</button>
@@ -40,6 +41,7 @@
 
     <div id="tab-people" class="table-wrap"></div>
     <div id="tab-members" class="table-wrap" style="display:none"></div>
+    <div id="tab-invites" class="table-wrap" style="display:none"></div>
     <div id="tab-moderation" class="table-wrap" style="display:none"></div>
     <div id="tab-posts" class="table-wrap" style="display:none"></div>
     <div id="tab-subs" class="table-wrap" style="display:none"></div>
@@ -73,8 +75,8 @@
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<script src="assets/js/i18n.js?v=2026-10-16a"></script>
-<script src="assets/js/app.js?v=2026-10-16a"></script>
+<script src="assets/js/i18n.js?v=2026-10-17a"></script>
+<script src="assets/js/app.js?v=2026-10-17a"></script>
 <script>
 (async () => {
   await QIST.boot('admin.html');
@@ -104,7 +106,7 @@
     b.addEventListener('click', () => {
       document.querySelectorAll('.tab-row button').forEach(x => x.classList.remove('active'));
       b.classList.add('active');
-      ['people', 'members', 'moderation', 'posts', 'subs', 'requests'].forEach(t =>
+      ['people', 'members', 'invites', 'moderation', 'posts', 'subs', 'requests'].forEach(t =>
         $('tab-' + t).style.display = t === b.dataset.tab ? '' : 'none');
     }));
 
@@ -112,29 +114,104 @@
   const authed = path => fetch(QIST.apiBase + path, { headers: QIST.authHeaders() });
   let members = [];
   function drawMembers() {
-    const q = ($('mem-q') ? $('mem-q').value : '').trim().toLowerCase();
-    const rows = members.filter(m => !q || JSON.stringify(m).toLowerCase().includes(q));
+    const q = ($('mem-q') ? $('mem-q').value : '').trim().toLowerCase(), st = $('mem-status') ? $('mem-status').value : '';
+    const rows = members.filter(m => (!q || JSON.stringify(m).toLowerCase().includes(q)) && (!st || m.status === st));
     $('mem-body').innerHTML = rows.map(m => `<tr>
       <td><b>${QIST.esc(m.name)}</b><br><span class="muted small">${QIST.esc(m.email)}</span></td>
+      <td class="small">${m.status === 'unclaimed' ? '<span class="tag">unclaimed</span>' : 'active'}</td>
       <td>${QIST.esc(m.title || '')}<br><span class="muted small">${QIST.esc(m.institution || '')}</span></td>
       <td>${QIST.esc([m.city, m.country].filter(Boolean).join(', '))}</td>
       <td class="small">${m.orcid ? `<a href="https://orcid.org/${QIST.esc(m.orcid)}" target="_blank" rel="noopener">${QIST.esc(m.orcid)}</a>` : ''}</td>
       <td class="small">${QIST.esc((m.fields || []).join('; '))}</td>
       <td>${m.papers}</td><td>${m.positions}</td><td>${m.listed === false ? 'no' : 'yes'}</td>
-      <td class="small">${QIST.esc((m.created || '').slice(0, 10))}</td></tr>`).join('') || '<tr><td colspan="9" class="muted">No members yet.</td></tr>';
+      <td class="small">${QIST.esc((m.created || '').slice(0, 10))}</td></tr>`).join('') || '<tr><td colspan="10" class="muted">No members yet.</td></tr>';
     $('mem-count').textContent = `${rows.length} / ${members.length}`;
   }
   async function renderMembers() {
     members = await (await authed('/api/admin/members')).json();
     $('tab-members').innerHTML = `<div class="toolbar" style="margin:0 0 14px"><input type="text" id="mem-q" placeholder="Search name, e-mail, institution, field…" style="flex:1 1 280px">
-      <span class="muted small" id="mem-count"></span><button class="btn btn-outline btn-sm" id="mem-csv">Export CSV</button></div>
-      <table class="data"><thead><tr><th>Member</th><th>Title / institution</th><th>Location</th><th>ORCID</th><th>Fields</th><th>Papers</th><th>Positions</th><th>Listed</th><th>Joined</th></tr></thead><tbody id="mem-body"></tbody></table>`;
-    $('mem-q').addEventListener('input', drawMembers);
+      <select id="mem-status"><option value="">All</option><option value="active">Active</option><option value="unclaimed">Unclaimed</option></select><span class="muted small" id="mem-count"></span><button class="btn btn-outline btn-sm" id="mem-csv">Export CSV</button></div>
+      <table class="data"><thead><tr><th>Member</th><th>Status</th><th>Title / institution</th><th>Location</th><th>ORCID</th><th>Fields</th><th>Papers</th><th>Positions</th><th>Listed</th><th>Joined</th></tr></thead><tbody id="mem-body"></tbody></table>`;
+    $('mem-q').addEventListener('input', drawMembers); $('mem-status').addEventListener('change', drawMembers);
     $('mem-csv').addEventListener('click', async () => {
       const r = await authed('/api/admin/export.csv');
       const a = document.createElement('a'); a.href = URL.createObjectURL(await r.blob()); a.download = 'qist-members.csv'; a.click(); URL.revokeObjectURL(a.href);
     });
     drawMembers();
+  }
+
+  /* ---------- invitations: accounts made from a member spreadsheet, claimed by their owners ---------- */
+  const download = (name, text) => {
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: 'text/csv;charset=utf-8' })); a.download = name; a.click(); URL.revokeObjectURL(a.href);
+  };
+  const siteUrl = () => ($('inv-site') ? $('inv-site').value.trim() : '') || location.href.replace(/[^/]*$/, '').replace(/\/$/, '');
+  async function renderInvites() {
+    const rows = await (await authed('/api/admin/members')).json();
+    const un = rows.filter(m => m.status === 'unclaimed').length, claimed = rows.filter(m => m.status === 'active' && (m.source || '').startsWith('import')).length;
+    $('tab-invites').innerHTML = `
+      <p class="small muted" style="margin-bottom:6px"><b>${un}</b> invited, not yet claimed · <b>${claimed}</b> claimed from an invitation</p>
+      <p class="small muted" style="max-width:70ch;margin-bottom:18px">Reads a member spreadsheet (.xlsx) and creates an <b>unclaimed</b> account for each person with an e-mail address. Unclaimed accounts are not public and cannot sign in; each person gets a personal link that lets only them review the profile, set a password and decide whether to be listed. The links are shown <b>once</b> in a CSV you send yourself. Keep that file private: a link is a key.</p>
+      <div class="card" style="padding:20px;margin-bottom:18px;max-width:900px">
+        <h3 style="margin-bottom:10px">1. Read the spreadsheet</h3>
+        <div class="form-row"><label>Site address used in the links</label><input type="text" id="inv-site" style="width:100%" value="${QIST.esc(location.href.replace(/[^/]*$/, '').replace(/\/$/, ''))}"></div>
+        <div class="form-row"><input type="file" id="inv-file" accept=".xlsx"> <button class="btn btn-outline btn-sm" id="inv-preview">Preview</button></div>
+        <div id="inv-report" class="small"></div>
+        <div id="inv-commit-box" hidden style="margin-top:14px"><h3 style="margin-bottom:10px">2. Create the accounts</h3>
+          <button class="btn btn-primary" id="inv-commit">Create accounts and download the links</button> <span class="muted small" id="inv-state" role="status"></span></div>
+      </div>
+      <div class="card" style="padding:20px;max-width:900px">
+        <h3 style="margin-bottom:10px">Links and clean-up</h3>
+        <div class="form-row"><label>New links for these e-mails (one per line; empty = every unclaimed account). Old links stop working.</label><textarea id="inv-emails" rows="3" style="width:100%"></textarea></div>
+        <button class="btn btn-outline" id="inv-regen">Issue new links</button>
+        <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+        <label>Delete unclaimed accounts older than <input type="number" id="inv-days" value="90" min="1" style="width:5em"> days</label>
+        <button class="btn btn-outline" id="inv-del" style="margin-top:8px">Delete old unclaimed accounts</button>
+        <span class="muted small" id="inv-state2" role="status"></span>
+      </div>`;
+    const post = async commit => {
+      const f = $('inv-file').files[0]; if (!f) { QIST.toast('Choose an .xlsx file first.'); return null; }
+      const fd = new FormData(); fd.append('file', f); fd.append('site_url', siteUrl()); fd.append('commit', commit ? 'true' : 'false');
+      const r = await fetch(QIST.apiBase + '/api/admin/import', { method: 'POST', headers: { Authorization: QIST.authHeaders().Authorization }, body: fd });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) { QIST.toast(j.detail || 'Could not read the file.'); return null; }
+      return j;
+    };
+    const list = (title, names) => names.length ? `<details style="margin-top:6px"><summary>${title}: ${names.length}</summary><div class="muted">${names.map(QIST.esc).join(', ')}</div></details>` : '';
+    $('inv-preview').addEventListener('click', async () => {
+      const j = await post(false); if (!j) return;
+      $('inv-report').innerHTML = `<table class="data"><tr><td>Rows read</td><td>${j.rows}</td></tr>
+        <tr><td><b>People who will get an account</b></td><td><b>${j.records}</b></td></tr>
+        <tr><td>Same person on several rows (merged)</td><td>${j.merged}</td></tr>
+        <tr><td>Already have an account</td><td>${j.already_accounts}</td></tr>
+        <tr><td>Asked to be removed earlier (skipped)</td><td>${j.suppressed}</td></tr>
+        <tr><td>No name</td><td>${j.no_name}</td></tr></table>
+        ${list('No e-mail address (handle by hand)', j.no_email)}${list('E-mail that is not an address', j.bad_email)}
+        <p style="margin-top:10px">${(j.sample || []).map(r => `${QIST.esc(r.name)} &lt;${QIST.esc(r.email)}&gt; ${QIST.esc(r.institution || '')}`).join('<br>')}</p>`;
+      $('inv-commit-box').hidden = !j.records;
+    });
+    $('inv-commit').addEventListener('click', async () => {
+      if (!confirm('Create the accounts now? They stay hidden until each person claims theirs.')) return;
+      $('inv-commit').disabled = true;
+      const j = await post(true); $('inv-commit').disabled = false; if (!j) return;
+      download(`qist-invitation-links-${new Date().toISOString().slice(0, 10)}.csv`, j.csv);
+      $('inv-state').textContent = `${j.created} accounts created. The links file was downloaded; it cannot be downloaded again.`;
+      renderMembers().catch(() => {});
+    });
+    $('inv-regen').addEventListener('click', async () => {
+      const emails = $('inv-emails').value.split(/[\s,;]+/).filter(Boolean);
+      if (!confirm(emails.length ? `Issue new links for ${emails.length} address(es)?` : 'Issue new links for every unclaimed account? All old links stop working.')) return;
+      const r = await fetch(QIST.apiBase + '/api/admin/invites/regenerate', { method: 'POST', headers: QIST.authHeaders(), body: JSON.stringify({ site_url: siteUrl(), emails: emails.length ? emails : null }) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) return QIST.toast('Could not issue links.');
+      download(`qist-new-links-${new Date().toISOString().slice(0, 10)}.csv`, j.csv); $('inv-state2').textContent = `${j.issued} new links issued.`;
+    });
+    $('inv-del').addEventListener('click', async () => {
+      const d = Number($('inv-days').value) || 90;
+      if (!confirm(`Delete every unclaimed account created more than ${d} days ago?`)) return;
+      const r = await fetch(QIST.apiBase + '/api/admin/unclaimed?older_than_days=' + d, { method: 'DELETE', headers: QIST.authHeaders() });
+      const j = await r.json().catch(() => ({})); const msg = r.ok ? `${j.deleted} deleted.` : 'Could not delete.';
+      await renderInvites(); $('inv-state2').textContent = msg;       // the tab is redrawn (counts changed), then the result is shown
+    });
   }
 
   /* ---------- moderation: anything a member posted can be removed here ---------- */
@@ -282,6 +359,7 @@
   await renderPeople();
   await renderPosts();
   renderRest();
+  renderInvites().catch(() => {});
   renderMembers().catch(e => { $('tab-members').textContent = 'Could not load members: ' + e.message; });
   renderModeration().catch(() => {});
 })();

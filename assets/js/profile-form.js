@@ -20,7 +20,8 @@
         papers: [...(init.papers || [])], orcid: init.orcid || ''
       };
       const creating = opts.mode === 'create';
-      const needsAccount = creating && opts.backend;
+      const claiming = opts.mode === 'claim';          // an invited member reviewing the profile prepared for them
+      const needsAccount = (creating || claiming) && opts.backend;
 
       root.innerHTML = `
       <form class="pform" id="pf" novalidate autocomplete="off">
@@ -117,8 +118,10 @@
           <p class="hint">${T('pf.listed.hint')}</p>
         </section>
 
+        ${opts.terms ? `<section class="pf-sec"><label class="check"><input type="checkbox" id="pf-terms"> <span>${T('pf.terms')} <a href="about.html#data" target="_blank" rel="noopener">${T('pf.terms.link')}</a></span></label></section>` : ''}
+
         <div class="pf-actions">
-          <button type="submit" class="btn btn-primary btn-lg" id="pf-submit">${T(creating ? (opts.backend ? 'pf.submit.create' : 'pf.submit.request') : 'pf.submit.save')}</button>
+          <button type="submit" class="btn btn-primary btn-lg" id="pf-submit">${T(claiming ? 'pf.submit.claim' : creating ? (opts.backend ? 'pf.submit.create' : 'pf.submit.request') : 'pf.submit.save')}</button>
           <button type="button" class="btn btn-quiet" id="pf-clear">${T('common.clear')}</button>
           <span class="state" id="pf-state" role="status" aria-live="polite"></span>
         </div>
@@ -354,7 +357,7 @@
           title: $('pf-title').value.trim(), institution: $('pf-inst').value.trim(), country: $('pf-country').value, city: $('pf-city').value.trim(),
           bio: $('pf-bio').value.trim(), orcid: QIST.kit.normOrcid($('pf-orcid').value) || '', fields: S.fields, keywords: S.keywords,
           website: QIST.kit.safeUrl($('pf-web').value), scholar: QIST.kit.safeUrl($('pf-scholar').value), linkedin: QIST.kit.safeUrl($('pf-linkedin').value),
-          photo: S.photo, listed: $('pf-listed').checked, papers: S.papers
+          photo: S.photo, listed: $('pf-listed').checked, papers: S.papers, acceptTerms: opts.terms ? $('pf-terms').checked : undefined
         };
       }
       function problems(v) {
@@ -363,6 +366,7 @@
         if (creating && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.email)) out.push(['pf-email', T('pf.err.email')]);
         if (needsAccount && (v.password || '').length < 8) out.push(['pf-password', T('pf.err.password')]);
         if ($('pf-orcid').value.trim() && !v.orcid) out.push(['pf-orcid', T('pf.orcid.bad')]);
+        if (opts.terms && !v.acceptTerms) out.push(['pf-terms', T('pf.terms.err')]);
         [['pf-web', 'website'], ['pf-scholar', 'scholar'], ['pf-linkedin', 'linkedin']].forEach(([id, k]) => {
           if ($(id).value.trim() && !v[k]) out.push([id, T('pf.err.url')]);
         });

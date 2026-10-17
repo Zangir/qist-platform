@@ -1,6 +1,15 @@
 # STATUS
 
-Updated: 2026-10-12 · Iterations 1–10
+Updated: 2026-10-12 · Iterations 1–11
+
+## Iteration 11 — invited members, claim flow, Hugging Face backend, 2026-10-17
+
+Decisions D-71…D-74.
+
+- **Claimable accounts.** The admin imports the member spreadsheet (Invitations tab): preview, then create hidden unclaimed accounts and download personal links once. Each person opens their link, reviews the prepared profile, sets a password, accepts the terms and chooses whether to be listed (not pre-ticked). Decline deletes the record and remembers the address (hashed).
+- **The 468 imported researchers are no longer public** (kept locally in `data/private/`). The public directory, map and home counts therefore show the 29 curated members until people claim their profiles.
+- **Backend for Hugging Face:** `deploy/huggingface/` (Dockerfile, build script, guide). The app refuses to start without persistent storage.
+- **Tests:** 34 backend tests, 41 browser checks for the claim flow (also run against the assembled Space folder in a clean environment).
 
 ## Iteration 10 — one Opportunities page, member profiles, positions, new home, 2026-10-16
 

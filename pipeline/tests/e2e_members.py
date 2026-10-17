@@ -102,7 +102,7 @@ def join_tests(browser):
     check("form renders with ORCID, CV, photo, fields, keywords, links, papers", all(page.locator(s).count() for s in ("#pf-orcid", "#pf-cv-toggle", "#pf-photo-file", "#pf-fields button", "#pf-kw", "#pf-web", "#pf-doi", "#pf-listed")))
     check("no password field without accounts", page.locator("#pf-password").count() == 0)
     check("lede says a curator creates the profile by hand", "curator" in page.inner_text("#lede").lower() or "info@qista.org" in page.inner_text("#lede"))
-    check("the researcher count on the page is real", page.inner_text("#top-num").isdigit() and int(page.inner_text("#top-num")) > 100)
+    check("the researcher count on the page is real", page.inner_text("#top-num").isdigit() and int(page.inner_text("#top-num")) >= 20)
 
     # ORCID: bad, then good, then it must not overwrite what the person typed
     page.fill("#pf-orcid", "0000-0002-1825-0098"); page.click("#pf-orcid-go")

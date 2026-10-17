@@ -4,3 +4,6 @@ __pycache__/
 backend/qist.db
 .DS_Store
 .pytest_cache/
+
+# people imported from the R&D Expert List: hidden from the public site until each person claims their profile
+data/private/

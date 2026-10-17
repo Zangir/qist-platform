@@ -6,3 +6,4 @@ PyJWT>=2.8
 pydantic[email]>=2.6
 python-multipart>=0.0.9
 pypdf>=4.0
+openpyxl>=3.1

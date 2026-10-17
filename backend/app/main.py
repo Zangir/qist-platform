@@ -7,18 +7,20 @@ switched from GitHub-Pages static mode to live mode by setting
 Run:  uvicorn app.main:main_app --reload   (from backend/)
 """
 import csv
+import hashlib
 import io
 import json
 import os
 import re
 import secrets
+import sys
 import zipfile
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 
 import jwt
-from fastapi import Depends, FastAPI, File, HTTPException, Query, Request, Response, UploadFile
+from fastapi import Depends, FastAPI, File, Form, HTTPException, Query, Request, Response, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from passlib.hash import pbkdf2_sha256
@@ -33,6 +35,26 @@ DATA_DIR = Path(__file__).resolve().parents[2] / "data"   # reuse the site's JSO
 DB_URL = os.getenv("QIST_DB_URL", "sqlite:///qist.db")
 JWT_SECRET = os.getenv("QIST_JWT_SECRET", secrets.token_hex(32))
 JWT_TTL_HOURS = 24 * 7
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))                       # the importer reuses the site's research-field vocabulary and country names
+try:
+    from pipeline import geo as _geo, taxonomy as _taxonomy
+except Exception:                                   # a deployment without the pipeline folder still runs; imports then lack fields
+    _geo = _taxonomy = None
+from . import importer                              # noqa: E402
+
+CLAIM_DAYS = int(os.getenv("QIST_CLAIM_DAYS", "60"))
+TRUST_PROXY = os.getenv("QIST_TRUST_PROXY") == "1"  # behind Hugging Face / Render the client address is in X-Forwarded-For
+
+
+def client_ip(request: Request) -> str:
+    if TRUST_PROXY:
+        fwd = request.headers.get("x-forwarded-for", "")
+        if fwd:
+            return fwd.split(",")[0].strip()
+    return request.client.host if request.client else "?"
+
 
 def _load_json(name, default):
     try:
@@ -84,6 +106,19 @@ class User(SQLModel, table=True):
     title: str = ""
     institution: str = ""
     topics: str = ""
+    created: str = ""
+    # accounts created from a member list start "unclaimed": no password, not listed, reachable only by a personal link
+    status: str = "active"          # active | unclaimed
+    claim_hash: str = ""            # sha256 of the invitation token; the token itself is shown once and never stored
+    claim_expires: str = ""
+    invited: str = ""
+    source: str = ""                # where the record came from, e.g. "import 2026-10-17"
+
+
+class Suppression(SQLModel, table=True):
+    """People who asked not to be contacted or to be removed. Stored as a hash so the list itself is not a mailing list;
+    an import skips these addresses."""
+    email_hash: str = SQLField(primary_key=True)
     created: str = ""
 
 
@@ -363,10 +398,26 @@ def _now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
+def check_deployment() -> None:
+    """Refuse to start in a way that would silently lose accounts: a database on a disk that is wiped on restart,
+    or a signing key that changes on every start (every member would be signed out)."""
+    if not os.getenv("QIST_JWT_SECRET"):
+        print("[qist] WARNING: QIST_JWT_SECRET is not set; members will be signed out on every restart.", flush=True)
+    url = os.getenv("QIST_DB_URL", "")
+    m = re.match(r"^sqlite:////(.+)$", url)
+    if m and not os.getenv("QIST_ALLOW_EPHEMERAL"):
+        folder = Path("/" + m.group(1)).parent
+        if not (folder.is_dir() and os.access(folder, os.W_OK)):
+            raise SystemExit(f"[qist] The database folder {folder} does not exist or is not writable. On Hugging Face, enable Persistent "
+                             f"Storage for the Space (it is mounted at /data). Set QIST_ALLOW_EPHEMERAL=1 only for a throwaway test.")
+
+
 def ensure_columns() -> None:
     """create_all adds new tables but never new columns. A database created before photo/orcid/created existed
     would fail on every query, so add what is missing."""
-    want = {"person": {"photo": "TEXT DEFAULT ''", "orcid": "TEXT DEFAULT ''"}, "user": {"created": "TEXT DEFAULT ''"}}
+    want = {"person": {"photo": "TEXT DEFAULT ''", "orcid": "TEXT DEFAULT ''"},
+            "user": {"created": "TEXT DEFAULT ''", "status": "TEXT DEFAULT 'active'", "claim_hash": "TEXT DEFAULT ''",
+                     "claim_expires": "TEXT DEFAULT ''", "invited": "TEXT DEFAULT ''", "source": "TEXT DEFAULT ''"}}
     with engine.begin() as c:
         for table, cols in want.items():
             have = {r[1] for r in c.execute(text(f'PRAGMA table_info("{table}")')).fetchall()} if engine.url.get_backend_name() == "sqlite" else set(cols)
@@ -422,6 +473,7 @@ main_app.add_middleware(
 
 @main_app.on_event("startup")
 def on_startup() -> None:
+    check_deployment()
     SQLModel.metadata.create_all(engine)
     ensure_columns()
     seed()
@@ -548,7 +600,7 @@ def delete_me(user: dict = Depends(current_user)):
 def login(body: LoginIn):
     with Session(engine) as s:
         u = s.exec(select(User).where(User.email == body.email.lower())).first()
-        if not u or not pbkdf2_sha256.verify(body.password, u.password_hash):
+        if not u or u.status != "active" or not u.password_hash or not pbkdf2_sha256.verify(body.password, u.password_hash):
             raise HTTPException(401, "Invalid email or password.")
         return {"email": u.email, "name": u.name, "role": u.role, "token": make_token(u)}
 
@@ -952,7 +1004,7 @@ def _docx_text(raw: bytes) -> str:
 async def cv_extract(request: Request, file: UploadFile = File(...)):
     """Turns an uploaded CV (PDF, DOCX or text) into plain text and forgets the file. Nothing is stored."""
     import time
-    ip = request.client.host if request.client else "?"
+    ip = client_ip(request)
     now = time.time()
     hits = [t for t in _cv_hits.get(ip, []) if now - t < 3600]
     if len(hits) >= 15:
@@ -1001,7 +1053,8 @@ def admin_members(_: dict = Depends(admin_user)):
                     "orcid": d.get("orcid", ""), "fields": d.get("fields", []), "keywords": d.get("keywords", []),
                     "website": d.get("website", ""), "scholar": d.get("scholar", ""), "linkedin": d.get("linkedin", ""),
                     "has_photo": bool(d.get("photo")), "listed": profiles[u.email].listed if u.email in profiles else None,
-                    "positions": pos.count(u.email), "papers": pap.count(u.email), "created": u.created})
+                    "positions": pos.count(u.email), "papers": pap.count(u.email), "created": u.created,
+                    "status": u.status, "invited": u.invited, "source": u.source})
     return sorted(out, key=lambda m: m["created"] or "", reverse=True)
 
 
@@ -1009,8 +1062,8 @@ def admin_members(_: dict = Depends(admin_user)):
 def admin_export(user: dict = Depends(admin_user)):
     rows = admin_members(user)
     buf = io.StringIO()
-    cols = ["name", "email", "title", "institution", "country", "city", "orcid", "fields", "keywords", "website", "scholar",
-            "linkedin", "listed", "positions", "papers", "created"]
+    cols = ["name", "email", "status", "title", "institution", "country", "city", "orcid", "fields", "keywords", "website", "scholar",
+            "linkedin", "listed", "positions", "papers", "created", "invited"]
     w = csv.writer(buf)
     w.writerow(cols)
     for r in rows:
@@ -1023,6 +1076,195 @@ def _csv_safe(v) -> str:
     """A cell that starts with = + - @ is executed as a formula by Excel; members type these cells themselves."""
     v = "" if v is None else str(v)
     return "'" + v if v[:1] in ("=", "+", "-", "@", "\t", "\r") else v
+
+
+# ---- invitations: accounts made from a member list, claimed by their owner through a personal link ----
+def _sha(v: str) -> str:
+    return hashlib.sha256(v.encode("utf8")).hexdigest()
+
+
+def _site_url(v: str) -> str:
+    v = (v or "").strip()
+    if not re.match(r"^https?://[^\s]+$", v):
+        raise HTTPException(422, "site_url must be the address of the site, starting with http(s)://")
+    return re.sub(r"/[^/]*\.html?$", "", v).rstrip("/")
+
+
+def _issue_claim(u: "User") -> str:
+    token = secrets.token_urlsafe(32)
+    u.claim_hash = _sha(token)
+    u.claim_expires = (datetime.now(timezone.utc) + timedelta(days=CLAIM_DAYS)).isoformat(timespec="seconds")
+    u.invited = _now()
+    return token
+
+
+def _links_csv(rows: list[tuple["User", str]], site: str) -> str:
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    w.writerow(["name", "email", "claim_link", "expires"])
+    for u, token in rows:
+        w.writerow([_csv_safe(u.name), _csv_safe(u.email), f"{site}/claim.html?t={token}", u.claim_expires[:10]])
+    return buf.getvalue()
+
+
+def _classify(field_text: str, body: str) -> list[str]:
+    direct = [f for f in FIELDS if f != "Other Research Area" and f.lower() in (field_text or "").lower()]
+    if direct:
+        return direct[:6]
+    return _taxonomy.classify_fields(field_text, body) if _taxonomy else []
+
+
+def _country_code(text: str) -> str:
+    found = _geo.find_countries(text) if _geo else []
+    return found[0] if found else ""
+
+
+def _parse_upload(s: Session, raw: bytes):
+    suppressed = {r.email_hash for r in s.exec(select(Suppression)).all()}
+    existing = {u.email for u in s.exec(select(User)).all()}
+    # suppression is stored hashed, so the importer is given the hashes of the addresses it meets via a wrapper set
+    class _Hashed(set):
+        def __contains__(self, e):                       # noqa: D401
+            return _sha(e) in suppressed
+    return importer.parse_workbook(raw, _classify, _country_code, suppressed=_Hashed(), existing=existing)
+
+
+@main_app.post("/api/admin/import")
+async def admin_import(file: UploadFile = File(...), site_url: str = Form(...), commit: bool = Form(False), user: dict = Depends(admin_user)):
+    """Preview (commit=false) or create (commit=true) unclaimed accounts from a spreadsheet. Commit returns the personal links
+    as CSV, once: the tokens are stored hashed and cannot be shown again (use regenerate to issue new ones)."""
+    site = _site_url(site_url)
+    raw = await file.read(10 * 1024 * 1024 + 1)
+    if len(raw) > 10 * 1024 * 1024:
+        raise HTTPException(413, "The file is larger than 10 MB.")
+    try:
+        with Session(engine) as s:
+            records, report = _parse_upload(s, raw)
+    except Exception:
+        raise HTTPException(422, "The file could not be read as an .xlsx workbook.")
+    report["sample"] = [{k: r[k] for k in ("name", "email", "institution", "country", "fields")} for r in records[:5]]
+    report["no_email"], report["bad_email"] = report["no_email"][:300], report["bad_email"][:300]
+    if not commit:
+        return {"committed": False, **report}
+    rows, now = [], _now()
+    with Session(engine) as s:
+        for r in records:
+            if s.exec(select(User).where(User.email == r["email"])).first():
+                continue
+            u = User(email=r["email"], name=r["name"], password_hash="", role="member", title=r["title"], institution=r["institution"],
+                     created=now, status="unclaimed", source=f"import {now[:10]}")
+            s.add(u)
+            s.flush()
+            data = {"fields": r["fields"], "keywords": r["keywords"], "country": r["country"], "city": r["city"], "linkedin": r["linkedin"]}
+            s.add(Profile(email=u.email, listed=False, data=json.dumps(data, ensure_ascii=False), updated=now))
+            rows.append((u, _issue_claim(u)))
+        s.commit()
+        csv_text = _links_csv(rows, site)
+    return {"committed": True, "created": len(rows), "csv": csv_text, **{k: v for k, v in report.items() if k != "records"}}
+
+
+class RegenerateIn(BaseModel):
+    site_url: str
+    emails: Optional[list[EmailStr]] = None      # None = every unclaimed account that has not been removed
+
+
+@main_app.post("/api/admin/invites/regenerate")
+def admin_regenerate(body: RegenerateIn, _: dict = Depends(admin_user)):
+    """New personal links for unclaimed accounts. The old links stop working."""
+    site = _site_url(body.site_url)
+    wanted = {e.lower() for e in body.emails} if body.emails is not None else None
+    rows = []
+    with Session(engine) as s:
+        for u in s.exec(select(User).where(User.status == "unclaimed")).all():
+            if wanted is not None and u.email not in wanted:
+                continue
+            rows.append((u, _issue_claim(u)))
+            s.add(u)
+        s.commit()
+        csv_text = _links_csv(rows, site)
+    return {"issued": len(rows), "csv": csv_text}
+
+
+@main_app.delete("/api/admin/unclaimed")
+def admin_delete_unclaimed(older_than_days: int = Query(..., ge=0), _: dict = Depends(admin_user)):
+    """Delete unclaimed accounts created at least this many days ago (data minimisation for people who never came)."""
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=older_than_days)).isoformat(timespec="seconds")
+    n = 0
+    with Session(engine) as s:
+        for u in s.exec(select(User).where(User.status == "unclaimed")).all():
+            if (u.created or "") <= cutoff:
+                if (pr := s.get(Profile, u.email)):
+                    s.delete(pr)
+                s.delete(u); n += 1
+        s.commit()
+    return {"deleted": n}
+
+
+_claim_hits: dict[str, list[float]] = {}
+
+
+def _claim_user(s: Session, token: str, request: Request) -> "User":
+    import time
+    ip, now = client_ip(request), time.time()
+    hits = [t for t in _claim_hits.get(ip, []) if now - t < 3600]
+    if len(hits) >= 60:
+        raise HTTPException(429, "Too many attempts from this address; try again later.")
+    _claim_hits[ip] = hits + [now]
+    gone = HTTPException(404, "This invitation link is not valid any more.")       # one answer for wrong, used and expired
+    if not token or len(token) > 100:
+        raise gone
+    u = s.exec(select(User).where(User.claim_hash == _sha(token))).first()
+    if not u or u.status != "unclaimed" or not u.claim_hash:
+        raise gone
+    if u.claim_expires and u.claim_expires < _now():
+        raise gone
+    return u
+
+
+@main_app.get("/api/claim/{token}")
+def claim_get(token: str, request: Request):
+    """What we prepared for this person, shown so they can check it. Needs the personal link; nothing is searchable."""
+    with Session(engine) as s:
+        u = _claim_user(s, token, request)
+        d = _profile_data(s.get(Profile, u.email))
+        return {"name": u.name, "email": u.email, "title": u.title, "institution": u.institution, "country": d.get("country", ""),
+                "city": d.get("city", ""), "fields": d.get("fields", []), "keywords": d.get("keywords", []), "linkedin": d.get("linkedin", ""),
+                "expires": (u.claim_expires or "")[:10]}
+
+
+class ClaimIn(ProfileFields):
+    name: Optional[str] = Field(None, min_length=2, max_length=120)
+    password: str = Field(min_length=8, max_length=200)
+    accept_terms: bool = False
+
+
+@main_app.post("/api/claim/{token}")
+def claim_accept(token: str, body: ClaimIn, request: Request):
+    """The owner accepts the prepared profile (after editing it if they like), chooses a password and consents (or not) to being listed."""
+    if not body.accept_terms:
+        raise HTTPException(422, "Please confirm that you accept the terms to continue.")
+    with Session(engine) as s:
+        u = _claim_user(s, token, request)
+        u.password_hash = pbkdf2_sha256.hash(body.password)
+        u.status, u.claim_hash, u.claim_expires = "active", "", ""
+        if body.listed is None:
+            body.listed = False                       # listing is opt-in
+        apply_profile(s, u, body, name=body.name)
+        s.commit()
+        s.refresh(u)
+        return {"email": u.email, "name": u.name, "role": u.role, "token": make_token(u)}
+
+
+@main_app.post("/api/claim/{token}/decline", status_code=204)
+def claim_decline(token: str, request: Request):
+    """"This is not me / remove my record": deletes everything and remembers (as a hash) not to import the address again."""
+    with Session(engine) as s:
+        u = _claim_user(s, token, request)
+        s.merge(Suppression(email_hash=_sha(u.email), created=_now()))
+        if (pr := s.get(Profile, u.email)):
+            s.delete(pr)
+        s.delete(u)
+        s.commit()
 
 
 # ---- matching / collaboration ----

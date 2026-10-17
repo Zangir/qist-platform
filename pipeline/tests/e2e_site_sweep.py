@@ -13,7 +13,7 @@ from playwright.sync_api import sync_playwright
 BASE = sys.argv[1].rstrip("/")
 OUT = Path(sys.argv[2]) if len(sys.argv) > 2 else None
 PAGES = ["index", "opportunities", "directory", "map", "organizations", "about", "channels", "newsletter", "matching", "join", "login",
-         "post-position", "curate", "feed"]
+         "post-position", "claim", "curate", "feed"]
 RAW = re.compile(r"\b(?:nav|opp2?|feed|pf|post|prof|join|hero|stat|home|common|match|elig|login|org|dir|board|foot|top|globe|region|about|cur|news|chan|m)\.[a-z0-9_]+(?:\.[a-z0-9_]+)*\b")
 results, links_seen = [], set()
 

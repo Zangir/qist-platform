@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title data-i18n-title="claim.title">Your QIST profile · ScienceBridge AI</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='26' fill='%232447a8'/><text x='50' y='69' font-size='56' font-weight='700' text-anchor='middle' fill='%23ffffff' font-family='Georgia, serif'>Q</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=2026-10-17a">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+
+<div class="container">
+  <div class="page-top">
+    <div><span class="photo-num" style="background-image:url('assets/img/tiles-samarkand.jpg');background-position:center 40%;font-size:clamp(5rem,12vw,10rem)" aria-hidden="true">Hi</span></div>
+    <div>
+      <h1 id="h1" data-i18n="claim.title">Your QIST profile</h1>
+      <p class="lede" id="lede"></p>
+      <p class="aside" id="expires"></p>
+    </div>
+  </div>
+  <div class="join-wrap">
+    <div id="state" class="card pad-lg" hidden></div>
+    <div id="form-root" hidden></div>
+    <div class="pf-sec" id="decline-box" hidden>
+      <p class="hint" data-i18n="claim.decline.p"></p>
+      <button type="button" class="btn btn-quiet" id="decline" data-i18n="claim.decline">This is not me, or I do not want a profile: delete this record</button>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<script src="assets/js/i18n.js?v=2026-10-17a"></script>
+<script src="assets/js/app.js?v=2026-10-17a"></script>
+<script src="assets/js/feed.js?v=2026-10-17a"></script>
+<script src="assets/js/kit.js?v=2026-10-17a"></script>
+<script src="assets/js/profile-form.js?v=2026-10-17a"></script>
+<script>
+(async () => {
+  await QIST.boot('claim.html');
+  const $ = id => document.getElementById(id);
+  const token = new URLSearchParams(location.search).get('t') || '';
+  // the personal link is a credential: take it out of the address bar and the history as soon as it has been read
+  try { history.replaceState(null, '', location.pathname + (QIST.lang !== 'en' ? '?lang=' + QIST.lang : '')); } catch (_) {}
+  const say = (h, p, extra = '') => { $('state').hidden = false; $('state').innerHTML = `<h2>${h}</h2><p>${p}</p>${extra}`; };
+  const invalid = () => { $('h1').textContent = QIST.t('claim.invalid.h'); say(QIST.t('claim.invalid.h'), QIST.t('claim.invalid.p', { email: QIST.esc(QIST.CONTACT_EMAIL || 'QIST') }), `<p><a class="btn btn-primary" href="join.html">${QIST.t('nav.create')}</a></p>`); };
+
+  if (!QIST.authAvailable()) {
+    $('h1').textContent = QIST.t('claim.offline.h');
+    say(QIST.t('claim.offline.h'), QIST.t('claim.offline.p'));
+    return;
+  }
+  if (!token) return invalid();
+
+  let pre;
+  try {
+    const r = await fetch(QIST.apiBase + '/api/claim/' + encodeURIComponent(token));
+    if (!r.ok) return invalid();
+    pre = await r.json();
+  } catch (_) { return say(QIST.t('claim.net.h'), QIST.t('claim.net.p')); }
+
+  const [elig, taxonomy] = await Promise.all([QIST.getEligibility(), QIST.feed.loadTaxonomy()]);
+  $('h1').textContent = QIST.t('claim.h', { name: pre.name.split(' ')[0] });
+  $('lede').textContent = QIST.t('claim.lede');
+  $('expires').textContent = pre.expires ? QIST.t('claim.expires', { date: pre.expires }) : '';
+  $('form-root').hidden = false; $('decline-box').hidden = false;
+
+  const why = async r => {
+    const j = await r.json().catch(() => ({}));
+    if (Array.isArray(j.detail) && j.detail.length) return `${(j.detail[0].loc || []).slice(-1)[0]}: ${String(j.detail[0].msg || '').replace(/^Value error, /, '')}`;
+    return j.detail || QIST.t('join.err.generic');
+  };
+
+  QIST.profileForm.mount($('form-root'), {
+    mode: 'claim', backend: true, elig, taxonomy, terms: true,
+    initial: { name: pre.name, email: pre.email, title: pre.title, institution: pre.institution, country: pre.country, city: pre.city,
+               fields: pre.fields, keywords: pre.keywords, linkedin: pre.linkedin, listed: false },
+    async onSubmit(v) {
+      const body = { name: v.name, password: v.password, accept_terms: true, title: v.title, institution: v.institution, country: v.country, city: v.city,
+        bio: v.bio, orcid: v.orcid, fields: v.fields, keywords: v.keywords, website: v.website, scholar: v.scholar, linkedin: v.linkedin, photo: v.photo, listed: v.listed };
+      const r = await fetch(QIST.apiBase + '/api/claim/' + encodeURIComponent(token), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+      if (r.status === 404) { $('form-root').hidden = true; $('decline-box').hidden = true; invalid(); return { ok: false, message: '' }; }
+      if (!r.ok) return { ok: false, message: await why(r) };
+      localStorage.setItem('qist_session', JSON.stringify(await r.json()));
+      if (v.papers.length) {
+        await fetch(QIST.apiBase + '/api/papers/bulk', { method: 'POST', headers: QIST.authHeaders(),
+          body: JSON.stringify(v.papers.slice(0, 100).map(p => ({ title: p.title, authors: p.authors || [], venue: p.venue || '', year: p.year || null, doi: p.doi || '', url: p.doi ? '' : (p.url || ''), abstract: p.abstract || '', fields: [] }))) }).catch(() => {});
+      }
+      QIST.feed.saveProfile(Object.assign(QIST.feed.loadProfile(), { country: v.country || 'KZ', fields: v.fields, keywords: v.keywords.slice(0, 12) }));
+      location.href = 'profile.html?welcome=1';
+      return { ok: true };
+    }
+  });
+
+  $('decline').addEventListener('click', async () => {
+    if (!confirm(QIST.t('claim.decline.confirm'))) return;
+    const r = await fetch(QIST.apiBase + '/api/claim/' + encodeURIComponent(token) + '/decline', { method: 'POST' });
+    $('form-root').hidden = true; $('decline-box').hidden = true; $('expires').textContent = '';
+    if (r.ok) { $('h1').textContent = QIST.t('claim.declined.h'); say(QIST.t('claim.declined.h'), QIST.t('claim.declined.p')); }
+    else invalid();
+  });
+})();
+</script>
+</body>
+</html>
