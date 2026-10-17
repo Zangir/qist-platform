@@ -264,3 +264,11 @@ def test_proxy_address_is_used_only_when_trusted(monkeypatch):
         client = type("C", (), {"host": "10.0.0.1"})()
     monkeypatch.setattr(main, "TRUST_PROXY", False); assert main.client_ip(R) == "10.0.0.1"
     monkeypatch.setattr(main, "TRUST_PROXY", True); assert main.client_ip(R) == "9.9.9.9"
+
+
+def test_ephemeral_override_falls_back_to_tmp(monkeypatch):
+    monkeypatch.setenv("QIST_DB_URL", "sqlite:////definitely/not/a/folder/qist.db")
+    monkeypatch.setenv("QIST_ALLOW_EPHEMERAL", "1")
+    assert main._db_url() == "sqlite:////tmp/qist-ephemeral.db"
+    monkeypatch.delenv("QIST_ALLOW_EPHEMERAL")
+    assert main._db_url() == "sqlite:////definitely/not/a/folder/qist.db"        # without the override it is left alone (and start-up refuses)

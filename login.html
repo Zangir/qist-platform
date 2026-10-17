@@ -15,7 +15,7 @@
   <div class="card auth-card">
     <h1 style="font-size:1.6rem;margin-bottom:14px" data-i18n="login.signin.h">Sign in</h1>
     <div id="auth-alert"></div>
-    <form id="login-form">
+    <form id="login-form" onsubmit="return false">
       <div class="form-row"><label for="l-email" data-i18n="common.email">Email</label>
         <input type="email" id="l-email" required style="width:100%" placeholder="you@university.edu"></div>
       <div class="form-row"><label for="l-password" data-i18n="pf.password">Password</label>
@@ -38,6 +38,7 @@
   const next = new URLSearchParams(location.search).get('next') || 'profile.html';
   // No server yet: there is nothing to sign in to, and the profile form explains what happens instead.
   if (!QIST.authAvailable()) { location.replace('join.html' + location.search); return; }
+  document.body.dataset.ready = '1';
   $('login-form').addEventListener('submit', async e => {
     e.preventDefault();
     try {

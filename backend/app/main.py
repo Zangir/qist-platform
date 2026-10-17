@@ -32,7 +32,17 @@ from sqlmodel import Session, SQLModel, create_engine, select, text
 # Config
 # --------------------------------------------------------------------------
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"   # reuse the site's JSON seeds
-DB_URL = os.getenv("QIST_DB_URL", "sqlite:///qist.db")
+def _db_url() -> str:
+    url = os.getenv("QIST_DB_URL", "sqlite:///qist.db")
+    m = re.match(r"^sqlite:////(.+)$", url)
+    if m and os.getenv("QIST_ALLOW_EPHEMERAL"):          # a throwaway run on a host without the persistent disk: use /tmp
+        folder = Path("/" + m.group(1)).parent
+        if not (folder.is_dir() and os.access(folder, os.W_OK)):
+            return "sqlite:////tmp/qist-ephemeral.db"
+    return url
+
+
+DB_URL = _db_url()
 JWT_SECRET = os.getenv("QIST_JWT_SECRET", secrets.token_hex(32))
 JWT_TTL_HOURS = 24 * 7
 

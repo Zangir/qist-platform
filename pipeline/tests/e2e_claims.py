@@ -55,6 +55,10 @@ try:
         raise SystemExit("backend did not start")
 
     admin_session = requests.post(API + "/api/auth/login", json={"email": "admin@qist.kz", "password": ADMIN_PW}).json()
+    existing = [m for m in requests.get(API + "/api/admin/members", headers={"Authorization": "Bearer " + admin_session["token"]}).json() if m["role"] != "admin"]
+    if existing and not os.environ.get("E2E_ALLOW_NONEMPTY"):
+        raise SystemExit(f"Refusing to run: the server already holds {len(existing)} member account(s). This test creates and deletes accounts "
+                         "and expects an empty server (a fresh or throwaway one). Set E2E_ALLOW_NONEMPTY=1 only if you are sure.")
 
     def new_ctx(b, session=None, width=1440):
         ctx = b.new_context(viewport={"width": width, "height": 900}, accept_downloads=True)
@@ -70,7 +74,7 @@ try:
 
         print("\nAdmin: import a spreadsheet")
         ctx, page = new_ctx(b, admin_session)
-        page.goto(f"{BASE}/admin.html"); page.wait_for_selector('button[data-tab="invites"]'); page.click('button[data-tab="invites"]')
+        page.goto(f"{BASE}/admin.html"); page.wait_for_selector("#tab-people table", state="attached", timeout=60000); page.click('button[data-tab="invites"]')
         page.wait_for_selector("#inv-file")
         check("the Invitations tab explains that links are shown once and unclaimed accounts are hidden", "once" in page.inner_text("#tab-invites") and "not public" in page.inner_text("#tab-invites"))
         page.click("#inv-preview")
@@ -132,13 +136,13 @@ try:
         check("a wrong link gets the same message and an offer to create a profile", "not valid any more" in page.inner_text("#state") and page.locator("#state a[href='join.html']").count() == 1)
         page.goto(f"{BASE}/claim.html"); page.wait_for_selector("#state:not([hidden])", timeout=10000)
         check("no link at all: the same message, no error", "not valid any more" in page.inner_text("#state") and not page.errors)
-        page.goto(f"{BASE}/login.html"); page.wait_for_selector("#l-email")
+        page.goto(f"{BASE}/login.html"); page.wait_for_selector("body[data-ready]")
         page.fill("#l-email", "aigerim.e2e@example.org"); page.fill("#l-password", "correct-horse-battery"); page.click("#login-form button")
         page.wait_for_url("**/profile.html", timeout=8000)
         check("they sign in later with e-mail and password", page.url.endswith("/profile.html") and "Aigerim" in page.inner_text("#me-sub") if page.wait_for_selector("#me-sub") else False)
         ctx.close()
         ctx, page = new_ctx(b)
-        page.goto(f"{BASE}/login.html"); page.wait_for_selector("#l-email")
+        page.goto(f"{BASE}/login.html"); page.wait_for_selector("body[data-ready]")
         page.fill("#l-email", "dias.e2e@example.org"); page.fill("#l-password", "anything-at-all"); page.click("#login-form button"); page.wait_for_selector(".alert-error")
         check("an unclaimed person cannot sign in or guess their way in", "login" in page.url)
         page.goto(f"{BASE}/join.html"); page.wait_for_selector("#pf-password")
@@ -147,7 +151,7 @@ try:
         check("nobody can take an invited address by signing up with it", "already exists" in page.inner_text("#pf-state").lower(), page.inner_text("#pf-state"))
         page.goto(f"{BASE}/join.html"); page.wait_for_selector("#lede"); page.wait_for_timeout(400)
         on_join = "personal link" in page.inner_text(".page-top")
-        page.goto(f"{BASE}/login.html"); page.wait_for_selector("#l-email")
+        page.goto(f"{BASE}/login.html"); page.wait_for_selector("body[data-ready]")
         check("the invitation is mentioned on the sign-up and sign-in pages", on_join and "personal link" in page.inner_text(".auth-card"))
         ctx.close()
 
@@ -160,7 +164,7 @@ try:
         check("the record is gone from the database", not [m for m in members if m["email"] == "mira.e2e@example.org"])
         ctx.close()
         ctx, page = new_ctx(b, admin_session)
-        page.goto(f"{BASE}/admin.html"); page.wait_for_selector('button[data-tab="invites"]'); page.click('button[data-tab="invites"]'); page.wait_for_selector("#inv-file")
+        page.goto(f"{BASE}/admin.html"); page.wait_for_selector("#tab-people table", state="attached", timeout=60000); page.click('button[data-tab="invites"]'); page.wait_for_selector("#inv-file")
         page.set_input_files("#inv-file", str(tmp / "members.xlsx")); page.click("#inv-preview"); page.wait_for_selector("#inv-report table")
         check("a later import skips the person who asked to be removed and those who already have accounts", "Asked to be removed earlier" in page.inner_text("#inv-report") and "1" in page.inner_text("#inv-report"))
 

@@ -23,7 +23,7 @@
     </div>
   </div>
 
-  <form class="pform pos-form" id="pos-form" novalidate autocomplete="off">
+  <form class="pform pos-form" id="pos-form" novalidate autocomplete="off" onsubmit="return false">
     <section class="pf-sec">
       <div><label for="p-title"><span data-i18n="post.title">Position title</span> *</label>
         <input id="p-title" type="text" maxlength="140" placeholder="PhD position in perovskite solar cells"></div>
@@ -119,6 +119,7 @@
     return j.detail || QIST.t('join.err.generic');
   };
 
+  document.body.dataset.ready = '1';
   $('pos-form').addEventListener('submit', async e => {
     e.preventDefault();
     const v = {
