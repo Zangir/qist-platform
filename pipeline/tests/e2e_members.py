@@ -38,6 +38,7 @@ def png_bytes(w=900, h=600):
 
 def open_page(browser, path, query="", width=1440, mocks=True, storage=None):
     ctx = browser.new_context(viewport={"width": width, "height": 900})
+    ctx.add_init_script("try { localStorage.setItem('qist_api_url', 'off'); } catch (e) {}")      # these suites test the static (no backend) behaviour
     if storage:
         ctx.add_init_script("(() => { try { const s = %s; for (const k in s) if (!localStorage.getItem(k)) localStorage.setItem(k, s[k]); } catch (e) {} })()" % json.dumps(storage))
     sent = []

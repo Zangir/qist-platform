@@ -43,6 +43,11 @@ def _db_url() -> str:
 
 
 DB_URL = _db_url()
+BACKUP_DIR = os.getenv("QIST_BACKUP_DIR", "")         # a mounted bucket that holds snapshots of the local database (see persist.py)
+_restore_note = ""
+if BACKUP_DIR and DB_URL.startswith("sqlite:////"):
+    from . import persist
+    _restore_note = persist.restore_if_needed(Path(DB_URL[len("sqlite:///"):]), Path(BACKUP_DIR))
 JWT_SECRET = os.getenv("QIST_JWT_SECRET", secrets.token_hex(32))
 JWT_TTL_HOURS = 24 * 7
 
@@ -414,6 +419,12 @@ def check_deployment() -> None:
     if not os.getenv("QIST_JWT_SECRET"):
         print("[qist] WARNING: QIST_JWT_SECRET is not set; members will be signed out on every restart.", flush=True)
     url = os.getenv("QIST_DB_URL", "")
+    if BACKUP_DIR and not os.getenv("QIST_ALLOW_EPHEMERAL"):
+        # the database itself lives on local disk; what must survive a restart is the backup folder
+        if not (Path(BACKUP_DIR).is_dir() and os.access(BACKUP_DIR, os.W_OK)):
+            raise SystemExit(f"[qist] The backup folder {BACKUP_DIR} is missing or not writable. Mount a storage bucket there "
+                             f"(Space > Settings > Volumes) or accounts would be lost at the next restart. QIST_ALLOW_EPHEMERAL=1 only for a throwaway test.")
+        return
     m = re.match(r"^sqlite:////(.+)$", url)
     if m and not os.getenv("QIST_ALLOW_EPHEMERAL"):
         folder = Path("/" + m.group(1)).parent
@@ -481,12 +492,27 @@ main_app.add_middleware(
 )
 
 
+_snapshotter = None
+
+
 @main_app.on_event("startup")
 def on_startup() -> None:
+    global _snapshotter
     check_deployment()
+    if _restore_note:
+        print(f"[qist] database: {_restore_note}", flush=True)
     SQLModel.metadata.create_all(engine)
     ensure_columns()
     seed()
+    if BACKUP_DIR and DB_URL.startswith("sqlite:////"):
+        from . import persist
+        _snapshotter = persist.Snapshotter(Path(DB_URL[len("sqlite:///"):]), Path(BACKUP_DIR), float(os.getenv("QIST_SNAPSHOT_SECONDS", "30")), log=lambda m: print(m, flush=True)).start()
+
+
+@main_app.on_event("shutdown")
+def on_shutdown() -> None:
+    if _snapshotter:
+        _snapshotter.stop()
 
 
 @main_app.get("/api/health")

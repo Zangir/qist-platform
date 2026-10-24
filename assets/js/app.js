@@ -112,8 +112,10 @@ const QIST = {
   // Can also be overridden without redeploy: localStorage.setItem('qist_api_url', '...')
   /* The address of the deployed API (see render.yaml). Empty = the site runs in static mode: profiles and positions are
      sent to the QIST team as requests instead of being stored. A browser can override it for testing. */
-  API_DEFAULT: '',
-  apiBase: localStorage.getItem('qist_api_url') || '',
+  API_DEFAULT: 'https://zangir-qist-api.hf.space',
+  /* localStorage.qist_api_url overrides it for testing; the value 'off' forces static mode (what the site does whenever the API
+     does not answer, so visitors are never left with a broken page). */
+  apiBase: (() => { let v = ''; try { v = localStorage.getItem('qist_api_url') || ''; } catch (_) {} return v === 'off' ? '' : (v || 'https://zangir-qist-api.hf.space'); })(),
   apiAlive: false,
   cache: {},
 
@@ -121,7 +123,7 @@ const QIST = {
   async detectApi() {
     if (!this.apiBase) return false;
     try {
-      const r = await fetch(this.apiBase + '/api/health', { signal: AbortSignal.timeout(2500) });
+      const r = await fetch(this.apiBase + '/api/health', { signal: AbortSignal.timeout(6000) });
       this.apiAlive = r.ok;
     } catch (_) { this.apiAlive = false; }
     return this.apiAlive;
@@ -628,12 +630,7 @@ const QIST = {
   SIGNUP_ENDPOINT: 'https://formspree.io/f/xyezzgdo',
 
   async getOpportunities() {
-    if (this.apiAlive) {
-      try {
-        const r = await fetch(this.apiBase + '/api/opportunities');
-        if (r.ok) return await r.json();
-      } catch (_) { /* fall back to the static data file */ }
-    }
+    // curated calls live in data/opportunities.json (curate.html); members' positions come from /api/positions (feed.js)
     const all = await this.loadJSON('opportunities');
     return all.filter(o => o.status === 'published');
   },

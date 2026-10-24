@@ -33,6 +33,9 @@ jobs:
         run: python -m pipeline.run
       - name: Quality gate on the built feeds
         run: python -m pytest pipeline/tests/test_feeds_data.py -q
+      - name: Keep the API awake
+        # A Hugging Face Space pauses after 48 h without a visit; the daily run is a visit. A failure here is not a failure of the feeds.
+        run: curl -fsS --max-time 90 https://zangir-qist-api.hf.space/api/health || true
       - name: Commit feeds
         run: |
           git config user.name "qist-feeds[bot]"

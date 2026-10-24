@@ -189,7 +189,7 @@ try:
             body = page.inner_text("body")
             check(f"{lang}: the message is translated, no raw keys", "claim." not in body and "not valid any more" not in body and not page.errors, page.errors)
             ctx.close()
-        ctx = b.new_context(viewport={"width": 390, "height": 900}); page = ctx.new_page(); page.errors = []
+        ctx = b.new_context(viewport={"width": 390, "height": 900}); ctx.add_init_script("localStorage.setItem('qist_api_url', 'off')"); page = ctx.new_page(); page.errors = []
         page.on("pageerror", lambda e: page.errors.append(str(e)))
         page.goto(f"{BASE}/claim.html?t=abc"); page.wait_for_selector("#state:not([hidden])", timeout=10000)
         check("with no backend the page says accounts are not on yet; no errors", "not switched on" in page.inner_text("#state") and not page.errors)

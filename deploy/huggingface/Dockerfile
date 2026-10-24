@@ -8,9 +8,11 @@ COPY --chown=user backend backend
 COPY --chown=user data data
 COPY --chown=user pipeline pipeline
 USER user
-# The database lives on the Space's Persistent Storage, mounted at /data. Without it the app refuses to start rather than
-# quietly keeping accounts on a disk that is wiped at every restart.
-ENV QIST_DB_URL=sqlite:////data/qist.db \
+# The live database stays on the container's local disk (SQLite needs real file locking). Snapshots of it are written to the
+# storage bucket mounted at /data and restored from there at every start (backend/app/persist.py). Without the bucket the app
+# refuses to start rather than quietly keeping accounts on a disk that is wiped at every restart.
+ENV QIST_DB_URL=sqlite:////home/user/qist.db \
+    QIST_BACKUP_DIR=/data \
     QIST_TRUST_PROXY=1 \
     PORT=7860
 EXPOSE 7860

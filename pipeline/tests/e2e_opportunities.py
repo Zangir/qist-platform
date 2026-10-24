@@ -29,6 +29,7 @@ def section(t):
 
 def open_page(browser, path="opportunities.html", query="", width=1440, storage=None, fixtures=True):
     ctx = browser.new_context(viewport={"width": width, "height": 900})
+    ctx.add_init_script("try { localStorage.setItem('qist_api_url', 'off'); } catch (e) {}")      # these suites test the static (no backend) behaviour
     if storage:
         ctx.add_init_script("(() => { try { const s = %s; for (const k in s) if (!localStorage.getItem(k)) localStorage.setItem(k, s[k]); } catch (e) {} })()" % json.dumps(storage))
     if fixtures:
@@ -323,7 +324,7 @@ def i18n_and_layout(browser):
 
 def redirect_and_nav(browser):
     section("Old links and navigation")
-    ctx = browser.new_context(); page = ctx.new_page()
+    ctx = browser.new_context(); ctx.add_init_script("try { localStorage.setItem('qist_api_url', 'off'); } catch (e) {}"); page = ctx.new_page()
     page.goto(f"{BASE}/feed.html?tab=job"); page.wait_for_url("**/opportunities.html**", timeout=8000)
     check("feed.html redirects to opportunities.html, keeping the query", "tab=job" in page.url)
     for p in ("index.html", "directory.html", "about.html", "organizations.html", "map.html", "join.html", "login.html", "post-position.html"):
