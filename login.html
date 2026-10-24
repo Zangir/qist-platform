@@ -36,8 +36,14 @@
   await QIST.boot('login.html');
   const $ = id => document.getElementById(id);
   const next = new URLSearchParams(location.search).get('next') || 'profile.html';
-  // No server yet: there is nothing to sign in to, and the profile form explains what happens instead.
-  if (!QIST.authAvailable()) { location.replace('join.html' + location.search); return; }
+  // No server yet: there is nothing to sign in to. Say so, and offer the request form, instead of bouncing the visitor away.
+  if (!QIST.authAvailable()) {
+    document.querySelector('.auth-card').innerHTML = `<h1 style="font-size:1.6rem;margin-bottom:12px">${QIST.t('login.off.h')}</h1>
+      <p class="muted" style="margin-bottom:18px">${QIST.t('login.off.p')}</p>
+      <a class="btn btn-primary" href="join.html${location.search}">${QIST.t('nav.create')}</a>`;
+    document.body.dataset.ready = '1';
+    return;
+  }
   document.body.dataset.ready = '1';
   $('login-form').addEventListener('submit', async e => {
     e.preventDefault();

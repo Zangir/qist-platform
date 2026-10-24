@@ -20,8 +20,8 @@
     <div>
       <h1 data-i18n="join.h">Create your profile</h1>
       <p class="lede" id="lede"></p>
-      <p class="aside" data-i18n="join.invited"></p>
-      <p class="aside"><span data-i18n="join.have"></span> <a href="login.html" data-i18n="nav.signin"></a></p>
+      <p class="aside" id="invited" data-i18n="join.invited"></p>
+      <p class="aside" id="have"><span data-i18n="join.have"></span> <a href="login.html" data-i18n="nav.signin"></a></p>
     </div>
   </div>
   <div class="join-wrap">
@@ -44,6 +44,9 @@
   const backend = QIST.authAvailable();
   if (QIST.currentUser() && backend) { location.replace('profile.html'); return; }
 
+  /* Without accounts there is nothing to sign in to, and nobody can have an invitation link that works yet: say so
+     instead of offering a link that goes nowhere. */
+  if (!backend) { $('invited').hidden = true; $('have').textContent = QIST.t('join.signin.soon'); }
   $('lede').innerHTML = backend ? QIST.t('join.lede.account') : QIST.t('join.lede.request', { email: QIST.esc(QIST.CONTACT_EMAIL || 'QIST') });
   try { $('top-num').textContent = QIST.uniquePeople(await QIST.getPeople()).length; } catch (_) {}
 

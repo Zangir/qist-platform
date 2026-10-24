@@ -101,6 +101,8 @@ def join_tests(browser):
     ctx, page, errors, warns = open_page(browser, "join.html")
     check("form renders with ORCID, CV, photo, fields, keywords, links, papers", all(page.locator(s).count() for s in ("#pf-orcid", "#pf-cv-toggle", "#pf-photo-file", "#pf-fields button", "#pf-kw", "#pf-web", "#pf-doi", "#pf-listed")))
     check("no password field without accounts", page.locator("#pf-password").count() == 0)
+    check("with no accounts there is no 'Sign in' link that leads nowhere", page.locator(".page-top a[href='login.html']").count() == 0 and "opens when accounts" in page.inner_text(".page-top"), page.inner_text(".page-top")[-200:])
+    check("…and no invitation hint (no link can work yet)", not page.locator("#invited").is_visible())
     check("lede says a curator creates the profile by hand", "curator" in page.inner_text("#lede").lower() or "info@qista.org" in page.inner_text("#lede"))
     check("the researcher count on the page is real", page.inner_text("#top-num").isdigit() and int(page.inner_text("#top-num")) >= 20)
 
@@ -220,6 +222,20 @@ def join_tests(browser):
         ctx.close()
 
 
+def login_static_tests(browser):
+    section("login.html without a backend")
+    ctx, page, errors, _ = open_page(browser, "login.html")
+    check("it stays on the sign-in page instead of bouncing back to Create profile", page.url.endswith("/login.html"), page.url)
+    check("it says sign-in is not available yet and offers the request form", "not available yet" in page.inner_text(".auth-card") and page.locator(".auth-card a[href^='join.html']").count() == 1, page.inner_text(".auth-card")[:200])
+    check("there is no password field to type into", page.locator("#l-password").count() == 0)
+    check("no JS errors", not errors, errors)
+    ctx.close()
+    for lang in ("ru", "kk"):
+        ctx, page, errors, warns = open_page(browser, "login.html", f"?lang={lang}")
+        check(f"{lang}: the message is translated", "login." not in page.inner_text("body") and "not available" not in page.inner_text(".auth-card") and not warns and not errors, (warns[:2], errors[:2]))
+        ctx.close()
+
+
 # ---------------------------------------------------------------- post a position (static)
 def position_tests(browser):
     section("post-position.html (no backend: a curator publishes it)")
@@ -318,7 +334,7 @@ def home_tests(browser):
 with sync_playwright() as pw:
     b = pw.chromium.launch()
     only = sys.argv[2].split(",") if len(sys.argv) > 2 and sys.argv[2] != "-" else None
-    for fn in (kit_tests, join_tests, position_tests, home_tests):
+    for fn in (kit_tests, join_tests, login_static_tests, position_tests, home_tests):
         if only and fn.__name__ not in only:
             continue
         try:

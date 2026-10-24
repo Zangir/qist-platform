@@ -19,6 +19,9 @@
    ============================================================ */
 const QIST_I18N = {
   "en": {
+    "login.off.h": "Sign-in is not available yet",
+    "login.off.p": "Accounts have not been switched on yet, so there is nothing to sign in to. Send a profile request instead: the QIST team creates your profile and writes to you when sign-in opens.",
+    "join.signin.soon": "Sign-in opens when accounts are switched on. Your request below is how you join until then.",
     "claim.title": "Your QIST profile",
     "claim.h": "Welcome, {name}",
     "claim.lede": "QIST prepared a profile for you from information you gave us, for example for an event or the expert list. Check it, correct what is wrong, add what is missing and choose a password. Nothing is public until you tick the box to be listed.",
@@ -635,6 +638,9 @@ const QIST_I18N = {
     "news.archive.note": "Past issues are shown as they were sent, in the language they were written in."
   },
   "ru": {
+    "login.off.h": "Вход пока недоступен",
+    "login.off.p": "Аккаунты ещё не включены, поэтому входить пока некуда. Отправьте заявку на профиль: команда QIST создаст его и напишет вам, когда вход откроется.",
+    "join.signin.soon": "Вход откроется, когда будут включены аккаунты. Пока вы присоединяетесь заявкой ниже.",
     "claim.title": "Ваш профиль QIST",
     "claim.h": "Добро пожаловать, {name}",
     "claim.lede": "QIST подготовил для вас профиль по сведениям, которые вы нам давали, например для мероприятия или списка экспертов. Проверьте его, исправьте неточное, добавьте недостающее и выберите пароль. Пока вы сами не поставите галочку «показывать в каталоге», ничего не публикуется.",
@@ -1251,6 +1257,9 @@ const QIST_I18N = {
     "news.archive.note": "Прошлые выпуски показаны такими, какими были отправлены, на языке оригинала."
   },
   "kk": {
+    "login.off.h": "Кіру әзірге қолжетімсіз",
+    "login.off.p": "Аккаунттар әлі қосылмаған, сондықтан кіретін жер жоқ. Профиль өтінімін жіберіңіз: QIST командасы оны жасап, кіру ашылғанда сізге жазады.",
+    "join.signin.soon": "Кіру аккаунттар қосылғанда ашылады. Ол уақытқа дейін төмендегі өтінім арқылы қосыласыз.",
     "claim.title": "Сіздің QIST профиліңіз",
     "claim.h": "Қош келдіңіз, {name}",
     "claim.lede": "QIST сіз бұрын берген мәліметтер негізінде, мысалы, іс-шара немесе сарапшылар тізімі үшін, сізге профиль дайындады. Тексеріңіз, қателерін түзетіңіз, жетпегенін қосыңыз және құпиясөз таңдаңыз. «Каталогта көрсету» белгісін өзіңіз қоймайынша ештеңе жарияланбайды.",
