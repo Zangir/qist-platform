@@ -1,6 +1,14 @@
 # STATUS
 
-Updated: 2026-10-12 · Iterations 1–11
+Updated: 2026-10-12 · Iterations 1–12
+
+## Iteration 12 — the site is connected to the Hugging Face backend, 2026-10-24
+
+- `QIST.API_DEFAULT` points at `https://zangir-qist-api.hf.space`: sign-in, accounts, positions, papers, claims and the admin Members/Invitations tabs are live.
+- The database is snapshotted to a private bucket (`persist.py`) and restored at start-up; verified by restarting the real Space.
+- If the API does not answer (asleep or down) the site falls back to static mode; the daily Action pings the Space to keep it awake.
+- Fixed: Create profile offered a "Sign in" link that bounced back (no backend then).
+- Live checks: claims 41, accounts/profile/positions/papers/admin 43, opportunities 120, members 107, sweep 862, default and API-down visitor flows 13.
 
 ## Iteration 11 — invited members, claim flow, Hugging Face backend, 2026-10-17
 
