@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-31T10:23:30Z",
+ "generated_at": "2026-11-01T11:15:26Z",
  "kinds": {
   "grants": {
    "sources": {
@@ -8,7 +8,7 @@
      "count": 20,
      "kept": 20,
      "error": null,
-     "seconds": 17.8
+     "seconds": 17.6
     },
     "nsf": {
      "ok": true,
@@ -36,40 +36,40 @@
      "count": 4,
      "kept": 4,
      "error": null,
-     "seconds": 0.3
+     "seconds": 0.2
     }
    },
-   "total": 587,
-   "new_today": 15,
-   "updated": "2026-10-31"
+   "total": 581,
+   "new_today": 0,
+   "updated": "2026-11-01"
   },
   "jobs": {
    "sources": {
     "jobs.ac.uk": {
      "ok": true,
-     "count": 344,
+     "count": 342,
      "kept": 279,
      "error": null,
-     "seconds": 110.9
+     "seconds": 108.2
     },
     "nature-careers": {
      "ok": true,
      "count": 400,
-     "kept": 320,
+     "kept": 321,
      "error": null,
-     "seconds": 30.2
+     "seconds": 29.3
     },
     "insidehighered": {
      "ok": true,
      "count": 400,
-     "kept": 291,
+     "kept": 273,
      "error": null,
-     "seconds": 28.2
+     "seconds": 28.5
     }
    },
    "total": 1800,
-   "new_today": 208,
-   "updated": "2026-10-31"
+   "new_today": 98,
+   "updated": "2026-11-01"
   }
  }
 }
