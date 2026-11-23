@@ -848,16 +848,8 @@ table.data tr:hover td { background: var(--bg-3); }
 }
 @media (prefers-reduced-motion: reduce) { .opp.flash { animation: none; } }
 
-/* ---------- home: hero with the globe, and the network in numbers ---------- */
-.hg { position: relative; isolation: isolate; min-height: min(86vh, 760px); display: flex; align-items: center; padding: 56px 0 120px; overflow: hidden; }
-.hg-bg {
-  position: absolute; inset: 0; z-index: -1;
-  background: #040a1a url("../img/hero-globe.jpg") right center / cover no-repeat;
-  transform-origin: 70% 50%; animation: hg-drift 40s ease-in-out infinite alternate;
-}
-.hg::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, var(--bg) 0%, rgba(7, 8, 11, .82) 34%, rgba(7, 8, 11, .15) 66%, rgba(7, 8, 11, 0) 100%); }
-.hg::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 140px; z-index: -1; background: linear-gradient(0deg, var(--bg), rgba(7, 8, 11, 0)); }
-@keyframes hg-drift { from { transform: scale(1) translate3d(0, 0, 0); } to { transform: scale(1.06) translate3d(-1.2%, .6%, 0); } }
+/* ---------- home: hero (plain background, no picture), and the network in numbers ---------- */
+.hg { position: relative; isolation: isolate; display: flex; align-items: center; padding: 72px 0 96px; overflow: hidden; }
 .hg-inner { width: 100%; }
 .hg-eyebrow { font-size: .8125rem; font-weight: 600; letter-spacing: .22em; color: var(--accent); margin-bottom: 18px; }
 .hg h1 { font-size: clamp(2.4rem, 4.6vw, 4.1rem); line-height: 1; letter-spacing: -.04em; max-width: 9.6em; text-wrap: balance; }
@@ -905,8 +897,6 @@ table.data tr:hover td { background: var(--bg-3); }
 }
 @media (max-width: 640px) {
   .hg { padding: 36px 0 110px; min-height: 0; }
-  .hg::before { background: linear-gradient(180deg, rgba(7, 8, 11, .55), rgba(7, 8, 11, .9)); }
-  .hg-bg { background-position: 70% center; }
   .hg-search { flex-direction: column; }
   .hg-pillars { margin-top: 36px; }
   .hg-pillars li { padding: 0 12px; }
@@ -915,6 +905,6 @@ table.data tr:hover td { background: var(--bg-3); }
   .stat svg { grid-row: auto; width: 36px; height: 36px; }
   .fit-bar .btn { margin-left: 0; }
 }
-@media (prefers-reduced-motion: reduce) { .hg-bg { animation: none; } .hg-live::before { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .hg-live::before { animation: none; } }
 .hg-pillars li { color: #c9ceda; text-shadow: 0 1px 12px rgba(4, 10, 26, .9); }
 .hg-pillars b { text-shadow: 0 1px 12px rgba(4, 10, 26, .9); }
