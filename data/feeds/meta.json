@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T11:51:44Z",
+ "generated_at": "2026-11-23T12:04:37Z",
  "kinds": {
   "grants": {
    "sources": {
@@ -8,7 +8,7 @@
      "count": 20,
      "kept": 20,
      "error": null,
-     "seconds": 17.9
+     "seconds": 18.3
     },
     "nsf": {
      "ok": true,
@@ -22,54 +22,54 @@
      "count": 250,
      "kept": 250,
      "error": null,
-     "seconds": 0.8
+     "seconds": 1.0
     },
     "eu-funding-tenders": {
      "ok": true,
      "count": 300,
      "kept": 300,
      "error": null,
-     "seconds": 6.1
+     "seconds": 7.8
     },
     "fundsforngos": {
      "ok": true,
-     "count": 4,
-     "kept": 4,
+     "count": 2,
+     "kept": 2,
      "error": null,
-     "seconds": 0.2
+     "seconds": 0.1
     }
    },
-   "total": 632,
-   "new_today": 5,
-   "updated": "2026-11-11"
+   "total": 627,
+   "new_today": 59,
+   "updated": "2026-11-23"
   },
   "jobs": {
    "sources": {
     "jobs.ac.uk": {
-     "ok": true,
-     "count": 352,
-     "kept": 295,
-     "error": null,
-     "seconds": 94.0
+     "ok": false,
+     "count": 0,
+     "kept": 0,
+     "error": "HTTPError('504 for https://www.jobs.ac.uk/search/phds')",
+     "seconds": 38.3
     },
     "nature-careers": {
      "ok": true,
      "count": 400,
-     "kept": 309,
+     "kept": 320,
      "error": null,
-     "seconds": 26.5
+     "seconds": 27.7
     },
     "insidehighered": {
      "ok": true,
      "count": 400,
-     "kept": 247,
+     "kept": 232,
      "error": null,
-     "seconds": 26.5
+     "seconds": 32.7
     }
    },
-   "total": 1800,
-   "new_today": 182,
-   "updated": "2026-11-11"
+   "total": 228,
+   "new_today": 191,
+   "updated": "2026-11-23"
   }
  }
 }
