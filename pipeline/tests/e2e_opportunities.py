@@ -14,6 +14,8 @@ BASE = (sys.argv[1] if len(sys.argv) > 1 else "http://localhost:8099").rstrip("/
 FX = Path(__file__).parent / "fixtures"
 OPPS = (FX / "opps_e2e.json").read_text(encoding="utf8")
 PAPERS = (FX / "papers_e2e.json").read_text(encoding="utf8")
+GRANTS = (FX / "feed_grants_e2e.json").read_text(encoding="utf8")     # fixed daily feeds: the page tests must not depend on today's news
+JOBS = (FX / "feed_jobs_e2e.json").read_text(encoding="utf8")
 NOW = "new Date('2026-10-12T12:00:00Z').getTime()"
 results = []
 
@@ -35,6 +37,8 @@ def open_page(browser, path="opportunities.html", query="", width=1440, storage=
     if fixtures:
         ctx.route("**/data/opportunities.json*", lambda r: r.fulfill(status=200, content_type="application/json", body=OPPS))
         ctx.route("**/data/papers.json*", lambda r: r.fulfill(status=200, content_type="application/json", body=PAPERS))
+        ctx.route("**/data/feeds/grants.json*", lambda r: r.fulfill(status=200, content_type="application/json", body=GRANTS))
+        ctx.route("**/data/feeds/jobs.json*", lambda r: r.fulfill(status=200, content_type="application/json", body=JOBS))
     sent = []
     ctx.route("https://formspree.io/**", lambda r: (sent.append(r.request.post_data), r.fulfill(status=200, content_type="application/json", body='{"ok":true}')))
     page = ctx.new_page()
@@ -230,14 +234,15 @@ def page_tests(browser):
 
     # save / dismiss
     page.click('#tabs button[data-tab="grant"]')
-    title = page.locator("#picks-list h3 a, #list h3 a").first.inner_text()
-    page.locator("[data-save]").first.click()
+    title = page.locator("#picks-list h3 a:visible, #list h3 a:visible").first.inner_text()
+    check("a hidden 'Today's picks' section holds no stale cards", page.locator("#picks").is_visible() or page.locator("#picks-list .opp").count() == 0)
+    page.locator("[data-save]:visible").first.click()
     page.click('#tabs button[data-tab="saved"]')
     check("saved tab lists it", title in page.inner_text("#list"))
     page.reload(); page.wait_for_selector("#tabs button"); page.click('#tabs button[data-tab="saved"]')
     check("saved item survives reload", title in page.inner_text("#list"))
     page.click('#tabs button[data-tab="grant"]')
-    victim = page.locator("#list .opp").first; vt = victim.locator("h3 a").inner_text()
+    victim = page.locator(".opp:visible").filter(has=page.locator("[data-dismiss]")).first; vt = victim.locator("h3 a").inner_text()
     victim.locator("[data-dismiss]").click()
     check("dismissed item disappears and stays gone", vt not in page.inner_text("#list") + page.inner_text("#picks-list"))
     page.reload(); page.wait_for_selector("#tabs button")

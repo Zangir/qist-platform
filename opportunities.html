@@ -378,6 +378,7 @@
     $('all-h').textContent = tab === 'saved' ? QIST.t('opp2.tab.saved') : QIST.t('feed.all');
     const showPicks = tab !== 'saved' && tab !== 'paper' && all.length >= 3 && !$('q').value.trim();
     $('picks').hidden = !showPicks;
+    if (!showPicks) $('picks-list').innerHTML = '';      // never leave another tab's cards (and their buttons) in the hidden section
     let pickIds = new Set();
     if (showPicks) {
       const fresh = all.filter(r => r.isNew);
