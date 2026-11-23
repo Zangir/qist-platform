@@ -1,0 +1,26 @@
+name: Keep the API awake
+
+# A Hugging Face Space on free CPU is PAUSED after 48 h without a visit, and a paused Space does not wake up by itself.
+# This visits it every 6 hours, independently of the feeds job (in November 2026 the ping lived inside that job, the job failed
+# for an unrelated reason, and the Space was paused for days). If the Space is already paused the run fails, so GitHub e-mails
+# the repository owner: restart it from https://huggingface.co/spaces/zangir/qist-api.
+on:
+  schedule:
+    - cron: "23 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Visit the API
+        run: |
+          for i in 1 2 3; do
+            body=$(curl -sS --max-time 90 https://zangir-qist-api.hf.space/api/health || true)
+            echo "$body"
+            case "$body" in *'"status":"ok"'*) exit 0;; esac
+            sleep 30
+          done
+          echo "::error::The API did not answer. If the Space is paused, restart it on Hugging Face."
+          exit 1

@@ -105,6 +105,7 @@ class Person(SQLModel, table=True):
     featured: int = 0
     photo: str = ""           # data:image/jpeg;base64,... (256px), set by the member
     orcid: str = ""           # self-declared, not verified
+    seed_id: str = ""         # the record's id in data/people.json, for rows that come from it
 
     def api(self) -> dict:
         d = self.model_dump()
@@ -128,6 +129,13 @@ class User(SQLModel, table=True):
     claim_expires: str = ""
     invited: str = ""
     source: str = ""                # where the record came from, e.g. "import 2026-10-17"
+
+
+class SeedRemoval(SQLModel, table=True):
+    """A directory row from data/people.json that was removed (by an admin, or by the person un-listing or declining).
+    The start-up sync never brings such a row back."""
+    seed_id: str = SQLField(primary_key=True)
+    created: str = ""
 
 
 class Suppression(SQLModel, table=True):
@@ -436,7 +444,7 @@ def check_deployment() -> None:
 def ensure_columns() -> None:
     """create_all adds new tables but never new columns. A database created before photo/orcid/created existed
     would fail on every query, so add what is missing."""
-    want = {"person": {"photo": "TEXT DEFAULT ''", "orcid": "TEXT DEFAULT ''"},
+    want = {"person": {"photo": "TEXT DEFAULT ''", "orcid": "TEXT DEFAULT ''", "seed_id": "TEXT DEFAULT ''"},
             "user": {"created": "TEXT DEFAULT ''", "status": "TEXT DEFAULT 'active'", "claim_hash": "TEXT DEFAULT ''",
                      "claim_expires": "TEXT DEFAULT ''", "invited": "TEXT DEFAULT ''", "source": "TEXT DEFAULT ''"}}
     with engine.begin() as c:
@@ -450,18 +458,52 @@ def ensure_columns() -> None:
 # --------------------------------------------------------------------------
 # Seeding from the site's JSON files
 # --------------------------------------------------------------------------
+def _norm_name(n: str) -> str:
+    return re.sub(r"\s+", " ", (n or "").strip().lower())
+
+
+def sync_seed_people(s: Session) -> int:
+    """Every researcher in data/people.json is in the directory exactly once.
+    Adds the missing ones (matched by seed id, or by name for rows created before seed ids existed). Never deletes or overwrites a
+    row: an admin or the member may have edited it. Leaves out rows flagged as probable duplicates (as the static site does) and
+    rows that were removed on purpose (SeedRemoval). Returns how many rows were added."""
+    path = DATA_DIR / "people.json"
+    if not path.exists():
+        return 0
+    rows = s.exec(select(Person)).all()
+    have = {p.seed_id for p in rows if p.seed_id}
+    removed = {r.seed_id for r in s.exec(select(SeedRemoval)).all()}
+    unseeded = {}
+    for p in rows:
+        if not p.seed_id:
+            unseeded.setdefault(_norm_name(p.name), p)
+    added = 0
+    for p in json.loads(path.read_text(encoding="utf8")):
+        sid = p.get("id") or ""
+        if not sid or p.get("possible_duplicate_of") or sid in have or sid in removed:
+            continue
+        match = unseeded.pop(_norm_name(p.get("name")), None)
+        if match is not None:                 # the same person, seeded before seed ids existed (or a member with that name)
+            match.seed_id = sid
+            s.add(match)
+            continue
+        s.add(Person(name=p["name"], title=p.get("title", ""), institution=p.get("institution", ""), city=p.get("city", ""),
+                     country=p.get("country", ""), lat=p.get("lat"), lng=p.get("lng"), topics="|".join(p.get("topics", [])),
+                     link=p.get("link", ""), bio=p.get("bio", ""), experience=p.get("experience"), featured=p.get("featured", 0),
+                     seed_id=sid))
+        added += 1
+    s.flush()
+    return added
+
+
+def _tombstone(s: Session, person: "Person") -> None:
+    if person.seed_id:
+        s.merge(SeedRemoval(seed_id=person.seed_id, created=_now()))
+
+
 def seed() -> None:
     with Session(engine) as s:
-        if s.exec(select(Person)).first() is None and (DATA_DIR / "people.json").exists():
-            for p in json.loads((DATA_DIR / "people.json").read_text()):
-                s.add(Person(
-                    name=p["name"], title=p.get("title", ""), institution=p.get("institution", ""),
-                    city=p.get("city", ""), country=p.get("country", ""),
-                    lat=p.get("lat"), lng=p.get("lng"),
-                    topics="|".join(p.get("topics", [])), link=p.get("link", ""),
-                    bio=p.get("bio", ""), experience=p.get("experience"),
-                    featured=p.get("featured", 0),
-                ))
+        sync_seed_people(s)
         if s.exec(select(Post)).first() is None and (DATA_DIR / "posts.json").exists():
             for p in json.loads((DATA_DIR / "posts.json").read_text()):
                 s.add(Post(
@@ -547,7 +589,10 @@ def apply_profile(s: Session, user: "User", body: ProfileFields, name: Optional[
     person = s.get(Person, row.person_id) if row.person_id else None
     if row.listed:
         if person is None:
-            person = Person(name=user.name)
+            # an invited member is usually already in the public directory (from data/people.json): take over that row
+            linked = {p.person_id for p in s.exec(select(Profile)).all() if p.person_id}
+            person = next((p for p in s.exec(select(Person).where(Person.seed_id != "")).all()
+                           if _norm_name(p.name) == _norm_name(user.name) and p.id not in linked), None) or Person(name=user.name)
         person.name = user.name
         person.title = user.title or "Researcher"
         person.institution = user.institution
@@ -560,7 +605,8 @@ def apply_profile(s: Session, user: "User", body: ProfileFields, name: Optional[
         person.orcid = data.get("orcid", "")
         s.add(person); s.flush()
         row.person_id = person.id
-    elif person is not None:           # un-listing removes the directory row at once
+    elif person is not None:           # un-listing removes the directory row at once, and for good
+        _tombstone(s, person)
         s.delete(person)
         row.person_id = None
     s.add(user); s.add(row)
@@ -619,6 +665,7 @@ def delete_me(user: dict = Depends(current_user)):
         email = user["sub"]
         row = s.get(Profile, email)
         if row and row.person_id and (p := s.get(Person, row.person_id)):
+            _tombstone(s, p)
             s.delete(p)
         if row:
             s.delete(row)
@@ -690,6 +737,7 @@ def delete_person(person_id: int, _: dict = Depends(admin_user)):
         p = s.get(Person, person_id)
         if not p:
             raise HTTPException(404, "Person not found")
+        _tombstone(s, p)
         s.delete(p); s.commit()
 
 
@@ -1297,6 +1345,11 @@ def claim_decline(token: str, request: Request):
     with Session(engine) as s:
         u = _claim_user(s, token, request)
         s.merge(Suppression(email_hash=_sha(u.email), created=_now()))
+        # the public directory row with their name (from data/people.json) goes too, and stays gone
+        linked = {p.person_id for p in s.exec(select(Profile)).all() if p.person_id}
+        for p in s.exec(select(Person).where(Person.seed_id != "")).all():
+            if _norm_name(p.name) == _norm_name(u.name) and p.id not in linked:
+                _tombstone(s, p); s.delete(p)
         if (pr := s.get(Profile, u.email)):
             s.delete(pr)
         s.delete(u)

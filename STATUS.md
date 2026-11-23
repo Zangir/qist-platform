@@ -1,6 +1,11 @@
 # STATUS
 
-Updated: 2026-10-12 · Iterations 1–12
+Updated: 2026-10-12 · Iterations 1–13
+
+## Iteration 13 — 492 researchers back, outages fixed, 2026-11-23
+
+- The full directory is public again (D-75): data/people.json has 497 records, 492 shown (5 flagged duplicates hidden); the backend serves the same list and adopts a row when its owner signs up or claims.
+- Found and fixed two outages: a date-dependent test stopped the daily feeds on 2026-11-11, and with it the keep-awake ping, so the Space was paused. Ping is now its own 6-hourly workflow (D-76).
 
 ## Iteration 12 — the site is connected to the Hugging Face backend, 2026-10-24
 

@@ -75,7 +75,10 @@ def test_article_normalisation_uses_prior_and_dedupes_on_doi():
 
 
 def test_main_writes_files(tmp_path, monkeypatch):
-    monkeypatch.setattr(run, "_sources", lambda quick=False: {"grants": [], "jobs": [("s", lambda: [job("https://x/1")])], "articles": []})
+    # main() runs on the real calendar, so the vacancy is dated from today (a fixed date here broke the daily job on 2026-11-11)
+    now = common.today()
+    fresh = job("https://x/1", posted=now, deadline=now + timedelta(days=30))
+    monkeypatch.setattr(run, "_sources", lambda quick=False: {"grants": [], "jobs": [("s", lambda: [fresh])], "articles": []})
     assert run.main(["--out", str(tmp_path), "--kinds", "jobs,grants,articles"]) == 0
     d = json.loads((tmp_path / "jobs.json").read_text())
     assert d["kind"] == "job" and len(d["items"]) == 1
