@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T13:53:04Z",
+ "generated_at": "2026-11-27T13:50:22Z",
  "kinds": {
   "grants": {
    "sources": {
@@ -8,7 +8,7 @@
      "count": 20,
      "kept": 20,
      "error": null,
-     "seconds": 17.7
+     "seconds": 17.4
     },
     "nsf": {
      "ok": true,
@@ -22,26 +22,26 @@
      "count": 250,
      "kept": 250,
      "error": null,
-     "seconds": 0.8
+     "seconds": 1.4
     },
     "eu-funding-tenders": {
      "ok": true,
      "count": 300,
      "kept": 300,
      "error": null,
-     "seconds": 6.2
+     "seconds": 11.2
     },
     "fundsforngos": {
      "ok": true,
-     "count": 2,
-     "kept": 2,
+     "count": 3,
+     "kept": 3,
      "error": null,
-     "seconds": 0.3
+     "seconds": 0.1
     }
    },
-   "total": 655,
-   "new_today": 27,
-   "updated": "2026-11-26"
+   "total": 643,
+   "new_today": 21,
+   "updated": "2026-11-27"
   },
   "jobs": {
    "sources": {
@@ -50,26 +50,26 @@
      "count": 0,
      "kept": 0,
      "error": null,
-     "seconds": 17.9
+     "seconds": 19.0
     },
     "nature-careers": {
      "ok": true,
      "count": 400,
      "kept": 326,
      "error": null,
-     "seconds": 24.9
+     "seconds": 26.5
     },
     "insidehighered": {
      "ok": true,
      "count": 400,
-     "kept": 266,
+     "kept": 262,
      "error": null,
-     "seconds": 26.2
+     "seconds": 26.3
     }
    },
-   "total": 625,
-   "new_today": 130,
-   "updated": "2026-11-26"
+   "total": 694,
+   "new_today": 70,
+   "updated": "2026-11-27"
   }
  }
 }
